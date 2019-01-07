@@ -5,6 +5,7 @@ export * from './Sidebar';
 export * from './Tabs';
 export * from './Layout';
 export * from './List';
+export * from './Form';
 
 export { default as Actions } from './Actions';
 export { default as Menu } from './Menu';

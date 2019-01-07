@@ -48,7 +48,7 @@ Actions.propTypes = {
     items: PropTypes.arrayOf(
       PropTypes.shape({
         icon: PropTypes.string,
-        content: PropTypes.string,
+        content: PropTypes.any,
         disabled: PropTypes.bool,
         badge
       })

@@ -1,4 +1,6 @@
 import styled, { css } from 'styled-components';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 /* eslint-disable indent */
 const GroupStyle = styled.div`
@@ -8,7 +10,7 @@ const GroupStyle = styled.div`
       display: flex;
       min-width: 0%;
       position: relative;
-      margin-bottom: ${theme.margin};
+      margin-bottom: 1rem;
       
       .label {
         background: ${theme.formControlBg};
@@ -98,6 +100,13 @@ function InputGroup(props) {
 }
 
 InputGroup.defaultProps = {
-  fieldSize: 'Md'
+  fieldSize: 'Md',
+  shape: 'Rectangle'
+};
+InputGroup.propTypes = {
+  fullWidth: PropTypes.bool,
+  fieldSize: PropTypes.oneOf(['Sm', 'Md', 'Lg']),
+  shape: PropTypes.oneOf(['Rectangle', 'SemiRound', 'Round']),
+  status: PropTypes.oneOf(['Info', 'Warning', 'Success', 'Danger'])
 };
 export default InputGroup;

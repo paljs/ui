@@ -16,7 +16,7 @@ ${({ theme }) => css`
   }
   html {
     box-sizing: border-box;
-    direction: ${theme.dir};
+    direction: ${theme.dir && theme.dir};
   }
   *,
   *:before,

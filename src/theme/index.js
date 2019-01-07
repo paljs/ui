@@ -1,11 +1,31 @@
-import darkTheme from './dark';
+import cosmicTheme from './cosmic';
+import corporateTheme from './corporate';
 import defaultTheme from './default';
-export * from './breakpoints';
 
-export function theme(theme, constant = {}, settings = {}) {
-  if (theme === 'default') {
-    return defaultTheme(constant, settings);
-  } else if (theme === 'dark') {
-    return darkTheme(constant, settings);
+export function themes(theme, settings = {}) {
+  switch (theme) {
+    case 'default':
+      return getThemeValue({ ...defaultTheme, ...settings });
+    case 'cosmic':
+      return getThemeValue({ ...defaultTheme, ...cosmicTheme, ...settings });
+    case 'corporate':
+      return getThemeValue({ ...defaultTheme, ...corporateTheme, ...settings });
   }
+}
+
+function getThemeValue(settings) {
+  Object.keys(settings).map(key => {
+    settings[key] = getKeyValue(settings, key);
+  });
+  return settings;
+}
+
+function getKeyValue(settings, key) {
+  let value = '';
+  if (settings[settings[key]]) {
+    value = getKeyValue(settings, settings[key]);
+  } else {
+    value = settings[key];
+  }
+  return value;
 }
