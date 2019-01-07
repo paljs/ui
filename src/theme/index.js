@@ -1,6 +1,7 @@
 import cosmicTheme from './cosmic';
 import corporateTheme from './corporate';
 import defaultTheme from './default';
+export * from './breakpoints';
 
 export function themes(theme, settings = {}) {
   switch (theme) {

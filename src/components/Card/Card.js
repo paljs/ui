@@ -54,9 +54,9 @@ const Card = styled.div`
     box-shadow: ${theme.cardShadow};
     border-radius: ${theme.cardBorderRadius};
     margin-bottom: ${theme.cardMargin};
-    border-bottom-width: ${theme.cardBorderWidth};
-    border-bottom-style: ${theme.cardBorderType};
-    border-bottom-color: ${theme.cardBorderColor};
+    border-width: ${theme.cardBorderWidth};
+    border-style: ${theme.cardBorderType};
+    border-color: ${theme.cardBorderColor};
     ${accent}
     ${height}
     & > header {
