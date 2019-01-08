@@ -4,9 +4,9 @@ import external from 'rollup-plugin-peer-deps-external';
 import postcss from 'rollup-plugin-postcss';
 import resolve from 'rollup-plugin-node-resolve';
 import url from 'rollup-plugin-url';
+import { terser } from 'rollup-plugin-terser';
 import svgr from '@svgr/rollup';
 
-import pkg from './package.json';
 const plugins = [
   external(),
   postcss({
@@ -19,7 +19,10 @@ const plugins = [
     plugins: ['external-helpers']
   }),
   resolve(),
-  commonjs()
+  commonjs(),
+  terser({
+    sourcemap: true
+  })
 ];
 const cjs = {
   format: 'cjs',
@@ -35,11 +38,6 @@ const getCjs = file => ({ ...cjs, file });
 const getEs = file => ({ ...es, file });
 
 export default [
-  {
-    input: 'src/index.js',
-    output: [getCjs(pkg.main), getEs(pkg.module)],
-    plugins
-  },
   {
     input: 'src/components/index.js',
     output: [getCjs('dist/components.js'), getEs('dist/components.es.js')],
