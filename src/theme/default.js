@@ -1,5 +1,5 @@
 export default {
-  fontMain: '"Open Sans", sans-serif',
+  fontMain: '"Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
   fontSecondary: 'fontMain',
 
   fontWeightThin: 200,

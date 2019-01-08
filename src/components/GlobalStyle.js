@@ -2,18 +2,6 @@ import { createGlobalStyle, css } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
 ${({ theme }) => css`
-  @font-face {
-    font-family: 'Open Sans';
-    src: url('/static/Open_Sans/OpenSans-Regular.ttf') format('trueType');
-    font-weight: normal;
-    font-style: normal;
-  }
-  @font-face {
-    font-family: 'Open Sans';
-    src: url('/static/Open_Sans/OpenSans-Bold.ttf') format('trueType');
-    font-weight: bold;
-    font-style: normal;
-  }
   html {
     box-sizing: border-box;
     font-size: 14px;
