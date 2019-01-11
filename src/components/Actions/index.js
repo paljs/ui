@@ -27,7 +27,7 @@ function Actions({ actions }) {
               action.link ? (
                 <Link {...action.link}>{icon}</Link>
               ) : (
-                { icon }
+                icon
               )
             ) : (
               action.content
