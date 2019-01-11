@@ -21,6 +21,12 @@ const maxContainer = {
   xxl: 1320,
   xxxl: 1500
 };
+function getGridSize(theme) {
+  return theme.gridSize ? theme.gridSize : gridSize;
+}
+function getGridGutter(theme) {
+  return theme.gridGutter ? theme.gridGutter : gridGutter;
+}
 function ifWidthInBreakpoint(breakpoint = []) {
   const bp = Object.keys(breakpoints);
   let value = false;
@@ -121,7 +127,7 @@ export {
   breakpointOnly,
   breakpoints,
   maxContainer,
-  gridSize,
-  gridGutter,
-  ifWidthInBreakpoint
+  ifWidthInBreakpoint,
+  getGridSize,
+  getGridGutter
 };

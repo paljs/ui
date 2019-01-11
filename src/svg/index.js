@@ -1,8 +1,8 @@
 import React from 'react';
-import ArrowRightSvg from './ArrowRight.svg';
-import ArrowLeftSvg from './ArrowLeft.svg';
-import ArrowUpSvg from './ArrowUp.svg';
-import ArrowDownSvg from './ArrowDown.svg';
+import { ReactComponent as ArrowRightSvg } from './ArrowRight.svg';
+import { ReactComponent as ArrowLeftSvg } from './ArrowLeft.svg';
+import { ReactComponent as ArrowUpSvg } from './ArrowUp.svg';
+import { ReactComponent as ArrowDownSvg } from './ArrowDown.svg';
 
 function ArrowRight() {
   return <ArrowRightSvg />;

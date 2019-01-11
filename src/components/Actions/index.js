@@ -9,33 +9,40 @@ import Badge from '../Badge';
 function Actions({ actions }) {
   return (
     <ActionsStyle>
-      {actions.items.map((action, index) => (
-        <ActionStyle
-          key={index}
-          fullWidth={actions.fullWidth}
-          size={actions.size}
-          inverse={actions.inverse}
-          disabled={action.disabled}
-        >
-          {action.icon ? (
-            <Link {...action.link}>
-              <a className="icon-container" {...action.events}>
-                <i className={'control-icon ' + action.icon} />
-              </a>
-            </Link>
-          ) : (
-            action.content
-          )}
-          {action.badge && (
-            <Badge
-              status={action.badge.status}
-              position={action.badge.position}
-            >
-              {action.badge.title}
-            </Badge>
-          )}
-        </ActionStyle>
-      ))}
+      {actions.items.map((action, index) => {
+        const icon = (
+          <a className="icon-container" {...action.events}>
+            <i className={'control-icon ' + action.icon} />
+          </a>
+        );
+        return (
+          <ActionStyle
+            key={index}
+            fullWidth={actions.fullWidth}
+            size={actions.size}
+            inverse={actions.inverse}
+            disabled={action.disabled}
+          >
+            {action.icon ? (
+              action.link ? (
+                <Link {...action.link}>{icon}</Link>
+              ) : (
+                { icon }
+              )
+            ) : (
+              action.content
+            )}
+            {action.badge && (
+              <Badge
+                status={action.badge.status}
+                position={action.badge.position}
+              >
+                {action.badge.title}
+              </Badge>
+            )}
+          </ActionStyle>
+        );
+      })}
     </ActionsStyle>
   );
 }

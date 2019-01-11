@@ -179,8 +179,8 @@ export default {
   menuGroupPadding: '1rem 1.25rem',
   menuItemPadding: '0.675rem 0.75rem',
   menuItemSeparator: 'separator',
-  menuIconFontSize: '2.5rem',
-  menuIconMargin: '0 0.25rem 0',
+  menuIconFontSize: '1.75rem',
+  menuIconMargin: '0 0.75rem 0',
   menuIconColor: 'colorFg',
   menuIconActiveColor: 'colorFgHeading',
 

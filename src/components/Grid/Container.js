@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 import {
   maxContainer,
   breakpointUp,
-  gridGutter
+  getGridGutter
 } from '../../theme/breakpoints';
 
 const width = css`
@@ -17,16 +17,10 @@ const width = css`
 `;
 
 const Container = styled.div`
-  ${({ theme }) =>
-    theme.gutter
-      ? css`
-          padding-right: ${theme.gutter / 2}px;
-          padding-left: ${theme.gutter / 2}px;
-        `
-      : css`
-          padding-right: ${gridGutter / 2}px;
-          padding-left: ${gridGutter / 2}px;
-        `}
+  ${({ theme }) => css`
+    padding-right: ${getGridGutter(theme) / 2}px;
+    padding-left: ${getGridGutter(theme) / 2}px;
+  `}
   margin-right: auto;
   margin-left: auto;
   width: 100%;
