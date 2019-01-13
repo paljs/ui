@@ -62,6 +62,8 @@ export default {
   menuItemPadding: '0.25rem 0.75rem',
   menuItemSeparator: 'transparent',
 
+  tabsSelectedDegrees: 0.2,
+
   btnHeroShadow: '0 4px 10px 0 rgba(33, 7, 77, 0.5)',
   btnHeroTextShadow: '0 1px 3px rgba(0, 0, 0, 0.3)',
   btnHeroBevelSize: '0 3px 0 0',

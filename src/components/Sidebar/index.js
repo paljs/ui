@@ -6,7 +6,7 @@ import React, {
 } from 'react';
 import PropTypes from 'prop-types';
 import SidebarStyle from './style';
-import { ifWidthInBreakpoint } from '../../theme/breakpoints';
+import { ifWidthInBreakpoint } from '../../theme';
 
 const Sidebar = forwardRef((props, ref) => {
   const [fixed, setFixed] = useState(props.fixed);
@@ -69,8 +69,13 @@ const Sidebar = forwardRef((props, ref) => {
     };
   }, []);
 
+  const className = props.className ? props.className.split(' ') : [];
+  className.push(state, props.property);
+  fixed && className.push('fixed');
+
   return (
     <SidebarStyle
+      className={className.join(' ')}
       state={state}
       property={props.property}
       fixed={fixed}

@@ -55,5 +55,8 @@
     "dist",
     "svg.js",
     "theme.js"
-  ]
+  ],
+  "dependencies": {
+    "polished": "^2.3.3"
+  }
 }

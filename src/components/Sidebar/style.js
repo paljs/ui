@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { breakpointDown } from '../../theme/breakpoints';
+import { breakpointDown } from '../../theme';
 /* eslint-disable indent */
 
 const compacted = css`
@@ -16,7 +16,7 @@ const compacted = css`
         top: 0;
         height: 100%;
         width: 4px;
-        background: ${({ theme }) => theme.colorFgHeading};
+        background: ${({ theme }) => theme.colorFgHighlight};
       }
     }
 
@@ -212,8 +212,8 @@ const SidebarStyle = styled.aside`
   ${state === 'compacted' && compacted}
 
 
-  & > header,
-  & > footer
+  header,
+  footer
    {
      ${
        state === 'hidden'
@@ -224,11 +224,11 @@ const SidebarStyle = styled.aside`
     
   }
 
-  & > header{
+  header{
     height: ${theme.sidebarHeaderHeight};
   }
 
-  & > footer {
+  footer {
     margin-top: auto;
     height: ${theme.sidebarFooterHeight};
   }

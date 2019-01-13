@@ -1,4 +1,6 @@
 import styled, { css } from 'styled-components';
+import { adjustHue } from 'polished';
+
 /* eslint-disable indent */
 const TabsStyle = styled.div`
   ${({ theme, fullWidth }) => css`
@@ -43,6 +45,14 @@ const TabsStyle = styled.div`
             bottom: -2px;
             left: 0;
             background: ${theme.tabsSelected};
+            background-image: linear-gradient(
+              to right,
+              ${adjustHue(
+                theme.tabsSelectedDegrees,
+                theme.tabsSelectedSecondColor
+              )},
+              ${theme.tabsSelected}
+            );
           }
           i {
             font-size: 1.5rem;
