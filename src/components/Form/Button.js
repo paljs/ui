@@ -271,7 +271,10 @@ const ButtonInput = styled.input`
   }
 `;
 
-ButtonInput.defaultProps = defaultProps;
-ButtonInput.propTypes = propTypes;
+ButtonInput.defaultProps = { ...defaultProps, type: 'button' };
+ButtonInput.propTypes = {
+  ...propTypes,
+  type: PropTypes.oneOf(['button', 'submit'])
+};
 
 export { Button, ButtonLink, ButtonInput };
