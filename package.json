@@ -1,6 +1,6 @@
 {
   "name": "rnsc",
-  "version": "0.0.21",
+  "version": "0.0.22",
   "description": "React NextJs Styled Components with bootstrap grid system",
   "main": "dist/components.js",
   "repository": "https://github.com/oahtech/rnsc.git",
