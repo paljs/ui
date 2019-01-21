@@ -8,7 +8,7 @@ import React, {
   useState,
   useEffect,
   forwardRef,
-  useImperativeMethods
+  useImperativeHandle
 } from 'react';
 import PropTypes from 'prop-types';
 import SidebarStyle from './style';
@@ -18,7 +18,7 @@ const Sidebar = forwardRef((props, ref) => {
   const [fixed, setFixed] = useState(props.fixed);
   const [state, setState] = useState(props.state);
 
-  useImperativeMethods(ref, () => ({
+  useImperativeHandle(ref, () => ({
     toggle() {
       switch (state) {
         case 'expanded':

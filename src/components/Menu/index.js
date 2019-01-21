@@ -4,7 +4,7 @@
  * Licensed under the MIT License. See License.txt in the project root for license information.
  */
 
-import React, { useState, forwardRef, useImperativeMethods } from 'react';
+import React, { useState, forwardRef, useImperativeHandle } from 'react';
 import PropTypes from 'prop-types';
 import { MenuStyle } from './style';
 import Item from './Item';
@@ -12,7 +12,7 @@ import Item from './Item';
 const Menu = forwardRef((props, ref) => {
   const [items, setItems] = useState(props.items);
 
-  useImperativeMethods(ref, () => ({
+  useImperativeHandle(ref, () => ({
     collapseAll() {
       setItems(toggleSubMenu(items, false));
     },

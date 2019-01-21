@@ -11,7 +11,7 @@ import React, {
   Children,
   useState,
   forwardRef,
-  useImperativeMethods
+  useImperativeHandle
 } from 'react';
 import { ArrowDown, ArrowUp } from '../../svg';
 
@@ -34,7 +34,7 @@ const Accordion = forwardRef((props, ref) => {
     [props.children]
   );
 
-  useImperativeMethods(ref, () => ({
+  useImperativeHandle(ref, () => ({
     openAll() {
       handleAllState(true);
     },
