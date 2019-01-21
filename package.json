@@ -24,8 +24,8 @@
   "peerDependencies": {
     "next": ">= 7.0.2",
     "prop-types": ">= 15.5.4",
-    "react": "^16.8.0-alpha.0",
-    "react-dom": "^16.8.0-alpha.0",
+    "react": "^16.8.0-alpha.1",
+    "react-dom": "^16.8.0-alpha.1",
     "styled-components": ">= 4.1.3"
   },
   "devDependencies": {
@@ -40,8 +40,8 @@
     "gh-pages": "^1.2.0",
     "next": "^7.0.2",
     "prop-types": "^15.6.2",
-    "react": "^16.8.0-alpha.0",
-    "react-dom": "^16.8.0-alpha.0",
+    "react": "^16.8.0-alpha.1",
+    "react-dom": "^16.8.0-alpha.1",
     "react-scripts": "^1.1.4",
     "rollup": "0.68.2",
     "rollup-plugin-babel": "^3.0.7",
