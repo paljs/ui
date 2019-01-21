@@ -1,3 +1,9 @@
+/*
+ * @license
+ * Copyright OAH Technology. All Rights Reserved.
+ * Licensed under the MIT License. See License.txt in the project root for license information.
+ */
+
 import { css } from 'styled-components';
 const gridSize = 12;
 const gridGutter = 24;

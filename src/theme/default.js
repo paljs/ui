@@ -1,3 +1,9 @@
+/*
+ * @license
+ * Copyright OAH Technology. All Rights Reserved.
+ * Licensed under the MIT License. See License.txt in the project root for license information.
+ */
+
 export default {
   fontMain: '"Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
   fontSecondary: 'fontMain',

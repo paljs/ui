@@ -1,4 +1,10 @@
-import { useState } from 'react';
+/*
+ * @license
+ * Copyright OAH Technology. All Rights Reserved.
+ * Licensed under the MIT License. See License.txt in the project root for license information.
+ */
+
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import CheckboxStyle from './style';

@@ -1,5 +1,11 @@
+/*
+ * @license
+ * Copyright OAH Technology. All Rights Reserved.
+ * Licensed under the MIT License. See License.txt in the project root for license information.
+ */
+
 import styled, { css } from 'styled-components';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { colorState } from '../types';
@@ -70,34 +76,34 @@ const hoverBorder = status =>
   status ? `color${status}` : 'radioCheckedBorderColor';
 
 function Radio(props) {
-  const [items, setItems] = useState(props.items);
+  const [options, setOptions] = useState(props.options);
 
   const onClickHandler = value => {
-    const updateItems = [...items];
-    for (const item of updateItems) {
-      item.checked = item.value === value;
+    const updateOptions = [...options];
+    for (const option of updateOptions) {
+      option.checked = option.value === value;
     }
-    setItems(updateItems);
+    setOptions(updateOptions);
     props.onChange(value);
   };
 
   return (
     <div>
-      {items.map(item => (
+      {options.map(option => (
         <RadioStyle
-          status={item.status}
-          checked={item.checked}
-          disabled={item.disabled || props.disabled}
-          key={item.value}
+          status={option.status}
+          checked={option.checked}
+          disabled={option.disabled || props.disabled}
+          key={option.value}
         >
           <input
             type="radio"
             name={props.name}
-            disabled={item.disabled || props.disabled}
-            onClick={() => onClickHandler(item.value)}
+            disabled={option.disabled || props.disabled}
+            onClick={() => onClickHandler(option.value)}
           />
           <span className="indicator" />
-          <span className="description">{item.label}</span>
+          <span className="description">{option.label}</span>
         </RadioStyle>
       ))}
     </div>
@@ -108,7 +114,7 @@ Radio.propTypes = {
   name: PropTypes.string,
   disabled: PropTypes.bool,
   onChange: PropTypes.func.isRequired,
-  items: PropTypes.arrayOf(
+  options: PropTypes.arrayOf(
     PropTypes.shape({
       value: PropTypes.any.isRequired,
       label: PropTypes.any.isRequired,

@@ -1,3 +1,9 @@
+/*
+ * @license
+ * Copyright OAH Technology. All Rights Reserved.
+ * Licensed under the MIT License. See License.txt in the project root for license information.
+ */
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';

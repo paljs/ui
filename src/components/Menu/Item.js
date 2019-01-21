@@ -1,3 +1,9 @@
+/*
+ * @license
+ * Copyright OAH Technology. All Rights Reserved.
+ * Licensed under the MIT License. See License.txt in the project root for license information.
+ */
+
 import Link from 'next/link';
 import Router from 'next/router';
 import { ItemStyle } from './style';

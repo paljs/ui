@@ -1,10 +1,16 @@
+/*
+ * @license
+ * Copyright OAH Technology. All Rights Reserved.
+ * Licensed under the MIT License. See License.txt in the project root for license information.
+ */
+
 import styled, { css, keyframes } from 'styled-components';
 import { tint, shade, adjustHue, mix } from 'polished';
 import PropTypes from 'prop-types';
 
 /* eslint-disable indent */
 
-const style = css`
+const ButtonStyle = css`
   ${({ theme, shape, size, status, fullWidth, outline, hero, pulse }) => css`
     text-transform: uppercase;
     letter-spacing: 0.4px;
@@ -251,14 +257,14 @@ const propTypes = {
 };
 
 const Button = styled.button`
-  ${style}
+  ${ButtonStyle}
 `;
 
 Button.defaultProps = defaultProps;
 Button.propTypes = propTypes;
 
 const ButtonLink = styled.a`
-  ${style}
+  ${ButtonStyle}
 `;
 
 ButtonLink.defaultProps = defaultProps;
@@ -267,7 +273,7 @@ ButtonLink.propTypes = propTypes;
 const ButtonInput = styled.input`
   &[type='button'],
   &[type='submit'] {
-    ${style}
+    ${ButtonStyle}
   }
 `;
 
@@ -277,4 +283,4 @@ ButtonInput.propTypes = {
   type: PropTypes.oneOf(['button', 'submit'])
 };
 
-export { Button, ButtonLink, ButtonInput };
+export { Button, ButtonLink, ButtonInput, ButtonStyle };
