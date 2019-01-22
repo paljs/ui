@@ -23,6 +23,7 @@ const Checkbox = props => {
       disabled={props.disabled}
       checked={value}
       status={props.status}
+      className={props.className}
     >
       <input
         type="checkbox"

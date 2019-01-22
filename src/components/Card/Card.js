@@ -11,10 +11,10 @@ const headerBg = css`
   ${({ theme, status }) => {
     if (status) {
       return css`
-        background-color: ${theme['cardHeader' + status + 'Bg']};
+        background-color: ${theme[`cardHeader${status}Bg`]};
         border-bottom-width: ${theme.cardHeaderBorderWidth};
         border-bottom-style: ${theme.cardHeaderBorderType};
-        border-bottom-color: ${theme['cardHeader' + status + 'Bg']};
+        border-bottom-color: ${theme[`cardHeader${status}Bg`]};
         border-top-left-radius: ${theme.cardBorderRadius};
         border-top-right-radius: ${theme.cardBorderRadius};
       `;
@@ -36,7 +36,7 @@ const accent = css`
       border-top:
       ${theme.cardBorderRadius} 
       solid
-      ${theme['cardHeader' + accent + 'Bg']};
+      ${theme[`cardHeader${accent}Bg`]};
       `
       : ''};
 `;
@@ -44,7 +44,7 @@ const height = css`
   ${({ theme, size }) =>
     size
       ? `
-      height: ${theme['cardHeight' + size.toUpperCase()]};
+      height: ${theme[`cardHeight${size.toUpperCase()}`]};
       `
       : ''};
 `;

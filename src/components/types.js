@@ -30,6 +30,6 @@ const colorState = PropTypes.oneOf([
   'Disabled'
 ]);
 
-const cardSize = PropTypes.oneOf(['XXS', 'XS', 'S', 'M', 'L', 'XL', 'XXL']);
+const cardSize = PropTypes.oneOf(['XXS', 'XS', 'SM', 'MD', 'LG', 'XL', 'XXL']);
 
 export { badge, colorState, cardSize };

@@ -235,7 +235,7 @@ const btnPulse = (color, opacity) => {
 };
 
 const defaultProps = {
-  size: 'Md',
+  size: 'MD',
   status: 'Primary'
 };
 
@@ -244,7 +244,7 @@ const propTypes = {
   hero: PropTypes.bool,
   outline: PropTypes.bool,
   pulse: PropTypes.bool,
-  size: PropTypes.oneOf(['Xs', 'Sm', 'Md', 'Lg']),
+  size: PropTypes.oneOf(['XS', 'SM', 'MD', 'LG']),
   shape: PropTypes.oneOf(['Rectangle', 'SemiRound', 'Round']),
   status: PropTypes.oneOf([
     'Info',

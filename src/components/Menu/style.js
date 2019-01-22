@@ -38,7 +38,9 @@ const MenuStyle = styled.div`
           background-color: ${theme.menuActiveBg};
           color: ${theme.menuActiveFg};
           font-weight: ${theme.menuActiveFontWeight};
-          .menu-icon,
+          .menu-icon {
+            color: ${theme.menuIconActiveColor};
+          }
           .chevron {
             path {
               fill: ${theme.menuIconActiveColor};

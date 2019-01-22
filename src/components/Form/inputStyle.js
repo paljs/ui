@@ -11,7 +11,7 @@ import React from 'react';
 /* eslint-disable indent */
 const GroupStyle = styled.div`
   ${({ theme, fieldSize, status, shape, fullWidth }) => {
-    const position = theme['formControlPadding' + fieldSize].split(' ');
+    const padding = theme[`formControlPadding${fieldSize}`].split(' ');
     return css`
       display: flex;
       min-width: 0%;
@@ -31,28 +31,48 @@ const GroupStyle = styled.div`
         position: absolute;
         line-height: 1.15;
         padding: 0 5px;
-        font-size: ${theme['formControlFontSize' + fieldSize]};
+        font-size: ${theme[`formControlFontSize${fieldSize}`]};
         transform: translate(
-          ${theme.dir === 'rtl' && '-'}${position[1]}, 
-          calc(${position[0]} + ${theme.formControlBorderWidth})
+          ${theme.dir === 'rtl' && '-'}${padding[1]}, 
+          calc(${padding[0]} + ${theme.formControlBorderWidth})
         );
       }
 
       input,
-      textarea{
+      textarea {
         &:not([disabled]):focus ~ .label,
-        &[value]:not([value=""]) ~ .label {
-          transform: scale(.75) translate(
-            ${theme.dir === 'rtl' && '-'}${position[1]}, 
+        &[value]:not([value=""]) ~ .label{
+          transform: scale(.90) translate(
+            ${theme.dir === 'rtl' && '-'}${padding[1]}, 
             -50%
           );
 
           color: ${
             status
-              ? theme['formControl' + status + 'BorderColor']
+              ? theme[`formControl${status}BorderColor`]
               : theme.formControlSelectedBorderColor
           };
 
+        }
+      }
+      select {
+        height: calc(
+          (${padding[0]} * 2 ) + 
+          (${theme[`formControlFontSize${fieldSize}`]} * 1.15)
+          );
+        box-sizing: content-box;
+        & ~ .label{
+          transform: scale(.90) translate(
+            ${theme.dir === 'rtl' && '-'}${padding[1]}, 
+            -50%
+          );
+        }
+        &:not([disabled]):focus ~ .label{
+          color: ${
+            status
+              ? theme[`formControl${status}BorderColor`]
+              : theme.formControlSelectedBorderColor
+          };
         }
       }
 
@@ -69,8 +89,7 @@ const GroupStyle = styled.div`
         &:focus {
           outline: none;
           background-color: ${theme.formControlFocusBg};
-          ${!status &&
-            'border-color: ' + theme.formControlSelectedBorderColor + ';'}
+          ${!status && `border-color: ${theme.formControlSelectedBorderColor};`}
         }
 
       
@@ -80,16 +99,16 @@ const GroupStyle = styled.div`
       
         ${status &&
           css`
-            border-color: ${theme['formControl' + status + 'BorderColor']};
+            border-color: ${theme[`formControl${status}BorderColor`]};
           `}
         ${shape &&
           css`
-            border-radius: ${theme['formControl' + shape + 'BorderRadius']};
+            border-radius: ${theme[`formControl${shape}BorderRadius`]};
           `}
         ${fieldSize &&
           css`
-            font-size: ${theme['formControlFontSize' + fieldSize]};
-            padding: ${theme['formControlPadding' + fieldSize]};
+            font-size: ${theme[`formControlFontSize${fieldSize}`]};
+            padding: ${theme[`formControlPadding${fieldSize}`]};
           `}
       }
     `;
@@ -106,12 +125,12 @@ function InputGroup(props) {
 }
 
 InputGroup.defaultProps = {
-  fieldSize: 'Md',
+  fieldSize: 'MD',
   shape: 'Rectangle'
 };
 InputGroup.propTypes = {
   fullWidth: PropTypes.bool,
-  fieldSize: PropTypes.oneOf(['Sm', 'Md', 'Lg']),
+  fieldSize: PropTypes.oneOf(['SM', 'MD', 'LG']),
   shape: PropTypes.oneOf(['Rectangle', 'SemiRound', 'Round']),
   status: PropTypes.oneOf(['Info', 'Warning', 'Success', 'Danger'])
 };

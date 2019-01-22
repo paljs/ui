@@ -87,27 +87,24 @@ function Radio(props) {
     props.onChange(value);
   };
 
-  return (
-    <div>
-      {options.map(option => (
-        <RadioStyle
-          status={option.status}
-          checked={option.checked}
-          disabled={option.disabled || props.disabled}
-          key={option.value}
-        >
-          <input
-            type="radio"
-            name={props.name}
-            disabled={option.disabled || props.disabled}
-            onClick={() => onClickHandler(option.value)}
-          />
-          <span className="indicator" />
-          <span className="description">{option.label}</span>
-        </RadioStyle>
-      ))}
-    </div>
-  );
+  return options.map(option => (
+    <RadioStyle
+      status={option.status}
+      checked={option.checked}
+      disabled={option.disabled || props.disabled}
+      key={option.value}
+      className={props.className}
+    >
+      <input
+        type="radio"
+        name={props.name}
+        disabled={option.disabled || props.disabled}
+        onClick={() => onClickHandler(option.value)}
+      />
+      <span className="indicator" />
+      <span className="description">{option.label}</span>
+    </RadioStyle>
+  ));
 }
 
 Radio.propTypes = {
