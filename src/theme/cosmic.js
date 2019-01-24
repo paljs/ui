@@ -32,7 +32,7 @@ export default {
   scrollbarBg: '#332e73',
 
   radialGradient: 'radialGradient(circle at 50% 50%, #423f8c, #302c6e)',
-  linearGradient: 'linearGradient(to right, #171749, #413789)',
+  linearGradient: 'linear-gradient(to right, #171749, #413789)',
 
   sidebarFg: 'colorSecondary',
   sidebarWidth: '16.25rem',
@@ -88,7 +88,7 @@ export default {
 
   checkboxBorderColor: 'colorFg',
 
-  searchBg: 'linearGradient(to right, #171749, #413789)',
+  searchBg: 'linear-gradient(to right, #171749, #413789)',
 
   smartTableHeaderFontWeight: 'fontWeightNormal',
   smartTableHeaderBg: 'colorBgActive',

@@ -55,9 +55,9 @@ const ActionStyle = styled.div`
 
       ${size &&
         css`
-          height: ${theme['actionsSize' + size]};
+          height: ${theme[`actionsSize${size}`]};
           i.control-icon {
-            font-size: ${theme['actionsSize' + size]};
+            font-size: ${theme[`actionsSize${size}`]};
           }
         `}
 

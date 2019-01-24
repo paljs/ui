@@ -511,7 +511,7 @@ export default {
   chatShadow: 'shadow',
   chatSeparator: 'separator',
   chatMessageFg: 'colorWhite',
-  chatMessageBg: 'linearGradient(to right, #4ca6ff, #59bfff)',
+  chatMessageBg: 'linear-gradient(to right, #4ca6ff, #59bfff)',
   chatMessageReplyBg: 'colorBgActive',
   chatMessageReplyFg: 'colorFgText',
   chatMessageAvatarBg: 'colorFg',

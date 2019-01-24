@@ -6,10 +6,11 @@
 
 import styled, { css } from 'styled-components';
 import { breakpointDown } from '../../theme';
+import { MenuStyle } from '../Menu/style';
 /* eslint-disable indent */
 
 const compacted = css`
-  .menu {
+  ${MenuStyle} {
     width: ${({ theme }) => theme.sidebarWidthCompact};
 
     .menu-item a.active {
@@ -239,7 +240,7 @@ const SidebarStyle = styled.aside`
     height: ${theme.sidebarFooterHeight};
   }
 
-  .menu {
+  ${MenuStyle}{
     margin: 0 -${theme.sidebarPadding} -${theme.sidebarPadding};
   }
 `}

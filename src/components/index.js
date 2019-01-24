@@ -16,3 +16,5 @@ export { default as Actions } from './Actions';
 export { default as Menu } from './Menu';
 export { default as Badge } from './Badge';
 export { default as GlobalStyle } from './GlobalStyle';
+export { default as Overlay } from './Overlay';
+export { default as Search } from './Search';

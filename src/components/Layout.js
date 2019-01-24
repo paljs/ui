@@ -147,6 +147,15 @@ const LayoutStyle = styled.div`
         }
       }
     }
+    #overlay-container {
+      position: fixed;
+      z-index: 1040;
+      pointer-events: none;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+    }
   `}
 `;
 
@@ -185,10 +194,11 @@ function LayoutContainer(props) {
 
 function Layout(props) {
   return (
-    <LayoutStyle>
+    <LayoutStyle id="oah-layout">
       <div className="scrollable-container">
         <div className="layout">{props.children}</div>
       </div>
+      <div id="overlay-container" />
     </LayoutStyle>
   );
 }
@@ -198,5 +208,6 @@ export {
   LayoutContent,
   LayoutFooter,
   LayoutContainer,
-  LayoutColumns
+  LayoutColumns,
+  LayoutStyle
 };

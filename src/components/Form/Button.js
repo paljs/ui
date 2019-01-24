@@ -50,19 +50,19 @@ const ButtonStyle = css`
 
     ${size &&
       css`
-        padding: ${theme['btnPaddingY' + size]} ${theme['btnPaddingX' + size]};
-        font-size: ${theme['btnFontSize' + size]};
+        padding: ${theme[`btnPaddingY${size}`]} ${theme[`btnPaddingX${size}`]};
+        font-size: ${theme[`btnFontSize${size}`]};
         line-height: ${theme.btnLineHeight};
         border-radius: ${theme.btnBorderRadius};
       `}
 
     ${shape &&
       css`
-        border-radius: ${theme['btn' + shape + 'BorderRadius']};
+        border-radius: ${theme[`btn${shape}BorderRadius`]};
       `}
 
 
-    ${pulse && btnPulse(theme['btn' + status + 'Bg'], theme.btnDisabledOpacity)}
+    ${pulse && btnPulse(theme[`btn${status}Bg`], theme.btnDisabledOpacity)}
 
 
     ${status &&
@@ -76,7 +76,7 @@ const ButtonStyle = css`
                   ? 'transparent'
                   : theme.btnSecondaryBg};
               `
-            : `background-color: ${theme['btn' + status + 'Bg']};`
+            : `background-color: ${theme[`btn${status}Bg`]};`
         }
 
         &:focus,
@@ -145,7 +145,7 @@ const ButtonStyle = css`
           );
           box-shadow: ${heroShadow(status, theme)};
           text-shadow: ${theme.btnHeroTextShadow};
-          line-height: calc((${theme['btnFontSize' + size]} * 1.25) + 4px);
+          line-height: calc((${theme[`btnFontSize${size}`]} * 1.25) + 4px);
           &:focus,
           &.focus,
           &:hover,
@@ -208,11 +208,11 @@ const heroPercentage = {
   Danger: -20,
   Secondary: 20
 };
-const percentage = (state, outline) =>
-  state === 'Secondary' || outline ? 0.2 : 0.14;
+const percentage = (status, outline) =>
+  status === 'Secondary' || outline ? 0.2 : 0.14;
 
-const color = state =>
-  state === 'Secondary' ? 'btnSecondaryBorder' : 'btn' + state + 'Bg';
+const color = status =>
+  status === 'Secondary' ? 'btnSecondaryBorder' : `btn${status}Bg`;
 
 const btnPulse = (color, opacity) => {
   const pulse = keyframes`
