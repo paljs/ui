@@ -18,3 +18,5 @@ export { default as Badge } from './Badge';
 export { default as GlobalStyle } from './GlobalStyle';
 export { default as Overlay } from './Overlay';
 export { default as Search } from './Search';
+export { default as User } from './User';
+export { default as Alert } from './Alert';
