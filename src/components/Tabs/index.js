@@ -31,6 +31,7 @@ function Tabs(props) {
     for (const i of updateTabs.keys()) {
       if (index === i) {
         setActive(updateTabs[i].children);
+        typeof props.onSelect === 'function' && props.onSelect(i);
       }
       updateTabs[i].active = index === i;
     }
@@ -99,7 +100,8 @@ Tabs.propType = {
   classNames: PropTypes.string,
   style: PropTypes.object,
   fullWidth: PropTypes.bool,
-  routeLink: PropTypes.bool
+  routeLink: PropTypes.bool,
+  onSelect: PropTypes.func
 };
 
 export { Tabs, Tab };

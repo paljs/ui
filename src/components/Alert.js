@@ -55,7 +55,7 @@ const AlertStyle = styled.div`
 
       position: absolute;
       top: 0;
-      right: 0;
+      ${theme.dir === 'rtl' ? 'left' : 'right'}: 0;
       color: inherit;
       background-color: transparent;
       border: 0;

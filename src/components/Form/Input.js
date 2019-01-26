@@ -7,6 +7,7 @@
 import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
 import React from 'react';
+import { shape } from '../types';
 
 /* eslint-disable indent */
 const GroupStyle = styled.div`
@@ -129,9 +130,9 @@ InputGroup.defaultProps = {
   shape: 'Rectangle'
 };
 InputGroup.propTypes = {
+  shape,
   fullWidth: PropTypes.bool,
   fieldSize: PropTypes.oneOf(['SM', 'MD', 'LG']),
-  shape: PropTypes.oneOf(['Rectangle', 'SemiRound', 'Round']),
   status: PropTypes.oneOf(['Info', 'Warning', 'Success', 'Danger'])
 };
 export default InputGroup;

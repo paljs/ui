@@ -1,6 +1,6 @@
 {
   "name": "rnsc",
-  "version": "0.0.40",
+  "version": "0.0.41",
   "description": "React NextJs Styled Components with bootstrap grid system",
   "main": "dist/components.js",
   "repository": "https://github.com/oahtech/rnsc.git",
@@ -33,7 +33,6 @@
     "babel-core": "^6.26.3",
     "babel-eslint": "^8.2.5",
     "babel-plugin-external-helpers": "^6.22.0",
-    "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
