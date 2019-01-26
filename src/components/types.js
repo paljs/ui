@@ -9,17 +9,18 @@ import PropTypes from 'prop-types';
 const badge = PropTypes.shape({
   status: colorState,
   title: PropTypes.string,
-  position: PropTypes.oneOf([
-    'topRight',
-    'topLeft',
-    'bottomRight',
-    'bottomLeft',
-    'topStart',
-    'topEnd',
-    'bottomStart',
-    'bottomEnd'
-  ])
+  position
 });
+const position = PropTypes.oneOf([
+  'topRight',
+  'topLeft',
+  'bottomRight',
+  'bottomLeft',
+  'topStart',
+  'topEnd',
+  'bottomStart',
+  'bottomEnd'
+]);
 
 const colorState = PropTypes.oneOf([
   'Info',
@@ -30,6 +31,10 @@ const colorState = PropTypes.oneOf([
   'Disabled'
 ]);
 
-const cardSize = PropTypes.oneOf(['XXS', 'XS', 'SM', 'MD', 'LG', 'XL', 'XXL']);
+const statusArray = ['Info', 'Success', 'Danger', 'Primary', 'Warning'];
 
-export { badge, colorState, cardSize };
+const size = PropTypes.oneOf(['XXS', 'XS', 'SM', 'MD', 'LG', 'XL', 'XXL']);
+
+const shape = PropTypes.oneOf(['Rectangle', 'SemiRound', 'Round']);
+
+export { badge, colorState, size, statusArray, shape, position };

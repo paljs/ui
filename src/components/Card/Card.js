@@ -5,7 +5,7 @@
  */
 
 import styled, { css } from 'styled-components';
-import { colorState, cardSize } from '../types';
+import { colorState, size } from '../types';
 
 const headerBg = css`
   ${({ theme, status }) => {
@@ -90,6 +90,6 @@ const Card = styled.div`
 Card.propTypes = {
   status: colorState,
   accent: colorState,
-  size: cardSize
+  size
 };
 export default Card;

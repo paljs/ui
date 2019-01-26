@@ -53,7 +53,12 @@ function RevealCard(props) {
     setRevealed(!revealed);
   };
   return (
-    <RevealCardStyled revealed={revealed} button={props.button}>
+    <RevealCardStyled
+      className={props.className}
+      style={props.style}
+      revealed={revealed}
+      button={props.button}
+    >
       <div className="front">{props.children[0]}</div>
       <div className="back">
         <div className="container">{props.children[1]}</div>
@@ -65,6 +70,8 @@ function RevealCard(props) {
   );
 }
 RevealCard.propTypes = {
+  classNames: PropTypes.string,
+  style: PropTypes.object,
   button: PropTypes.oneOf(['top', 'bottom'])
 };
 export default RevealCard;

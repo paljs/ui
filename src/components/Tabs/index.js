@@ -50,7 +50,11 @@ function Tabs(props) {
     [props.children]
   );
   return (
-    <TabsStyle fullWidth={props.fullWidth}>
+    <TabsStyle
+      className={props.className}
+      style={props.style}
+      fullWidth={props.fullWidth}
+    >
       <ul className="tabs">
         {tabs.map((tab, index) => {
           const cssClass = ['tab'];
@@ -92,6 +96,8 @@ function Tabs(props) {
 }
 
 Tabs.propType = {
+  classNames: PropTypes.string,
+  style: PropTypes.object,
   fullWidth: PropTypes.bool,
   routeLink: PropTypes.bool
 };

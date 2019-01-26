@@ -65,7 +65,12 @@ function FlipCard(props) {
   };
 
   return (
-    <FlipCardStyled flipped={flipped} button={props.button}>
+    <FlipCardStyled
+      className={props.className}
+      style={props.style}
+      flipped={flipped}
+      button={props.button}
+    >
       <div className="flip-body">
         <div className="front">
           {props.children[0]}
@@ -84,6 +89,8 @@ function FlipCard(props) {
   );
 }
 FlipCard.propTypes = {
+  classNames: PropTypes.string,
+  style: PropTypes.object,
   button: PropTypes.oneOf(['top', 'bottom'])
 };
 export default FlipCard;

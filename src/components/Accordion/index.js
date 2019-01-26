@@ -84,7 +84,7 @@ const Accordion = forwardRef((props, ref) => {
     setItems(updateItems);
   };
   return (
-    <AccordionStyle>
+    <AccordionStyle className={props.className} style={props.style}>
       {items.map((item, index) => {
         const cssStyle = [];
         item.expanded ? cssStyle.push('expanded') : cssStyle.push('collapsed');
@@ -107,6 +107,8 @@ const Accordion = forwardRef((props, ref) => {
   );
 });
 Accordion.propTypes = {
-  multi: PropTypes.bool
+  multi: PropTypes.bool,
+  classNames: PropTypes.string,
+  style: PropTypes.object
 };
 export { AccordionItem, Accordion };

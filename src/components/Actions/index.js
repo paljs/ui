@@ -12,9 +12,9 @@ import { badge } from '../types';
 import { ActionsStyle, ActionStyle } from './style';
 import Badge from '../Badge';
 
-function Actions({ actions }) {
+function Actions({ actions, className, style }) {
   return (
-    <ActionsStyle>
+    <ActionsStyle className={className} style={style}>
       {actions.items.map((action, index) => {
         const icon = (
           <a className="icon-container" {...action.events}>
@@ -54,9 +54,11 @@ function Actions({ actions }) {
 }
 
 Actions.propTypes = {
+  classNames: PropTypes.string,
+  style: PropTypes.object,
   actions: PropTypes.shape({
     fullWidth: PropTypes.bool,
-    size: PropTypes.oneOf(['Small', 'Medium', 'Large']),
+    size: PropTypes.oneOf(['SM', 'MD', 'LG']),
     inverse: PropTypes.bool,
     items: PropTypes.arrayOf(
       PropTypes.shape({

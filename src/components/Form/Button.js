@@ -7,6 +7,7 @@
 import styled, { css, keyframes } from 'styled-components';
 import { tint, shade, adjustHue, mix } from 'polished';
 import PropTypes from 'prop-types';
+import { shape, statusArray } from '../types';
 
 /* eslint-disable indent */
 
@@ -245,15 +246,8 @@ const propTypes = {
   outline: PropTypes.bool,
   pulse: PropTypes.bool,
   size: PropTypes.oneOf(['XS', 'SM', 'MD', 'LG']),
-  shape: PropTypes.oneOf(['Rectangle', 'SemiRound', 'Round']),
-  status: PropTypes.oneOf([
-    'Info',
-    'Success',
-    'Danger',
-    'Primary',
-    'Warning',
-    'Secondary'
-  ])
+  shape,
+  status: PropTypes.oneOf([...statusArray, 'Secondary'])
 };
 
 const Button = styled.button`

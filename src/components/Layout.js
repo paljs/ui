@@ -194,7 +194,11 @@ function LayoutContainer(props) {
 
 function Layout(props) {
   return (
-    <LayoutStyle id="oah-layout">
+    <LayoutStyle
+      id="oah-layout"
+      className={props.className}
+      style={props.style}
+    >
       <div className="scrollable-container">
         <div className="layout">{props.children}</div>
       </div>

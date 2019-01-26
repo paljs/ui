@@ -5,7 +5,7 @@
  */
 
 import styled, { css } from 'styled-components';
-import PropTypes from 'prop-types';
+import { colorState, position } from './types';
 
 const Badge = styled.span`
   ${({ theme, status }) => css`
@@ -43,23 +43,7 @@ const Badge = styled.span`
   }}
 `;
 Badge.propTypes = {
-  position: PropTypes.oneOf([
-    'topRight',
-    'topLeft',
-    'bottomRight',
-    'bottomLeft',
-    'topStart',
-    'topEnd',
-    'bottomStart',
-    'bottomEnd'
-  ]),
-  status: PropTypes.oneOf([
-    'Info',
-    'Success',
-    'Danger',
-    'Primary',
-    'Warning',
-    'Disabled'
-  ])
+  position,
+  status: colorState
 };
 export default Badge;

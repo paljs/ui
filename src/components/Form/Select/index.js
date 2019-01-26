@@ -10,6 +10,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import StyledSelect from './style';
+import { shape, statusArray } from '../../types';
 
 function Select(props) {
   const [focused, setFocused] = useState(false);
@@ -40,7 +41,7 @@ Select.defaultProps = {
 Select.propTypes = {
   fullWidth: PropTypes.bool,
   fieldSize: PropTypes.oneOf(['SM', 'MD', 'LG']),
-  shape: PropTypes.oneOf(['Rectangle', 'SemiRound', 'Round']),
-  status: PropTypes.oneOf(['Info', 'Warning', 'Success', 'Danger'])
+  shape,
+  status: PropTypes.oneOf([...statusArray])
 };
 export default Select;
