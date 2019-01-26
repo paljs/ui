@@ -11,7 +11,17 @@ const plugins = [
   svgr(),
   babel({
     exclude: 'node_modules/**',
-    plugins: ['external-helpers']
+    runtimeHelpers: true,
+    plugins: [
+      'external-helpers',
+      [
+        'transform-runtime',
+        {
+          polyfill: false,
+          regenerator: true
+        }
+      ]
+    ]
   }),
   resolve(),
   commonjs()

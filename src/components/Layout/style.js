@@ -4,10 +4,8 @@
  * Licensed under the MIT License. See License.txt in the project root for license information.
  */
 
-import React from 'react';
-import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
-import { breakpointDown } from '../theme/breakpoints';
+import { breakpointDown } from '../../theme/breakpoints';
 
 const LayoutStyle = styled.div`
   ${({ theme }) => css`
@@ -158,60 +156,4 @@ const LayoutStyle = styled.div`
     }
   `}
 `;
-
-function LayoutHeader(props) {
-  return (
-    <header className={props.fixed ? 'fixed layout-header' : 'layout-header'}>
-      <nav>{props.children}</nav>
-    </header>
-  );
-}
-LayoutHeader.propTypes = {
-  fixed: PropTypes.bool
-};
-function LayoutFooter(props) {
-  return (
-    <footer className="layout-footer">
-      <nav>{props.children}</nav>
-    </footer>
-  );
-}
-
-function LayoutColumns(props) {
-  return (
-    <div className="columns">
-      <div className="main-container">{props.children}</div>
-    </div>
-  );
-}
-
-function LayoutContent(props) {
-  return <div className="content">{props.children}</div>;
-}
-function LayoutContainer(props) {
-  return <div className="layout-container">{props.children}</div>;
-}
-
-function Layout(props) {
-  return (
-    <LayoutStyle
-      id="oah-layout"
-      className={props.className}
-      style={props.style}
-    >
-      <div className="scrollable-container">
-        <div className="layout">{props.children}</div>
-      </div>
-      <div id="overlay-container" />
-    </LayoutStyle>
-  );
-}
-export {
-  Layout,
-  LayoutHeader,
-  LayoutContent,
-  LayoutFooter,
-  LayoutContainer,
-  LayoutColumns,
-  LayoutStyle
-};
+export default LayoutStyle;

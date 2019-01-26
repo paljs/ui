@@ -7,6 +7,7 @@
 import PropTypes from 'prop-types';
 import Badge from '../Badge';
 import UserStyle from './style';
+import React from 'react';
 
 function User(props) {
   const getInitials = () => {

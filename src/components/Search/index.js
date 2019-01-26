@@ -4,40 +4,45 @@
  * Licensed under the MIT License. See License.txt in the project root for license information.
  */
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef, useContext, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import { SearchStyle, SearchFieldStyle } from './style';
 import { SearchIcon, CloseCircled } from '../../svg';
 import Overlay from '../Overlay';
+import layoutContext from '../Layout/layout-context';
 
 function Search(props) {
   const [value, setValue] = useState('');
-  const [layout, setLayout] = useState();
   const [show, setShow] = useState();
   const inputRef = useRef();
+  const layout = useContext(layoutContext);
 
-  useEffect(() => {
-    const layoutD = document.getElementById('oah-layout');
-    setLayout(layoutD);
-  }, []);
+  useEffect(
+    () => {
+      if (show === 'show') {
+        inputRef.current.focus();
+      } else if (show === undefined) {
+        layout.removeClass([props.type]);
+      }
+    },
+    [show]
+  );
 
   const handleOpen = () => {
     setShow('');
+    layout.addClass([props.type, 'with-search']);
     setTimeout(() => {
-      layout.classList.add(props.type, 'with-search');
       setShow('show');
-      inputRef.current.focus();
-    }, 100);
+    }, 50);
   };
 
   const handleClose = () => {
-    layout.classList.remove('with-search');
+    layout.removeClass(['with-search']);
     setShow('');
     setTimeout(() => {
       setShow(undefined);
-      layout.classList.remove(props.type);
-    }, 500);
+    }, 200);
   };
 
   const onChangeHandle = e => {
