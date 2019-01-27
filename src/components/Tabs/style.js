@@ -35,6 +35,7 @@ const TabsStyle = styled.div`
           padding: ${theme.tabsPadding};
           color: ${theme.tabsFg};
           display: flex;
+          align-items: center;
           position: relative;
           text-decoration: none;
           &:hover {
@@ -62,7 +63,6 @@ const TabsStyle = styled.div`
           }
           i {
             font-size: 1.5rem;
-            vertical-align: middle;
           }
 
           i + span {

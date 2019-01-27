@@ -12,10 +12,10 @@ import { badge } from '../types';
 import { ActionsStyle, ActionStyle } from './style';
 import Badge from '../Badge';
 
-function Actions({ actions, className, style }) {
+function Actions({ actions, className, style, fullWidth, size, inverse }) {
   return (
     <ActionsStyle className={className} style={style}>
-      {actions.items.map((action, index) => {
+      {actions.map((action, index) => {
         const icon = (
           <a className="icon-container" {...action.events}>
             <i className={'control-icon ' + action.icon} />
@@ -24,9 +24,9 @@ function Actions({ actions, className, style }) {
         return (
           <ActionStyle
             key={index}
-            fullWidth={actions.fullWidth}
-            size={actions.size}
-            inverse={actions.inverse}
+            fullWidth={fullWidth}
+            size={size}
+            inverse={inverse}
             disabled={action.disabled}
           >
             {action.icon ? (
@@ -56,19 +56,17 @@ function Actions({ actions, className, style }) {
 Actions.propTypes = {
   classNames: PropTypes.string,
   style: PropTypes.object,
-  actions: PropTypes.shape({
-    fullWidth: PropTypes.bool,
-    size: PropTypes.oneOf(['SM', 'MD', 'LG']),
-    inverse: PropTypes.bool,
-    items: PropTypes.arrayOf(
-      PropTypes.shape({
-        icon: PropTypes.string,
-        content: PropTypes.any,
-        disabled: PropTypes.bool,
-        badge
-      })
-    ).isRequired
-  })
+  fullWidth: PropTypes.bool,
+  size: PropTypes.oneOf(['SM', 'MD', 'LG']),
+  inverse: PropTypes.bool,
+  actions: PropTypes.arrayOf(
+    PropTypes.shape({
+      icon: PropTypes.string,
+      content: PropTypes.any,
+      disabled: PropTypes.bool,
+      badge
+    })
+  ).isRequired
 };
 
 export default Actions;
