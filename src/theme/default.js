@@ -238,7 +238,7 @@ export default {
   popoverBorder: 'colorSuccess',
   popoverBorderRadius: 'radius',
   popoverShadow: 'none',
-  popoverArrowSize: '11px',
+  popoverArrowSize: 11,
 
   contextMenuFg: 'colorFgHeading',
   contextMenuBg: 'colorBg',

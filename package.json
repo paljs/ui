@@ -1,6 +1,6 @@
 {
   "name": "rnsc",
-  "version": "0.0.0-2",
+  "version": "0.0.0-6",
   "description": "React NextJs Styled Components with bootstrap grid system",
   "main": "dist/components.js",
   "repository": "https://github.com/oahtech/rnsc.git",
@@ -24,8 +24,8 @@
   "peerDependencies": {
     "next": ">= 7.0.2",
     "prop-types": ">= 15.5.4",
-    "react": "^16.8.0-alpha.1",
-    "react-dom": "^16.8.0-alpha.1",
+    "react": "^16.8.1",
+    "react-dom": "^16.8.1",
     "styled-components": ">= 4.1.3"
   },
   "devDependencies": {
@@ -41,8 +41,8 @@
     "gh-pages": "^1.2.0",
     "next": "^7.0.2",
     "prop-types": "^15.6.2",
-    "react": "^16.8.0-alpha.1",
-    "react-dom": "^16.8.0-alpha.1",
+    "react": "^16.8.1",
+    "react-dom": "^16.8.1",
     "react-scripts": "^1.1.4",
     "react-select": "^2.3.0",
     "rollup": "0.68.2",

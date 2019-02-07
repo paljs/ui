@@ -12,19 +12,23 @@ import Item from './Item';
 const Menu = forwardRef((props, ref) => {
   const [items, setItems] = useState(props.items);
 
-  useImperativeHandle(ref, () => ({
-    collapseAll() {
-      setItems(toggleSubMenu(items, false));
-    },
-    expandAll() {
-      setItems(toggleSubMenu(items, true));
-    }
-  }));
+  useImperativeHandle(
+    ref,
+    () => ({
+      collapseAll() {
+        setItems(toggleSubMenu([...items], false));
+      },
+      expandAll() {
+        setItems(toggleSubMenu([...items], true));
+      }
+    }),
+    [items]
+  );
 
   const onSelectItem = index => {
     typeof props.toggleSidebar === 'function' && props.toggleSidebar();
     const indexArray = Number.isInteger(index) ? [index] : index.split(',');
-    setItems(updateSelected(items, indexArray));
+    setItems(updateSelected([...items], indexArray));
   };
 
   const updateSelected = (updateItems, ia) => {
@@ -46,7 +50,7 @@ const Menu = forwardRef((props, ref) => {
   };
 
   const onToggleSubMenu = item => {
-    setItems(toggleSubMenu(items, item));
+    setItems(toggleSubMenu([...items], item));
   };
 
   const toggleSubMenu = (updateItems, action) => {
@@ -67,8 +71,8 @@ const Menu = forwardRef((props, ref) => {
   return (
     <MenuStyle className="menu">
       <ul className="menu-items">
-        {items.map(
-          (item, index) =>
+        {items.map((item, index) => {
+          return (
             !item.hidden && (
               <Item
                 key={index}
@@ -78,7 +82,8 @@ const Menu = forwardRef((props, ref) => {
                 toggleSubMenu={item => onToggleSubMenu(item)}
               />
             )
-        )}
+          );
+        })}
       </ul>
     </MenuStyle>
   );

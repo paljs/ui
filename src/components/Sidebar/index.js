@@ -18,29 +18,33 @@ const Sidebar = forwardRef((props, ref) => {
   const [fixed, setFixed] = useState(props.fixed);
   const [state, setState] = useState(props.state);
 
-  useImperativeHandle(ref, () => ({
-    toggle() {
-      switch (state) {
-        case 'expanded':
-          setState('compacted');
-          break;
-        case 'compacted':
-          setState('expanded');
-          break;
-        case 'hidden':
-          setState('visible');
-          break;
-        case 'visible':
+  useImperativeHandle(
+    ref,
+    () => ({
+      toggle() {
+        switch (state) {
+          case 'expanded':
+            setState('compacted');
+            break;
+          case 'compacted':
+            setState('expanded');
+            break;
+          case 'hidden':
+            setState('visible');
+            break;
+          case 'visible':
+            setState('hidden');
+            break;
+        }
+      },
+      hide() {
+        if (state === 'visible') {
           setState('hidden');
-          break;
+        }
       }
-    },
-    hide() {
-      if (state === 'visible') {
-        setState('hidden');
-      }
-    }
-  }));
+    }),
+    [state]
+  );
 
   const toggleMouse = () => {
     if (state === 'compacted') {

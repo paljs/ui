@@ -50,7 +50,7 @@ const Accordion = forwardRef((props, ref) => {
     toggle(index) {
       handleToggle(index);
     }
-  }));
+  }), [items]);
 
   const handleAllState = state => {
     const updateItems = [...items];
