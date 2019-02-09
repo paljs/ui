@@ -28,7 +28,10 @@ function Overlay(props) {
   }, []);
   return (
     parent !== undefined &&
-    ReactDOM.createPortal(<OverlayStyle>{props.children}</OverlayStyle>, parent)
+    ReactDOM.createPortal(
+      <OverlayStyle {...props}>{props.children}</OverlayStyle>,
+      parent
+    )
   );
 }
 
