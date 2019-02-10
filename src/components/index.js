@@ -23,3 +23,4 @@ export { default as Alert } from './Alert';
 export { default as Spinner } from './Spinner';
 export { default as Progress } from './ProgressBar';
 export { default as Popover } from './Popover';
+export { default as Tooltip } from './Tooltip';

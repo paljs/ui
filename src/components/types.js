@@ -31,10 +31,30 @@ const colorState = PropTypes.oneOf([
   'Disabled'
 ]);
 
+const placement = PropTypes.oneOf([
+  'start',
+  'end',
+  'right',
+  'left',
+  'top',
+  'bottom'
+]);
+
+const trigger = PropTypes.oneOf(['click', 'hover', 'focus']);
+
 const statusArray = ['Info', 'Success', 'Danger', 'Primary', 'Warning'];
 
 const size = PropTypes.oneOf(['XXS', 'XS', 'SM', 'MD', 'LG', 'XL', 'XXL']);
 
 const shape = PropTypes.oneOf(['Rectangle', 'SemiRound', 'Round']);
 
-export { badge, colorState, size, statusArray, shape, position };
+export {
+  badge,
+  colorState,
+  size,
+  statusArray,
+  shape,
+  position,
+  placement,
+  trigger
+};

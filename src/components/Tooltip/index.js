@@ -7,10 +7,10 @@
 import ReactDOM from 'react-dom';
 import React, { useEffect, useState, useRef, Fragment } from 'react';
 import PropTypes from 'prop-types';
-import PopoverStyle from './style';
-import { trigger, placement } from '../types';
+import TooltipStyle from './style';
+import { trigger, placement, statusArray } from '../types';
 
-function Popover(props) {
+function Tooltip(props) {
   const [parent, setParent] = useState();
   const [position, setPosition] = useState();
   const [show, setShow] = useState(false);
@@ -72,18 +72,21 @@ function Popover(props) {
       {parent !== undefined &&
         show &&
         ReactDOM.createPortal(
-          <PopoverStyle position={position} placement={props.placement}>
+          <TooltipStyle
+            position={position}
+            placement={props.placement}
+            status={props.status}
+          >
             <div className="overlay-pane" ref={overlayRef}>
-              <div className="popover">
+              <div className="tooltip">
                 <span className="arrow" />
-                {typeof props.overlay === 'string' ? (
-                  <div className="primitive-overlay">{props.overlay}</div>
-                ) : (
-                  props.overlay
-                )}
+                <div className="content">
+                  {props.icon && <i className={'icon ' + props.icon} />}
+                  {props.content && <span>{props.content}</span>}
+                </div>
               </div>
             </div>
-          </PopoverStyle>,
+          </TooltipStyle>,
           parent
         )}
       <div
@@ -102,12 +105,14 @@ function Popover(props) {
   );
 }
 
-Popover.propTypes = {
+Tooltip.propTypes = {
   trigger: trigger.isRequired,
   placement: placement.isRequired,
-  overlay: PropTypes.any.isRequired,
+  status: PropTypes.oneOf(statusArray),
+  icon: PropTypes.string,
+  content: PropTypes.string,
   children: PropTypes.node.isRequired,
   style: PropTypes.object,
   className: PropTypes.string
 };
-export default Popover;
+export default Tooltip;
