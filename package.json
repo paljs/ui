@@ -1,7 +1,7 @@
 {
-  "name": "rnsc",
-  "version": "0.0.0-23",
-  "description": "React NextJs Styled Components with bootstrap grid system",
+  "name": "oah-ui",
+  "version": "0.0.0-1",
+  "description": "React Styled Components with bootstrap grid system",
   "main": "dist/components.js",
   "repository": "https://github.com/oahtech/rnsc.git",
   "author": "OAH Technology",
