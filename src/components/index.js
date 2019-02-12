@@ -11,6 +11,7 @@ export * from './Tabs';
 export * from './Layout';
 export * from './List';
 export * from './Form';
+export * from './Button';
 
 export { default as Actions } from './Actions';
 export { default as Menu } from './Menu';

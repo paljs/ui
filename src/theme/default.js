@@ -205,8 +205,7 @@ export default {
   tabsFgHeading: 'colorFgHeading',
   tabsBg: 'transparent',
   tabsSelected: 'colorSuccess',
-  tabsSelectedSecondColor: 'colorSuccess',
-  tabsSelectedDegrees: 0,
+  tabsSelectedSecondColor: 'linkColor',
   tabsIconOnlyMaxWidth: '576px',
 
   routeTabsFontFamily: 'fontSecondary',

@@ -5,7 +5,6 @@
  */
 
 import styled, { css } from 'styled-components';
-import { adjustHue } from 'polished';
 
 /* eslint-disable indent */
 const TabsStyle = styled.div`
@@ -54,10 +53,7 @@ const TabsStyle = styled.div`
             background: ${theme.tabsSelected};
             background-image: linear-gradient(
               to right,
-              ${adjustHue(
-                theme.tabsSelectedDegrees,
-                theme.tabsSelectedSecondColor
-              )},
+              ${theme.tabsSelectedSecondColor},
               ${theme.tabsSelected}
             );
           }

@@ -16,33 +16,62 @@ const plugins = [
   resolve(),
   commonjs()
 ];
-const cjs = {
-  format: 'cjs',
-  sourcemap: true
-};
-
-const es = {
-  format: 'es',
-  sourcemap: true
-};
-
-const getCjs = file => ({ ...cjs, file });
-const getEs = file => ({ ...es, file });
+const folders = [];
+const files = [];
+[
+  'Alert',
+  'Button',
+  'Badge',
+  'Overlay',
+  'GlobalStyle',
+  'Spinner',
+  'ProgressBar',
+  'List'
+].map(file => {
+  files.push({
+    input: `src/components/${file}.js`,
+    output: { format: 'cjs', file: `dist/${file}.js` },
+    plugins
+  });
+});
+[
+  'Actions',
+  'Menu',
+  'Accordion',
+  'Card',
+  'Grid',
+  'Sidebar',
+  'Tabs',
+  'Layout',
+  'Form',
+  'Search',
+  'User',
+  'Popover',
+  'Tooltip'
+].map(file => {
+  folders.push({
+    input: `src/components/${file}/index.js`,
+    output: { format: 'cjs', file: `dist/${file}.js` },
+    plugins
+  });
+});
 
 export default [
+  ...folders,
+  ...files,
   {
     input: 'src/components/index.js',
-    output: [getCjs('dist/components.js'), getEs('dist/components.es.js')],
+    output: { format: 'cjs', file: 'dist/index.js' },
     plugins
   },
   {
     input: 'src/svg/index.js',
-    output: [getCjs('dist/svg.js'), getEs('dist/svg.es.js')],
+    output: { format: 'cjs', file: 'dist/svg.js' },
     plugins
   },
   {
     input: 'src/theme/index.js',
-    output: [getCjs('dist/theme.js'), getEs('dist/theme.es.js')],
+    output: { format: 'cjs', file: 'dist/theme.js' },
     plugins
   }
 ];

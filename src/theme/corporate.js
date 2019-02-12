@@ -75,7 +75,7 @@ export default {
   modalSeparator: 'borderColor',
 
   tabsSelected: 'colorPrimary',
-  tabsSelectedSecondColor: 'colorPrimary',
+  tabsSelectedSecondColor: 'colorSuccess',
 
   smartTablePagingBgActive: 'colorPrimary',
 

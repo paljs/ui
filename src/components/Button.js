@@ -7,7 +7,7 @@
 import styled, { css, keyframes } from 'styled-components';
 import { tint, shade, adjustHue, mix } from 'polished';
 import PropTypes from 'prop-types';
-import { shape, statusArray } from '../types';
+import { shape, statusArray } from './types';
 
 /* eslint-disable indent */
 
