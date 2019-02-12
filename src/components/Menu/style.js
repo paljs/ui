@@ -124,7 +124,7 @@ const MenuStyle = styled.div`
 
         .menu-title {
           flex: 1;
-          ${theme.dir == 'rtl' ? 'text-align: right' : ''};
+          ${theme.dir === 'rtl' ? 'text-align: right' : ''};
         }
       }
     }

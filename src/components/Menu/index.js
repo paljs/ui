@@ -25,8 +25,10 @@ const Menu = forwardRef((props, ref) => {
     [items]
   );
 
-  const onSelectItem = index => {
-    typeof props.toggleSidebar === 'function' && props.toggleSidebar();
+  const onSelectItem = (index, sidebar) => {
+    sidebar &&
+      typeof props.toggleSidebar === 'function' &&
+      props.toggleSidebar();
     const indexArray = Number.isInteger(index) ? [index] : index.split(',');
     setItems(updateSelected([...items], indexArray));
   };
@@ -78,7 +80,8 @@ const Menu = forwardRef((props, ref) => {
                 key={index}
                 id={index}
                 item={item}
-                selectItem={i => onSelectItem(i)}
+                Link={props.Link}
+                selectItem={(i, sidebar = true) => onSelectItem(i, sidebar)}
                 toggleSubMenu={item => onToggleSubMenu(item)}
               />
             )
@@ -110,6 +113,7 @@ function recursive(...args) {
 
 Menu.propTypes = {
   items: recursive,
-  toggleSidebar: PropTypes.func
+  toggleSidebar: PropTypes.func,
+  Link: PropTypes.object.isRequired
 };
 export default Menu;

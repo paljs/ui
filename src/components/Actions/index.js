@@ -5,22 +5,24 @@
  */
 
 import PropTypes from 'prop-types';
-import Link from 'next/link';
 import React from 'react';
 
 import { badge } from '../types';
 import { ActionsStyle, ActionStyle } from './style';
 import Badge from '../Badge';
 
-function Actions({ actions, className, style, fullWidth, size, inverse }) {
+function Actions({
+  actions,
+  className,
+  style,
+  fullWidth,
+  size,
+  inverse,
+  Link
+}) {
   return (
     <ActionsStyle className={className} style={style}>
       {actions.map((action, index) => {
-        const icon = (
-          <a className="icon-container" {...action.events}>
-            <i className={'control-icon ' + action.icon} />
-          </a>
-        );
         return (
           <ActionStyle
             key={index}
@@ -31,9 +33,17 @@ function Actions({ actions, className, style, fullWidth, size, inverse }) {
           >
             {action.icon ? (
               action.link ? (
-                <Link {...action.link}>{icon}</Link>
+                <Link
+                  {...action.link}
+                  className="icon-container"
+                  {...action.events}
+                >
+                  <i className={'control-icon ' + action.icon} />
+                </Link>
               ) : (
-                icon
+                <a className="icon-container" {...action.events}>
+                  <i className={'control-icon ' + action.icon} />
+                </a>
               )
             ) : (
               action.content

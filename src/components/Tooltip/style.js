@@ -56,7 +56,7 @@ const TooltipStyle = styled.div`
             display: flex;
             align-items: center;
             font-size: ${theme.tooltipFontSize};
-            color: ${status ? theme.tooltipFg : theme.tooltipStatusFg};
+            color: ${status ? theme.tooltipStatusFg : theme.tooltipFg};
           }
 
           .arrow {
