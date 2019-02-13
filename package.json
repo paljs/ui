@@ -1,6 +1,6 @@
 {
   "name": "oah-ui",
-  "version": "0.0.0-3",
+  "version": "0.0.0-6",
   "description": "React Styled Components with bootstrap grid system",
   "main": "index.js",
   "repository": "https://github.com/oahtech/oah-ui.git",
@@ -16,8 +16,7 @@
     "build": "rollup -c",
     "start": "rollup -c -w",
     "prepare": "yarn run build",
-    "predeploy": "cd example && yarn install && yarn run build",
-    "deploy": "gh-pages -d example/build"
+    "deploy": "rollup -c && cd dist && yarn publish"
   },
   "peerDependencies": {
     "prop-types": ">= 15.5.4",

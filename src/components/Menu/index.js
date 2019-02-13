@@ -25,10 +25,7 @@ const Menu = forwardRef((props, ref) => {
     [items]
   );
 
-  const onSelectItem = (index, sidebar) => {
-    sidebar &&
-      typeof props.toggleSidebar === 'function' &&
-      props.toggleSidebar();
+  const onSelectItem = index => {
     const indexArray = Number.isInteger(index) ? [index] : index.split(',');
     setItems(updateSelected([...items], indexArray));
   };
@@ -81,7 +78,8 @@ const Menu = forwardRef((props, ref) => {
                 id={index}
                 item={item}
                 Link={props.Link}
-                selectItem={(i, sidebar = true) => onSelectItem(i, sidebar)}
+                selectItem={i => onSelectItem(i)}
+                toggleSidebar={props.toggleSidebar}
                 toggleSubMenu={item => onToggleSubMenu(item)}
               />
             )

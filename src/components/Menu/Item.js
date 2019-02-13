@@ -8,19 +8,20 @@ import { ItemStyle } from './style';
 import React, { Fragment, useEffect } from 'react';
 import { ArrowLeft, ArrowDown } from '../../svg';
 
-const Item = ({ item, toggleSubMenu, selectItem, id, Link }) => {
+const Item = ({ item, toggleSidebar, toggleSubMenu, selectItem, id, Link }) => {
   useEffect(() => {
-    if (item.link && window.location.pathname === item.link.to) {
-      handleSelect();
+    const link = window.location.pathname;
+    if (
+      link === item.link ||
+      link === item.link + '/' ||
+      link + '/' === item.link
+    ) {
+      selectItem(id);
     }
   }, []);
 
-  const handleSelect = () => {
-    selectItem(id);
-  };
-
   const isActive = ({ isCurrent }) => {
-    return isCurrent && !item.selected ? selectItem(id, false) : null;
+    isCurrent && !item.selected && selectItem(id);
   };
 
   const handleToggleSubMenu = () => {
@@ -36,11 +37,12 @@ const Item = ({ item, toggleSubMenu, selectItem, id, Link }) => {
         </span>
       ) : item.link && !item.children ? (
         <Link
-          {...item.link}
+          to={item.link}
           getProps={isActive}
           title={item.title}
           target={item.target}
           className={item.selected ? 'active' : ''}
+          onClick={toggleSidebar}
         >
           <i className={'menu-icon ' + item.icon} />
           <span className="menu-title">{item.title}</span>
@@ -52,8 +54,8 @@ const Item = ({ item, toggleSubMenu, selectItem, id, Link }) => {
         </a>
       ) : item.children ? (
         <Fragment>
-          <Link
-            {...item.link}
+          <a
+            href={item.link}
             title={item.title}
             onClick={e => {
               e.preventDefault();
@@ -66,7 +68,7 @@ const Item = ({ item, toggleSubMenu, selectItem, id, Link }) => {
             <i className="chevron">
               {item.expanded ? <ArrowDown /> : <ArrowLeft />}
             </i>
-          </Link>
+          </a>
           <ul
             className={
               item.expanded ? 'menu-items expanded' : 'menu-items collapsed'
@@ -79,8 +81,9 @@ const Item = ({ item, toggleSubMenu, selectItem, id, Link }) => {
                     key={index}
                     item={item2}
                     id={id + ',' + index}
-                    selectItem={selectItem}
                     Link={Link}
+                    selectItem={selectItem}
+                    toggleSidebar={toggleSidebar}
                     toggleSubMenu={toggleSubMenu}
                   />
                 )

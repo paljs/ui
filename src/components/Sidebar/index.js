@@ -46,10 +46,13 @@ const Sidebar = forwardRef((props, ref) => {
     [state]
   );
 
-  const toggleMouse = () => {
+  const mouseEnter = () => {
     if (state === 'compacted') {
       setState('expanded');
-    } else if (
+    }
+  };
+  const mouseLeave = () => {
+    if (
       state === 'expanded' &&
       ifWidthInBreakpoint(props.compactedBreakpoints)
     ) {
@@ -90,8 +93,8 @@ const Sidebar = forwardRef((props, ref) => {
       property={props.property}
       fixed={fixed}
       containerFixed={props.containerFixed}
-      onMouseEnter={toggleMouse}
-      onMouseLeave={toggleMouse}
+      onMouseEnter={mouseEnter}
+      onMouseLeave={mouseLeave}
     >
       <div className="main-container">{props.children}</div>
     </SidebarStyle>
