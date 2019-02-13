@@ -12,14 +12,6 @@ const TooltipStyle = styled.div`
     const color = status ? theme[`tooltip${status}Bg`] : theme.tooltipBg;
     const arrowRound = Math.round(-arrowSize - arrowSize / 2 + 1.5);
 
-    switch (placement) {
-      case 'start':
-        placement = theme.dir === 'rtl' ? 'right' : 'left';
-        break;
-      case 'end':
-        placement = theme.dir === 'rtl' ? 'left' : 'right';
-        break;
-    }
     return css`
       position: absolute;
       pointer-events: none;
@@ -34,12 +26,7 @@ const TooltipStyle = styled.div`
       top: 0px;
       left: 0px;
       .overlay-pane {
-        ${position &&
-          css`
-            top: ${position[placement].top}px;
-            left: ${position[placement].left}px;
-            ${overlayPane(placement)}
-          `}
+        ${overlayPane(placement)}
         position: absolute;
         pointer-events: auto;
         display: flex;

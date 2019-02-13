@@ -2,7 +2,8 @@ import React from 'react';
 
 const layoutContext = React.createContext({
   addClass: () => {},
-  removeClass: () => {}
+  removeClass: () => {},
+  dir: 'ltr'
 });
 
 export default layoutContext;

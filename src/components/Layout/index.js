@@ -70,7 +70,7 @@ function Layout(props) {
       className={className.join(' ')}
       style={props.style}
     >
-      <LayoutContext.Provider value={{ addClass, removeClass }}>
+      <LayoutContext.Provider value={{ addClass, removeClass, dir: props.dir }}>
         <div className="scrollable-container">
           <div className="layout">{props.children}</div>
         </div>
@@ -79,6 +79,16 @@ function Layout(props) {
     </LayoutStyle>
   );
 }
+Layout.defaultProps = {
+  dir: 'ltr'
+};
+
+Layout.propTypes = {
+  dir: PropTypes.oneOf(['ltr', 'rtl']),
+  className: PropTypes.string,
+  style: PropTypes.object
+};
+
 export {
   Layout,
   LayoutHeader,
@@ -86,5 +96,6 @@ export {
   LayoutFooter,
   LayoutContainer,
   LayoutColumns,
-  LayoutStyle
+  LayoutStyle,
+  LayoutContext
 };

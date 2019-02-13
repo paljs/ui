@@ -5,79 +5,36 @@
  */
 
 import ReactDOM from 'react-dom';
-import React, { useEffect, useState, useRef, Fragment } from 'react';
+import React, { useRef, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import TooltipStyle from './style';
 import { trigger, placement, statusArray } from '../types';
+import usePopoverPosition from '../popoverPosition';
 
 function Tooltip(props) {
-  const [parent, setParent] = useState();
-  const [position, setPosition] = useState();
-  const [show, setShow] = useState(false);
-
   const overlayRef = useRef();
   const targetRef = useRef();
 
-  useEffect(
-    () => {
-      const positionHandle = () => {
-        const rect = targetRef.current.getBoundingClientRect();
-        const overlayData = overlayRef.current.getBoundingClientRect();
-
-        const placement = {
-          top: {
-            top: rect.top - overlayData.height,
-            left: rect.left + rect.width / 2 - overlayData.width / 2
-          },
-          bottom: {
-            top: rect.top + rect.height,
-            left: rect.left + rect.width / 2 - overlayData.width / 2
-          },
-          right: {
-            top: rect.top + rect.height / 2 - overlayData.height / 2,
-            left: rect.left + rect.width
-          },
-          left: {
-            top: rect.top + rect.height / 2 - overlayData.height / 2,
-            left: rect.left - overlayData.width
-          }
-        };
-
-        setPosition(placement);
-      };
-
-      if (!parent) {
-        const overlayParent = document.getElementById('overlay-container');
-        setParent(overlayParent);
-      } else if (show) {
-        positionHandle();
-        window.addEventListener('resize', positionHandle);
-        document
-          .querySelector('.scrollable-container')
-          .addEventListener('scroll', positionHandle);
-      }
-
-      return () => {
-        window.removeEventListener('resize', positionHandle);
-        document
-          .querySelector('.scrollable-container')
-          .removeEventListener('scroll', positionHandle);
-      };
-    },
-    [parent, show, overlayRef.current]
+  const [position, placement, show, setShow] = usePopoverPosition(
+    props,
+    targetRef,
+    overlayRef
   );
 
   return (
     <Fragment>
-      {parent !== undefined &&
-        show &&
+      {show &&
         ReactDOM.createPortal(
           <TooltipStyle
             position={position}
-            placement={props.placement}
+            placement={placement}
             status={props.status}
           >
-            <div className="overlay-pane" ref={overlayRef}>
+            <div
+              className="overlay-pane"
+              style={position && { top: position.top, left: position.left }}
+              ref={overlayRef}
+            >
               <div className="tooltip">
                 <span className="arrow" />
                 <div className="content">
@@ -87,7 +44,7 @@ function Tooltip(props) {
               </div>
             </div>
           </TooltipStyle>,
-          parent
+          document.getElementById('overlay-container')
         )}
       <div
         style={props.style}
@@ -106,6 +63,7 @@ function Tooltip(props) {
 }
 
 Tooltip.propTypes = {
+  eventListener: PropTypes.string,
   trigger: trigger.isRequired,
   placement: placement.isRequired,
   status: PropTypes.oneOf(statusArray),
