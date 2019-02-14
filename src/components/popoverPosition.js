@@ -6,6 +6,7 @@
 
 import { useEffect, useState, useContext } from 'react';
 import layoutContext from './Layout/layout-context';
+import getPosition from './positionHelper';
 
 export default function usePopoverPosition(props, targetRef, overlayRef) {
   const layout = useContext(layoutContext);
@@ -44,15 +45,7 @@ export default function usePopoverPosition(props, targetRef, overlayRef) {
   );
 
   const positionHandle = () => {
-    let placement = props.placement;
-    switch (props.placement) {
-      case 'start':
-        placement = layout.dir === 'rtl' ? 'right' : 'left';
-        break;
-      case 'end':
-        placement = layout.dir === 'rtl' ? 'left' : 'right';
-        break;
-    }
+    let placement = getPosition(layout.dir, props.placement);
     const data = getAdjustmentPlacement(placement, targetRef, overlayRef);
     setPosition(data.position);
     setPlacement(data.placement);
