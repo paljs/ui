@@ -6,7 +6,7 @@
 
 import styled, { css } from 'styled-components';
 import { colorState, position } from './types';
-import getPosition from './positionHelper';
+import { getPhysicalPosition } from './positionHelper';
 
 const Badge = styled.span`
   ${({ theme, status }) => css`
@@ -23,7 +23,7 @@ const Badge = styled.span`
     background-color: ${theme['badge' + status + 'BgColor']};
   `}
   ${({ position, theme }) => {
-    let placement = getPosition(theme.dir, position);
+    let placement = getPhysicalPosition(theme.dir, position);
     switch (placement) {
       case 'topRight':
         return 'top: 0;right: 0;';

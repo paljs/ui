@@ -12,6 +12,7 @@ export * from './Layout';
 export * from './List';
 export * from './Form';
 export * from './Button';
+export * from './positionHelper';
 
 export { default as Actions } from './Actions';
 export { default as Menu } from './Menu';
@@ -25,4 +26,4 @@ export { default as Spinner } from './Spinner';
 export { default as Progress } from './ProgressBar';
 export { default as Popover } from './Popover';
 export { default as Tooltip } from './Tooltip';
-export { default as getPosition } from './positionHelper';
+export { default as Toastr } from './Toastr';

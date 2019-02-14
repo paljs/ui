@@ -47,7 +47,8 @@ const files = [];
   'Search',
   'User',
   'Popover',
-  'Tooltip'
+  'Tooltip',
+  'Toastr'
 ].map(file => {
   folders.push({
     input: `src/components/${file}/index.js`,
