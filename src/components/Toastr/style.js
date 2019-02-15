@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import { adjustHue } from 'polished';
 
 const ToastrStyle = styled.div`
-  ${({ theme, status, destroyByClick, icon, isRight }) => css`
+  ${({ theme, status, destroyByClick, hasIcon, isRight }) => css`
     background-color: ${theme.toastrBg};
     padding: ${theme.toastrPadding};
     color: ${theme.toastrFg};
@@ -40,8 +40,10 @@ const ToastrStyle = styled.div`
         }
       `}
     .icon {
-      font-size: 2.5rem;
+      font-size: 2rem;
       margin-${theme.dir === 'rtl' ? 'left' : 'right'}: 1.25rem;
+      padding-right: 0.7rem;
+      padding-left: 0.7rem;
     }
     svg {
       width: 2.5rem;
@@ -54,7 +56,7 @@ const ToastrStyle = styled.div`
 
     ${theme.theme !== 'cosmic' && `box-shadow: ${theme.toastrShadow};`}
 
-    ${status === 'default' &&
+    ${status === 'Default' &&
       css`
         .content-container {
           display: flex;
@@ -70,9 +72,9 @@ const ToastrStyle = styled.div`
           `}
       `}
 
-    ${status !== 'default' &&
+    ${status !== 'Default' &&
       css`
-        ${!icon &&
+        ${!hasIcon &&
           css`
             .content-container {
               display: flex;
