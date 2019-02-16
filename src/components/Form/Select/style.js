@@ -1,109 +1,154 @@
-/*
- * @license
- * Copyright OAH Technology. All Rights Reserved.
- * Licensed under the MIT License. See License.txt in the project root for license information.
- */
-
 import styled, { css } from 'styled-components';
+import { ButtonStyle } from '../../Button';
+import { Card } from '../../Card';
+import CheckboxStyle from '../Checkbox/style';
 
-const StyledSelect = styled.div`
-  ${({ theme, shape, fieldSize, fullWidth, status, focused }) => {
-    const padding = theme[`formControlPadding${fieldSize}`].split(' ');
-    return css`
-    position: relative;
-    .label {
-        background: ${theme.formControlBg};
-        ${theme.dir === 'rtl' ? 'right: 0;' : 'left: 0;'}
-        top: 0;
-        transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1),
-          opacity 150ms cubic-bezier(0.4, 0, 0.2, 1);
-        z-index: 1;
-        transform-origin: top ${theme.dir === 'rtl' ? 'right' : 'left'};
-        pointer-events: none;
+const SelectStyle = styled.div`
+  ${({ theme, opened, placement }) => css`
+    display: block;
+    margin-bottom: 1rem;
+    button {
+      position: relative;
+      width: 100%;
+      text-align: start;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      border: none;
+      transition: all 0.1s;
+      ${ButtonStyle}
+
+      &::after {
+        top: 50%;
+        ${theme.dir === 'rtl' ? 'left' : 'right'}: 0.75rem;
         position: absolute;
-        line-height: 1.15;
-        padding: 0 5px;
-        font-size: ${theme[`formControlFontSize${fieldSize}`]};
-        transform: scale(.90) translate(
-            ${theme.dir === 'rtl' && '-'}${padding[1]}, 
-            -50%
-          );
-
-        color: ${theme.formControlPlaceholderColor};
-        ${focused && `color: ${theme.formControlSelectedBorderColor}`};
-        ${status && `color: ${theme[`formControl${status}BorderColor`]}`};
+        display: inline-block;
+        width: 0;
+        height: 0;
+        margin-left: 0.255em;
+        vertical-align: 0.255em;
+        content: '';
+        border-top: 0.3em solid;
+        border-right: 0.3em solid transparent;
+        border-bottom: 0;
+        border-left: 0.3em solid transparent;
       }
-    .select-container {
+
+      ${opened &&
+        placement &&
+        css`
+            border-${placement}-left-radius: 0;
+            border-${placement}-right-radius: 0;
+          `}
+    }
+  `}
+`;
+
+const SelectCard = styled.div`
+  ${({ theme, placement, status, position }) => css`
+    position: absolute;
+    box-sizing: border-box;
+    z-index: 1000;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    min-width: 1px;
+    min-height: 1px;
+    top: 0px;
+    left: 0px;
+    .overlay-pane {
+      position: absolute;
+      pointer-events: auto;
       display: flex;
-      min-width: 0%;
-      margin-bottom: 1rem;
-      line-height: 1.15;
+      max-width: 100%;
+      max-height: 100%;
+      box-sizing: border-box;
+      ${!position && 'visibility: hidden;'}
 
-      .select__control {
-        background-color: ${theme.formControlBg};
-        border-width: ${theme.formControlBorderWidth};
-        border-color: ${theme.formControlBorderColor};
-        border-style: ${theme.formControlBorderType};
-        color: ${theme.formControlTextPrimaryColor};
-        box-shadow: none;
-        ${fullWidth && 'width: 100%;'}
-        height: calc(
-          (${padding[0]} * 2 ) + 
-          (${theme[`formControlFontSize${fieldSize}`]} * 1.15) +
-          (${theme.formControlBorderWidth} * 2)
-          );
-
-        ${status &&
-          css`
-            border-color: ${theme[`formControl${status}BorderColor`]};
-          `}
-        ${shape &&
-          css`
-            border-radius: ${theme[`formControl${shape}BorderRadius`]};
-          `}
-        .select__value-container {
-          .select__placeholder{
-            color: ${theme.formControlPlaceholderColor};
-          }
-          .select__single-value{
-            color: inherit;
-          }
-          .select__multi-value__remove{
-            color: ${theme.colorDanger};
-          }
-            
-        }
-      }
-      .select__control--is-focused {
-        outline: none;
-        background-color: ${theme.formControlFocusBg};
-        ${!status && `border-color: ${theme.formControlSelectedBorderColor};`}
-      }
-      .select__menu {
-        z-index: 2;
-        box-shadow: none;
+      ${Card} {
         background-color: ${theme.selectBg};
         max-height: ${theme.selectMaxHeight};
-        border-width: ${theme.formControlBorderWidth};
-        border-color: ${theme.formControlBorderColor};
-        border-style: ${theme.formControlBorderType};
-        .select__option--is-focused,
-        .select__option--is-selected {
-          background-color: ${theme['colorSuccess']};
-          color: ${theme.colorWhite};
+        margin-bottom: 0;
+        box-shadow: none;
+        .card-body {
+          padding: 0;
+        }
+        ${Option} {
+          padding: ${theme.selectOptionPadding};
         }
         ${status &&
           css`
             border: ${theme.selectBorderWidth} solid ${theme[`color${status}`]};
-            .select__option--is-focused,
-            .select__option--is-selected {
+
+            ${Option}:hover, ${Option}.selected {
               background-color: ${theme[`color${status}`]};
               color: ${theme.colorWhite};
             }
           `}
+        ${getBorder(placement)}
+        ${Option},
+        ${OptionGroup} {
+          &.disabled {
+            background-color: ${theme.selectOptionDisabledBg};
+            opacity: ${theme.selectOptionDisabledOpacity};
+          }
+        }
+      } 
+    }
+  `}
+`;
+
+const getBorder = placement => {
+  const pos = placement === 'top' ? 'bottom' : 'top';
+  return `border-${pos}-left-radius: 0;border-${pos}-right-radius: 0;`;
+};
+
+const Option = styled.div`
+  ${({ theme }) => css`
+    display: block;
+
+    &.disabled {
+      pointer-events: none;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    ${CheckboxStyle} {
+      pointer-events: none;
+      .description {
+        color: inherit;
       }
     }
-  `;
-  }}
+    &&.selected {
+      ${CheckboxStyle} {
+        .indicator {
+          border-color: ${theme.selectCheckboxColor};
+
+          &::before {
+            border-color: ${theme.selectCheckmarkColor};
+          }
+        }
+      }
+    }
+  `}
 `;
-export default StyledSelect;
+
+const OptionGroup = styled.div`
+  display: block;
+
+  span {
+    padding: 1.125rem 0.5rem;
+    display: block;
+  }
+
+  &.disabled {
+    pointer-events: none;
+  }
+
+  ${Option} {
+    padding: 0.75rem 0.75rem 0.75rem 2.5rem;
+  }
+`;
+export { SelectCard, SelectStyle, Option, OptionGroup };

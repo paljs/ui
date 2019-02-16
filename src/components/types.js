@@ -67,6 +67,16 @@ function menuItemsType(...args) {
   )(...args);
 }
 
+const buttonTypes = {
+  fullWidth: PropTypes.bool,
+  hero: PropTypes.bool,
+  outline: PropTypes.bool,
+  pulse: PropTypes.bool,
+  size: PropTypes.oneOf(['XS', 'SM', 'MD', 'LG']),
+  shape,
+  status: PropTypes.oneOf([...statusArray, 'Secondary'])
+};
+
 export {
   badge,
   colorState,
@@ -76,5 +86,6 @@ export {
   position,
   placement,
   trigger,
-  menuItemsType
+  menuItemsType,
+  buttonTypes
 };

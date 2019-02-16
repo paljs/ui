@@ -13,25 +13,36 @@ import { colorState } from '../../types';
 const Checkbox = props => {
   const [value, setValue] = useState(props.checked ? props.checked : false);
 
+  const uncontrolled = typeof props.onChange === 'function';
   const onChangeHandler = () => {
-    typeof props.onChange === 'function' && props.onChange(!value);
+    uncontrolled && props.onChange(!value);
     setValue(!value);
   };
 
   return (
     <CheckboxStyle
       disabled={props.disabled}
-      checked={value}
+      checked={uncontrolled ? value : props.checked}
       status={props.status}
       className={props.className}
+      style={props.style}
     >
-      <input
-        type="checkbox"
-        disabled={props.disabled}
-        checked={value}
-        onChange={onChangeHandler}
-        onBlur={props.onBlur}
-      />
+      {uncontrolled ? (
+        <input
+          type="checkbox"
+          disabled={props.disabled}
+          onBlur={props.onBlur}
+          checked={value}
+          onChange={onChangeHandler}
+        />
+      ) : (
+        <input
+          type="checkbox"
+          disabled={props.disabled}
+          onBlur={props.onBlur}
+        />
+      )}
+
       <span className="indicator" />
       <span className="description">{props.children}</span>
     </CheckboxStyle>
@@ -39,10 +50,12 @@ const Checkbox = props => {
 };
 
 Checkbox.propTypes = {
-  onChange: PropTypes.func.isRequired,
+  onChange: PropTypes.func,
   onBlur: PropTypes.func,
   checked: PropTypes.bool,
   disabled: PropTypes.bool,
+  className: PropTypes.string,
+  style: PropTypes.string,
   status: colorState
 };
 export default Checkbox;

@@ -7,7 +7,7 @@
 import styled, { css, keyframes } from 'styled-components';
 import { tint, shade, adjustHue, mix } from 'polished';
 import PropTypes from 'prop-types';
-import { shape, statusArray } from './types';
+import { buttonTypes } from './types';
 
 /* eslint-disable indent */
 
@@ -240,29 +240,19 @@ const defaultProps = {
   status: 'Primary'
 };
 
-const propTypes = {
-  fullWidth: PropTypes.bool,
-  hero: PropTypes.bool,
-  outline: PropTypes.bool,
-  pulse: PropTypes.bool,
-  size: PropTypes.oneOf(['XS', 'SM', 'MD', 'LG']),
-  shape,
-  status: PropTypes.oneOf([...statusArray, 'Secondary'])
-};
-
 const Button = styled.button`
   ${ButtonStyle}
 `;
 
 Button.defaultProps = defaultProps;
-Button.propTypes = propTypes;
+Button.propTypes = buttonTypes;
 
 const ButtonLink = styled.a`
   ${ButtonStyle}
 `;
 
 ButtonLink.defaultProps = defaultProps;
-ButtonLink.propTypes = propTypes;
+ButtonLink.propTypes = buttonTypes;
 
 const ButtonInput = styled.input`
   &[type='button'],
@@ -273,7 +263,7 @@ const ButtonInput = styled.input`
 
 ButtonInput.defaultProps = { ...defaultProps, type: 'button' };
 ButtonInput.propTypes = {
-  ...propTypes,
+  ...buttonTypes,
   type: PropTypes.oneOf(['button', 'submit'])
 };
 
