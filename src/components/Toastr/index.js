@@ -65,9 +65,7 @@ const Toastr = forwardRef((props, ref) => {
               position={position}
               isTop={position === 'topEnd' || position === 'topStart'}
             >
-              <div className="overlay-pane">
-                <div className="container" id={'toastr' + position} />
-              </div>
+              <div className="overlay-pane" id={'toastr' + position} />
             </ToastrContainer>,
             document.getElementById('overlay-container')
           )

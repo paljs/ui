@@ -47,26 +47,6 @@ const GroupStyle = styled.div`
             ${theme.dir === 'rtl' && '-'}${padding[1]}, 
             -50%
           );
-
-          color: ${
-            status
-              ? theme[`formControl${status}BorderColor`]
-              : theme.formControlSelectedBorderColor
-          };
-
-        }
-      }
-      select {
-        height: calc(
-          (${padding[0]} * 2 ) + 
-          (${theme[`formControlFontSize${fieldSize}`]} * 1.15)
-          );
-        box-sizing: content-box;
-        & ~ .label{
-          transform: scale(.90) translate(
-            ${theme.dir === 'rtl' && '-'}${padding[1]}, 
-            -50%
-          );
         }
         &:not([disabled]):focus ~ .label{
           color: ${
@@ -75,10 +55,12 @@ const GroupStyle = styled.div`
               : theme.formControlSelectedBorderColor
           };
         }
+        &[value]:not([value=""]) ~ .label{
+          ${status && `color: ${theme[`formControl${status}BorderColor`]}`};
+        }
       }
 
       input,
-      select,
       textarea{
         background-color: ${theme.formControlBg};
         border-width: ${theme.formControlBorderWidth};

@@ -8,6 +8,7 @@ import React, { useState, forwardRef, useImperativeHandle } from 'react';
 import PropTypes from 'prop-types';
 import { MenuStyle } from './style';
 import Item from './Item';
+import { menuItemsType } from '../types';
 
 const Menu = forwardRef((props, ref) => {
   const [items, setItems] = useState(props.items);
@@ -68,7 +69,7 @@ const Menu = forwardRef((props, ref) => {
   };
 
   return (
-    <MenuStyle className="menu">
+    <MenuStyle className={props.className} style={props.style}>
       <ul className="menu-items">
         {items.map((item, index) => {
           return (
@@ -90,28 +91,11 @@ const Menu = forwardRef((props, ref) => {
   );
 });
 
-const itemType = {
-  title: PropTypes.string.isRequired,
-  link: PropTypes.any,
-  expanded: PropTypes.bool,
-  group: PropTypes.bool,
-  hidden: PropTypes.bool,
-  icon: PropTypes.string,
-  target: PropTypes.string,
-  url: PropTypes.string
-};
-function recursive(...args) {
-  return PropTypes.arrayOf(
-    PropTypes.shape({
-      ...itemType,
-      children: recursive
-    })
-  )(...args);
-}
-
 Menu.propTypes = {
-  items: recursive,
+  items: menuItemsType,
   toggleSidebar: PropTypes.func,
-  Link: PropTypes.object.isRequired
+  Link: PropTypes.object.isRequired,
+  className: PropTypes.string,
+  style: PropTypes.string
 };
 export default Menu;

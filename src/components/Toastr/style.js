@@ -11,7 +11,7 @@ const ToastrStyle = styled.div`
     display: flex;
     align-items: center;
     width: 25rem;
-    margin: 0.5rem;
+    margin: 0.25rem 0.5rem;
     opacity: 0.9;
     transition: all 150ms ease-out;
     &&.animation{
@@ -148,10 +148,7 @@ const ToastrContainer = styled.div`
     display: flex;
     max-width: 100%;
     max-height: 100%;
-    .container {
-      display: flex;
-      flex-direction: ${({ isTop }) => (isTop ? 'column-reverse' : 'column')};
-    }
+    flex-direction: ${({ isTop }) => (isTop ? 'column-reverse' : 'column')};
   }
 `;
 

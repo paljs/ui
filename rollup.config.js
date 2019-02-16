@@ -20,13 +20,13 @@ const folders = [];
 const files = [];
 [
   'Alert',
-  'Button',
   'Badge',
-  'Overlay',
+  'Button',
   'GlobalStyle',
-  'Spinner',
+  'List',
+  'Overlay',
   'ProgressBar',
-  'List'
+  'Spinner'
 ].map(file => {
   files.push({
     input: `src/components/${file}.js`,
@@ -35,20 +35,21 @@ const files = [];
   });
 });
 [
-  'Actions',
-  'Menu',
   'Accordion',
+  'Actions',
   'Card',
+  'ContextMenu',
+  'Form',
   'Grid',
+  'Layout',
+  'Menu',
+  'Popover',
+  'Search',
   'Sidebar',
   'Tabs',
-  'Layout',
-  'Form',
-  'Search',
-  'User',
-  'Popover',
+  'Toastr',
   'Tooltip',
-  'Toastr'
+  'User'
 ].map(file => {
   folders.push({
     input: `src/components/${file}/index.js`,

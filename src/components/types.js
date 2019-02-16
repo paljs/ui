@@ -48,6 +48,25 @@ const size = PropTypes.oneOf(['XXS', 'XS', 'SM', 'MD', 'LG', 'XL', 'XXL']);
 
 const shape = PropTypes.oneOf(['Rectangle', 'SemiRound', 'Round']);
 
+const itemType = {
+  title: PropTypes.string.isRequired,
+  link: PropTypes.any,
+  expanded: PropTypes.bool,
+  group: PropTypes.bool,
+  hidden: PropTypes.bool,
+  icon: PropTypes.string,
+  target: PropTypes.string,
+  url: PropTypes.string
+};
+function menuItemsType(...args) {
+  return PropTypes.arrayOf(
+    PropTypes.shape({
+      ...itemType,
+      children: menuItemsType
+    })
+  )(...args);
+}
+
 export {
   badge,
   colorState,
@@ -56,5 +75,6 @@ export {
   shape,
   position,
   placement,
-  trigger
+  trigger,
+  menuItemsType
 };

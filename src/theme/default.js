@@ -246,7 +246,7 @@ export default {
   contextMenuBorder: 'colorSuccess',
   contextMenuBorderRadius: 'radius',
   contextMenuShadow: 'none',
-  contextMenuArrowSize: '11px',
+  contextMenuArrowSize: 11,
 
   actionsFontSize: 'fontSize',
   actionsFontFamily: 'fontSecondary',

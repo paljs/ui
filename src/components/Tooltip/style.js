@@ -14,7 +14,6 @@ const TooltipStyle = styled.div`
 
     return css`
       position: absolute;
-      pointer-events: none;
       box-sizing: border-box;
       z-index: 1000;
       display: flex;
@@ -22,7 +21,6 @@ const TooltipStyle = styled.div`
       height: 100%;
       min-width: 1px;
       min-height: 1px;
-      flex-direction: column;
       top: 0px;
       left: 0px;
       .overlay-pane {
