@@ -66,6 +66,11 @@ function Select(props) {
     const target = targetRef.current.getBoundingClientRect();
     const overlay = overlayRef.current.getBoundingClientRect();
 
+    const data = {
+      placement: 'bottom',
+      position: { top: 0, left: target.left, maxHeight: 'none' }
+    };
+
     if (overlay.height > window.innerHeight - target.bottom) {
       if (overlay.height < target.top) {
         data.placement = 'top';
@@ -73,10 +78,6 @@ function Select(props) {
         data.position.maxHeight = window.innerHeight - target.bottom;
       }
     }
-    const data = {
-      placement: 'bottom',
-      position: { top: 0, left: target.left, maxHeight: 'none' }
-    };
     data.position.top =
       data.placement === 'bottom' ? target.bottom : target.top - overlay.height;
 
