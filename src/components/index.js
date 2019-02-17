@@ -12,6 +12,7 @@ export * from './Layout';
 export * from './List';
 export * from './Form';
 export * from './Button';
+export * from './Chat';
 export * from './positionHelper';
 
 export { default as Actions } from './Actions';

@@ -38,6 +38,7 @@ const files = [];
   'Accordion',
   'Actions',
   'Card',
+  'Chat',
   'ContextMenu',
   'Form',
   'Grid',
