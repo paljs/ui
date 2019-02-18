@@ -1,40 +1,30 @@
 {
-  "name": "gatsby-documentation-starter",
-  "description": "Gatsby documentation starter",
+  "name": "oah-ui-docs",
+  "description": "React Styled Components with bootstrap grid system.",
   "version": "1.0.0",
-  "author": "Ryosuke <ryosuke.san.hana@gmail.com>",
+  "author": "OAH Technology <ahmed.elywa@icloud.com>",
   "dependencies": {
-    "@mdx-js/mdx": "^0.15.0",
-    "@mdx-js/tag": "^0.15.0",
-    "gatsby": "next",
-    "gatsby-image": "next",
-    "gatsby-link": "next",
-    "gatsby-mdx": "^0.1.3",
-    "gatsby-paginate": "1.0.16",
-    "gatsby-plugin-feed": "next",
-    "gatsby-plugin-google-analytics": "next",
-    "gatsby-plugin-manifest": "next",
-    "gatsby-plugin-offline": "next",
-    "gatsby-plugin-react-helmet": "next",
-    "gatsby-plugin-sharp": "next",
-    "gatsby-plugin-sitemap": "next",
-    "gatsby-remark-copy-linked-files": "next",
-    "gatsby-remark-images": "next",
-    "gatsby-remark-prismjs": "next",
-    "gatsby-remark-smartypants": "next",
-    "gatsby-source-filesystem": "next",
-    "gatsby-transformer-json": "next",
-    "gatsby-transformer-react-docgen": "next",
-    "gatsby-transformer-remark": "next",
-    "gatsby-transformer-sharp": "next",
-    "markdown-it": "^8.4.2",
-    "mdx-deck": "^1.7.3",
+    "gatsby": "^2.1.4",
+    "gatsby-image": "^2.0.20",
+    "gatsby-mdx": "^0.2.0",
+    "gatsby-plugin-layout": "^1.0.12",
+    "gatsby-plugin-manifest": "^2.0.13",
+    "gatsby-plugin-mdx-code-demo": "^0.1.2",
+    "gatsby-plugin-offline": "^2.0.20",
+    "gatsby-plugin-react-helmet": "^3.0.5",
+    "gatsby-plugin-sharp": "^2.0.17",
+    "gatsby-remark-prismjs": "^3.2.4",
+    "gatsby-source-filesystem": "^2.0.8",
+    "gatsby-transformer-remark": "^2.2.5",
+    "gatsby-transformer-sharp": "^2.1.10",
+    "ionicons": "^4.5.5",
+    "oah-ui": "^0.0.0-22",
     "prismjs": "^1.15.0",
-    "react": "^16.4.2",
-    "react-dom": "^16.4.2",
+    "prop-types": "^15.6.2",
+    "react": "^16.8.2",
+    "react-dom": "^16.8.2",
     "react-helmet": "^5.2.0",
-    "react-jss": "^8.6.1",
-    "react-markdownit": "^2.5.0"
+    "styled-components": "^4.1.3"
   },
   "keywords": [
     "gatsby"
@@ -42,15 +32,19 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
-    "develop": "gatsby develop",
-    "format": "prettier --write '**/*.js'",
+    "dev": "gatsby develop",
+    "start": "npm run develop",
+    "format": "prettier --write \"src/**/*.js\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "prettier": "^1.14.2"
+    "@mdx-js/loader": "^0.16.6",
+    "@mdx-js/mdx": "^0.16.6",
+    "@mdx-js/tag": "^0.16.6",
+    "prettier": "^1.15.2"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/oahtech/oah-ui"
   }
 }

@@ -5,3 +5,5 @@
  */
 
 // You can delete this file if you're not using it
+import './src/styles/normalize.css';
+import 'ionicons/dist/css/ionicons.min.css';
