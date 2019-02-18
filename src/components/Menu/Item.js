@@ -44,12 +44,12 @@ const Item = ({ item, toggleSidebar, toggleSubMenu, selectItem, id, Link }) => {
           className={item.selected ? 'active' : ''}
           onClick={toggleSidebar}
         >
-          <i className={'menu-icon ' + item.icon} />
+          {item.icon && <i className={'menu-icon ' + item.icon} />}
           <span className="menu-title">{item.title}</span>
         </Link>
       ) : item.url && !item.children ? (
         <a href={item.url} target={item.target} title={item.title}>
-          <i className={'menu-icon ' + item.icon} />
+          {item.icon && <i className={'menu-icon ' + item.icon} />}
           <span className="menu-title">{item.title}</span>
         </a>
       ) : item.children ? (
@@ -63,7 +63,7 @@ const Item = ({ item, toggleSidebar, toggleSubMenu, selectItem, id, Link }) => {
             }}
             className={item.selected ? 'active' : ''}
           >
-            <i className={'menu-icon ' + item.icon} />
+            {item.icon && <i className={'menu-icon ' + item.icon} />}
             <span className="menu-title">{item.title}</span>
             <i className="chevron">
               {item.expanded ? <ArrowDown /> : <ArrowLeft />}

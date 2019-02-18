@@ -6,7 +6,7 @@ const LayoutStyle = styled(Card)`
   ${({ theme }) => css`
     margin-bottom: 1rem;
     .card-body {
-      padding: 2rem 1rem;
+      padding: 2rem;
       & > *:last-child {
         margin-bottom: 0 !important;
         & *:last-child {

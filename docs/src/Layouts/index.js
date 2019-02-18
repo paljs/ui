@@ -38,7 +38,6 @@ export default function LayoutPage(props) {
       theme={{
         ...themes(theme, {
           sidebarHeaderGap: '2rem',
-          sidebarWidth: '21rem',
           fontMain:
             '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"'
         }),

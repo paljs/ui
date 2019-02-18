@@ -1,6 +1,9 @@
-import React from 'react';
-import Api from '../mdx/index.mdx';
+import React, { useEffect } from 'react';
+import { navigate } from 'gatsby';
 
 export default function Index() {
-  return <Api />;
+  useEffect(() => {
+    navigate('getting-started');
+  }, []);
+  return <div />;
 }
