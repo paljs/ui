@@ -9,30 +9,37 @@ import corporateTheme from './corporate';
 import defaultTheme from './default';
 export * from './breakpoints';
 
+const themeValues = {
+  default: defaultTheme,
+  cosmic: cosmicTheme,
+  corporate: corporateTheme
+};
+
 export function themes(theme, settings = {}) {
   switch (theme) {
-    case 'default':
-      return getThemeValue({ ...defaultTheme, ...settings });
     case 'cosmic':
-      return getThemeValue({ ...defaultTheme, ...cosmicTheme, ...settings });
     case 'corporate':
-      return getThemeValue({ ...defaultTheme, ...corporateTheme, ...settings });
+      return getThemeValue({
+        ...defaultTheme,
+        ...themeValues[theme],
+        ...settings
+      });
+    default:
+      return getThemeValue({ ...defaultTheme, ...settings });
   }
 }
 
 function getThemeValue(settings) {
-  Object.keys(settings).map(key => {
+  Object.keys(settings).forEach(key => {
     settings[key] = getKeyValue(settings, key);
   });
   return settings;
 }
 
 function getKeyValue(settings, key) {
-  let value = '';
   if (settings[settings[key]]) {
-    value = getKeyValue(settings, settings[key]);
+    return getKeyValue(settings, settings[key]);
   } else {
-    value = settings[key];
+    return settings[key];
   }
-  return value;
 }

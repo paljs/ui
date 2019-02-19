@@ -42,7 +42,7 @@ function ifWidthInBreakpoint(breakpoint = []) {
   breakpoint
     .filter(b => ~bp.indexOf(b))
     .sort((b1, b2) => bp.indexOf(b1) - bp.indexOf(b2))
-    .map(b => {
+    .forEach(b => {
       const next = breakpointNext(bp.indexOf(b));
       if (
         window.innerWidth >= breakpoints[b] &&
@@ -54,7 +54,7 @@ function ifWidthInBreakpoint(breakpoint = []) {
   return value;
 }
 function breakpointMin(name) {
-  return breakpoints[name] != 0 ? breakpoints[name] : null;
+  return breakpoints[name] !== 0 ? breakpoints[name] : null;
 }
 
 function breakpointNext(index) {
