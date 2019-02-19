@@ -1,8 +1,7 @@
-import React from 'react';
 import { Card } from 'oah-ui';
 import styled, { css } from 'styled-components';
 
-const LayoutStyle = styled(Card)`
+const MdxLayoutStyle = styled(Card)`
   ${({ theme }) => css`
     margin-bottom: 1rem;
     .card-body {
@@ -147,13 +146,4 @@ const LayoutStyle = styled(Card)`
     }
   `}
 `;
-
-function MdxLayout({ children }) {
-  return (
-    <LayoutStyle>
-      <div className="card-body">{children}</div>
-    </LayoutStyle>
-  );
-}
-
-export default MdxLayout;
+export default MdxLayoutStyle;

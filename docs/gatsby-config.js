@@ -7,14 +7,14 @@ module.exports = {
     author: 'OAH Technology'
   },
   plugins: [
-    'gatsby-transformer-remark',
+    'gatsby-plugin-styled-components',
     'gatsby-plugin-layout',
     {
       resolve: 'gatsby-mdx',
       options: {
         decks: [],
         defaultLayouts: {
-          default: path.resolve('./src/components/MdxLayout.js')
+          default: path.resolve('./src/components/MdxLayout/index.js')
         },
         extensions: ['.mdx', '.md'],
         gatsbyRemarkPlugins: [
