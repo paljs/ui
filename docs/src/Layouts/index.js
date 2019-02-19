@@ -22,16 +22,11 @@ import SimpleLayout from './SimpleLayout';
 
 export default function LayoutPage(props) {
   const [theme, setTheme] = useState('default');
-  const [dir, setDir] = useState('ltr');
   const sidebarRef = useRef();
   const menuRef = useRef();
 
   const changeTheme = newTheme => {
     setTheme(newTheme);
-  };
-  const changeDir = () => {
-    const newDir = dir === 'ltr' ? 'rtl' : 'ltr';
-    setDir(newDir);
   };
   return (
     <ThemeProvider
@@ -41,17 +36,15 @@ export default function LayoutPage(props) {
           fontMain:
             '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"'
         }),
-        dir,
         theme
       }}
     >
       <Fragment>
         <SimpleLayout globalStyle={GlobalStyle} />
-        <Layout dir={dir}>
+        <Layout>
           <LayoutHeader fixed>
             <Header
               changeTheme={theme => changeTheme(theme)}
-              changeDir={changeDir}
               toggleSidebar={() => sidebarRef.current.toggle()}
               collapseAll={() => menuRef.current.collapseAll()}
               expandAll={() => menuRef.current.expandAll()}

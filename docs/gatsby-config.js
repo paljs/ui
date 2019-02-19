@@ -21,16 +21,13 @@ module.exports = {
           {
             resolve: 'gatsby-plugin-mdx-code-demo',
             options: {
-              demoComponent: path.resolve('./src/components/Example.js') // a container component to render your demos
+              demoComponent: path.resolve('./src/components/Example.js')
             }
           },
           {
             resolve: 'gatsby-remark-prismjs',
             options: {
               classPrefix: 'language-',
-              inlineCodeMarker: {
-                jsx: 'jsx'
-              },
               aliases: {}
             }
           }

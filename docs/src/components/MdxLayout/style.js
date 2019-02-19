@@ -7,9 +7,9 @@ const MdxLayoutStyle = styled(Card)`
     .card-body {
       padding: 2rem;
       & > *:last-child {
-        margin-bottom: 0 !important;
+        margin-bottom: 0;
         & *:last-child {
-          margin-bottom: 0 !important;
+          margin-bottom: 0;
         }
       }
     }

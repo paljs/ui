@@ -1,18 +1,30 @@
 import React from 'react';
-import { Row, Col, Card, Tabs, Tab } from 'oah-ui';
+import { Row, Col, Tabs, Tab } from 'oah-ui';
+import styled, { css } from 'styled-components';
+
+const Style = styled.div`
+  ${({ theme }) => css`
+    border: 1px solid ${theme.separator};
+    border-radius: ${theme.radius};
+    .gatsby-highlight {
+      border-radius: 0;
+      border-bottom-left-radius: ${theme.radius};
+      border-bottom-right-radius: ${theme.radius};
+      margin: -1.25rem !important;
+    }
+  `}
+`;
 
 function DemoComponent({ code, children }) {
   return (
     <Row>
       <Col xs={12}>
-        <Card>
-          <Tabs fullWidth>
-            <Tab title="Live">{children}</Tab>
-            <Tab title="Code">
-              <pre>{code}</pre>
-            </Tab>
+        <Style>
+          <Tabs>
+            <Tab title="preview">{children}</Tab>
+            <Tab title="code">{code}</Tab>
           </Tabs>
-        </Card>
+        </Style>
       </Col>
     </Row>
   );

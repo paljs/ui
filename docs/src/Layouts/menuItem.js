@@ -12,8 +12,8 @@ export default [
         link: '/guides/install-based-on-starter-kit'
       },
       {
-        title: 'Add into existing project',
-        link: '/guides/add-into-existing-project'
+        title: 'Start new project',
+        link: '/guides/start-new-project'
       },
       {
         title: 'Theme System',
@@ -24,12 +24,156 @@ export default [
         link: '/guides/enable-theme-system'
       },
       {
-        title: 'Change Theme',
-        link: '/guides/change-theme'
-      },
-      {
         title: 'Grid System',
         link: '/guides/grid-system'
+      }
+    ]
+  },
+  {
+    title: 'Components',
+    link: '/components',
+    children: [
+      {
+        title: 'Global',
+        group: true
+      },
+      {
+        title: 'Layout',
+        link: '/components/layout'
+      },
+      {
+        title: 'Grid',
+        link: '/components/grid'
+      },
+      {
+        title: 'Cards',
+        link: '/components/cards'
+      },
+      {
+        title: 'Flip Card',
+        link: '/components/flip-card'
+      },
+      {
+        title: 'Reveal Card',
+        link: '/components/reveal-card'
+      },
+      {
+        title: 'Accordion',
+        link: '/components/accordion'
+      },
+      {
+        title: 'List',
+        link: '/components/list'
+      },
+      {
+        title: 'Navigation',
+        group: true
+      },
+      {
+        title: 'Sidebar',
+        link: '/components/sidebar'
+      },
+      {
+        title: 'Menu',
+        link: '/components/menu'
+      },
+      {
+        title: 'Tabs',
+        link: '/components/tabs'
+      },
+      {
+        title: 'Actions',
+        link: '/components/actions'
+      },
+      {
+        title: 'Forms',
+        group: true
+      },
+      {
+        title: 'Input',
+        link: '/components/inputs'
+      },
+      {
+        title: 'Checkbox',
+        link: '/components/checkbox'
+      },
+      {
+        title: 'Radio',
+        link: '/components/radio'
+      },
+      {
+        title: 'Button',
+        link: '/components/button'
+      },
+      {
+        title: 'Select',
+        link: '/components/select'
+      },
+      {
+        title: 'Modal && Overlays',
+        group: true
+      },
+      {
+        title: 'Popover',
+        link: '/components/popover'
+      },
+      {
+        title: 'Tooltip',
+        link: '/components/tooltip'
+      },
+      {
+        title: 'Toastr',
+        link: '/components/toastr'
+      },
+      {
+        title: 'Extra',
+        group: true
+      },
+      {
+        title: 'Global Search',
+        link: '/components/search'
+      },
+      {
+        title: 'User (Avatar)',
+        link: '/components/user'
+      },
+      {
+        title: 'Alert',
+        link: '/components/alert'
+      },
+      {
+        title: 'Spinner',
+        link: '/components/spinner'
+      },
+      {
+        title: 'Progress Bar',
+        link: '/components/progress'
+      },
+      {
+        title: 'Badge',
+        link: '/components/progress'
+      },
+      {
+        title: 'Chat UI',
+        link: '/components/Chat'
+      }
+    ]
+  },
+  {
+    title: 'Themes',
+    link: '/themes',
+    children: [
+      {
+        title: 'Default',
+        link: '/themes/default'
+      },
+      {
+        title: 'Cosmic',
+        link: '/themes/cosmic'
+      },
+      {
+        title: 'Corporate',
+        link: '/themes/corporate'
       }
     ]
   }

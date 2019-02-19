@@ -24,9 +24,6 @@ export default function Header(props) {
       )
     },
     {
-      content: <button onClick={props.changeDir}>Dir</button>
-    },
-    {
       content: <button onClick={props.collapseAll}>collapseAll</button>
     },
     {
