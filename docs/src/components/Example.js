@@ -6,7 +6,7 @@ const Style = styled.div`
   ${({ theme }) => css`
     border: 1px solid ${theme.separator};
     border-radius: ${theme.radius};
-    background-color: #ebeff5;
+    background-color: ${theme.layoutBg};
     .gatsby-highlight {
       border-radius: 0;
       border-bottom-left-radius: ${theme.radius};

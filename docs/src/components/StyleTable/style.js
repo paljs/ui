@@ -31,11 +31,11 @@ const Table = styled.table`
       font-weight: 500;
     }
     a {
-      color: #4479e7;
+      color: ${({ theme }) => theme.tableLink};
       font-weight: ${({ theme }) => theme.fontWeightBold};
       text-decoration: none;
       &:hover {
-        color: #4479e7;
+        color: ${({ theme }) => theme.tableLink};
         text-decoration: underline;
       }
     }
@@ -43,7 +43,7 @@ const Table = styled.table`
 
   &.striped {
     tbody tr:nth-child(odd) {
-      background: #f5f6f7;
+      background: ${({ theme }) => theme.layoutBg};
     }
 
     td {

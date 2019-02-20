@@ -227,8 +227,8 @@ ${({ theme, globalStyle }) => css`
   /* Inline code */
   :not(pre) > code[class*='language-'] {
     border-radius: 0.25rem;
-    background: #f1f2f3;
-    color: #5699f0;
+    background: ${theme.layoutBg};
+    color: ${theme.tableLink};
     padding: 0.125rem 0.5rem;
     white-space: normal;
   }

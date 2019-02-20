@@ -7,7 +7,7 @@ const Box = styled.div`
     min-height: 1rem;
     overflow: hidden;
     text-align: center;
-    background: ${theme.colorBgActive};
+    background: ${theme.colorGray};
     padding: 0.75rem 0.25rem;
     border-radius: 0.25rem;
     ${large && 'height: 8rem;'};

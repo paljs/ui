@@ -136,11 +136,11 @@ const MdxLayoutStyle = styled(Card)`
       line-height: 1.5;
     }
     a {
-      color: ${theme.linkColor};
+      color: ${theme.tableLink};
       font-weight: ${theme.fontWeightBold};
       text-decoration: none;
       &:hover {
-        color: ${theme.linkColorHover};
+        color: ${theme.tableLink};
         text-decoration: underline;
       }
     }
