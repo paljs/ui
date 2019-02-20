@@ -4,17 +4,24 @@
  * Licensed under the MIT License. See License.txt in the project root for license information.
  */
 
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
-import LayoutStyle from './style';
-import { useState } from 'react';
+import {
+  LayoutStyle,
+  LayoutContainer,
+  LayoutContent,
+  LayoutColumns,
+  LayoutColumn,
+  HeaderStyle,
+  FooterStyle
+} from './style';
 import LayoutContext from './layout-context';
 
 function LayoutHeader(props) {
   return (
-    <header className={props.fixed ? 'fixed layout-header' : 'layout-header'}>
+    <HeaderStyle {...props}>
       <nav>{props.children}</nav>
-    </header>
+    </HeaderStyle>
   );
 }
 LayoutHeader.propTypes = {
@@ -22,30 +29,32 @@ LayoutHeader.propTypes = {
 };
 function LayoutFooter(props) {
   return (
-    <footer className="layout-footer">
+    <FooterStyle {...props}>
       <nav>{props.children}</nav>
-    </footer>
+    </FooterStyle>
   );
-}
-
-function LayoutColumns(props) {
-  return (
-    <div className="columns">
-      <div className="main-container">{props.children}</div>
-    </div>
-  );
-}
-
-function LayoutContent(props) {
-  return <div className="content">{props.children}</div>;
-}
-function LayoutContainer(props) {
-  return <div className="layout-container">{props.children}</div>;
 }
 
 function Layout(props) {
   const [className, setClassName] = useState(
     props.className ? [...props.className.split(' ')] : []
+  );
+
+  const scrollRef = useRef();
+
+  useEffect(
+    () => {
+      if (
+        (props.withScroll || props.windowMode) &&
+        !className.includes('with-scroll')
+      ) {
+        addClass(['with-scroll']);
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = 'initial';
+      }
+    },
+    [props.withScroll]
   );
 
   const addClass = cssClass => {
@@ -64,14 +73,58 @@ function Layout(props) {
     setClassName(updatedClass);
   };
 
+  const addEventListener = (event, listener, target = 'scrollArea') => {
+    switch (target) {
+      case 'Layout':
+        document.getElementById('oah-layout').addEventListener(event, listener);
+        break;
+
+      default:
+        if (props.withScroll || props.windowMode) {
+          scrollRef.current.addEventListener(event, listener);
+        } else {
+          window.addEventListener(event, listener);
+        }
+        break;
+    }
+  };
+  const removeEventListener = (event, listener, target = 'scrollArea') => {
+    switch (target) {
+      case 'Layout':
+        document
+          .getElementById('oah-layout')
+          .removeEventListener(event, listener);
+        break;
+
+      default:
+        if (props.withScroll || props.windowMode) {
+          scrollRef.current.removeEventListener(event, listener);
+        } else {
+          window.removeEventListener(event, listener);
+        }
+        break;
+    }
+  };
+
   return (
     <LayoutStyle
       id="oah-layout"
       className={className.join(' ')}
       style={props.style}
+      withScroll={props.withScroll}
+      windowMode={props.windowMode}
+      withSubHeader={props.withSubHeader}
     >
-      <LayoutContext.Provider value={{ addClass, removeClass, dir: props.dir }}>
-        <div className="scrollable-container">
+      <LayoutContext.Provider
+        value={{
+          addClass,
+          removeClass,
+          removeEventListener,
+          addEventListener,
+          dir: props.dir
+        }}
+      >
+        <div ref={scrollRef} className="scrollable-container">
           <div className="layout">{props.children}</div>
         </div>
         <div id="overlay-container" />
@@ -86,7 +139,10 @@ Layout.defaultProps = {
 Layout.propTypes = {
   dir: PropTypes.oneOf(['ltr', 'rtl']),
   className: PropTypes.string,
-  style: PropTypes.object
+  style: PropTypes.object,
+  withScroll: PropTypes.bool,
+  windowMode: PropTypes.bool,
+  withSubHeader: PropTypes.bool
 };
 
 export {
@@ -96,6 +152,7 @@ export {
   LayoutFooter,
   LayoutContainer,
   LayoutColumns,
+  LayoutColumn,
   LayoutStyle,
   LayoutContext
 };

@@ -9,13 +9,13 @@ import {
   LayoutFooter,
   LayoutContainer,
   LayoutColumns,
+  LayoutColumn,
   GlobalStyle,
   ButtonLink,
   Sidebar,
   SidebarBody,
   Menu
 } from 'oah-ui';
-
 import menuItems from './menuItem';
 import Header from './Header';
 import SimpleLayout from './SimpleLayout';
@@ -41,7 +41,7 @@ export default function LayoutPage(props) {
     >
       <Fragment>
         <SimpleLayout globalStyle={GlobalStyle} />
-        <Layout>
+        <Layout windowMode>
           <LayoutHeader fixed>
             <Header
               changeTheme={theme => changeTheme(theme)}
@@ -86,7 +86,12 @@ export default function LayoutPage(props) {
               </SidebarBody>
             </Sidebar>
             <LayoutContent>
-              <LayoutColumns>{props.children}</LayoutColumns>
+              <LayoutColumns>
+                <LayoutColumn>{props.children}</LayoutColumn>
+                <LayoutColumn position="start">
+                  start {props.children}
+                </LayoutColumn>
+              </LayoutColumns>
               <LayoutFooter>Footer</LayoutFooter>
             </LayoutContent>
           </LayoutContainer>

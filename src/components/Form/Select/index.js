@@ -1,12 +1,20 @@
 import ReactDOM from 'react-dom';
-import React, { useState, Fragment, useRef, useEffect } from 'react';
+import React, {
+  useState,
+  Fragment,
+  useRef,
+  useEffect,
+  useContext
+} from 'react';
 import PropTypes from 'prop-types';
 import { Card } from '../../Card';
 import Checkbox from '../Checkbox';
 import { SelectCard, SelectStyle, Option } from './style';
 import { buttonTypes } from '../../types';
+import layoutContext from '../../Layout/layout-context';
 
 function Select(props) {
+  const layout = useContext(layoutContext);
   const [options, setOptions] = useState([...props.options]);
   const [opened, setOpened] = useState(false);
   const [placement, setPlacement] = useState('bottom');
@@ -35,9 +43,7 @@ function Select(props) {
       if (opened) {
         positionHandle();
         window.addEventListener('resize', positionHandle);
-        document
-          .querySelector('.scrollable-container')
-          .addEventListener('scroll', positionHandle);
+        layout.addEventListener('scroll', positionHandle);
         if (props.eventListener) {
           document
             .querySelector(props.eventListener)
@@ -48,9 +54,8 @@ function Select(props) {
         window.removeEventListener('click', onClickHandle);
         if (opened) {
           window.removeEventListener('resize', positionHandle);
-          document
-            .querySelector('.scrollable-container')
-            .removeEventListener('scroll', positionHandle);
+          layout.removeEventListener('scroll', positionHandle);
+
           if (props.eventListener) {
             document
               .querySelector(props.eventListener)

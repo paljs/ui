@@ -19,9 +19,7 @@ export default function usePopoverPosition(props, targetRef, overlayRef) {
       if (show) {
         positionHandle();
         window.addEventListener('resize', positionHandle);
-        document
-          .querySelector('.scrollable-container')
-          .addEventListener('scroll', positionHandle);
+        layout.addEventListener('scroll', positionHandle);
         if (props.eventListener) {
           document
             .querySelector(props.eventListener)
@@ -30,9 +28,7 @@ export default function usePopoverPosition(props, targetRef, overlayRef) {
 
         return () => {
           window.removeEventListener('resize', positionHandle);
-          document
-            .querySelector('.scrollable-container')
-            .removeEventListener('scroll', positionHandle);
+          layout.removeEventListener('scroll', positionHandle);
           if (props.eventListener) {
             document
               .querySelector(props.eventListener)

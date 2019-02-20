@@ -8387,10 +8387,10 @@ number-is-nan@^1.0.0:
   resolved "https://registry.yarnpkg.com/nwmatcher/-/nwmatcher-1.4.4.tgz#2285631f34a95f0d0395cd900c96ed39b58f346e"
   integrity sha512-3iuY4N5dhgMpCUrOVnuAdGrgxVqV2cJpM+XNccjR2DKOB1RUP0aA+wGXEiNziG/UKboFyGBIoKOaNlJxx8bciQ==
 
-oah-ui@^0.0.0-23:
-  version "0.0.0-23"
-  resolved "https://registry.yarnpkg.com/oah-ui/-/oah-ui-0.0.0-23.tgz#370757b92d7fafbdd03f2aa8a855d0261cf270d0"
-  integrity sha512-iquiq7fzM6uSCgjdCAZkj1vn4HU99Fds3vGSbBKgH0Z27OuDq5v6HldloM1qz46Uk4o5wmylUL+90r79jCNe9w==
+oah-ui@^0.0.0-25:
+  version "0.0.0-25"
+  resolved "https://registry.yarnpkg.com/oah-ui/-/oah-ui-0.0.0-25.tgz#7755b4eabd75b2574d2a937afbe883159fadace7"
+  integrity sha512-DfGJCuEaLv+YThQfrvb6vPxcs+neO5DBBHwz32WN6/hA8nl4yS1rwuKQcLvy5OlMms3RqvdwnYvJfUjQwbtcIA==
   dependencies:
     polished "^2.3.3"
 

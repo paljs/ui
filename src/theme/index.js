@@ -22,10 +22,11 @@ export function themes(theme, settings = {}) {
       return getThemeValue({
         ...defaultTheme,
         ...themeValues[theme],
-        ...settings
+        ...settings,
+        theme
       });
     default:
-      return getThemeValue({ ...defaultTheme, ...settings });
+      return getThemeValue({ ...defaultTheme, ...settings, theme });
   }
 }
 
