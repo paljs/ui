@@ -14,8 +14,6 @@ ${({ theme, globalStyle }) => css`
   aside.menu-sidebar {
     margin-top: ${theme.sidebarHeaderGap};
 
-    ${theme.theme === 'corporate' && 'margin-top: 0'};
-
     .main-container {
       height: calc(
         ${theme.sidebarHeight} - ${theme.headerHeight} -
@@ -25,14 +23,6 @@ ${({ theme, globalStyle }) => css`
       ${theme.dir === 'rtl'
         ? `border-top-left-radius: ${theme.radius}`
         : `border-top-right-radius: ${theme.radius}`}
-
-      ${theme.theme === 'corporate' &&
-        css`
-          border: 1px solid ${theme.separator};
-          height: calc(
-            ${theme.sidebarHeight} - ${theme.headerHeight}
-          ) !important;
-        `}
     }
 
     .scrollable {
@@ -236,10 +226,10 @@ ${({ theme, globalStyle }) => css`
 
   /* Inline code */
   :not(pre) > code[class*='language-'] {
-    border-radius: 0.3em;
-    background: hsl(222, 14%, 25%);
-    color: #e6e6e6;
-    padding: 0.15em 0.2em 0.05em;
+    border-radius: 0.25rem;
+    background: #f1f2f3;
+    color: #5699f0;
+    padding: 0.125rem 0.5rem;
     white-space: normal;
   }
 

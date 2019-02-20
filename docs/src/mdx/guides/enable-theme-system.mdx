@@ -23,7 +23,7 @@ import { Link } from 'gatsby';
 To enable theme you must use [styled-components](https://www.styled-components.com/docs) package
 `themes` function take 2 args first one theme name second take object of settings that need to custom theme or use it in your styled components
 
-```jsx{2,4,25-26}
+```jsx
 // import ThemeProvider from styled-components to give it theme values
 import { ThemeProvider } from 'styled-components';
 // import themes function from oah-ui/theme
@@ -45,12 +45,10 @@ export default function LayoutPage(props) {
     setDir(newDir);
   };
 
+  // to enable direction you must send dir here and in layout component
   return (
     <ThemeProvider
-      theme={{
-        // to enable direction you must send dir here and in layout component
-        ...themes(theme, { dir, fontSize: '2rem', fontMain: 'font family' })
-      }}
+      theme={themes(theme, { dir, fontSize: '2rem', fontMain: 'font family' })}
     >
       <Layout dir={dir} />
     </ThemeProvider>
@@ -75,16 +73,17 @@ This setup assumes that you have gone through the _Normal Setup_ steps but you w
 ```js
 import { themes } from 'oah-ui/theme';
 
-export function themeService(theme, settings) {
+export function themeService(theme, dir) {
   switch (theme) {
-    case 'default':
-    case 'cosmic':
-      return themes(theme, { ...settings });
     case 'corporate':
-      return themes(theme, { ...settings, ...customCorporate });
+      return themes(theme, { dir, ...customCorporate });
     case 'dark':
       // this will take all default theme variables and over it with your custom variables
-      return themes(theme, { ...settings, customDark });
+      // if you want to inherit from another theme you can pase cosmic or corporate if first args
+      return themes('corporate', { dir, ...customDark });
+    case 'cosmic':
+    default:
+      return themes(theme, { dir });
   }
 }
 //  you can custom oah theme
@@ -124,13 +123,9 @@ export default function LayoutPage(props) {
     setDir(newDir);
   };
 
+  // add custom theme function here and give it theme name and dirction value
   return (
-    <ThemeProvider
-      theme={{
-        // add custom theme function here and give it theme name and dirction value
-        ...themeService(theme, { dir })
-      }}
-    >
+    <ThemeProvider theme={themeService(theme, dir)}>
       <Layout dir={dir} />
     </ThemeProvider>
   );

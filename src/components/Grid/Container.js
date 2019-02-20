@@ -35,7 +35,6 @@ const Container = styled.div`
 
 Container.propTypes = {
   fluid: PropTypes.bool,
-  gutter: PropTypes.number,
   children: PropTypes.node
 };
 

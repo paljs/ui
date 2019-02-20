@@ -53,6 +53,7 @@ import {
   LayoutFooter,
   LayoutContainer,
   LayoutColumns,
+  LayoutColumn,
   GlobalStyle,
   ButtonLink,
   Sidebar,
@@ -82,13 +83,11 @@ export default function LayoutPage(props) {
 
   return (
     <ThemeProvider
-      theme={{
-        ...themes(theme, { dir, fontSize: '2rem', fontMain: 'font family' })
-      }}
+      theme={themes(theme, { dir, fontSize: '2rem', fontMain: 'font family' })}
     >
       <Fragment>
         <SimpleLayout globalStyle={GlobalStyle} />
-        <Layout dir={dir}>
+        <Layout dir={dir} windowMode>
           <LayoutHeader fixed>Header</LayoutHeader>
           <LayoutContainer>
             <Sidebar
@@ -109,7 +108,9 @@ export default function LayoutPage(props) {
               </SidebarBody>
             </Sidebar>
             <LayoutContent>
-              <LayoutColumns>{props.children}</LayoutColumns>
+              <LayoutColumns>
+                <LayoutColumn>{props.children}</LayoutColumn>
+              </LayoutColumns>
               <LayoutFooter>Footer</LayoutFooter>
             </LayoutContent>
           </LayoutContainer>

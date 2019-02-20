@@ -3,7 +3,8 @@ import { Row, Col } from 'oah-ui';
 import Overview from '../../mdx/grid/overview.mdx';
 import SEO from '../../components/SEO';
 import Switch from '../../components/Switch';
-import StyleTable from '../../components/StyleTable';
+import ApiTable from '../../components/ApiTable';
+import { container, row, col } from '../../mdx/grid/ApiArray';
 
 function GridComponents() {
   return (
@@ -12,7 +13,15 @@ function GridComponents() {
       <Col xs={12}>
         <Switch title="Grid Components">
           <Overview />
-          <StyleTable keys={['header', 'sidebar']} />
+          <>
+            <ApiTable name="Container" props={container} />
+            <ApiTable
+              name="Row"
+              hint="breakpoints type is one of this [xs, is, sm, md, lg, xl, xxl, xxxl]"
+              props={row}
+            />
+            <ApiTable name="col" props={col} />
+          </>
         </Switch>
       </Col>
     </Row>

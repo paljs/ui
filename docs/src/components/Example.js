@@ -6,6 +6,7 @@ const Style = styled.div`
   ${({ theme }) => css`
     border: 1px solid ${theme.separator};
     border-radius: ${theme.radius};
+    background-color: #ebeff5;
     .gatsby-highlight {
       border-radius: 0;
       border-bottom-left-radius: ${theme.radius};
@@ -15,7 +16,7 @@ const Style = styled.div`
   `}
 `;
 
-function DemoComponent({ code, children }) {
+function Example({ code, children }) {
   return (
     <Row>
       <Col xs={12}>
@@ -30,4 +31,4 @@ function DemoComponent({ code, children }) {
   );
 }
 
-export default DemoComponent;
+export default Example;

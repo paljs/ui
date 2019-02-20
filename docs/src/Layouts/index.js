@@ -1,7 +1,7 @@
 import React, { useState, useRef, Fragment } from 'react';
 import { Link } from 'gatsby';
 import { ThemeProvider } from 'styled-components';
-import { themes } from 'oah-ui/theme';
+import themes from './themes';
 import {
   Layout,
   LayoutHeader,
@@ -29,16 +29,7 @@ export default function LayoutPage(props) {
     setTheme(newTheme);
   };
   return (
-    <ThemeProvider
-      theme={{
-        ...themes(theme, {
-          sidebarHeaderGap: '2rem',
-          fontMain:
-            '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"'
-        }),
-        theme
-      }}
-    >
+    <ThemeProvider theme={themes(theme)}>
       <Fragment>
         <SimpleLayout globalStyle={GlobalStyle} />
         <Layout windowMode>
@@ -60,21 +51,21 @@ export default function LayoutPage(props) {
               compactedBreakpoints={[]}
               collapsedBreakpoints={['xs', 'is', 'sm', 'md']}
             >
-              {theme !== 'corporate' && (
-                <header>
-                  <ButtonLink
-                    href="https://github.com/oahtech/oah-ui"
-                    target="_blank"
-                    className="main-btn"
-                    hero
-                    shape="Rectangle"
-                    status="Success"
-                  >
-                    <i className="icon ion-logo-github" />
-                    <span>Support Us</span>
-                  </ButtonLink>
-                </header>
-              )}
+              <header>
+                <ButtonLink
+                  href="https://github.com/oahtech/oah-ui"
+                  target="_blank"
+                  className="main-btn"
+                  shape="Rectangle"
+                  hero
+                  size="XS"
+                  status="Success"
+                >
+                  <i className="icon ion-logo-github" />
+                  <span>Support Us</span>
+                </ButtonLink>
+              </header>
+
               <SidebarBody>
                 <Menu
                   className="sidebar-menu"
@@ -88,9 +79,6 @@ export default function LayoutPage(props) {
             <LayoutContent>
               <LayoutColumns>
                 <LayoutColumn>{props.children}</LayoutColumn>
-                <LayoutColumn position="start">
-                  start {props.children}
-                </LayoutColumn>
               </LayoutColumns>
               <LayoutFooter>Footer</LayoutFooter>
             </LayoutContent>
