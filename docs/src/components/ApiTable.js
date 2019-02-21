@@ -6,7 +6,7 @@ function ApiTable(props) {
   return (
     <Card>
       <div className="card-body">
-        <h2 style={{ textTransform: 'uppercase' }}>{props.name}</h2>
+        <h2>{props.name}</h2>
         <h3>Props</h3>
         <p>{props.hint}</p>
         <Table className="striped">

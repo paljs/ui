@@ -28,8 +28,8 @@ function LayoutPage() {
               props={layoutProps}
               methods={layoutMethod}
             />
-            <ApiTable name="Header" props={headerProps} />
-            <ApiTable name="column" props={columnProps} />
+            <ApiTable name="LayoutHeader" props={headerProps} />
+            <ApiTable name="LayoutColumn" props={columnProps} />
           </>
           <StyleTable keys={['layout', 'header', 'footer']} />
         </Switch>

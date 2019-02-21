@@ -46,8 +46,8 @@ export default [
         link: '/components/grid'
       },
       {
-        title: 'Cards',
-        link: '/components/cards'
+        title: 'Card',
+        link: '/components/card'
       },
       {
         title: 'Flip Card',

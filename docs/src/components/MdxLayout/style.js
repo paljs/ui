@@ -6,9 +6,9 @@ const MdxLayoutStyle = styled(Card)`
     margin-bottom: 1rem;
     .card-body {
       padding: 2rem;
-      & > *:last-child {
+      & > *:last-child:not([class='flip-button']) {
         margin-bottom: 0;
-        & *:last-child {
+        & *:last-child:not([class='flip-button']) {
           margin-bottom: 0;
         }
       }

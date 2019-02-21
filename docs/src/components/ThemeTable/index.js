@@ -4,7 +4,7 @@ import { Link } from 'gatsby';
 import Table from '../StyleTable/style';
 import { getTheme } from './themeData';
 import { useChangeColor } from '../useChangeColor';
-
+/* eslint-disable */
 function ThemeTable(props) {
   const [search, setSearch] = useState('');
   useChangeColor('style-value');

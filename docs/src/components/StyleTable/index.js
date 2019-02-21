@@ -3,7 +3,7 @@ import { Card } from 'oah-ui';
 import { themes } from 'oah-ui/theme';
 import Table from './style';
 import { useChangeColor } from '../useChangeColor';
-
+/* eslint-disable */
 function StyleTable({ keys }) {
   useChangeColor('style-value');
   const theme = themes('default');

@@ -28,12 +28,14 @@ function Switch(props) {
                 <span>Api</span>
               </a>
             </li>
-            <li className={getClassName(2)} onClick={() => setState(2)}>
-              <a>
-                <i className="icon ion-ios-water" />
-                <span>Theme</span>
-              </a>
-            </li>
+            {props.children.length > 2 && (
+              <li className={getClassName(2)} onClick={() => setState(2)}>
+                <a>
+                  <i className="icon ion-ios-water" />
+                  <span>Theme</span>
+                </a>
+              </li>
+            )}
           </ul>
         </TabStyle>
       </Card>

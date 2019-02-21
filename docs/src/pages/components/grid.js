@@ -20,7 +20,7 @@ function GridComponents() {
               hint="breakpoints type is one of this [xs, is, sm, md, lg, xl, xxl, xxxl]"
               props={row}
             />
-            <ApiTable name="col" props={col} />
+            <ApiTable name="Col" props={col} />
           </>
         </Switch>
       </Col>
