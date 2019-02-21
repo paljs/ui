@@ -19,7 +19,8 @@ function AccordionItem() {}
 
 AccordionItem.propTypes = {
   disabled: PropTypes.bool,
-  expanded: PropTypes.bool
+  expanded: PropTypes.bool,
+  title: PropTypes.string.isRequired
 };
 
 const Accordion = forwardRef((props, ref) => {
@@ -34,54 +35,64 @@ const Accordion = forwardRef((props, ref) => {
     [props.children]
   );
 
-  useImperativeHandle(ref, () => ({
-    openAll() {
-      handleAllState(true);
-    },
-    closeAll() {
-      handleAllState(false);
-    },
-    open(index) {
-      handleState(true, index);
-    },
-    close(index) {
-      handleState(false, index);
-    },
-    toggle(index) {
-      handleToggle(index);
-    }
-  }), [items]);
+  useImperativeHandle(
+    ref,
+    () => ({
+      openAll() {
+        handleAllState(true);
+      },
+      closeAll() {
+        handleAllState(false);
+      },
+      open(index) {
+        handleState(true, index);
+      },
+      close(index) {
+        handleState(false, index);
+      },
+      toggle(index) {
+        handleToggle(index);
+      }
+    }),
+    [items]
+  );
 
   const handleAllState = state => {
     const updateItems = [...items];
     for (const item of updateItems) {
-      item.expanded = state;
+      if (!item.disabled) {
+        item.expanded = state;
+      }
     }
     setItems(updateItems);
   };
   const handleState = (state, index) => {
     const updateItems = [...items];
-    if (props.multi) {
-      updateItems[index].expanded = state;
-    } else {
-      for (const i of updateItems.keys()) {
-        updateItems[i].expanded =
-          index === i ? state : state ? false : updateItems[i].expanded;
+    if (!updateItems[index].disabled) {
+      if (props.multi) {
+        updateItems[index].expanded = state;
+      } else {
+        for (const i of updateItems.keys()) {
+          updateItems[i].expanded =
+            index === i ? state : state ? false : updateItems[i].expanded;
+        }
       }
+      setItems(updateItems);
     }
-    setItems(updateItems);
   };
   const handleToggle = index => {
     const updateItems = [...items];
-    if (props.multi) {
-      updateItems[index].expanded = !updateItems[index].expanded;
-    } else {
-      for (const i of updateItems.keys()) {
-        updateItems[i].expanded =
-          index === i ? !updateItems[i].expanded : false;
+    if (!updateItems[index].disabled) {
+      if (props.multi) {
+        updateItems[index].expanded = !updateItems[index].expanded;
+      } else {
+        for (const i of updateItems.keys()) {
+          updateItems[i].expanded =
+            index === i ? !updateItems[i].expanded : false;
+        }
       }
+      setItems(updateItems);
     }
-    setItems(updateItems);
   };
   return (
     <AccordionStyle className={props.className} style={props.style}>

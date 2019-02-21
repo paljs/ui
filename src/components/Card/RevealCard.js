@@ -42,7 +42,7 @@ const RevealCardStyled = styled.div`
       line-height: ${theme.cardLineHeight};
       margin-bottom: ${theme.cardMargin};
       padding: ${theme.cardPadding};
-      ${theme.dir === 'ltr' ? 'right: 0;' : 'left: 0;'};
+      ${theme.dir === 'rtl' ? 'left: 0;' : 'right: 0;'};
       ${button === 'bottom' ? 'bottom: 0;' : 'top: 0;'};
     }
   `}

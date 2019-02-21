@@ -29,7 +29,7 @@ const FlipCardStyled = styled.div`
           padding: ${theme.cardPadding};
           cursor: pointer;
           position: absolute;
-          ${theme.dir === 'ltr' ? 'right: 0;' : 'left: 0;'}
+          ${theme.dir === 'rtl' ? 'left: 0;' : 'right: 0;'}
           ${button === 'bottom' ? 'bottom: 0;' : 'top: 0;'}
           opacity: 1;
           transition: opacity 0s 0.15s;
@@ -37,7 +37,7 @@ const FlipCardStyled = styled.div`
       }
 
       & > .front {
-        ${theme.dir === 'ltr' ? 'margin-right: -100%;' : 'margin-left: -100%;'}
+        ${theme.dir === 'rtl' ? 'margin-left: -100%;' : 'margin-right: -100%;'}
         transition: opacity 0s 0.2s;
         backface-visibility: visible;
         ${flipped &&

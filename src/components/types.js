@@ -28,7 +28,8 @@ const colorState = PropTypes.oneOf([
   'Danger',
   'Primary',
   'Warning',
-  'Disabled'
+  'Disabled',
+  'Active'
 ]);
 
 const placement = PropTypes.oneOf([

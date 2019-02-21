@@ -6,6 +6,7 @@
 
 import styled, { css } from 'styled-components';
 import { colorState, size } from '../types';
+import React from 'react';
 
 const headerBg = css`
   ${({ theme, status }) => {
@@ -92,4 +93,8 @@ Card.propTypes = {
   accent: colorState,
   size
 };
-export default Card;
+
+function CardBody(props) {
+  return <div className="card-body">{props.children}</div>;
+}
+export { Card, CardBody };

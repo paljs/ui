@@ -1,5 +1,3 @@
-import Card from './Card';
-import FlipCard from './FlipCard';
-import RevealCard from './RevealCard';
-
-export { Card, FlipCard, RevealCard };
+export * from './Card';
+export { default as FlipCard } from './FlipCard';
+export { default as RevealCard } from './RevealCard';
