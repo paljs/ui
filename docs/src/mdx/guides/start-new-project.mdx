@@ -54,7 +54,6 @@ import {
   LayoutContainer,
   LayoutColumns,
   LayoutColumn,
-  GlobalStyle,
   ButtonLink,
   Sidebar,
   SidebarBody,
@@ -86,7 +85,7 @@ export default function LayoutPage(props) {
       theme={themes(theme, { dir, fontSize: '2rem', fontMain: 'font family' })}
     >
       <Fragment>
-        <SimpleLayout globalStyle={GlobalStyle} />
+        <SimpleLayout />
         <Layout dir={dir} windowMode>
           <LayoutHeader fixed>Header</LayoutHeader>
           <LayoutContainer>

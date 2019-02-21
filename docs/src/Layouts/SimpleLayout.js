@@ -1,10 +1,11 @@
 import { createGlobalStyle, css } from 'styled-components';
 import { breakpointDown } from 'oah-ui/theme';
+import { GlobalStyle } from 'oah-ui';
 /* eslint-disable indent */
 
 const SimpleLayout = createGlobalStyle`
-${({ theme, globalStyle }) => css`
-  ${globalStyle}
+${({ theme }) => css`
+  ${GlobalStyle}
   html {
     font-size: 16px;
   }

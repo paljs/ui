@@ -10,7 +10,6 @@ import {
   LayoutContainer,
   LayoutColumns,
   LayoutColumn,
-  GlobalStyle,
   ButtonLink,
   Sidebar,
   SidebarBody,
@@ -31,7 +30,7 @@ export default function LayoutPage(props) {
   return (
     <ThemeProvider theme={themes(theme)}>
       <Fragment>
-        <SimpleLayout globalStyle={GlobalStyle} />
+        <SimpleLayout />
         <Layout windowMode>
           <LayoutHeader fixed>
             <Header

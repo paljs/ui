@@ -56,6 +56,38 @@ export default function LayoutPage(props) {
 }
 ```
 
+##### Global style
+
+You must enable Global style make new file with any name will be like this example:
+
+```jsx
+import { createGlobalStyle } from 'styled-components';
+import { GlobalStyle } from 'oah-ui';
+
+const SimpleLayout = createGlobalStyle`
+  ${GlobalStyle}
+  html{
+    font-size: 16px;
+  }
+`;
+export defaut SimpleLayout;
+```
+
+Then you need to import in LayoutPage see example:
+
+```jsx
+import SimpleLayout from './SimpleLayout';
+
+
+return (
+    <ThemeProvider
+      theme={themes(theme, { dir, fontSize: '2rem', fontMain: 'font family' })}
+    >
+      <SimpleLayout/>
+      <Layout dir={dir} />
+      ...
+```
+
 <div class="note note-info section-end">
   <div class="note-title">Note</div>
   <div class="note-body">
@@ -107,6 +139,7 @@ After you end your `themeService` function you need to add it in your layout pag
 ```jsx
 import { ThemeProvider } from 'styled-components';
 import { themeService } from './themeService';
+import SimpleLayout from './SimpleLayout';
 
 export default function LayoutPage(props) {
   // define default theme and direction
@@ -126,6 +159,7 @@ export default function LayoutPage(props) {
   // add custom theme function here and give it theme name and dirction value
   return (
     <ThemeProvider theme={themeService(theme, dir)}>
+      <SimpleLayout />
       <Layout dir={dir} />
     </ThemeProvider>
   );
