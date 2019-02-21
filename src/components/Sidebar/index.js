@@ -62,7 +62,7 @@ const Sidebar = forwardRef((props, ref) => {
 
   useEffect(() => {
     const onMediaQueryChanges = () => {
-      if (ifWidthInBreakpoint(props.collapsedBreakpoints)) {
+      if (ifWidthInBreakpoint(props.hiddenBreakpoints)) {
         setState('hidden');
         setFixed(true);
       } else if (ifWidthInBreakpoint(props.compactedBreakpoints)) {
@@ -107,7 +107,7 @@ function SidebarBody(props) {
 
 Sidebar.defaultProps = {
   compactedBreakpoints: ['xs', 'is', 'sm', 'md', 'lg'],
-  collapsedBreakpoints: ['xs', 'is'],
+  hiddenBreakpoints: ['xs', 'is'],
   property: 'start',
   state: 'expanded'
 };
@@ -116,7 +116,7 @@ Sidebar.propTypes = {
   state: PropTypes.oneOf(['hidden', 'visible', 'compacted', 'expanded']),
   property: PropTypes.oneOf(['right', 'left', 'start', 'end']),
   compactedBreakpoints: PropTypes.arrayOf(PropTypes.string),
-  collapsedBreakpoints: PropTypes.arrayOf(PropTypes.string),
+  hiddenBreakpoints: PropTypes.arrayOf(PropTypes.string),
   fixed: PropTypes.bool,
   containerFixed: PropTypes.bool,
   responsive: PropTypes.bool

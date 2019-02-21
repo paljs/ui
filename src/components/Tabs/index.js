@@ -16,9 +16,10 @@ function Tab(props) {
 }
 
 Tab.propTypes = {
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
   icon: PropTypes.string,
   responsive: PropTypes.bool,
+  disabled: PropTypes.bool,
   className: PropTypes.string,
   style: PropTypes.string,
   badge
@@ -67,7 +68,7 @@ function Tabs(props) {
             <li
               key={index}
               className={cssClass.join(' ')}
-              onClick={() => selectTab(index)}
+              onClick={() => !tab.disabled && selectTab(index)}
             >
               <a>
                 {tab.icon && <i className={tab.icon} />}

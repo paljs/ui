@@ -34,7 +34,6 @@ export default {
   radialGradient: 'radialGradient(circle at 50% 50%, #423f8c, #302c6e)',
   linearGradient: 'linear-gradient(to right, #171749, #413789)',
 
-  sidebarFg: 'colorSecondary',
   sidebarWidth: '16.25rem',
   sidebarWidthCompact: '3.45rem',
 

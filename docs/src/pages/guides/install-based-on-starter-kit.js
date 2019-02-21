@@ -2,6 +2,7 @@ import React from 'react';
 import { Row, Col } from 'oah-ui';
 import MdxContent from '../../mdx/guides/install-based-on-starter-kit.mdx';
 import SEO from '../../components/SEO';
+import GuideStyle from '../../components/GuideStyle';
 
 function InstallBasedKit() {
   return (
@@ -11,7 +12,9 @@ function InstallBasedKit() {
         keywords={['OAH', 'application', 'react']}
       />
       <Col xs={12}>
-        <MdxContent />
+        <GuideStyle>
+          <MdxContent />
+        </GuideStyle>
       </Col>
     </Row>
   );
