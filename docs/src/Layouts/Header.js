@@ -1,69 +1,98 @@
-import { Actions, Search, User, ContextMenu } from 'oah-ui';
 import React from 'react';
-import { Link } from 'gatsby';
+import { Actions, Select, LayoutHeader } from 'oah-ui';
+import styled from 'styled-components';
+import { breakpointDown } from 'oah-ui/theme';
+
+const SidebarIcon = styled(Actions)`
+  display: none;
+  ${breakpointDown('md')`
+    display: flex;
+  `}
+`;
+
+const HeaderStyle = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  .left {
+    display: flex;
+    width: 100%;
+  }
+  ${breakpointDown('sm')`
+    .right{
+      display: none;
+    }
+  `}
+`;
 
 export default function Header(props) {
-  const submitHandle = value => value;
-  const actions = [
+  const themeOptions = [
     {
-      icon: 'icon ion-ios-menu',
-      events: {
-        onClick: props.toggleSidebar
-      }
+      value: 'default',
+      label: 'Default'
     },
     {
-      content: <h3>OAH Admin</h3>
+      value: 'cosmic',
+      label: 'Cosmic'
     },
     {
-      content: (
-        <select onChange={e => changeTheme(e)}>
-          <option value="default">default</option>
-          <option value="cosmic">cosmic</option>
-          <option value="corporate">corporate</option>
-        </select>
-      )
-    },
-    {
-      content: <button onClick={props.collapseAll}>collapseAll</button>
-    },
-    {
-      content: <button onClick={props.expandAll}>expandAll</button>
-    },
-    {
-      content: (
-        <Search
-          submit={submitHandle}
-          type="rotate-layout"
-          placeholder="Search..."
-          hint="tap enter"
-        />
-      )
-    },
-    {
-      content: (
-        <ContextMenu
-          style={{ cursor: 'pointer' }}
-          placement="bottom"
-          items={[
-            { title: 'Profile', link: '/modal-overlays/tooltip' },
-            { title: 'Log out', link: '/logout' }
-          ]}
-          Link={Link}
-        >
-          <User
-            image="url('/icons/icon-72x72.png')"
-            name="OAH Technology"
-            title="Manger"
-            size="LG"
-          />
-        </ContextMenu>
-      )
+      value: 'corporate',
+      label: 'Corporate',
+      selected: true
     }
   ];
-
-  const changeTheme = event => {
-    props.changeTheme(event.target.value);
-  };
-
-  return <Actions size="MD" actions={actions} />;
+  return (
+    <LayoutHeader fixed>
+      <HeaderStyle>
+        <div className="left">
+          <SidebarIcon
+            size="MD"
+            actions={[
+              {
+                icon: 'icon ion-ios-menu',
+                events: {
+                  onClick: props.toggleSidebar
+                }
+              }
+            ]}
+          />
+          <Actions
+            size="MD"
+            actions={[
+              {
+                content: <h3>OAH Admin</h3>
+              },
+              {
+                content: (
+                  <Select
+                    size="XS"
+                    style={{ minWidth: '8rem' }}
+                    customLabel="Themes"
+                    options={themeOptions}
+                    onChange={v => props.changeTheme(v)}
+                  />
+                )
+              }
+            ]}
+          />
+        </div>
+        <Actions
+          size="SM"
+          className="right"
+          actions={[
+            {
+              icon: 'icon ion-logo-github',
+              url: 'https://github.com/oahtech/oah-ui',
+              target: '_blank'
+            },
+            {
+              icon: 'icon ion-logo-twitter',
+              url: 'https://twitter.com/AhmedElywh',
+              target: '_blank'
+            }
+          ]}
+        />
+      </HeaderStyle>
+    </LayoutHeader>
+  );
 }

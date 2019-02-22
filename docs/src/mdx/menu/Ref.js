@@ -1,10 +1,10 @@
 import React, { useRef } from 'react';
-import { Menu, Row, Col, Button } from 'oah-ui';
+import { Menu, Button } from 'oah-ui';
 import { Link } from 'gatsby';
 
 function Ref() {
   const menuRef = useRef();
-  const style = { marginBottom: '1.5rem' };
+  const style = { maxWidth: '20rem', marginBottom: '1rem' };
   const items = [
     {
       title: 'Guides',
@@ -37,24 +37,10 @@ function Ref() {
   ];
   return (
     <>
-      <Row>
-        <Col style={style} xs>
-          <Button fullWidth onClick={() => menuRef.current.expandAll()}>
-            expand All
-          </Button>
-        </Col>
-        <Col style={style} xs>
-          <Button fullWidth onClick={() => menuRef.current.collapseAll()}>
-            collapse All
-          </Button>
-        </Col>
-      </Row>
-      <Menu
-        ref={menuRef}
-        style={{ maxWidth: '20rem', margin: '0 auto' }}
-        items={items}
-        Link={Link}
-      />
+      <Button style={style} fullWidth onClick={() => menuRef.current.toggle()}>
+        toggle menu
+      </Button>
+      <Menu ref={menuRef} style={style} items={items} Link={Link} />
     </>
   );
 }

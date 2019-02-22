@@ -24,6 +24,10 @@ export default [
         link: '/guides/enable-theme-system'
       },
       {
+        title: 'Custom Component Style',
+        link: '/guides/custom-component-style'
+      },
+      {
         title: 'Grid System',
         link: '/guides/grid-system'
       }
@@ -116,6 +120,10 @@ export default [
       {
         title: 'Popover',
         link: '/components/popover'
+      },
+      {
+        title: 'Context Menu',
+        link: '/components/context-menu'
       },
       {
         title: 'Tooltip',
