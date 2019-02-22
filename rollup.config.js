@@ -16,6 +16,8 @@ const plugins = [
   resolve(),
   commonjs()
 ];
+
+const dir = 'dist'; //'docs/node_modules/oah-ui';
 const folders = [];
 const files = [];
 [
@@ -30,7 +32,7 @@ const files = [];
 ].map(file => {
   files.push({
     input: `src/components/${file}.js`,
-    output: { format: 'cjs', file: `dist/${file}.js` },
+    output: { format: 'cjs', file: `${dir}/${file}.js` },
     plugins
   });
 });
@@ -54,7 +56,7 @@ const files = [];
 ].map(file => {
   folders.push({
     input: `src/components/${file}/index.js`,
-    output: { format: 'cjs', file: `dist/${file}.js` },
+    output: { format: 'cjs', file: `${dir}/${file}.js` },
     plugins
   });
 });
@@ -64,17 +66,17 @@ export default [
   ...files,
   {
     input: 'src/components/index.js',
-    output: { format: 'cjs', file: 'dist/index.js' },
+    output: { format: 'cjs', file: `${dir}/index.js` },
     plugins
   },
   {
     input: 'src/svg/index.js',
-    output: { format: 'cjs', file: 'dist/svg.js' },
+    output: { format: 'cjs', file: `${dir}/svg.js` },
     plugins
   },
   {
     input: 'src/theme/index.js',
-    output: { format: 'cjs', file: 'dist/theme.js' },
+    output: { format: 'cjs', file: `${dir}/theme.js` },
     plugins
   }
 ];

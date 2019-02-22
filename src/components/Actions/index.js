@@ -7,7 +7,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { badge } from '../types';
+import { badge, customCss } from '../types';
 import { ActionsStyle, ActionStyle } from './style';
 import Badge from '../Badge';
 
@@ -34,14 +34,20 @@ function Actions({
             {action.icon ? (
               action.link ? (
                 <Link
-                  {...action.link}
+                  to={action.link}
+                  target={action.target}
                   className="icon-container"
                   {...action.events}
                 >
                   <i className={'control-icon ' + action.icon} />
                 </Link>
               ) : (
-                <a className="icon-container" {...action.events}>
+                <a
+                  href={action.url}
+                  target={action.target}
+                  className="icon-container"
+                  {...action.events}
+                >
                   <i className={'control-icon ' + action.icon} />
                 </a>
               )
@@ -64,14 +70,17 @@ function Actions({
 }
 
 Actions.propTypes = {
-  classNames: PropTypes.string,
-  style: PropTypes.object,
+  ...customCss,
   fullWidth: PropTypes.bool,
   size: PropTypes.oneOf(['SM', 'MD', 'LG']),
   inverse: PropTypes.bool,
   actions: PropTypes.arrayOf(
     PropTypes.shape({
       icon: PropTypes.string,
+      events: PropTypes.object,
+      link: PropTypes.string,
+      url: PropTypes.string,
+      target: PropTypes.string,
       content: PropTypes.any,
       disabled: PropTypes.bool,
       badge

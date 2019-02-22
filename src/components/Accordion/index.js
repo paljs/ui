@@ -14,13 +14,15 @@ import React, {
   useImperativeHandle
 } from 'react';
 import { ArrowDown, ArrowUp } from '../../svg';
+import { customCss } from '../types';
 
 function AccordionItem() {}
 
 AccordionItem.propTypes = {
   disabled: PropTypes.bool,
   expanded: PropTypes.bool,
-  title: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
+  ...customCss
 };
 
 const Accordion = forwardRef((props, ref) => {
@@ -95,13 +97,13 @@ const Accordion = forwardRef((props, ref) => {
     }
   };
   return (
-    <AccordionStyle className={props.className} style={props.style}>
+    <AccordionStyle {...props}>
       {items.map((item, index) => {
         const cssStyle = [];
         item.expanded ? cssStyle.push('expanded') : cssStyle.push('collapsed');
         item.disabled && cssStyle.push('disabled');
         return (
-          <ItemStyle key={index} className={cssStyle.join(' ')}>
+          <ItemStyle key={index} {...item} className={cssStyle.join(' ')}>
             <header onClick={() => handleToggle(index)}>
               {item.title}
               {!item.disabled && (
@@ -119,7 +121,6 @@ const Accordion = forwardRef((props, ref) => {
 });
 Accordion.propTypes = {
   multi: PropTypes.bool,
-  classNames: PropTypes.string,
-  style: PropTypes.object
+  ...customCss
 };
 export { AccordionItem, Accordion };

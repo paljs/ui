@@ -9,12 +9,13 @@ import styled, { css } from 'styled-components';
 /* eslint-disable indent */
 
 const ActionsStyle = styled.div`
-  ${({ theme }) => css`
+  ${({ theme, customCss }) => css`
     font-size: ${theme.actionsFontSize};
     font-family: ${theme.actionsFontFamily};
     line-height: ${theme.actionsLineHeight};
     display: flex;
     align-items: center;
+    ${customCss}
   `}
 `;
 

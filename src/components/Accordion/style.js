@@ -7,15 +7,16 @@
 import styled, { css } from 'styled-components';
 
 const AccordionStyle = styled.div`
-  ${({ theme }) => css`
+  ${({ theme, customCss }) => css`
     display: block;
     box-shadow: ${theme.accordionItemShadow};
     border-radius: ${theme.accordionBorderRadius};
+    ${customCss}
   `}
 `;
 
 const ItemStyle = styled.div`
-  ${({ theme }) => css`
+  ${({ theme, customCss }) => css`
     font-family: ${theme.accordionItemFontFamily};
     font-weight: ${theme.accordionItemFontWeight};
     background: ${theme.accordionItemBg};
@@ -88,6 +89,7 @@ const ItemStyle = styled.div`
       max-height: 1500px;
       transition: all 0.5s cubic-bezier(1, 0.15, 1, 1);
     }
+    ${customCss}
   `}
 `;
 

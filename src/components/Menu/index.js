@@ -12,19 +12,18 @@ import { menuItemsType } from '../types';
 
 const Menu = forwardRef((props, ref) => {
   const [items, setItems] = useState(props.items);
+  const [expended, setExpended] = useState(false);
 
-  useImperativeHandle(
-    ref,
-    () => ({
-      collapseAll() {
-        setItems(toggleSubMenu([...items], false));
-      },
-      expandAll() {
-        setItems(toggleSubMenu([...items], true));
-      }
-    }),
-    [items]
-  );
+  useImperativeHandle(ref, () => ({
+    toggle() {
+      toggleMenu();
+    }
+  }));
+
+  const toggleMenu = () => {
+    setItems(toggleSubMenu([...items], !expended));
+    setExpended(!expended);
+  };
 
   const onSelectItem = index => {
     const indexArray = Number.isInteger(index) ? [index] : index.split(',');
@@ -96,6 +95,6 @@ Menu.propTypes = {
   toggleSidebar: PropTypes.func,
   Link: PropTypes.object.isRequired,
   className: PropTypes.string,
-  style: PropTypes.string
+  style: PropTypes.object
 };
 export default Menu;

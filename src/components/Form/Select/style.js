@@ -6,7 +6,6 @@ import CheckboxStyle from '../Checkbox/style';
 const SelectStyle = styled.div`
   ${({ theme, opened, placement }) => css`
     display: block;
-    margin-bottom: 1rem;
     button {
       position: relative;
       width: 100%;

@@ -60,7 +60,7 @@ export default function Header(props) {
             size="MD"
             actions={[
               {
-                content: <h3>OAH Admin</h3>
+                content: <h3>OAH UI</h3>
               },
               {
                 content: (

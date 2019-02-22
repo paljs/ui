@@ -21,7 +21,7 @@ Tab.propTypes = {
   responsive: PropTypes.bool,
   disabled: PropTypes.bool,
   className: PropTypes.string,
-  style: PropTypes.string,
+  style: PropTypes.object,
   badge
 };
 

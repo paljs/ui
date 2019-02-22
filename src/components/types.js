@@ -48,7 +48,10 @@ const statusArray = ['Info', 'Success', 'Danger', 'Primary', 'Warning'];
 const size = PropTypes.oneOf(['XXS', 'XS', 'SM', 'MD', 'LG', 'XL', 'XXL']);
 
 const shape = PropTypes.oneOf(['Rectangle', 'SemiRound', 'Round']);
-
+const customCss = {
+  className: PropTypes.string,
+  style: PropTypes.object
+};
 const itemType = {
   title: PropTypes.string.isRequired,
   link: PropTypes.any,
@@ -69,6 +72,7 @@ function menuItemsType(...args) {
 }
 
 const buttonTypes = {
+  ...customCss,
   fullWidth: PropTypes.bool,
   hero: PropTypes.bool,
   outline: PropTypes.bool,
@@ -88,5 +92,6 @@ export {
   placement,
   trigger,
   menuItemsType,
-  buttonTypes
+  buttonTypes,
+  customCss
 };

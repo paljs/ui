@@ -55,7 +55,7 @@ Checkbox.propTypes = {
   checked: PropTypes.bool,
   disabled: PropTypes.bool,
   className: PropTypes.string,
-  style: PropTypes.string,
+  style: PropTypes.object,
   status: colorState
 };
 export default Checkbox;
