@@ -20,6 +20,7 @@ export default function usePopoverPosition(props, targetRef, overlayRef) {
         positionHandle();
         window.addEventListener('resize', positionHandle);
         layout.addEventListener('scroll', positionHandle);
+        window.addEventListener('click', onClickHandle);
         if (props.eventListener) {
           document
             .querySelector(props.eventListener)
@@ -27,6 +28,7 @@ export default function usePopoverPosition(props, targetRef, overlayRef) {
         }
 
         return () => {
+          window.removeEventListener('click', onClickHandle);
           window.removeEventListener('resize', positionHandle);
           layout.removeEventListener('scroll', positionHandle);
           if (props.eventListener) {
@@ -40,6 +42,9 @@ export default function usePopoverPosition(props, targetRef, overlayRef) {
     [show, overlayRef.current]
   );
 
+  const onClickHandle = () => {
+    setShow(false);
+  };
   const positionHandle = () => {
     let placement = getPhysicalPosition(layout.dir, props.placement);
     const data = getAdjustmentPlacement(placement, targetRef, overlayRef);

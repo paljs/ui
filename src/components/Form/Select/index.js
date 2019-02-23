@@ -7,7 +7,7 @@ import React, {
   useContext
 } from 'react';
 import PropTypes from 'prop-types';
-import { Card } from '../../Card';
+import { Card, CardBody } from '../../Card';
 import Checkbox from '../Checkbox';
 import { SelectCard, SelectStyle, Option } from './style';
 import { buttonTypes } from '../../types';
@@ -39,8 +39,8 @@ function Select(props) {
 
   useEffect(
     () => {
-      window.addEventListener('click', onClickHandle);
       if (opened) {
+        window.addEventListener('click', onClickHandle);
         positionHandle();
         window.addEventListener('resize', positionHandle);
         layout.addEventListener('scroll', positionHandle);
@@ -49,10 +49,9 @@ function Select(props) {
             .querySelector(props.eventListener)
             .addEventListener('scroll', positionHandle);
         }
-      }
-      return () => {
-        window.removeEventListener('click', onClickHandle);
-        if (opened) {
+        return () => {
+          window.removeEventListener('click', onClickHandle);
+
           window.removeEventListener('resize', positionHandle);
           layout.removeEventListener('scroll', positionHandle);
 
@@ -61,8 +60,8 @@ function Select(props) {
               .querySelector(props.eventListener)
               .removeEventListener('scroll', positionHandle);
           }
-        }
-      };
+        };
+      }
     },
     [opened]
   );
@@ -145,7 +144,7 @@ function Select(props) {
               onClick={e => e.stopPropagation()}
             >
               <Card style={{ width: targetRef.current.offsetWidth }}>
-                <div className="card-body">
+                <CardBody>
                   {options.map((option, index) => {
                     const className = [];
                     option.selected && className.push('selected');
@@ -170,7 +169,7 @@ function Select(props) {
                       </Option>
                     );
                   })}
-                </div>
+                </CardBody>
               </Card>
             </div>
           </SelectCard>,

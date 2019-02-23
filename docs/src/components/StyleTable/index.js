@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card } from 'oah-ui';
+import { Card, CardBody } from 'oah-ui';
 import { themes } from 'oah-ui/theme';
 import Table from './style';
 import { useChangeColor } from '../useChangeColor';
@@ -10,7 +10,7 @@ function StyleTable({ keys }) {
 
   return keys.map(key => (
     <Card key={key}>
-      <div className="card-body">
+      <CardBody>
         <h2 style={{ textTransform: 'uppercase' }}>{key}</h2>
         <Table className="striped">
           <thead>
@@ -36,7 +36,7 @@ function StyleTable({ keys }) {
             })}
           </tbody>
         </Table>
-      </div>
+      </CardBody>
     </Card>
   ));
 }

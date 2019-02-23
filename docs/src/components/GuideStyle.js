@@ -1,7 +1,8 @@
 import styled from 'styled-components';
+import { CardBody } from 'oah-ui';
 
 const GuideStyle = styled.div`
-  .card-body {
+  ${CardBody} {
     padding: 2rem;
     & > *:last-child {
       margin-bottom: 0;

@@ -41,7 +41,7 @@ const placement = PropTypes.oneOf([
   'bottom'
 ]);
 
-const trigger = PropTypes.oneOf(['click', 'hover', 'focus']);
+const trigger = PropTypes.oneOf(['click', 'hover', 'focus', 'hint']);
 
 const statusArray = ['Info', 'Success', 'Danger', 'Primary', 'Warning'];
 

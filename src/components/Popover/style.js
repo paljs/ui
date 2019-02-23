@@ -13,6 +13,7 @@ const PopoverStyle = styled.div`
 
     return css`
       position: absolute;
+      pointer-events: none;
       box-sizing: border-box;
       z-index: 1000;
       display: flex;

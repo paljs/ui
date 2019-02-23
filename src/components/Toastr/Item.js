@@ -47,7 +47,7 @@ export default function Item(props) {
       >
         {props.icon && props.hasIcon && <i className={'icon ' + props.icon} />}
         <div className="content-container">
-          <span className="title">{props.title}</span>
+          {props.title && <span className="title">{props.title}</span>}
           <div className="message">{props.message}</div>
         </div>
       </ToastrStyle>,

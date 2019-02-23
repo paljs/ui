@@ -2,6 +2,7 @@ import React from 'react';
 import { MDXProvider } from '@mdx-js/tag';
 import { Link } from 'gatsby';
 import MdxLayoutStyle from './style';
+import { CardBody } from 'oah-ui';
 
 function ALink({ href, children }) {
   const internal = /^\/(?!\/)/.test(href);
@@ -24,7 +25,7 @@ function MdxLayout({ children }) {
       }}
     >
       <MdxLayoutStyle>
-        <div className="card-body">{children}</div>
+        <CardBody>{children}</CardBody>
       </MdxLayoutStyle>
     </MDXProvider>
   );

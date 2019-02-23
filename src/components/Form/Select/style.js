@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 import { ButtonStyle } from '../../Button';
-import { Card } from '../../Card';
+import { Card, CardBody } from '../../Card';
 import CheckboxStyle from '../Checkbox/style';
 
 const SelectStyle = styled.div`
@@ -69,7 +69,7 @@ const SelectCard = styled.div`
         max-height: ${theme.selectMaxHeight};
         margin-bottom: 0;
         box-shadow: none;
-        .card-body {
+        ${CardBody} {
           padding: 0;
         }
         ${Option} {

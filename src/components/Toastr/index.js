@@ -27,8 +27,8 @@ const Toastr = forwardRef((props, ref) => {
   useImperativeHandle(
     ref,
     () => ({
-      add(title, message, option = {}) {
-        let options = { ...props.option, ...option };
+      add(message, title = '', option = {}) {
+        let options = { ...props, ...option };
 
         const newItems = [...items];
         let push = true;
@@ -78,26 +78,22 @@ const Toastr = forwardRef((props, ref) => {
 });
 
 Toastr.defaultProps = {
-  option: {
-    position: 'topEnd',
-    status: 'Primary',
-    duration: 3000,
-    hasIcon: true,
-    destroyByClick: true,
-    preventDuplicates: false
-  }
+  position: 'topEnd',
+  status: 'Primary',
+  duration: 3000,
+  hasIcon: true,
+  destroyByClick: true,
+  preventDuplicates: false
 };
 
 Toastr.propTypes = {
-  option: PropTypes.shape({
-    position,
-    status: PropTypes.oneOf([...statusArray, 'Default']),
-    duration: PropTypes.number,
-    hasIcon: PropTypes.bool,
-    destroyByClick: PropTypes.bool,
-    preventDuplicates: PropTypes.bool,
-    icons: PropTypes.object
-  })
+  position,
+  status: PropTypes.oneOf([...statusArray, 'Default']),
+  duration: PropTypes.number,
+  hasIcon: PropTypes.bool,
+  destroyByClick: PropTypes.bool,
+  preventDuplicates: PropTypes.bool,
+  icons: PropTypes.object
 };
 
 export default Toastr;

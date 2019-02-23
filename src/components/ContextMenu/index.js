@@ -30,6 +30,7 @@ function ContextMenu(props) {
               className="overlay-pane"
               style={position && { top: position.top, left: position.left }}
               ref={overlayRef}
+              onClick={e => e.stopPropagation()}
             >
               <div className="context-menu-overlay">
                 <span className="arrow" />
@@ -48,7 +49,10 @@ function ContextMenu(props) {
         style={props.style}
         className={props.className}
         ref={targetRef}
-        onClick={() => setShow(!show)}
+        onClick={e => {
+          e.stopPropagation();
+          setShow(!show);
+        }}
       >
         {props.children}
       </div>

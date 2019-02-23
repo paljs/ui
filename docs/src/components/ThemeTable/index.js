@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Card, InputGroup } from 'oah-ui';
+import { Card, CardBody, InputGroup } from 'oah-ui';
 import { Link } from 'gatsby';
 import Table from '../StyleTable/style';
 import { getTheme } from './themeData';
@@ -24,7 +24,7 @@ function ThemeTable(props) {
 
   return (
     <Card>
-      <div className="card-body">
+      <CardBody>
         <h2 style={{ textTransform: 'uppercase' }}>{props.theme}</h2>
         {props.theme !== 'default' && <p>inherited from default theme</p>}
         <InputGroup fullWidth label="search for">
@@ -60,7 +60,7 @@ function ThemeTable(props) {
             })}
           </tbody>
         </Table>
-      </div>
+      </CardBody>
     </Card>
   );
 }

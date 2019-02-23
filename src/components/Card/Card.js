@@ -6,7 +6,6 @@
 
 import styled, { css } from 'styled-components';
 import { colorState, size } from '../types';
-import React from 'react';
 
 const headerBg = css`
   ${({ theme, status }) => {
@@ -74,12 +73,6 @@ const Card = styled.div`
       padding: ${theme.cardPadding};
       ${headerBg}
     }
-    .card-body {
-      padding: ${theme.cardPadding};
-      overflow: auto;
-      flex: 1;
-      position: relative;
-    }
     & > footer {
       padding: ${theme.cardPadding};
       border-top: 1px solid ${theme.cardSeparator};
@@ -93,8 +86,11 @@ Card.propTypes = {
   accent: colorState,
   size
 };
+const CardBody = styled.div`
+  padding: ${({ theme }) => theme.cardPadding};
+  overflow: auto;
+  flex: 1;
+  position: relative;
+`;
 
-function CardBody(props) {
-  return <div className="card-body">{props.children}</div>;
-}
 export { Card, CardBody };

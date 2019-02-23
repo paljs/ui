@@ -1,11 +1,11 @@
 import React from 'react';
-import { Card } from 'oah-ui';
+import { Card, CardBody } from 'oah-ui';
 import Table from './StyleTable/style';
 
 function ApiTable(props) {
   return (
     <Card>
-      <div className="card-body">
+      <CardBody>
         <h2>{props.name}</h2>
         <h3>Props</h3>
         <p>{props.hint}</p>
@@ -50,7 +50,7 @@ function ApiTable(props) {
             </Table>
           </>
         )}
-      </div>
+      </CardBody>
     </Card>
   );
 }

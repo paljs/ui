@@ -20,7 +20,17 @@ function Tooltip(props) {
     targetRef,
     overlayRef
   );
+  let timeOut;
+  const onMouseLeave = () => {
+    timeOut = setTimeout(() => {
+      setShow(false);
+    }, 500);
+  };
 
+  const onMouseEnter = () => {
+    clearTimeout(timeOut);
+  };
+  const { trigger } = props;
   return (
     <Fragment>
       {show &&
@@ -34,6 +44,9 @@ function Tooltip(props) {
               className="overlay-pane"
               style={position && { top: position.top, left: position.left }}
               ref={overlayRef}
+              onClick={e => e.stopPropagation()}
+              onMouseEnter={() => trigger === 'hover' && onMouseEnter()}
+              onMouseLeave={() => trigger === 'hover' && onMouseLeave()}
             >
               <div className="tooltip">
                 <span className="arrow" />
@@ -52,9 +65,22 @@ function Tooltip(props) {
         ref={targetRef}
         onFocus={() => props.trigger === 'focus' && setShow(true)}
         onBlur={() => props.trigger === 'focus' && setShow(false)}
-        onClick={() => props.trigger === 'click' && setShow(!show)}
-        onMouseEnter={() => props.trigger === 'hover' && setShow(true)}
-        onMouseLeave={() => props.trigger === 'hover' && setShow(false)}
+        onClick={e => {
+          e.stopPropagation();
+          trigger === 'click' && setShow(!show);
+        }}
+        onMouseEnter={() =>
+          trigger === 'hint'
+            ? setShow(true)
+            : trigger === 'hover' && !show
+              ? setShow(true)
+              : trigger === 'hover' && onMouseEnter()
+        }
+        onMouseLeave={() => {
+          trigger === 'hint'
+            ? setShow(false)
+            : trigger === 'hover' && onMouseLeave();
+        }}
       >
         {props.children}
       </div>
