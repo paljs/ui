@@ -95,7 +95,7 @@ export default [
       },
       {
         title: 'Input',
-        link: '/components/inputs'
+        link: '/components/input'
       },
       {
         title: 'Checkbox',

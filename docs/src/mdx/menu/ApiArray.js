@@ -31,14 +31,9 @@ export const menuProps = [
 
 export const menuMethod = [
   {
-    name: 'collapseAll()',
+    name: 'toggle()',
     type: 'Ref Method',
-    description: 'Collapses all menu items '
-  },
-  {
-    name: 'expandAll()',
-    type: 'Ref Method',
-    description: 'Expand all menu items '
+    description: 'toggle all menu items default: collapsed'
   }
 ];
 
