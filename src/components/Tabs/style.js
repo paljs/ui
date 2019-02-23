@@ -79,6 +79,16 @@ const TabsStyle = styled.div`
           }
         }
 
+        &.disabled {
+          & > * {
+            opacity: 0.5;
+          }
+          cursor: not-allowed;
+          a:hover {
+            color: ${theme.tabsFg};
+          }
+        }
+
         &.responsive {
           @media screen and (max-width: ${theme.tabsIconOnlyMaxWidth}) {
             a span {

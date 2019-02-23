@@ -72,7 +72,6 @@ function menuItemsType(...args) {
 }
 
 const buttonTypes = {
-  ...customCss,
   fullWidth: PropTypes.bool,
   hero: PropTypes.bool,
   outline: PropTypes.bool,

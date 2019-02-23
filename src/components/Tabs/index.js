@@ -61,6 +61,9 @@ function Tabs(props) {
           if (tab.responsive) {
             cssClass.push('responsive');
           }
+          if (tab.disabled) {
+            cssClass.push('disabled');
+          }
           if (tab.className) {
             cssClass.push(...tab.className.split(' '));
           }

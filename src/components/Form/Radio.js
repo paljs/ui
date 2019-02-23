@@ -109,7 +109,6 @@ function Radio(props) {
 
 Radio.propTypes = {
   name: PropTypes.string,
-  disabled: PropTypes.bool,
   onChange: PropTypes.func.isRequired,
   options: PropTypes.arrayOf(
     PropTypes.shape({
