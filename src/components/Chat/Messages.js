@@ -9,9 +9,12 @@ import { MessageStyle } from './style';
 
 function Messages(props) {
   const scrollRef = useRef();
-  useEffect(() => {
-    scrollRef.current.scrollTo(0, scrollRef.current.scrollHeight);
-  }, [props.messages]);
+  useEffect(
+    () => {
+      scrollRef.current.scrollTo(0, scrollRef.current.scrollHeight);
+    },
+    [props.messages]
+  );
   const getMessageComponent = msg => {
     switch (msg.type) {
       case 'file':
@@ -93,6 +96,7 @@ function Messages(props) {
   );
 }
 Messages.propTypes = {
+  mapKey: PropTypes.string,
   messages: PropTypes.arrayOf(
     PropTypes.shape({
       sender: PropTypes.string,
@@ -109,6 +113,7 @@ Messages.propTypes = {
       latitude: PropTypes.number,
       longitude: PropTypes.number,
       avatar: PropTypes.string,
+      reply: PropTypes.bool,
       type: PropTypes.oneOf(['text', 'file', 'map', 'quote'])
     })
   )

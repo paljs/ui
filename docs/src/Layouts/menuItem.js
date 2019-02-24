@@ -159,11 +159,11 @@ export default [
       },
       {
         title: 'Badge',
-        link: '/components/progress'
+        link: '/components/badge'
       },
       {
         title: 'Chat UI',
-        link: '/components/Chat'
+        link: '/components/chat'
       }
     ]
   },

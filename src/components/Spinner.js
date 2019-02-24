@@ -5,9 +5,8 @@
  */
 
 import styled, { css, keyframes } from 'styled-components';
-import PropTypes from 'prop-types';
 import React from 'react';
-import { size, statusArray } from './types';
+import { size, colorState } from './types';
 
 const spin = keyframes`
   0% {
@@ -70,9 +69,14 @@ function Spinner(props) {
     </SpinnerStyle>
   );
 }
+Spinner.defaultProps = {
+  size: 'MD',
+  status: 'Primary'
+};
+
 Spinner.propTypes = {
   size,
-  status: PropTypes.oneOf([...statusArray, 'Active', 'Disabled'])
+  status: colorState
 };
 
 export default Spinner;

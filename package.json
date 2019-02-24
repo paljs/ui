@@ -1,6 +1,6 @@
 {
   "name": "oah-ui",
-  "version": "0.0.0-31",
+  "version": "0.1.0",
   "description": "React Styled Components with bootstrap grid system",
   "main": "index.js",
   "repository": "https://github.com/oahtech/oah-ui.git",

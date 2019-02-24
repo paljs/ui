@@ -36,6 +36,11 @@ const Badge = styled.span`
     }
   }}
 `;
+Badge.defaultProps = {
+  position: 'topEnd',
+  status: 'Primary'
+};
+
 Badge.propTypes = {
   position,
   status: colorState

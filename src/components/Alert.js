@@ -7,7 +7,7 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
-import { size, statusArray } from './types';
+import { size, colorState } from './types';
 
 const AlertStyle = styled.div`
   ${({ theme, size, status, accent, outline, closable }) => css`
@@ -85,12 +85,12 @@ function Alert(props) {
     </AlertStyle>
   );
 }
-const status = PropTypes.oneOf([...statusArray, 'Active', 'Disabled']);
+
 Alert.propTypes = {
   size,
-  status,
-  accent: status,
-  outline: status,
+  status: colorState,
+  accent: colorState,
+  outline: colorState,
   closable: PropTypes.bool,
   onClose: PropTypes.func
 };

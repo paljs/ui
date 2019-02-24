@@ -28,7 +28,7 @@ const UserStyle = styled.div`
         css`
           height: ${theme[`userSize${size}`]};
           width: ${theme[`userSize${size}`]};
-          ${size === 'Small' && 'font-size: 80%;'}
+          ${size === 'SM' && 'font-size: 70%;'}
         `}
 
       &.background {

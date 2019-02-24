@@ -3,21 +3,24 @@ import PropTypes from 'prop-types';
 import { FormStyle } from './style';
 
 function ChatForm(props) {
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = useState(props.message);
   const [files, setFiles] = useState([]);
   const [fileOver, setFileOver] = useState(false);
   const formRef = useRef();
 
-  useEffect(() => {
-    formRef.current.addEventListener('drop', onDropFile);
-    formRef.current.addEventListener('dragover', onDragOver);
-    formRef.current.addEventListener('dragleave', onDragLeave);
-    return () => {
-      formRef.current.removeEventListener('drop', onDropFile);
-      formRef.current.removeEventListener('dragover', onDragOver);
-      formRef.current.removeEventListener('dragleave', onDragLeave);
-    };
-  }, [files]);
+  useEffect(
+    () => {
+      formRef.current.addEventListener('drop', onDropFile);
+      formRef.current.addEventListener('dragover', onDragOver);
+      formRef.current.addEventListener('dragleave', onDragLeave);
+      return () => {
+        formRef.current.removeEventListener('drop', onDropFile);
+        formRef.current.removeEventListener('dragover', onDragOver);
+        formRef.current.removeEventListener('dragleave', onDragLeave);
+      };
+    },
+    [files]
+  );
 
   const onDragOver = () => {
     setFileOver(true);

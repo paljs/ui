@@ -5,6 +5,9 @@ import { breakpointDown } from 'oah-ui/theme';
 
 const SidebarIcon = styled(Actions)`
   display: none;
+  div {
+    height: auto;
+  }
   ${breakpointDown('md')`
     display: flex;
   `}
@@ -14,8 +17,10 @@ const HeaderStyle = styled.div`
   display: flex;
   width: 100%;
   justify-content: space-between;
+  align-items: center;
   .left {
     display: flex;
+    align-items: center;
     width: 100%;
   }
   ${breakpointDown('sm')`
@@ -60,7 +65,7 @@ export default function Header(props) {
             size="MD"
             actions={[
               {
-                content: <h3>OAH UI</h3>
+                content: <h3 style={{ margin: 0 }}>OAH UI</h3>
               },
               {
                 content: (
