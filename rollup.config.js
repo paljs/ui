@@ -17,7 +17,7 @@ const plugins = [
   commonjs()
 ];
 
-const dir = 'dist'; //'docs/node_modules/oah-ui';
+const dir = 'dist';
 const folders = [];
 const files = [];
 [

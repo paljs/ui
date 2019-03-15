@@ -42,7 +42,8 @@ const GroupStyle = styled.div`
       input,
       textarea {
         &:not([disabled]):focus ~ .label,
-        &[value]:not([value=""]) ~ .label{
+        &[value]:not([value=""]) ~ .label,
+        &:-webkit-autofill ~ .label {
           transform: scale(.90) translate(
             ${theme.dir === 'rtl' && '-'}${padding[1]}, 
             -50%
@@ -55,7 +56,8 @@ const GroupStyle = styled.div`
               : theme.formControlSelectedBorderColor
           };
         }
-        &[value]:not([value=""]) ~ .label{
+        &[value]:not([value=""]) ~ .label,
+        &:-webkit-autofill ~ .label{
           ${status && `color: ${theme[`formControl${status}BorderColor`]}`};
         }
       }
@@ -102,7 +104,7 @@ function InputGroup(props) {
   return (
     <GroupStyle {...props}>
       {props.children}
-      <div className="label">{props.label}</div>
+      {props.label && <div className="label">{props.label}</div>}
     </GroupStyle>
   );
 }
