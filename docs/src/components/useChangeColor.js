@@ -10,5 +10,5 @@ export function useChangeColor(className) {
       );
       element.innerHTML = element.innerHTML.replace(/,/g, ', ');
     }
-  }, []);
+  }, [className]);
 }
