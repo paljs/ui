@@ -10,7 +10,7 @@ import { MenuStyle } from './style';
 import Item from './Item';
 import { menuItemsType } from '../types';
 
-function Menu(props, ref) {
+let Menu = (props, ref) => {
   const [items, setItems] = React.useState(props.items);
   const [expended, setExpended] = React.useState(false);
 
@@ -88,7 +88,8 @@ function Menu(props, ref) {
       </ul>
     </MenuStyle>
   );
-}
+};
+Menu = React.forwardRef(Menu);
 
 Menu.propTypes = {
   items: menuItemsType,
@@ -97,4 +98,4 @@ Menu.propTypes = {
   className: PropTypes.string,
   style: PropTypes.object
 };
-export default React.forwardRef(Menu);
+export default Menu;

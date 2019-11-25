@@ -7,7 +7,7 @@ import { ToastrContainer } from './style';
 import Item from './Item';
 import { position, statusArray } from '../types';
 
-function Toastr (props, ref)  {
+let Toastr = (props, ref) => {
   const [items, setItems] = React.useState([]);
   const [createParents, setCreateParents] = React.useState(false);
 
@@ -68,7 +68,9 @@ function Toastr (props, ref)  {
       ))}
     </>
   );
-}
+};
+
+Toastr = React.forwardRef(Toastr);
 
 Toastr.defaultProps = {
   position: 'topEnd',
@@ -89,4 +91,4 @@ Toastr.propTypes = {
   icons: PropTypes.object
 };
 
-export default React.forwardRef(Toastr);
+export default Toastr;

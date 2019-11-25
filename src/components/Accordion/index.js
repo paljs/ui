@@ -113,9 +113,10 @@ let Accordion = (props, ref) => {
     </AccordionStyle>
   );
 };
+Accordion = React.forwardRef(Accordion);
+
 Accordion.propTypes = {
   multi: PropTypes.bool,
   ...customCss
 };
-Accordion = React.forwardRef(Accordion);
 export { AccordionItem, Accordion };

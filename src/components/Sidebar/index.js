@@ -100,6 +100,8 @@ function SidebarBody(props) {
   return <div className="scrollable">{props.children}</div>;
 }
 
+Sidebar = React.forwardRef(Sidebar);
+
 Sidebar.defaultProps = {
   compactedBreakpoints: ['xs', 'is', 'sm', 'md', 'lg'],
   hiddenBreakpoints: ['xs', 'is'],
@@ -117,5 +119,4 @@ Sidebar.propTypes = {
   responsive: PropTypes.bool
 };
 
-Sidebar = React.forwardRef(Sidebar);
 export {Sidebar, SidebarBody};
