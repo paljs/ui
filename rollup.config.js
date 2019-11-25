@@ -1,21 +1,23 @@
 import babel from 'rollup-plugin-babel';
 import commonjs from 'rollup-plugin-commonjs';
-import external from 'rollup-plugin-peer-deps-external';
 import resolve from 'rollup-plugin-node-resolve';
 import url from 'rollup-plugin-url';
 import svgr from '@svgr/rollup';
+import { terser } from 'rollup-plugin-terser';
 
 const plugins = [
-  external(),
   url(),
   svgr(),
   babel({
-    exclude: 'node_modules/**'
+    exclude: 'node_modules/**',
+    plugins: ['babel-plugin-styled-components']
   }),
   resolve(),
-  commonjs()
+  commonjs(),
+  terser()
 ];
-
+const external = ['react', 'react-dom', 'styled-components', 'polished', 'prop-types'];
+const globals = {react: 'React', 'react-dom': 'ReactDOM','prop-types': 'PropTypes', 'styled-components': 'styled'};
 const dir = 'dist';
 const folders = [];
 const files = [];
@@ -31,8 +33,9 @@ const files = [];
 ].map(file => {
   files.push({
     input: `src/components/${file}.js`,
-    output: { format: 'cjs', file: `${dir}/${file}.js` },
-    plugins
+    output: { format: 'cjs', file: `${dir}/${file}.js`, globals },
+    plugins,
+    external
   });
 });
 [
@@ -55,8 +58,9 @@ const files = [];
 ].map(file => {
   folders.push({
     input: `src/components/${file}/index.js`,
-    output: { format: 'cjs', file: `${dir}/${file}.js` },
-    plugins
+    output: { format: 'cjs', file: `${dir}/${file}.js`, globals },
+    plugins,
+    external
   });
 });
 
@@ -65,17 +69,20 @@ export default [
   ...files,
   {
     input: 'src/components/index.js',
-    output: { format: 'cjs', file: `${dir}/index.js` },
-    plugins
+    output: { format: 'cjs', file: `${dir}/index.js`, globals },
+    plugins,
+    external
   },
   {
     input: 'src/svg/index.js',
-    output: { format: 'cjs', file: `${dir}/svg.js` },
-    plugins
+    output: { format: 'cjs', file: `${dir}/svg.js`, globals },
+    plugins,
+    external
   },
   {
     input: 'src/theme/index.js',
-    output: { format: 'cjs', file: `${dir}/theme.js` },
-    plugins
+    output: { format: 'cjs', file: `${dir}/theme.js`, globals },
+    plugins,
+    external
   }
 ];

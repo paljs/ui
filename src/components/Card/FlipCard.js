@@ -5,7 +5,7 @@
  */
 
 import styled, { css } from 'styled-components';
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { ArrowRight, ArrowLeft } from '../../svg';
 
@@ -59,7 +59,7 @@ const FlipCardStyled = styled.div`
   `}
 `;
 function FlipCard(props) {
-  const [flipped, setFlipped] = useState(false);
+  const [flipped, setFlipped] = React.useState(false);
   const handleFlipped = () => {
     setFlipped(!flipped);
   };

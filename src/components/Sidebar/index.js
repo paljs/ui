@@ -4,21 +4,16 @@
  * Licensed under the MIT License. See License.txt in the project root for license information.
  */
 
-import React, {
-  useState,
-  useEffect,
-  forwardRef,
-  useImperativeHandle
-} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import SidebarStyle from './style';
 import { ifWidthInBreakpoint } from '../../theme';
 
-const Sidebar = forwardRef((props, ref) => {
-  const [fixed, setFixed] = useState(props.fixed);
-  const [state, setState] = useState(props.state);
+let Sidebar = (props, ref) => {
+  const [fixed, setFixed] = React.useState(props.fixed);
+  const [state, setState] = React.useState(props.state);
 
-  useImperativeHandle(
+  React.useImperativeHandle(
     ref,
     () => ({
       toggle() {
@@ -60,7 +55,7 @@ const Sidebar = forwardRef((props, ref) => {
     }
   };
 
-  useEffect(() => {
+  React.useEffect(() => {
     const onMediaQueryChanges = () => {
       if (ifWidthInBreakpoint(props.hiddenBreakpoints)) {
         setState('hidden');
@@ -99,7 +94,7 @@ const Sidebar = forwardRef((props, ref) => {
       <div className="main-container">{props.children}</div>
     </SidebarStyle>
   );
-});
+};
 
 function SidebarBody(props) {
   return <div className="scrollable">{props.children}</div>;
@@ -122,4 +117,5 @@ Sidebar.propTypes = {
   responsive: PropTypes.bool
 };
 
-export { Sidebar, SidebarBody };
+Sidebar = React.forwardRef(Sidebar);
+export {Sidebar, SidebarBody};

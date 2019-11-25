@@ -5,7 +5,7 @@
  */
 
 import styled, { css } from 'styled-components';
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { ArrowUp, ArrowDown } from '../../svg';
 
@@ -48,7 +48,7 @@ const RevealCardStyled = styled.div`
   `}
 `;
 function RevealCard(props) {
-  const [revealed, setRevealed] = useState(false);
+  const [revealed, setRevealed] = React.useState(false);
   const handleRevealed = () => {
     setRevealed(!revealed);
   };

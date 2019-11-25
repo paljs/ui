@@ -6,13 +6,7 @@
 
 import PropTypes from 'prop-types';
 import { AccordionStyle, ItemStyle } from './style';
-import React, {
-  useEffect,
-  Children,
-  useState,
-  forwardRef,
-  useImperativeHandle
-} from 'react';
+import React from 'react';
 import { ArrowDown, ArrowUp } from '../../svg';
 import { customCss } from '../types';
 
@@ -25,11 +19,11 @@ AccordionItem.propTypes = {
   ...customCss
 };
 
-const Accordion = forwardRef((props, ref) => {
-  const [items, setItems] = useState([]);
-  useEffect(
+let Accordion = (props, ref) => {
+  const [items, setItems] = React.useState([]);
+  React.useEffect(
     () => {
-      const children = Children.map(props.children, child => {
+      const children = React.Children.map(props.children, child => {
         return { ...child.props };
       });
       setItems(children);
@@ -37,7 +31,7 @@ const Accordion = forwardRef((props, ref) => {
     [props.children]
   );
 
-  useImperativeHandle(
+  React.useImperativeHandle(
     ref,
     () => ({
       openAll() {
@@ -118,9 +112,10 @@ const Accordion = forwardRef((props, ref) => {
       })}
     </AccordionStyle>
   );
-});
+};
 Accordion.propTypes = {
   multi: PropTypes.bool,
   ...customCss
 };
+Accordion = React.forwardRef(Accordion);
 export { AccordionItem, Accordion };

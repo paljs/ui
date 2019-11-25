@@ -4,7 +4,7 @@
  * Licensed under the MIT License. See License.txt in the project root for license information.
  */
 
-import React, { useState, Children, useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import { badge } from '../types';
@@ -26,17 +26,17 @@ Tab.propTypes = {
 };
 
 function Tabs(props) {
-  const [tabs, setTabs] = useState([]);
-  const [active, setActive] = useState(props.activeIndex);
+  const [tabs, setTabs] = React.useState([]);
+  const [active, setActive] = React.useState(props.activeIndex);
 
   const selectTab = index => {
     typeof props.onSelect === 'function' && props.onSelect(index);
     setActive(index);
   };
 
-  useEffect(
+  React.useEffect(
     () => {
-      const children = Children.map(props.children, child => {
+      const children = React.Children.map(props.children, child => {
         return { ...child.props };
       });
       setTabs(children);
@@ -86,7 +86,7 @@ function Tabs(props) {
           );
         })}
       </ul>
-      {Children.map(props.children, (child, i) => {
+      {React.Children.map(props.children, (child, i) => {
         if (i === active) {
           return child;
         }

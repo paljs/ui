@@ -5,7 +5,7 @@
  */
 
 import styled, { css } from 'styled-components';
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import { colorState } from '../types';
@@ -76,7 +76,7 @@ const hoverBorder = status =>
   status ? `color${status}` : 'radioCheckedBorderColor';
 
 function Radio(props) {
-  const [options, setOptions] = useState(props.options);
+  const [options, setOptions] = React.useState(props.options);
 
   const onClickHandler = value => {
     const updateOptions = [...options];

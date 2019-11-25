@@ -1,14 +1,14 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { FormStyle } from './style';
 
 function ChatForm(props) {
-  const [message, setMessage] = useState(props.message);
-  const [files, setFiles] = useState([]);
-  const [fileOver, setFileOver] = useState(false);
-  const formRef = useRef();
+  const [message, setMessage] = React.useState(props.message);
+  const [files, setFiles] = React.useState([]);
+  const [fileOver, setFileOver] = React.useState(false);
+  const formRef = React.useRef();
 
-  useEffect(
+  React.useEffect(
     () => {
       formRef.current.addEventListener('drop', onDropFile);
       formRef.current.addEventListener('dragover', onDragOver);

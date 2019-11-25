@@ -5,15 +5,15 @@
  */
 
 import ReactDOM from 'react-dom';
-import React, { useRef, Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import PopoverStyle from './style';
 import { trigger, placement } from '../types';
 import usePopoverPosition from '../popoverPosition';
 
 function Popover(props) {
-  const overlayRef = useRef();
-  const targetRef = useRef();
+  const overlayRef = React.useRef();
+  const targetRef = React.useRef();
   const [position, placement, show, setShow] = usePopoverPosition(
     props,
     targetRef,
@@ -31,7 +31,7 @@ function Popover(props) {
   };
   const { trigger } = props;
   return (
-    <Fragment>
+    <>
       {show &&
         ReactDOM.createPortal(
           <PopoverStyle position={position} placement={placement}>
@@ -80,7 +80,7 @@ function Popover(props) {
       >
         {props.children}
       </div>
-    </Fragment>
+    </>
   );
 }
 

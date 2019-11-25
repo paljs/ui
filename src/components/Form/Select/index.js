@@ -1,11 +1,5 @@
 import ReactDOM from 'react-dom';
-import React, {
-  useState,
-  Fragment,
-  useRef,
-  useEffect,
-  useContext
-} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Card, CardBody } from '../../Card';
 import Checkbox from '../Checkbox';
@@ -14,16 +8,16 @@ import { buttonTypes } from '../../types';
 import layoutContext from '../../Layout/layout-context';
 
 function Select(props) {
-  const layout = useContext(layoutContext);
-  const [options, setOptions] = useState([...props.options]);
-  const [opened, setOpened] = useState(false);
-  const [placement, setPlacement] = useState('bottom');
-  const [position, setPosition] = useState();
+  const layout = React.useContext(layoutContext);
+  const [options, setOptions] = React.useState([...props.options]);
+  const [opened, setOpened] = React.useState(false);
+  const [placement, setPlacement] = React.useState('bottom');
+  const [position, setPosition] = React.useState();
 
-  const overlayRef = useRef();
-  const targetRef = useRef();
+  const overlayRef = React.useRef();
+  const targetRef = React.useRef();
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (props.value) {
       const newOptions = [...options];
       for (const option of newOptions) {
@@ -37,7 +31,7 @@ function Select(props) {
     }
   }, []);
 
-  useEffect(
+  React.useEffect(
     () => {
       if (opened) {
         window.addEventListener('click', onClickHandle);
@@ -129,7 +123,7 @@ function Select(props) {
   };
 
   return (
-    <Fragment>
+    <>
       {opened &&
         ReactDOM.createPortal(
           <SelectCard
@@ -186,7 +180,7 @@ function Select(props) {
           {placeholder()}
         </button>
       </SelectStyle>
-    </Fragment>
+    </>
   );
 }
 const defaultProps = {

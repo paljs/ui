@@ -4,14 +4,14 @@
  * Licensed under the MIT License. See License.txt in the project root for license information.
  */
 
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import CheckboxStyle from './style';
 import { colorState } from '../../types';
 
 const Checkbox = props => {
-  const [value, setValue] = useState(props.checked ? props.checked : false);
+  const [value, setValue] = React.useState(props.checked ? props.checked : false);
 
   const uncontrolled = typeof props.onChange === 'function';
   const onChangeHandler = () => {

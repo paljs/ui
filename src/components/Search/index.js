@@ -4,7 +4,7 @@
  * Licensed under the MIT License. See License.txt in the project root for license information.
  */
 
-import React, { useState, useRef, useContext, useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import { SearchStyle, SearchFieldStyle } from './style';
@@ -13,12 +13,12 @@ import Overlay from '../Overlay';
 import layoutContext from '../Layout/layout-context';
 
 function Search(props) {
-  const [value, setValue] = useState('');
-  const [show, setShow] = useState();
-  const inputRef = useRef();
-  const layout = useContext(layoutContext);
+  const [value, setValue] = React.useState('');
+  const [show, setShow] = React.useState();
+  const inputRef = React.useRef();
+  const layout = React.useContext(layoutContext);
 
-  useEffect(
+  React.useEffect(
     () => {
       if (show === 'show') {
         inputRef.current.focus();

@@ -4,17 +4,17 @@
  * Licensed under the MIT License. See License.txt in the project root for license information.
  */
 
-import { useEffect, useState, useContext } from 'react';
+import React from 'react';
 import layoutContext from './Layout/layout-context';
 import { getPhysicalPosition } from './positionHelper';
 
 export default function usePopoverPosition(props, targetRef, overlayRef) {
-  const layout = useContext(layoutContext);
-  const [position, setPosition] = useState();
-  const [show, setShow] = useState(false);
-  const [placement, setPlacement] = useState();
+  const layout = React.useContext(layoutContext);
+  const [position, setPosition] = React.useState();
+  const [show, setShow] = React.useState(false);
+  const [placement, setPlacement] = React.useState();
 
-  useEffect(
+  React.useEffect(
     () => {
       if (show) {
         positionHandle();

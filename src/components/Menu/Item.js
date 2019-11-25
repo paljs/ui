@@ -5,11 +5,11 @@
  */
 
 import { ItemStyle } from './style';
-import React, { Fragment, useEffect } from 'react';
+import React from 'react';
 import { ArrowLeft, ArrowDown } from '../../svg';
 
 const Item = ({ item, toggleSidebar, toggleSubMenu, selectItem, id, Link }) => {
-  useEffect(() => {
+  React.useEffect(() => {
     const link = window.location.pathname;
     if (
       link === item.link ||
@@ -53,7 +53,7 @@ const Item = ({ item, toggleSidebar, toggleSubMenu, selectItem, id, Link }) => {
           <span className="menu-title">{item.title}</span>
         </a>
       ) : item.children ? (
-        <Fragment>
+        <>
           <a
             href={item.link}
             title={item.title}
@@ -90,7 +90,7 @@ const Item = ({ item, toggleSidebar, toggleSubMenu, selectItem, id, Link }) => {
               );
             })}
           </ul>
-        </Fragment>
+        </>
       ) : (
         ''
       )}

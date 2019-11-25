@@ -1,12 +1,5 @@
 import ReactDOM from 'react-dom';
-import React, {
-  useState,
-  useImperativeHandle,
-  forwardRef,
-  useEffect,
-  useContext,
-  Fragment
-} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import layoutContext from '../Layout/layout-context';
 import { getLogicalPosition } from '../positionHelper';
@@ -14,17 +7,17 @@ import { ToastrContainer } from './style';
 import Item from './Item';
 import { position, statusArray } from '../types';
 
-const Toastr = forwardRef((props, ref) => {
-  const [items, setItems] = useState([]);
-  const [createParents, setCreateParents] = useState(false);
+function Toastr (props, ref)  {
+  const [items, setItems] = React.useState([]);
+  const [createParents, setCreateParents] = React.useState(false);
 
-  const layout = useContext(layoutContext);
+  const layout = React.useContext(layoutContext);
 
-  useEffect(() => {
+  React.useEffect(() => {
     setCreateParents(true);
   }, []);
 
-  useImperativeHandle(
+  React.useImperativeHandle(
     ref,
     () => ({
       add(message, title = '', option = {}) {
@@ -57,7 +50,7 @@ const Toastr = forwardRef((props, ref) => {
   );
 
   return (
-    <Fragment>
+    <>
       {createParents &&
         ['topStart', 'topEnd', 'bottomStart', 'bottomEnd'].map(position =>
           ReactDOM.createPortal(
@@ -73,9 +66,9 @@ const Toastr = forwardRef((props, ref) => {
       {items.map((item, index) => (
         <Item key={index} {...item} />
       ))}
-    </Fragment>
+    </>
   );
-});
+}
 
 Toastr.defaultProps = {
   position: 'topEnd',
@@ -96,4 +89,4 @@ Toastr.propTypes = {
   icons: PropTypes.object
 };
 
-export default Toastr;
+export default React.forwardRef(Toastr);

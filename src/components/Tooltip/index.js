@@ -5,15 +5,15 @@
  */
 
 import ReactDOM from 'react-dom';
-import React, { useRef, Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import TooltipStyle from './style';
 import { trigger, placement, statusArray } from '../types';
 import usePopoverPosition from '../popoverPosition';
 
 function Tooltip(props) {
-  const overlayRef = useRef();
-  const targetRef = useRef();
+  const overlayRef = React.useRef();
+  const targetRef = React.useRef();
 
   const [position, placement, show, setShow] = usePopoverPosition(
     props,
@@ -32,7 +32,7 @@ function Tooltip(props) {
   };
   const { trigger } = props;
   return (
-    <Fragment>
+    <>
       {show &&
         ReactDOM.createPortal(
           <TooltipStyle
@@ -84,7 +84,7 @@ function Tooltip(props) {
       >
         {props.children}
       </div>
-    </Fragment>
+    </>
   );
 }
 

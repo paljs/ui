@@ -4,7 +4,7 @@
  * Licensed under the MIT License. See License.txt in the project root for license information.
  */
 
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import {
   LayoutStyle,
@@ -36,13 +36,13 @@ function LayoutFooter(props) {
 }
 
 function Layout(props) {
-  const [className, setClassName] = useState(
+  const [className, setClassName] = React.useState(
     props.className ? [...props.className.split(' ')] : []
   );
 
-  const scrollRef = useRef();
+  const scrollRef = React.useRef();
 
-  useEffect(
+  React.useEffect(
     () => {
       if (
         (props.withScroll || props.windowMode) &&

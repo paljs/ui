@@ -4,17 +4,17 @@
  * Licensed under the MIT License. See License.txt in the project root for license information.
  */
 
-import React, { useState, forwardRef, useImperativeHandle } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { MenuStyle } from './style';
 import Item from './Item';
 import { menuItemsType } from '../types';
 
-const Menu = forwardRef((props, ref) => {
-  const [items, setItems] = useState(props.items);
-  const [expended, setExpended] = useState(false);
+function Menu(props, ref) {
+  const [items, setItems] = React.useState(props.items);
+  const [expended, setExpended] = React.useState(false);
 
-  useImperativeHandle(ref, () => ({
+  React.useImperativeHandle(ref, () => ({
     toggle() {
       toggleMenu();
     }
@@ -88,7 +88,7 @@ const Menu = forwardRef((props, ref) => {
       </ul>
     </MenuStyle>
   );
-});
+}
 
 Menu.propTypes = {
   items: menuItemsType,
@@ -97,4 +97,4 @@ Menu.propTypes = {
   className: PropTypes.string,
   style: PropTypes.object
 };
-export default Menu;
+export default React.forwardRef(Menu);

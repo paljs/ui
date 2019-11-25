@@ -5,7 +5,7 @@
  */
 
 import ReactDOM from 'react-dom';
-import React, { useRef, Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import ContextMenuStyle from './style';
 import { placement, menuItemsType } from '../types';
@@ -13,8 +13,8 @@ import usePopoverPosition from '../popoverPosition';
 import Menu from '../Menu';
 
 function ContextMenu(props) {
-  const overlayRef = useRef();
-  const targetRef = useRef();
+  const overlayRef = React.useRef();
+  const targetRef = React.useRef();
   const [position, placement, show, setShow] = usePopoverPosition(
     props,
     targetRef,
@@ -22,7 +22,7 @@ function ContextMenu(props) {
   );
 
   return (
-    <Fragment>
+    <>
       {show &&
         ReactDOM.createPortal(
           <ContextMenuStyle position={position} placement={placement}>
@@ -56,7 +56,7 @@ function ContextMenu(props) {
       >
         {props.children}
       </div>
-    </Fragment>
+    </>
   );
 }
 

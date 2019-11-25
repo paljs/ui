@@ -6,7 +6,7 @@
 
 import styled from 'styled-components';
 import ReactDOM from 'react-dom';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 const OverlayStyle = styled.div`
@@ -20,9 +20,9 @@ const OverlayStyle = styled.div`
 `;
 
 function Overlay(props) {
-  const [parent, setParent] = useState();
+  const [parent, setParent] = React.useState();
 
-  useEffect(() => {
+  React.useEffect(() => {
     const overlayParent = document.getElementById('overlay-container');
     setParent(overlayParent);
   }, []);

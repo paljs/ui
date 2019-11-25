@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import MessageFile from './MessageFile';
@@ -8,8 +8,8 @@ import MessageQuote from './MessageQuote';
 import { MessageStyle } from './style';
 
 function Messages(props) {
-  const scrollRef = useRef();
-  useEffect(
+  const scrollRef = React.useRef();
+  React.useEffect(
     () => {
       scrollRef.current.scrollTo(0, scrollRef.current.scrollHeight);
     },

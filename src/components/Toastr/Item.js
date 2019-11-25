@@ -1,17 +1,17 @@
 import ReactDOM from 'react-dom';
-import React, { useState, useEffect, useContext } from 'react';
+import React from 'react';
 
 import layoutContext from '../Layout/layout-context';
 import { ToastrStyle } from './style';
 import { isRightPosition } from '../positionHelper';
 
 export default function Item(props) {
-  const [show, setShow] = useState(true);
-  const [animation, setAnimation] = useState('animation');
+  const [show, setShow] = React.useState(true);
+  const [animation, setAnimation] = React.useState('animation');
 
-  const layout = useContext(layoutContext);
+  const layout = React.useContext(layoutContext);
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (props.duration > 0) {
       setTimeout(() => {
         destroyItem();
