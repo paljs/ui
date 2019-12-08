@@ -4,7 +4,7 @@ module.exports = {
   siteMetadata: {
     title: 'OAH-UI',
     description: 'React Styled Components with bootstrap grid system.',
-    author: 'OAH Technology'
+    author: 'Ahmed Elywa'
   },
   plugins: [
     'gatsby-plugin-styled-components',

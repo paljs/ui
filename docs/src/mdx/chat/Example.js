@@ -28,7 +28,7 @@ export default function ChatPage() {
   };
 
   return (
-    <Chat title="OAH Technology">
+    <Chat title="Ahmed Elywa">
       <ChatMessages messages={messages} mapKey="API_KEY" />
       <ChatForm
         onSend={v => onSendHandle(v)}

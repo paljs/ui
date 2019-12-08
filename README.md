@@ -22,7 +22,7 @@ OAH UI `npm` package contain three things:
   - Extra components (Search-User-Badge-Alert-ProgressBar-ChatUI-Spinner).
 - OAH UI Svg `oah-ui/svg`
   - This svg components ready to use.
-- Admin dashboard starter kit [oah-admin](https://github.com/oahtech/oah-admin) - Admin dashboard template based on Gatsby with oah-ui component package.
+- Admin dashboard starter kit [oah-admin](https://github.com/AhmedElywa/oah-admin) - Admin dashboard template based on Gatsby with oah-ui component package.
 
 ## The purpose
 
@@ -39,4 +39,4 @@ This documentation assumes that you are already familiar with JavaScript, React,
 
 ## Have questions?
 
-Didn't find something here? Look through the [issues](https://github.com/oahtech/oah-ui/issues) or simply drop us a line at <ahmed.elywa@icloud.com>.
+Didn't find something here? Look through the [issues](https://github.com/AhmedElywa/oah-ui/issues) or simply drop us a line at <ahmed.elywa@icloud.com>.

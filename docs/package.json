@@ -2,7 +2,7 @@
   "name": "oah-ui-docs",
   "description": "React Styled Components with bootstrap grid system.",
   "version": "1.0.0",
-  "author": "OAH Technology <ahmed.elywa@icloud.com>",
+  "author": "Ahmed Elywa <ahmed.elywa@icloud.com>",
   "dependencies": {
     "babel-plugin-styled-components": "^1.10.0",
     "gatsby": "^2.18.3",
@@ -49,6 +49,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/oahtech/oah-ui"
+    "url": "https://github.com/AhmedElywa/oah-ui"
   }
 }

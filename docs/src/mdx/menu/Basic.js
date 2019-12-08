@@ -18,7 +18,7 @@ function Basic() {
         },
         {
           title: 'Github Repository',
-          url: 'https://github.com/oahtech/oah-ui' // goes directly into `href` attribute
+          url: 'https://github.com/AhmedElywa/oah-ui' // goes directly into `href` attribute
         }
       ]
     },
