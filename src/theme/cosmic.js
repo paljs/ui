@@ -5,120 +5,39 @@
  */
 
 export default {
-  radius: '0.5rem',
+	colorPrimary100: '#faf7ff',
+	colorPrimary200: '#ece3ff',
+	colorPrimary300: '#d5bfff',
+	colorPrimary400: '#b18aff',
+	colorPrimary500: '#a16eff',
+	colorPrimary600: '#7b51db',
+	colorPrimary700: '#5a37b8',
+	colorPrimary800: '#3e2494',
+	colorPrimary900: '#29157a',
 
-  colorBg: '#3d3780',
-  colorBgActive: '#494299',
-  colorFg: '#a1a1e5',
-  colorFgHeading: '#ffffff',
-  colorFgText: '#d1d1ff',
-  colorFgHighlight: '#00f9a6',
+	colorPrimaryTransparent100: 'rgba(161, 110, 255, 0.08)',
+	colorPrimaryTransparent200: 'rgba(161, 110, 255, 0.16)',
+	colorPrimaryTransparent300: 'rgba(161, 110, 255, 0.24)',
+	colorPrimaryTransparent400: 'rgba(161, 110, 255, 0.32)',
+	colorPrimaryTransparent500: 'rgba(161, 110, 255, 0.4)',
+	colorPrimaryTransparent600: 'rgba(161, 110, 255, 0.48)',
 
-  colorPrimary: '#7659ff',
-  colorSuccess: '#00d977',
-  colorInfo: '#0088ff',
+	colorBasic100: '#ffffff',
+	colorBasic200: '#f7f7fc',
+	colorBasic300: '#f0f0fa',
+	colorBasic400: '#e1e1f2',
+	colorBasic500: '#ceceeb',
+	colorBasic600: '#b4b4db',
+	colorBasic700: '#6a6a94',
+	colorBasic800: '#323259',
+	colorBasic900: '#252547',
+	colorBasic1000: '#1b1b38',
+	colorBasic1100: '#13132b',
 
-  linkColor: '#00f9a6',
-  linkColorHover: '#14ffbe',
-
-  separator: '#342e73',
-  shadow: '0 8px 20px 0 rgba(40, 37, 89, 0.6)',
-
-  cardHeaderFontWeight: 'fontWeightBolder',
-
-  layoutBg: '#2f296b',
-
-  scrollbarFg: '#554db3',
-  scrollbarBg: '#332e73',
-
-  radialGradient: 'radialGradient(circle at 50% 50%, #423f8c, #302c6e)',
-  linearGradient: 'linear-gradient(to right, #171749, #413789)',
-
-  sidebarWidth: '16.25rem',
-  sidebarWidthCompact: '3.45rem',
-
-  headerFg: 'colorWhite',
-
-  footerFg: 'colorFg',
-  footerHeight: 'headerHeight',
-
-  userFg: 'colorBg',
-  userBg: 'colorFg',
-  userFgHighlight: 'colorFgHighlight',
-
-  popoverBorder: 'colorPrimary',
-  popoverShadow: 'shadow',
-
-  contextMenuActiveBg: 'colorPrimary',
-  contextMenuBorder: 'colorPrimary',
-
-  menuFg: 'colorFg',
-  menuBg: 'colorBg',
-  menuActiveFg: 'colorWhite',
-  menuGroupFg: 'colorWhite',
-  menuFontWeight: 'fontWeightNormal',
-  menuActiveFontWeight: 'fontWeightBolder',
-  menuSubmenuBg: 'layoutBg',
-  menuSubmenuFg: 'colorFg',
-  menuSubmenuActiveFg: 'colorFgHeading',
-  menuSubmenuActiveBg: 'rgba(0, 255, 170, 0.25)',
-  menuSubmenuActiveBorderColor: 'colorFgHighlight',
-  menuSubmenuActiveShadow: '0 2px 12px 0 rgba(0, 255, 170, 0.25)',
-  menuItemPadding: '0.25rem 0.75rem',
-  menuItemSeparator: 'transparent',
-
-  btnHeroShadow: '0 4px 10px 0 rgba(33, 7, 77, 0.5)',
-  btnHeroTextShadow: '0 1px 3px rgba(0, 0, 0, 0.3)',
-  btnHeroBevelSize: '0 3px 0 0',
-  btnHeroGlowSize: '0 2px 8px 0',
-  btnSecondaryBorder: 'colorPrimary',
-  btnOutlineFg: 'colorFgHeading',
-  btnOutlineHoverFg: 'colorFgHeading',
-  btnOutlineFocusFg: 'colorFgHeading',
-  btnGroupBg: '#373273',
-  btnGroupSeparator: '#312c66',
-
-  formControlBg: '#37317a',
-  formControlFocusBg: 'separator',
-  formControlBorderColor: 'separator',
-  formControlSelectedBorderColor: 'colorPrimary',
-
-  checkboxBorderColor: 'colorFg',
-
-  searchBg: 'linear-gradient(to right, #171749, #413789)',
-
-  smartTableHeaderFontWeight: 'fontWeightNormal',
-  smartTableHeaderBg: 'colorBgActive',
-  smartTableBgEven: '#3a347a',
-  smartTableBgActive: 'colorBgActive',
-
-  smartTablePagingBorderColor: 'colorPrimary',
-  smartTablePagingBorderWidth: '2px',
-  smartTablePagingFgActive: 'colorFgHeading',
-  smartTablePagingBgActive: 'colorPrimary',
-  smartTablePagingHover: 'rgba(0, 0, 0, 0.2)',
-
-  spinnerBg: 'rgba(61, 55, 128, 0.9)',
-  stepperAccentColor: 'colorSuccess',
-
-  calendarActiveItemBg: 'colorPrimary',
-  calendarSelectedItemBg: 'colorPrimary',
-  calendarRangeBgInRange: '#4e4095',
-  calendarTodayItemBg: '#352f6e',
-
-  selectOptionDisabledBg: '#312e75',
-
-  toastrColorFg: 'colorWhite',
-  toastrPadding: '1.25rem',
-  toastrBorder: 0,
-  toastrDefaultBackground: '#bcc3cc',
-
-  tooltipFg: 'colorBg',
-  tooltipStatusFg: 'colorWhite',
-
-  datepickerBorder: 'colorPrimary',
-  datepickerShadow: 'shadow',
-
-  radioCheckedBorderColor: 'colorPrimary',
-  radioCheckedCheckmark: 'colorPrimary'
+	colorBasicTransparent100: 'rgba(180, 180, 219, 0.08)',
+	colorBasicTransparent200: 'rgba(180, 180, 219, 0.16)',
+	colorBasicTransparent300: 'rgba(180, 180, 219, 0.24)',
+	colorBasicTransparent400: 'rgba(180, 180, 219, 0.32)',
+	colorBasicTransparent500: 'rgba(180, 180, 219, 0.4)',
+	colorBasicTransparent600: 'rgba(180, 180, 219, 0.48)'
 };
