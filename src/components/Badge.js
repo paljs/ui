@@ -10,17 +10,18 @@ import { getPhysicalPosition } from './positionHelper';
 
 const Badge = styled.span`
   ${({ theme, status }) => css`
-    color: ${theme.badgeFgText};
     position: absolute;
-    padding: 0.25em 0.4em;
-    font-size: 75%;
-    font-weight: 700;
-    line-height: 1;
+    border-radius: ${theme.badgeBorderRadius};
+    font-family: ${theme.badgeTextFontFamily};
+    font-size: ${theme.badgeTextFontSize};
+    font-weight: ${theme.badgeTextFontWeight};
+    line-height: ${theme.badgeTextLineHeight};
+    padding: ${theme.badgePadding};
     text-align: center;
     white-space: nowrap;
     vertical-align: baseline;
-    border-radius: 0.25rem;
-    background-color: ${theme['badge' + status + 'BgColor']};
+    color: ${theme[`badge${status}TextColor`]};
+    background-color: ${theme[`badge${status}BackgroundColor`]};
   `}
   ${({ position, theme }) => {
     let placement = getPhysicalPosition(theme.dir, position);
