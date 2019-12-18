@@ -5,7 +5,7 @@
  */
 
 import styled, { css } from 'styled-components';
-import { colorState, position } from './types';
+import { status, position } from './types';
 import { getPhysicalPosition } from './positionHelper';
 
 const Badge = styled.span`
@@ -44,6 +44,6 @@ Badge.defaultProps = {
 
 Badge.propTypes = {
   position,
-  status: colorState
+  status
 };
 export default Badge;

@@ -5,6 +5,7 @@
  */
 
 import styled, { css } from 'styled-components';
+import {getHeadings} from "../Shared";
 
 const AccordionStyle = styled.div`
 	${({ theme, customCss }) => css`
@@ -40,6 +41,8 @@ const ItemStyle = styled.div`
 			font-weight: ${theme.accordionHeaderTextFontWeight};
 			line-height: ${theme.accordionHeaderTextLineHeight};
 
+			${getHeadings}
+			
 			display: flex;
 			align-items: center;
 			cursor: pointer;
