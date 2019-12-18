@@ -5,19 +5,216 @@
  */
 
 import styled, { css, keyframes } from 'styled-components';
-import { tint, shade, adjustHue, mix } from 'polished';
 import PropTypes from 'prop-types';
 import { buttonTypes } from './types';
 
-/* eslint-disable indent */
+const filled = css`
+	${({ status, size, theme }) => css`
+		border-style: ${theme.buttonFilledBorderStyle};
+		border-width: ${theme.buttonFilledBorderWidth};
+		text-transform: ${theme.buttonFilledTextTransform};
+		padding: ${theme[`buttonFilled${size}Padding`]};
+		background-color: ${theme[`buttonFilled${status}BackgroundColor`]};
+		border-color: ${theme[`buttonFilled${status}BorderColor`]};
+		color: ${theme[`buttonFilled${status}TextColor`]};
+
+		&:focus {
+			outline: none;
+			box-shadow: 0 0 0 ${theme.buttonOutlineWidth} ${theme.buttonOutlineColor};
+		}
+
+		&:focus,
+		&.focus {
+			background-color: ${theme[`buttonFilled${status}FocusBackgroundColor`]};
+			border-color: ${theme[`buttonFilled${status}FocusBorderColor`]};
+		}
+		&:hover,
+		&.hover {
+			background-color: ${theme[`buttonFilled${status}HoverBackgroundColor`]};
+			border-color: ${theme[`buttonFilled${status}HoverBorderColor`]};
+		}
+		&:active,
+		&.active,
+		&:active:focus {
+			background-color: ${theme[`buttonFilled${status}ActiveBackgroundColor`]};
+			border-color: ${theme[`buttonFilled${status}ActiveBorderColor`]};
+		}
+
+		&:disabled,
+		&.disabled {
+			background-color: ${theme[
+				`buttonFilled${status}DisabledBackgroundColor`
+			]};
+			border-color: ${theme[`buttonFilled${status}DisabledBorderColor`]};
+			color: ${theme[`buttonFilled${status}DisabledTextColor`]};
+		}
+	`}
+`;
+const outline = css`
+	${({ status, size, theme }) => css`
+		border-style: ${theme.buttonOutlineBorderStyle};
+		border-width: ${theme.buttonOutlineBorderWidth};
+		text-transform: ${theme.buttonOutlineTextTransform};
+		padding: ${theme[`buttonOutline${size}Padding`]};
+		background-color: ${theme[`buttonOutline${status}BackgroundColor`]};
+		border-color: ${theme[`buttonOutline${status}BorderColor`]};
+		color: ${theme[`buttonOutline${status}TextColor`]};
+
+		&:focus {
+			outline: none;
+			box-shadow: 0 0 0 ${theme.buttonOutlineWidth} ${theme.buttonOutlineColor};
+			&:not(:hover):not(:active) {
+				box-shadow: 0 0 0 ${theme.buttonOutlineWidth}
+						${theme.buttonOutlineColor},
+					inset 0 0 0 100vmax ${theme.buttonOutlineColor};
+			}
+		}
+
+		&:focus,
+		&.focus {
+			background-color: ${theme[`buttonOutline${status}FocusBackgroundColor`]};
+			border-color: ${theme[`buttonOutline${status}FocusBorderColor`]};
+			color: ${theme[`buttonOutline${status}FocusTextColor`]};
+		}
+		&:hover,
+		&.hover {
+			background-color: ${theme[`buttonOutline${status}HoverBackgroundColor`]};
+			border-color: ${theme[`buttonOutline${status}HoverBorderColor`]};
+			color: ${theme[`buttonOutline${status}HoverTextColor`]};
+		}
+		&:active,
+		&.active,
+		&:active:focus {
+			background-color: ${theme[`buttonOutline${status}ActiveBackgroundColor`]};
+			border-color: ${theme[`buttonOutline${status}ActiveBorderColor`]};
+			color: ${theme[`buttonOutline${status}ActiveTextColor`]};
+		}
+
+		&:disabled,
+		&.disabled {
+			background-color: ${theme[
+				`buttonOutline${status}DisabledBackgroundColor`
+			]};
+			border-color: ${theme[`buttonOutline${status}DisabledBorderColor`]};
+			color: ${theme[`buttonOutline${status}DisabledTextColor`]};
+		}
+	`}
+`;
+const ghost = css`
+	${({ status, size, theme }) => css`
+		background-color: ${theme.buttonGhostBackgroundColor};
+		border-color: ${theme.buttonGhostBorderColor};
+		border-style: ${theme.buttonGhostBorderStyle};
+		border-width: ${theme.buttonGhostBorderWidth};
+		text-transform: ${theme.buttonGhostTextTransform};
+		padding: ${theme[`buttonGhost${size}Padding`]};
+		color: ${theme[`buttonGhost${status}TextColor`]};
+
+		&:focus {
+			outline: none;
+			box-shadow: 0 0 0 ${theme.buttonOutlineWidth} ${theme.buttonOutlineColor};
+			&:not(:hover):not(:active) {
+				box-shadow: 0 0 0 ${theme.buttonOutlineWidth}
+						${theme.buttonOutlineColor},
+					inset 0 0 0 100vmax ${theme.buttonOutlineColor};
+			}
+		}
+
+		&:focus,
+		&.focus {
+			background-color: ${theme[`buttonGhost${status}FocusBackgroundColor`]};
+			border-color: ${theme[`buttonGhost${status}FocusBorderColor`]};
+			color: ${theme[`buttonGhost${status}FocusTextColor`]};
+		}
+		&:hover,
+		&.hover {
+			background-color: ${theme[`buttonGhost${status}HoverBackgroundColor`]};
+			border-color: ${theme[`buttonGhost${status}HoverBorderColor`]};
+			color: ${theme[`buttonGhost${status}HoverTextColor`]};
+		}
+		&:active,
+		&.active,
+		&:active:focus {
+			background-color: ${theme[`buttonGhost${status}ActiveBackgroundColor`]};
+			border-color: ${theme[`buttonGhost${status}ActiveBorderColor`]};
+			color: ${theme[`buttonGhost${status}ActiveTextColor`]};
+		}
+
+		&:disabled,
+		&.disabled {
+			background-color: ${theme[`buttonGhost${status}DisabledBackgroundColor`]};
+			border-color: ${theme[`buttonGhost${status}DisabledBorderColor`]};
+			color: ${theme[`buttonGhost${status}DisabledTextColor`]};
+		}
+	`}
+`;
+const hero = css`
+	${({ status, size, theme }) => {
+		const constant = getConstant(theme, status);
+		return css`
+			text-shadow: ${theme.buttonHeroTextShadow};
+			text-transform: ${theme.buttonHeroTextTransform};
+			padding: ${theme[`buttonHero${size}Padding`]};
+			color: ${theme[`buttonHero${status}TextColor`]};
+			background-image: linear-gradient(
+				to right,
+				${constant.leftColor},
+				${constant.rightColor}
+			);
+			border: none;
+			box-shadow: ${constant.heroBoxShadows};
+
+			&:focus,
+			&.focus {
+				background-image: linear-gradient(
+					to right,
+					${constant.leftFocusColor},
+					${constant.rightFocusColor}
+				);
+				box-shadow: ${constant.heroBoxShadows},
+					0 0 0 ${theme.buttonHeroOutlineWidth} ${theme.buttonHeroOutlineColor};
+			}
+			&:hover,
+			&.hover {
+				background-image: linear-gradient(
+					to right,
+					${constant.leftHoverColor},
+					${constant.rightHoverColor}
+				);
+			}
+			&:active,
+			&.active,
+			&:active:focus {
+				background-image: linear-gradient(
+					to right,
+					${constant.leftActiveColor},
+					${constant.rightActiveColor}
+				);
+			}
+
+			&:disabled,
+			&.disabled {
+				background-image: none;
+				background-color: ${theme[
+					`buttonHero${status}DisabledBackgroundColor`
+				]};
+				color: ${theme[`buttonHero${status}DisabledTextColor`]};
+			}
+		`;
+	}}
+`;
+
+const appearances = {
+	filled,
+	hero,
+	ghost,
+	outline
+};
 
 const ButtonStyle = css`
-  ${({ theme, shape, size, status, fullWidth, outline, hero, pulse }) => css`
-    text-transform: uppercase;
+	${({ theme, shape, size, status, fullWidth, pulse, appearance }) => css`
     letter-spacing: 0.4px;
-    border: 2px solid transparent;
     transition: none;
-    cursor: pointer;
     -webkit-appearance: none;
     -moz-appearance: none;
     text-align: center;
@@ -28,21 +225,10 @@ const ButtonStyle = css`
     user-select: none;
 
     color: ${theme.btnFg};
-    font-weight: ${theme.fontWeightBolder};
-    font-family: ${theme.btnFontFamily};
-    cursor: ${theme.btnCursor};
-    ${!outline &&
-      css`
-        &:focus,
-        &:hover,
-        &:active,
-        &.focus,
-        &.hover,
-        &.active {
-          color: ${theme.btnFg};
-          cursor: ${theme.btnCursor};
-        }
-      `}
+    cursor: ${theme.buttonCursor};
+    font-family: ${theme.buttonTextFontFamily};
+    font-weight: ${theme.buttonTextFontWeight};
+    
 
     &:hover,
     &:focus {
@@ -50,221 +236,91 @@ const ButtonStyle = css`
     }
 
     ${size &&
-      css`
-        padding: ${theme[`btnPaddingY${size}`]} ${theme[`btnPaddingX${size}`]};
-        font-size: ${theme[`btnFontSize${size}`]};
-        line-height: ${theme.btnLineHeight};
-        border-radius: ${theme.btnBorderRadius};
-      `}
+			css`
+				font-size: ${theme[`button${size}TextFontSize`]};
+				line-height: ${theme[`button${size}TextLineHeight`]};
+			`}
 
     ${shape &&
-      css`
-        border-radius: ${theme[`btn${shape}BorderRadius`]};
-      `}
+			css`
+				border-radius: ${theme[`button${shape}BorderRadius`]};
+			`}
 
-
-    ${pulse && btnPulse(theme[`btn${status}Bg`], theme.btnDisabledOpacity)}
-
-
-    ${status &&
-      css`
-        ${
-          status === 'Secondary' || outline
-            ? css`
-                border: 2px solid ${theme[color(status)]};
-                color: ${theme.btnOutlineFg};
-                background-color: ${outline
-                  ? 'transparent'
-                  : theme.btnSecondaryBg};
-              `
-            : `background-color: ${theme[`btn${status}Bg`]};`
-        }
-
-        &:focus,
-        &.focus {
-          ${
-            status === 'Secondary' || outline
-              ? css`
-                  border-color: ${tint(
-                    percentage(status, outline),
-                    theme[color(status)]
-                  )};
-                  box-shadow: none;
-                `
-              : css`
-                  color: ${theme.btnOutlineHoverFg};
-                  background-color: ${tint(
-                    percentage(status),
-                    theme[color(status)]
-                  )};
-                  border-color: transparent;
-                  box-shadow: none;
-                `
-          }
-        }
-        &:hover,
-        &.hover {
-          color: ${theme.btnOutlineHoverFg};
-          background-color: ${tint(percentage(status), theme[color(status)])};
-          border-color: transparent;
-        }
-        &:active,
-        &.active,
-        &:active:focus {
-          color: ${theme.btnOutlineHoverFg};
-          background-color: ${shade(percentage(status), theme[color(status)])};
-          border-color: transparent;
-          box-shadow: none;
-        }
-
-        &:disabled,
-        &.disabled {
-          opacity: ${theme.btnDisabledOpacity};
-          cursor: not-allowed;
-        }
-
-
-        ${status === 'Secondary' &&
-          css`
-            &:focus,
-            &.focus,
-            &:hover,
-            &.hover,
-            &:active,
-            &.active {
-              color: ${theme.btnOutlineFg};
-            }
-          `}
-
-/* hero button start */
-      ${hero &&
-        css`
-          background-image: linear-gradient(
-            to right,
-            ${leftColor(status, theme)},
-            ${theme[color(status)]}
-          );
-          box-shadow: ${heroShadow(status, theme)};
-          text-shadow: ${theme.btnHeroTextShadow};
-          line-height: calc((${theme[`btnFontSize${size}`]} * 1.25) + 4px);
-          &:focus,
-          &.focus,
-          &:hover,
-          &.hover {
-            background-image: ${lightGradient(status, theme)};
-          }
-          &:active,
-          &.active {
-            background-image: ${darkGradient(status, theme)};
-            box-shadow: none;
-            border-color: transparent;
-          }
-          ${status === 'Secondary'
-            ? `border : 2px solid ${theme.btnSecondaryBorder}`
-            : 'border: none'};
-        `}
-
-      `}
+    ${pulse && btnPulse(theme[`buttonHero${status}LeftBackgroundColor`])}
 
     ${fullWidth && 'width: 100%;'}
+
+    ${appearances[appearance]}
   `}
 `;
 
-const lightGradient = (status, theme) => {
-  return `linear-gradient(to right, ${tint(
-    0.14,
-    leftColor(status, theme)
-  )}, ${tint(0.14, theme[color(status)])});`;
+const getConstant = (theme, status) => {
+	return {
+		leftColor: theme[`buttonHero${status}LeftBackgroundColor`],
+		rightColor: theme[`buttonHero${status}RightBackgroundColor`],
+		bevel: `${theme.buttonHeroBevelSize} ${
+			theme[`buttonHero${status}BevelColor`]
+		}`,
+		glow: `${theme.buttonHeroGlowSize} ${
+			theme[`buttonHero${status}GlowColor`]
+		}`,
+		shadow: theme.buttonHeroShadow,
+		heroBoxShadows: `${this.bevel}, ${this.glow}, ${this.shadow}`,
+		leftFocusColor: theme[`buttonHero${status}FocusLeftBackgroundColor`],
+		rightFocusColor: theme[`buttonHero${status}FocusRightBackgroundColor`],
+		leftHoverColor: theme[`buttonHero${status}HoverLeftBackgroundColor`],
+		rightHoverColor: theme[`buttonHero${status}HoverRightBackgroundColor`],
+		leftActiveColor: theme[`buttonHero${status}ActiveLeftBackgroundColor`],
+		rightActiveColor: theme[`buttonHero${status}ActiveRightBackgroundColor`]
+	};
 };
 
-const darkGradient = (status, theme) => {
-  return `linear-gradient(to right, ${shade(
-    0.14,
-    leftColor(status, theme)
-  )}, ${shade(0.14, theme[color(status)])});`;
-};
-
-const leftColor = (status, theme) =>
-  adjustHue(heroPercentage[status], theme[color(status)]);
-
-const heroShadow = (status, theme) => {
-  const middleColor = mix(
-    0.5,
-    adjustHue(heroPercentage[status], theme[color(status)]),
-    theme[color(status)]
-  );
-  const bevel = theme.btnHeroBevelSize + ' ' + shade(0.14, middleColor);
-  const glow = theme.btnHeroGlowSize + ' ' + middleColor;
-  const shadow = theme.btnHeroShadow;
-  const boxShadow = [bevel, glow];
-  shadow !== 'none' && boxShadow.push(shadow);
-  return boxShadow.join(',');
-};
-
-const heroPercentage = {
-  Primary: 20,
-  Success: 20,
-  Warning: 10,
-  Info: -10,
-  Danger: -20,
-  Secondary: 20
-};
-const percentage = (status, outline) =>
-  status === 'Secondary' || outline ? 0.2 : 0.14;
-
-const color = status =>
-  status === 'Secondary' ? 'btnSecondaryBorder' : `btn${status}Bg`;
-
-const btnPulse = (color, opacity) => {
-  const pulse = keyframes`
+const btnPulse = color => {
+	const pulse = keyframes`
   0% {
       box-shadow: none;
-      opacity: ${opacity};
+      opacity: 0.3;
     }
-    50% {
+    100% {
       box-shadow: 0 0 1rem 0 ${color};
       opacity: 0.8;
     }
-    100% {
-      box-shadow: none;
-      opacity: ${opacity};
-    }
   `;
-  return css`
-    animation: ${pulse} 1.5s infinite;
-  `;
+	return css`
+		animation: ${pulse} 1.5s infinite alternate;
+	`;
 };
 
 const defaultProps = {
-  size: 'MD',
-  status: 'Primary'
+	size: 'Medium',
+	status: 'Primary'
 };
 
 const Button = styled.button`
-  ${ButtonStyle}
+	${ButtonStyle}
 `;
 
 Button.defaultProps = defaultProps;
 Button.propTypes = buttonTypes;
 
 const ButtonLink = styled.a`
-  ${ButtonStyle}
+	${ButtonStyle}
 `;
 
 ButtonLink.defaultProps = defaultProps;
 ButtonLink.propTypes = buttonTypes;
 
 const ButtonInput = styled.input`
-  &[type='button'],
-  &[type='submit'] {
-    ${ButtonStyle}
-  }
+	&[type='button'],
+	&[type='submit'] {
+		${ButtonStyle}
+	}
 `;
 
 ButtonInput.defaultProps = { ...defaultProps, type: 'button' };
 ButtonInput.propTypes = {
-  ...buttonTypes,
-  type: PropTypes.oneOf(['button', 'submit'])
+	...buttonTypes,
+	type: PropTypes.oneOf(['button', 'submit'])
 };
 
 export { Button, ButtonLink, ButtonInput, ButtonStyle };
