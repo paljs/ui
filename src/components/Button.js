@@ -250,6 +250,12 @@ const ButtonStyle = css`
 
     ${fullWidth && 'width: 100%;'}
 
+    &.transitions {
+      transition-duration: 0.15s;
+      transition-property: background-color, border-color, box-shadow, color;
+      transition-timing-function: ease-in;
+    }
+    
     ${appearances[appearance]}
   `}
 `;

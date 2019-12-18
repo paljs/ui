@@ -43,11 +43,14 @@ const placement = PropTypes.oneOf([
 
 const trigger = PropTypes.oneOf(['click', 'hover', 'focus', 'hint']);
 
-const statusArray = ['Info', 'Success', 'Danger', 'Primary', 'Warning'];
+const status = PropTypes.oneOf(['Info', 'Success', 'Danger', 'Primary', 'Warning', 'Basic', 'Control']);
 
-const size = PropTypes.oneOf(['XXS', 'XS', 'SM', 'MD', 'LG', 'XL', 'XXL']);
+const size = PropTypes.oneOf(['Tiny', 'Small', 'Medium', 'Large', 'Giant']);
 
 const shape = PropTypes.oneOf(['Rectangle', 'SemiRound', 'Round']);
+
+const appearance = PropTypes.oneOf(['filled', 'outline', 'ghost', 'hero']);
+
 const customCss = {
   className: PropTypes.string,
   style: PropTypes.object
@@ -73,19 +76,18 @@ function menuItemsType(...args) {
 
 const buttonTypes = {
   fullWidth: PropTypes.bool,
-  hero: PropTypes.bool,
-  outline: PropTypes.bool,
   pulse: PropTypes.bool,
-  size: PropTypes.oneOf(['XS', 'SM', 'MD', 'LG']),
+  appearance,
+  size,
   shape,
-  status: PropTypes.oneOf([...statusArray, 'Secondary'])
+  status
 };
 
 export {
   badge,
   colorState,
   size,
-  statusArray,
+  status,
   shape,
   position,
   placement,
