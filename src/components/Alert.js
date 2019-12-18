@@ -15,35 +15,35 @@ const AlertStyle = styled.div`
     flex-direction: column;
     position: relative;
 
-    font-size: ${theme.alertFontSize};
-    line-height: ${theme.alertLineHeight};
-    font-weight: ${theme.alertFontWeight};
-
-    background: ${theme.alertBg};
-    color: ${theme.alertOutlineFg};
-    margin-bottom: ${theme.alertMargin};
     border-radius: ${theme.alertBorderRadius};
     box-shadow: ${theme.alertShadow};
+    font-family: ${theme.alertTextFontFamily};
+    font-size: ${theme.alertTextFontSize};
+    font-weight: ${theme.alertTextFontWeight};
+    line-height: ${theme.alertTextLineHeight};
     padding: ${theme.alertPadding};
+    margin-bottom: ${theme.alertBottomMargin};
 
-    ${size && `height: ${theme[`alertHeight${size}`]};`}
+    ${size && `height: ${theme[`alert${size}Height`]};`}
 
     ${status &&
       css`
-        background-color: ${theme[`alert${status}Bg`]};
-        color: ${status === 'Disabled' ? theme.alertDisabledFg : theme.alertFg};
+        background-color: ${theme[`alert${status}BackgroundColor`]};
+        color: ${theme[`alert${status}TextColor`]};
+        a,
+        a:hover {
+          color: ${theme[`alert${status}TextColor`]};
+        }
       `}
 
     ${accent &&
       css`
-        border-top-style: solid;
-        border-top-width: ${theme.alertBorderRadius};
-        border-top-color: ${theme[`alert${accent}Bg`]};
+        border-top: ${theme.alertBorderRadius} solid ${theme[`alertAccent${status}Color`]};
       `}
 
     ${outline &&
       css`
-        border: 2px solid ${theme[`alert${outline}Bg`]};
+        border: ${theme.alertOutlineWidth} solid ${theme[`alertOutline${status}Color`]};
       `}
 
     .close {
@@ -63,7 +63,7 @@ const AlertStyle = styled.div`
     }
     ${closable &&
       css`
-        padding-right: ${theme.alertClosablePadding};
+        padding-${theme.dir === 'rtl' ? 'left' : 'right'}: ${theme.alertClosableStartPadding};
       `}
   `}
 `;
