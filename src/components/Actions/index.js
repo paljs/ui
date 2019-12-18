@@ -7,7 +7,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { badge, customCss } from '../types';
+import { badge, customCss, size } from '../types';
 import { ActionsStyle, ActionStyle } from './style';
 import Badge from '../Badge';
 
@@ -69,10 +69,14 @@ function Actions({
   );
 }
 
+Actions.defaultProps = {
+  size: 'Small'
+};
+
 Actions.propTypes = {
   ...customCss,
   fullWidth: PropTypes.bool,
-  size: PropTypes.oneOf(['SM', 'MD', 'LG']),
+  size,
   inverse: PropTypes.bool,
   actions: PropTypes.arrayOf(
     PropTypes.shape({

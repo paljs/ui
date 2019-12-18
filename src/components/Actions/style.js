@@ -6,38 +6,37 @@
 
 import styled, { css } from 'styled-components';
 
-/* eslint-disable indent */
-
 const ActionsStyle = styled.div`
-  ${({ theme, customCss }) => css`
-    font-size: ${theme.actionsFontSize};
-    font-family: ${theme.actionsFontFamily};
-    line-height: ${theme.actionsLineHeight};
-    display: flex;
-    align-items: center;
-    ${customCss}
-  `}
+	${({ theme, customCss }) => css`
+		background-color: ${theme.actionsBackgroundColor};
+		color: ${theme.actionsTextColor};
+		font-family: ${theme.actionsTextFontFamily};
+		font-weight: ${theme.actionsTextFontWeight};
+		line-height: ${theme.actionsTextLineHeight};
+		display: flex;
+		align-items: center;
+		${customCss}
+	`}
 `;
 
 const ActionStyle = styled.div`
-  ${({ theme, fullWidth, disabled, size, inverse }) => css`
-      padding: 0 ${theme.actionsPadding};
+	${({ theme, fullWidth, disabled, size, inverse }) => css`
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       position: relative;
       ${fullWidth &&
-        css`
-          justify-content: center;
-          width: 100%;
-        `}
+				css`
+					justify-content: center;
+					width: 100%;
+				`}
 
       &:first-child {
         ${
-          theme.dir === 'rtl'
-            ? 'border-right: none !important;'
-            : 'border-left: none !important;'
-        }
+					theme.dir === 'rtl'
+						? 'border-right: none !important;'
+						: 'border-left: none !important;'
+				}
       }
 
       a.icon-container {
@@ -51,41 +50,41 @@ const ActionStyle = styled.div`
         &:hover {
           cursor: pointer;
         }
-        color: ${theme.actionsFg};
+        color: ${theme.actionsIconColor};
       }
 
       ${size &&
-        css`
-          height: ${theme[`actionsSize${size}`]};
-          i.control-icon {
-            font-size: ${theme[`actionsSize${size}`]};
-          }
-        `}
+				css`
+					font-size: ${theme[`actions${size}TextFontSize`]};
+					height: ${theme[`actions${size}Height`]};
+					padding: ${theme[`actions${size}Padding`]};
+					i.control-icon {
+						font-size: ${theme[`actions${size}IconHeight`]};
+					}
+				`}
 
         ${disabled &&
-          css`
-            & > * {
-              opacity: 0.5;
-            }
-            cursor: not-allowed;
-
-            a,
-            i {
-              cursor: not-allowed !important;
-            }
-          `}
+					css`
+						& > * {
+							opacity: 0.5;
+						}
+						cursor: not-allowed;
+						color: ${theme.actionsDisabledTextColor} a, i {
+							cursor: not-allowed !important;
+							color: ${theme.actionsDisabledIconColor};
+						}
+					`}
         ${inverse &&
-          css`
+					css`
             i.control-icon {
               color: ${theme.actionsBg};
             }
 
-            border-${theme.dir === 'rtl' ? 'right' : 'left'}: 1px solid 
-            ${theme.actionsSeparator};
+            border-${theme.dir === 'rtl' ? 'right' : 'left'}: 
+            ${theme.actionsDividerWidth} ${theme.actionsDividerStyle} ${theme.actionsDividerColor}; 
           `}
         
-      border-${theme.dir === 'rtl' ? 'right' : 'left'}: 1px solid 
-      ${theme.actionsSeparator};
+      border-${theme.dir === 'rtl' ? 'right' : 'left'}: ${theme.actionsDividerWidth} ${theme.actionsDividerStyle} ${theme.actionsDividerColor}; 
       background: transparent;
 `}
 `;
