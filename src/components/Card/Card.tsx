@@ -7,6 +7,7 @@
 import styled, { css } from '../../theme/styled-components';
 import { Status, Size } from '../types';
 import { getHeadings, scrollbars } from '../Shared';
+import { ThemeKey } from '../../theme/themeTypes';
 
 interface CardProps {
   status: Status;

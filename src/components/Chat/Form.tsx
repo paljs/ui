@@ -29,18 +29,17 @@ const ChatForm: React.FC<ChatFormProps> = props => {
 
       if (e.dataTransfer && e.dataTransfer.files) {
         const droppedFiles = [...files];
-        const _files = e.dataTransfer.files as File[];
-        for (const file of _files) {
-          const res = file;
+        for (let i = 0; i < e.dataTransfer.files.length; i++) {
+          const res: AttachedFile = e.dataTransfer.files[i];
 
-          if (props.imgDropTypes.includes(file.type)) {
+          if (props.imgDropTypes.includes(e.dataTransfer.files[i].type)) {
             const fr = new FileReader();
             fr.onload = event => {
               res.src = event.target?.result;
               res.urlStyle = `url(${res.src})`;
             };
 
-            fr.readAsDataURL(file);
+            fr.readAsDataURL(e.dataTransfer.files[i]);
           }
           droppedFiles.push(res);
         }
