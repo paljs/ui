@@ -1,32 +1,30 @@
 import * as styledComponents from 'styled-components';
-import { themeObject } from './themeTypes';
+import { ThemeTypes } from './themeTypes';
 
 const {
-	default: styled,
-	css,
-	keyframes,
-	ThemeProvider,
-	createGlobalStyle,
-	withTheme,
-	ThemeConsumer,
-	ThemeContext,
-	isStyledComponent,
-	ServerStyleSheet,
-	StyleSheetManager
-} = styledComponents as styledComponents.ThemedStyledComponentsModule<
-	themeObject
->;
+  default: styled,
+  css,
+  keyframes,
+  ThemeProvider,
+  createGlobalStyle,
+  withTheme,
+  ThemeConsumer,
+  ThemeContext,
+  isStyledComponent,
+  ServerStyleSheet,
+  StyleSheetManager,
+} = styledComponents as styledComponents.ThemedStyledComponentsModule<ThemeTypes>;
 
 export default styled;
 export {
-	css,
-	keyframes,
-	ThemeProvider,
-	createGlobalStyle,
-	withTheme,
-	ThemeConsumer,
-	ThemeContext,
-	isStyledComponent,
-	ServerStyleSheet,
-	StyleSheetManager
+  css,
+  keyframes,
+  ThemeProvider,
+  createGlobalStyle,
+  withTheme,
+  ThemeConsumer,
+  ThemeContext,
+  isStyledComponent,
+  ServerStyleSheet,
+  StyleSheetManager,
 };

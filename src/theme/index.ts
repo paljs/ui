@@ -9,45 +9,50 @@ import corporateTheme from './corporate';
 import darkTheme from './dark';
 import defaultTheme from './default';
 import mapping from './mapping';
-import { themeObject, themeKeys } from './themeTypes';
+import { ThemeObject, ThemeKeys, ThemeTypes } from './themeTypes';
 export * from './breakpoints';
 
 const themeValues = {
-	default: defaultTheme,
-	cosmic: cosmicTheme,
+  default: defaultTheme,
+  cosmic: cosmicTheme,
   corporate: corporateTheme,
-  dark: darkTheme
-};
-interface themeName {
-	name: "cosmic" | "corporate" | "dark" | "default";
+  dark: darkTheme,
 };
 
-export function themes(theme: keyof typeof themeValues, settings: themeObject): themeObject & themeName {
-	switch (theme) {
-		case 'cosmic':
-		case 'corporate':
-		case 'dark':
-			return {...getThemeValue({
-				...defaultTheme,
-				...mapping,
-				...themeValues[theme],
-				...settings
-			}), name: theme};
-		default:
-			return {...getThemeValue({ ...defaultTheme, ...mapping, ...settings }), name: theme};
-	}
+function getKeyValue(settings: ThemeObject, key: keyof ThemeObject): ThemeKeys {
+  if (settings[key] in settings) {
+    getKeyValue(settings, settings[key] as keyof ThemeObject);
+  }
+  return settings[key];
 }
 
-function getThemeValue(settings: themeObject): themeObject {
-	(Object.keys(settings) as Array<keyof themeObject>).forEach(key => {
-		settings[key] = getKeyValue(settings, key);
-	});
-	return settings;
+function getThemeValue(settings: ThemeObject): ThemeObject {
+  (Object.keys(settings) as Array<keyof ThemeObject>).forEach(key => {
+    settings[key] = getKeyValue(settings, key);
+  });
+  return settings;
 }
 
-function getKeyValue(settings: themeObject, key: keyof themeObject): themeKeys {
-	if (settings[key] in settings) {
-		getKeyValue(settings, settings[key] as keyof themeObject);
-	}
-	return settings[key];
+export function themes(theme: keyof typeof themeValues, settings: ThemeTypes): ThemeTypes {
+  switch (theme) {
+    case 'cosmic':
+    case 'corporate':
+    case 'dark':
+      return {
+        name: theme,
+        dir: 'ltr',
+        ...getThemeValue({
+          ...defaultTheme,
+          ...mapping,
+          ...themeValues[theme],
+          ...settings,
+        }),
+      };
+    default:
+      return {
+        name: theme,
+        dir: 'ltr',
+        ...getThemeValue({ ...defaultTheme, ...mapping, ...settings }),
+      };
+  }
 }
