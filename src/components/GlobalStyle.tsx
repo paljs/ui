@@ -4,7 +4,7 @@
  * Licensed under the MIT License. See License.txt in the project root for license information.
  */
 
-import { css } from 'styled-components';
+import { css } from '../theme/styled-components';
 
 const GlobalStyle = css`
   ${({ theme }) => css`

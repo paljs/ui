@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from '../../theme/styled-components';
 import { adjustHue } from 'polished';
 
 const ToastrStyle = styled.div`

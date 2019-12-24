@@ -1,4 +1,11 @@
-export function getPhysicalPosition(dir, position) {
+const position1 = ['left', 'right', 'top', 'bottom'];
+const position2 = ['start', 'end'];
+const position3 = ['topRight', 'topLeft', 'bottomRight', 'bottomLeft'];
+const position4 = ['topStart', 'topEnd', 'bottomStart', 'bottomEnd'];
+
+type Dir = 'rtl' | 'ltr';
+
+export function getPhysicalPosition(dir: Dir, position: string) {
   if (position1.includes(position) || position3.includes(position)) {
     return position;
   }
@@ -18,7 +25,8 @@ export function getPhysicalPosition(dir, position) {
   }
   return position;
 }
-export function getLogicalPosition(dir, position) {
+
+export function getLogicalPosition(dir: Dir, position: string) {
   if (position2.includes(position) || position4.includes(position)) {
     return position;
   }
@@ -39,17 +47,12 @@ export function getLogicalPosition(dir, position) {
   return position;
 }
 
-export function isRightPosition(dir, position) {
+export function isRightPosition(dir: Dir, position: string) {
   const physicalPosition = getPhysicalPosition(dir, position);
   return physicalPosition === 'topRight' || physicalPosition === 'bottomRight';
 }
 
-export function isTopPosition(dir, position) {
+export function isTopPosition(dir: Dir, position: string) {
   const physicalPosition = getLogicalPosition(dir, position);
   return physicalPosition === 'topEnd' || physicalPosition === 'topStart';
 }
-
-const position1 = ['left', 'right', 'top', 'bottom'];
-const position2 = ['start', 'end'];
-const position3 = ['topRight', 'topLeft', 'bottomRight', 'bottomLeft'];
-const position4 = ['topStart', 'topEnd', 'bottomStart', 'bottomEnd'];

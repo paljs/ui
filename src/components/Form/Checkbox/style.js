@@ -4,7 +4,7 @@
  * Licensed under the MIT License. See License.txt in the project root for license information.
  */
 
-import styled, { css } from 'styled-components';
+import styled, { css } from '../../../theme/styled-components';
 import { lighten } from 'polished';
 
 const CheckboxStyle = styled.label`

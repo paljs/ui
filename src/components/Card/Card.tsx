@@ -5,11 +5,17 @@
  */
 
 import styled, { css } from '../../theme/styled-components';
-import { status, size } from '../types';
+import { Status, Size } from '../types';
 import { getHeadings } from '../Shared';
 import { ThemeKey } from '../../theme/themeTypes';
 
-const headerBg = css`
+interface CardProps {
+  status: Status;
+  accent: Status;
+  size: Size;
+}
+
+const headerBg = css<CardProps>`
   ${({ theme, status }) => css`
     padding: ${theme.cardPadding};
     border-bottom: ${theme.cardDividerWidth} ${theme.cardDividerStyle} ${theme.cardDividerColor};
@@ -34,11 +40,11 @@ const headerBg = css`
           color: ${theme[`cardHeader${status}TextColor` as ThemeKey]};
         }
       `}
-  `};
-  ${({ accent }) => (accent ? 'border-radius: 0' : '')};
+  `}
+  ${({ accent }) => (accent ? 'border-radius: 0;' : '')}
 `;
 
-const Card = styled.div`
+const Card = styled.div<CardProps>`
   ${({ theme, accent, size }) => css`
     display: flex;
     flex-direction: column;
@@ -76,11 +82,7 @@ const Card = styled.div`
     }
   `};
 `;
-Card.propTypes = {
-  status,
-  accent: status,
-  size,
-};
+
 const CardBody = styled.div`
   padding: ${({ theme }) => theme.cardPadding};
   overflow: auto;

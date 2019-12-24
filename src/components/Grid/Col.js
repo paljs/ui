@@ -5,7 +5,7 @@
  */
 
 import PropTypes from 'prop-types';
-import styled, { css } from 'styled-components';
+import styled, { css } from '../../theme/styled-components';
 import {
   breakpointUp,
   getGridSize,

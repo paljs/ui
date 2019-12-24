@@ -1,9 +1,15 @@
-import styled, { css } from 'styled-components';
-import PropTypes from 'prop-types';
+import styled, { css } from '../theme/styled-components';
 import React from 'react';
-import { statusArray } from './types';
+import { Size, Status } from './types';
 
-const ProgressStyle = styled.div`
+interface ProgressProps {
+  size?: Size;
+  status?: Status;
+  value?: number;
+  displayValue?: boolean;
+}
+
+const ProgressStyle = styled.div<ProgressProps>`
   ${({ theme, size, status, value }) => css`
     overflow: hidden;
     display: block;
@@ -26,7 +32,7 @@ const ProgressStyle = styled.div`
   `}
 `;
 
-function Progress(props) {
+const Progress: React.FC<ProgressProps> = props => {
   return (
     <ProgressStyle {...props}>
       <div className="progress-value">
@@ -35,19 +41,12 @@ function Progress(props) {
       </div>
     </ProgressStyle>
   );
-}
+};
 
 Progress.defaultProps = {
   size: 'MD',
   status: 'Default',
-  value: 0
-};
-
-Progress.propTypes = {
-  size: PropTypes.oneOf(['XS', 'SM', 'MD', 'LG', 'XL']),
-  status: PropTypes.oneOf([...statusArray, 'Default']),
-  value: PropTypes.number,
-  displayValue: PropTypes.bool
+  value: 0,
 };
 
 export default Progress;

@@ -4,9 +4,9 @@
  * Licensed under the MIT License. See License.txt in the project root for license information.
  */
 
-import styled, { css, keyframes } from 'styled-components';
+import styled, { css, keyframes } from '../theme/styled-components';
 import React from 'react';
-import { size, colorState } from './types';
+import { Size, Status } from './types';
 
 const spin = keyframes`
   0% {
@@ -20,7 +20,13 @@ const spin = keyframes`
   }
 `;
 
-const SpinnerStyle = styled.div`
+interface SpinnerProps {
+  size?: Size;
+  status?: Status;
+  children?: React.ReactNode;
+}
+
+const SpinnerStyle = styled.div<SpinnerProps>`
   ${({ theme, size, status }) => css`
     opacity: 1;
     position: absolute;
@@ -61,22 +67,18 @@ const SpinnerStyle = styled.div`
   `}
 `;
 
-function Spinner(props) {
+const Spinner: React.FC<SpinnerProps> = props => {
   return (
     <SpinnerStyle {...props}>
       <span className="spin-circle" />
       <span className="message">{props.children}</span>
     </SpinnerStyle>
   );
-}
-Spinner.defaultProps = {
-  size: 'MD',
-  status: 'Primary'
 };
 
-Spinner.propTypes = {
-  size,
-  status: colorState
+Spinner.defaultProps = {
+  size: 'MD',
+  status: 'Primary',
 };
 
 export default Spinner;

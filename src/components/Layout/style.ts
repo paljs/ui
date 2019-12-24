@@ -5,7 +5,6 @@
  */
 
 import styled, { css } from '../../theme/styled-components';
-import PropTypes from 'prop-types';
 import { breakpointDown } from '../../theme/breakpoints';
 import SidebarStyle from '../Sidebar/style';
 

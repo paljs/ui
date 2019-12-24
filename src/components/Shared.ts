@@ -1,4 +1,4 @@
-import { css } from 'styled-components';
+import { css } from '../theme/styled-components';
 
 export const getHeadings = css`
   h1 {

@@ -5,11 +5,20 @@
  */
 
 import React from 'react';
-import styled, { css } from 'styled-components';
-import PropTypes from 'prop-types';
-import { size, status } from './types';
+import styled, { css } from '../theme/styled-components';
+import { Size, Status } from './types';
+import { ThemeKey } from '../theme/themeTypes';
 
-const AlertStyle = styled.div`
+interface AlertProps {
+  size?: Size;
+  status?: Status;
+  accent?: Status;
+  outline?: Status;
+  closable?: boolean;
+  onClose?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+}
+
+const AlertStyle = styled.div<AlertProps>`
   ${({ theme, size, status, accent, outline, closable }) => css`
     display: flex;
     flex-direction: column;
@@ -24,26 +33,26 @@ const AlertStyle = styled.div`
     padding: ${theme.alertPadding};
     margin-bottom: ${theme.alertBottomMargin};
 
-    ${size && `height: ${theme[`alert${size}Height`]};`}
+    ${size && `height: ${theme[`alert${size}Height` as ThemeKey]};`}
 
     ${status &&
       css`
-        background-color: ${theme[`alert${status}BackgroundColor`]};
+        background-color: ${theme[`alert${status}BackgroundColor` as ThemeKey]};
         color: ${theme[`alert${status}TextColor`]};
         a,
         a:hover {
-          color: ${theme[`alert${status}TextColor`]};
+          color: ${theme[`alert${status}TextColor` as ThemeKey]};
         }
       `}
 
     ${accent &&
       css`
-        border-top: ${theme.alertBorderRadius} solid ${theme[`alertAccent${status}Color`]};
+        border-top: ${theme.alertBorderRadius} solid ${theme[`alertAccent${status}Color` as ThemeKey]};
       `}
 
     ${outline &&
       css`
-        border: ${theme.alertOutlineWidth} solid ${theme[`alertOutline${status}Color`]};
+        border: ${theme.alertOutlineWidth} solid ${theme[`alertOutline${status}Color` as ThemeKey]};
       `}
 
     .close {
@@ -68,31 +77,17 @@ const AlertStyle = styled.div`
   `}
 `;
 
-function Alert(props) {
+const Alert: React.FC<AlertProps> = props => {
   return (
     <AlertStyle {...props}>
       {props.closable && (
-        <button
-          onClick={props.onClose}
-          type="button"
-          className="close"
-          aria-label="Close"
-        >
+        <button onClick={props.onClose} type="button" className="close" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       )}
       {props.children}
     </AlertStyle>
   );
-}
-
-Alert.propTypes = {
-  size,
-  status,
-  accent: status,
-  outline: status,
-  closable: PropTypes.bool,
-  onClose: PropTypes.func
 };
 
 export default Alert;

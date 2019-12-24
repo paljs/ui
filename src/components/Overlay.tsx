@@ -4,10 +4,9 @@
  * Licensed under the MIT License. See License.txt in the project root for license information.
  */
 
-import styled from 'styled-components';
+import styled from '../theme/styled-components';
 import ReactDOM from 'react-dom';
 import React from 'react';
-import PropTypes from 'prop-types';
 
 const OverlayStyle = styled.div`
   position: absolute;
@@ -19,7 +18,7 @@ const OverlayStyle = styled.div`
   max-height: 100%;
 `;
 
-function Overlay(props) {
+const Overlay: React.FC<{ children: React.ReactNode }> = props => {
   const [parent, setParent] = React.useState();
 
   React.useEffect(() => {
@@ -27,15 +26,8 @@ function Overlay(props) {
     setParent(overlayParent);
   }, []);
   return (
-    parent !== undefined &&
-    ReactDOM.createPortal(
-      <OverlayStyle {...props}>{props.children}</OverlayStyle>,
-      parent
-    )
+    parent !== undefined && ReactDOM.createPortal(<OverlayStyle {...props}>{props.children}</OverlayStyle>, parent)
   );
-}
-
-Overlay.propTypes = {
-  children: PropTypes.node
 };
+
 export default Overlay;

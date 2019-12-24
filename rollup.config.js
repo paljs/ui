@@ -1,41 +1,23 @@
-import babel from 'rollup-plugin-babel';
-import commonjs from 'rollup-plugin-commonjs';
-import resolve from 'rollup-plugin-node-resolve';
-import url from 'rollup-plugin-url';
-import svgr from '@svgr/rollup';
+import typescript from 'rollup-plugin-typescript2';
 import { terser } from 'rollup-plugin-terser';
 
 const plugins = [
-  url(),
-  svgr(),
-  babel({
-    exclude: 'node_modules/**',
-    plugins: ['babel-plugin-styled-components']
+  typescript({
+    typescript: require('typescript'),
   }),
-  resolve(),
-  commonjs(),
-  terser()
+  terser(),
 ];
-const external = ['react', 'react-dom', 'styled-components', 'polished', 'prop-types'];
-const globals = {react: 'React', 'react-dom': 'ReactDOM','prop-types': 'PropTypes', 'styled-components': 'styled'};
+const external = ['react', 'react-dom', 'styled-components'];
+const globals = { react: 'React', 'react-dom': 'ReactDOM', 'styled-components': 'styled' };
 const dir = 'dist';
 const folders = [];
 const files = [];
-[
-  'Alert',
-  'Badge',
-  'Button',
-  'GlobalStyle',
-  'List',
-  'Overlay',
-  'ProgressBar',
-  'Spinner'
-].map(file => {
+['Alert', 'Badge', 'Button', 'GlobalStyle', 'List', 'Overlay', 'ProgressBar', 'Spinner'].map(file => {
   files.push({
-    input: `src/components/${file}.js`,
+    input: `src/components/${file}.tsx`,
     output: { format: 'cjs', file: `${dir}/${file}.js`, globals },
     plugins,
-    external
+    external,
   });
 });
 [
@@ -54,13 +36,13 @@ const files = [];
   'Tabs',
   'Toastr',
   'Tooltip',
-  'User'
+  'User',
 ].map(file => {
   folders.push({
-    input: `src/components/${file}/index.js`,
+    input: `src/components/${file}/index.tsx`,
     output: { format: 'cjs', file: `${dir}/${file}.js`, globals },
     plugins,
-    external
+    external,
   });
 });
 
@@ -71,18 +53,18 @@ export default [
     input: 'src/components/index.js',
     output: { format: 'cjs', file: `${dir}/index.js`, globals },
     plugins,
-    external
+    external,
   },
   {
     input: 'src/svg/index.js',
     output: { format: 'cjs', file: `${dir}/svg.js`, globals },
     plugins,
-    external
+    external,
   },
   {
     input: 'src/theme/index.js',
     output: { format: 'cjs', file: `${dir}/theme.js`, globals },
     plugins,
-    external
-  }
+    external,
+  },
 ];

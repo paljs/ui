@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from '../../theme/styled-components';
 
 const ChatStyle = styled.div`
   ${({ theme, size, status }) => css`

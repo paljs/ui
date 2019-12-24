@@ -5,7 +5,7 @@ const layoutContext = React.createContext({
   removeClass: () => {},
   addEventListener: () => {},
   removeEventListener: () => {},
-  dir: 'ltr'
+  dir: 'ltr',
 });
 
 export default layoutContext;

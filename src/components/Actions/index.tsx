@@ -4,7 +4,6 @@
  * Licensed under the MIT License. See License.txt in the project root for license information.
  */
 
-import PropTypes from 'prop-types';
 import React from 'react';
 
 import { Badge as BadgeType, Size } from '../types';
@@ -16,7 +15,7 @@ const Actions: React.FC<ActionsProps> = ({ actions, className, style, fullWidth,
     <ActionsStyle className={className} style={style}>
       {actions.map((action, index) => {
         return (
-          <ActionStyle key={index} fullWidth={fullWidth} size={size} inverse={inverse} disabled={action.disabled}>
+          <ActionStyle key={index} fullWidth={fullWidth} size={size} inverse={inverse} disabled={!!action.disabled}>
             {action.icon ? (
               action.link ? (
                 <Link to={action.link} target={action.target} className="icon-container" {...action.events}>
@@ -40,7 +39,7 @@ const Actions: React.FC<ActionsProps> = ({ actions, className, style, fullWidth,
       })}
     </ActionsStyle>
   );
-}
+};
 
 Actions.defaultProps = {
   size: 'Small',
@@ -59,10 +58,12 @@ interface Action {
 
 interface ActionsProps {
   actions: Action[];
-  size?: Size;
+  size: Size;
   inverse?: boolean;
   fullWidth?: boolean;
-  Link: React.C;
+  Link: any;
+  className?: string;
+  style?: React.CSSProperties;
 }
 
 export default Actions;

@@ -4,11 +4,11 @@
  * Licensed under the MIT License. See License.txt in the project root for license information.
  */
 
-import styled, { css } from 'styled-components';
-import { status, position } from './types';
+import styled, { css } from '../theme/styled-components';
+import { Status, Position } from './types';
 import { getPhysicalPosition } from './positionHelper';
 
-const Badge = styled.span`
+const Badge = styled.span<BadgeProps>`
   ${({ theme, status }) => css`
     position: absolute;
     border-radius: ${theme.badgeBorderRadius};
@@ -24,7 +24,7 @@ const Badge = styled.span`
     background-color: ${theme[`badge${status}BackgroundColor`]};
   `}
   ${({ position, theme }) => {
-    let placement = getPhysicalPosition(theme.dir, position);
+    const placement = getPhysicalPosition(theme.dir, position);
     switch (placement) {
       case 'topRight':
         return 'top: 0;right: 0;';
@@ -37,13 +37,15 @@ const Badge = styled.span`
     }
   }}
 `;
+
 Badge.defaultProps = {
   position: 'topEnd',
-  status: 'Primary'
+  status: 'Primary',
 };
 
-Badge.propTypes = {
-  position,
-  status
-};
+interface BadgeProps {
+  position: Position;
+  status: Status;
+}
+
 export default Badge;
