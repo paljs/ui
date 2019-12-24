@@ -7,6 +7,7 @@
 import styled, { css } from '../theme/styled-components';
 import { Status, Position } from './types';
 import { getPhysicalPosition } from './positionHelper';
+import { ThemeKey } from '../theme/themeTypes';
 
 const Badge = styled.span<BadgeProps>`
   ${({ theme, status }) => css`
@@ -20,8 +21,8 @@ const Badge = styled.span<BadgeProps>`
     text-align: center;
     white-space: nowrap;
     vertical-align: baseline;
-    color: ${theme[`badge${status}TextColor`]};
-    background-color: ${theme[`badge${status}BackgroundColor`]};
+    color: ${theme[`badge${status}TextColor` as ThemeKey]};
+    background-color: ${theme[`badge${status}BackgroundColor` as ThemeKey]};
   `}
   ${({ position, theme }) => {
     const placement = getPhysicalPosition(theme.dir, position);

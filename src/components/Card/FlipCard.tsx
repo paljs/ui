@@ -12,8 +12,8 @@ interface FlipCardProps {
   className: string;
   style: object;
   button: 'top' | 'bottom';
-	flipped?: boolean;
-	children: [React.ReactNode, React.ReactNode];
+  flipped?: boolean;
+  children: [React.ReactNode, React.ReactNode];
 }
 
 const FlipCardStyled = styled.div<FlipCardProps>`

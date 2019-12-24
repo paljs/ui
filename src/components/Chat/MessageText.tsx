@@ -1,7 +1,8 @@
 import React from 'react';
 import { MessageTextStyle } from './style';
+import { MessageProps } from './types';
 
-function MessageText(props) {
+const MessageText: React.FC<MessageProps> = props => {
   return (
     <MessageTextStyle>
       {(props.sender || props.date) && (
@@ -12,6 +13,6 @@ function MessageText(props) {
       {props.message && <p className="text"> {props.message}</p>}
     </MessageTextStyle>
   );
-}
+};
 
 export default MessageText;

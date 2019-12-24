@@ -6,8 +6,7 @@
 
 import styled, { css } from '../../theme/styled-components';
 import { Status, Size } from '../types';
-import { getHeadings } from '../Shared';
-import { ThemeKey } from '../../theme/themeTypes';
+import { getHeadings, scrollbars } from '../Shared';
 
 interface CardProps {
   status: Status;
@@ -59,6 +58,8 @@ const Card = styled.div<CardProps>`
     line-height: ${theme.cardTextLineHeight};
     margin-bottom: ${theme.cardMarginBottom};
 
+    ${scrollbars(theme.cardScrollbarColor, theme.cardScrollbarBackgroundColor, theme.cardScrollbarWidth)}
+
     ${accent &&
       css`
         border-top-color: ${theme[`cardHeader${accent}BackgroundColor` as ThemeKey]};
@@ -89,6 +90,7 @@ const CardBody = styled.div`
   flex: 1;
   -ms-flex: 1 1 auto;
   position: relative;
+  ${scrollbars(theme.cardScrollbarColor, theme.cardScrollbarBackgroundColor, theme.cardScrollbarWidth)}
 `;
 
 export { Card, CardBody };

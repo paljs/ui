@@ -13,7 +13,6 @@ interface RevealCardProps {
   style: object;
   button: 'top' | 'bottom';
   revealed?: boolean;
-  children: [React.ReactNode, React.ReactNode];
 }
 
 const RevealCardStyled = styled.div<RevealCardProps>`
@@ -35,7 +34,7 @@ const RevealCardStyled = styled.div<RevealCardProps>`
       left: 0;
       overflow: hidden;
       transition: ${revealed ? 'none' : 'top 0s 0.5s'};
-      height: calc(100% - ${theme.cardMargin});
+      height: calc(100% - ${theme.cardMarginBottom});
       .container {
         position: absolute;
         left: 0;
@@ -56,7 +55,7 @@ const RevealCardStyled = styled.div<RevealCardProps>`
   `}
 `;
 
-const RevealCard: React.FC<RevealCardProps> = props => {
+const RevealCard: React.FC<RevealCardProps & { children: [React.ReactNode, React.ReactNode] }> = props => {
   const [revealed, setRevealed] = React.useState<boolean>(false);
   const handleRevealed = () => {
     setRevealed(!revealed);

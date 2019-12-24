@@ -19,14 +19,17 @@ const OverlayStyle = styled.div`
 `;
 
 const Overlay: React.FC<{ children: React.ReactNode }> = props => {
-  const [parent, setParent] = React.useState();
+  const [parent, setParent] = React.useState<HTMLDivElement>();
 
   React.useEffect(() => {
-    const overlayParent = document.getElementById('overlay-container');
-    setParent(overlayParent);
+    const overlayParent = document.getElementById('overlay-container') as HTMLDivElement;
+    overlayParent && setParent(overlayParent);
   }, []);
-  return (
-    parent !== undefined && ReactDOM.createPortal(<OverlayStyle {...props}>{props.children}</OverlayStyle>, parent)
+
+  return parent !== undefined ? (
+    ReactDOM.createPortal(<OverlayStyle {...props}>{props.children}</OverlayStyle>, parent)
+  ) : (
+    <></>
   );
 };
 

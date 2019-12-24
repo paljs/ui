@@ -1,50 +1,42 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { FormStyle } from './style';
+import { ChatFormProps, AttachedFile } from './types';
 
-function ChatForm(props) {
-  const [message, setMessage] = React.useState(props.message);
-  const [files, setFiles] = React.useState([]);
-  const [fileOver, setFileOver] = React.useState(false);
-  const formRef = React.useRef();
-
-  React.useEffect(
-    () => {
-      formRef.current.addEventListener('drop', onDropFile);
-      formRef.current.addEventListener('dragover', onDragOver);
-      formRef.current.addEventListener('dragleave', onDragLeave);
-      return () => {
-        formRef.current.removeEventListener('drop', onDropFile);
-        formRef.current.removeEventListener('dragover', onDragOver);
-        formRef.current.removeEventListener('dragleave', onDragLeave);
-      };
-    },
-    [files]
-  );
+const ChatForm: React.FC<ChatFormProps> = props => {
+  const [message, setMessage] = React.useState<string>(props.message ?? '');
+  const [files, setFiles] = React.useState<AttachedFile[]>([]);
+  const [fileOver, setFileOver] = React.useState<boolean>(false);
+  const formRef = React.useRef<HTMLDivElement>(null);
+  const inputRef = React.useRef<HTMLInputElement>(null);
 
   const onDragOver = () => {
+    inputRef.current?.focus();
     setFileOver(true);
   };
+
   const onDragLeave = () => {
+    inputRef.current?.blur();
     setFileOver(false);
   };
 
-  const onDropFile = e => {
+  const onDropFile = (e: DragEvent) => {
     if (props.dropFiles) {
       e.preventDefault();
       e.stopPropagation();
 
-      setFileOver(false);
+      inputRef.current?.focus();
+      setFileOver(true);
 
       if (e.dataTransfer && e.dataTransfer.files) {
         const droppedFiles = [...files];
-        for (let file of e.dataTransfer.files) {
+        const _files = e.dataTransfer.files as File[];
+        for (const file of _files) {
           const res = file;
 
           if (props.imgDropTypes.includes(file.type)) {
             const fr = new FileReader();
             fr.onload = event => {
-              res.src = event.target.result;
+              res.src = event.target?.result;
               res.urlStyle = `url(${res.src})`;
             };
 
@@ -59,7 +51,22 @@ function ChatForm(props) {
     }
   };
 
-  const removeFile = file => {
+  React.useEffect(() => {
+    if (formRef && formRef.current) {
+      formRef.current.addEventListener('drop', onDropFile);
+      formRef.current.addEventListener('dragover', onDragOver);
+      formRef.current.addEventListener('dragleave', onDragLeave);
+    }
+    return () => {
+      if (formRef && formRef.current) {
+        formRef.current.removeEventListener('drop', onDropFile);
+        formRef.current.removeEventListener('dragover', onDragOver);
+        formRef.current.removeEventListener('dragleave', onDragLeave);
+      }
+    };
+  }, [files]);
+
+  const removeFile = (file: AttachedFile) => {
     const droppedFiles = [...files];
     const index = droppedFiles.indexOf(file);
     if (index >= 0) {
@@ -78,11 +85,7 @@ function ChatForm(props) {
 
   return (
     <div className="form" ref={formRef}>
-      <FormStyle
-        fileOver={fileOver}
-        buttonIcon={props.buttonIcon}
-        showButton={props.showButton}
-      >
+      <FormStyle buttonIcon={!!props.buttonIcon} showButton={props.showButton}>
         <div className="dropped-files">
           {files.map((file, index) => {
             return file.urlStyle ? (
@@ -105,9 +108,7 @@ function ChatForm(props) {
             type="text"
             value={message}
             onChange={e => setMessage(e.target.value)}
-            placeholder={
-              fileOver ? props.fileOverPlaceholder : props.placeholder
-            }
+            placeholder={fileOver ? props.fileOverPlaceholder : props.placeholder}
             onKeyUp={e => {
               e.preventDefault();
               if (e.key === 'Enter') {
@@ -116,36 +117,21 @@ function ChatForm(props) {
             }}
           />
           <button className="btn" onClick={sendMessage}>
-            {props.buttonIcon ? (
-              <span className={props.buttonIcon} />
-            ) : (
-              props.buttonTitle
-            )}
+            {props.buttonIcon ? <span className={props.buttonIcon} /> : props.buttonTitle}
           </button>
         </div>
       </FormStyle>
     </div>
   );
-}
+};
+
 ChatForm.defaultProps = {
   imgDropTypes: ['image/png', 'image/jpeg', 'image/gif'],
   showButton: true,
   dropFiles: false,
   buttonTitle: 'Send',
   placeholder: 'Type a message',
-  fileOverPlaceholder: 'Drop file to send'
-};
-ChatForm.propTypes = {
-  imgDropTypes: PropTypes.array,
-  message: PropTypes.string,
-  buttonTitle: PropTypes.string,
-  buttonIcon: PropTypes.string,
-  showButton: PropTypes.bool,
-  dropFiles: PropTypes.bool,
-  onSend: PropTypes.func,
-  placeholder: PropTypes.string,
-  fileOverPlaceholder: PropTypes.string,
-  filesIcon: PropTypes.string
+  fileOverPlaceholder: 'Drop file to send',
 };
 
 export default ChatForm;

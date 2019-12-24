@@ -8,6 +8,7 @@ import React from 'react';
 import styled, { css } from '../theme/styled-components';
 import { Size, Status } from './types';
 import { ThemeKey } from '../theme/themeTypes';
+import { scrollbars } from './Shared';
 
 interface AlertProps {
   size?: Size;
@@ -32,6 +33,8 @@ const AlertStyle = styled.div<AlertProps>`
     line-height: ${theme.alertTextLineHeight};
     padding: ${theme.alertPadding};
     margin-bottom: ${theme.alertBottomMargin};
+
+    ${scrollbars(theme.alertScrollbarColor, theme.alertScrollbarBackgroundColor, theme.alertScrollbarWidth)}
 
     ${size && `height: ${theme[`alert${size}Height` as ThemeKey]};`}
 

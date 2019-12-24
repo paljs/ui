@@ -43,8 +43,7 @@ const GlobalStyle = css`
       &.with-search .scrollable-container {
         transition: transform 0.5s cubic-bezier(0.2, 1, 0.3, 1);
         transform-origin: 50vw 50vh;
-        transform: perspective(1000px) translate3d(0, 50vh, 0)
-          rotate3d(1, 0, 0, 30deg);
+        transform: perspective(1000px) translate3d(0, 50vh, 0) rotate3d(1, 0, 0, 30deg);
         pointer-events: none;
       }
     }
@@ -91,20 +90,6 @@ const GlobalStyle = css`
           pointer-events: none;
         }
       }
-    }
-    *::-webkit-scrollbar {
-      width: ${theme.scrollbarWidth};
-      height: ${theme.scrollbarWidth};
-    }
-
-    *::-webkit-scrollbar-thumb {
-      background: ${theme.scrollbarFg};
-      cursor: pointer;
-      border-radius: ${theme.scrollbarThumbRadius};
-    }
-
-    *::-webkit-scrollbar-track {
-      background: ${theme.scrollbarBg};
     }
   `}
 `;
