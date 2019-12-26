@@ -30,7 +30,7 @@ const ChatForm: React.FC<ChatFormProps> = props => {
       if (e.dataTransfer && e.dataTransfer.files) {
         const droppedFiles = [...files];
         for (let i = 0; i < e.dataTransfer.files.length; i++) {
-          const res: AttachedFile = e.dataTransfer.files[i];
+          const res: AttachedFile = { ...e.dataTransfer.files[i], src: '', urlStyle: '' };
 
           if (props.imgDropTypes.includes(e.dataTransfer.files[i].type)) {
             const fr = new FileReader();

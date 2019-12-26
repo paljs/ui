@@ -5,17 +5,30 @@
  */
 
 import React from 'react';
-import PropTypes from 'prop-types';
-
 import CheckboxStyle from './style';
-import { colorState } from '../../types';
+import { Status } from '../../types';
+import { Icon } from '../../Icon';
 
-const Checkbox = props => {
-  const [value, setValue] = React.useState(props.checked ? props.checked : false);
+export interface CheckboxStyleProps {
+  checked?: boolean;
+  disabled?: boolean;
+  className?: string;
+  style?: React.CSSProperties;
+  status?: Status;
+  indeterminate?: boolean;
+}
+
+interface CheckboxProps extends CheckboxStyleProps {
+  onChange?: (value: boolean) => void;
+  onBlur?: (event: React.SyntheticEvent) => void;
+}
+
+const Checkbox: React.FC<CheckboxProps> = props => {
+  const [value, setValue] = React.useState<boolean>(props.checked ? props.checked : false);
 
   const uncontrolled = typeof props.onChange === 'function';
   const onChangeHandler = () => {
-    uncontrolled && props.onChange(!value);
+    props.onChange && props.onChange(!value);
     setValue(!value);
   };
 
@@ -30,6 +43,7 @@ const Checkbox = props => {
       {uncontrolled ? (
         <input
           type="checkbox"
+          className="native-input visually-hidden"
           disabled={props.disabled}
           onBlur={props.onBlur}
           checked={value}
@@ -38,24 +52,19 @@ const Checkbox = props => {
       ) : (
         <input
           type="checkbox"
+          className="native-input visually-hidden"
           disabled={props.disabled}
           onBlur={props.onBlur}
         />
       )}
 
-      <span className="indicator" />
-      <span className="description">{props.children}</span>
+      <span className="custom-checkbox">
+        {value && props.indeterminate && <Icon name="checkmark-bold-outline" />}
+        {props.indeterminate && <Icon name="minus-bold-outline" />}
+      </span>
+      <span className="text">{props.children}</span>
     </CheckboxStyle>
   );
 };
 
-Checkbox.propTypes = {
-  onChange: PropTypes.func,
-  onBlur: PropTypes.func,
-  checked: PropTypes.bool,
-  disabled: PropTypes.bool,
-  className: PropTypes.string,
-  style: PropTypes.object,
-  status: colorState
-};
 export default Checkbox;

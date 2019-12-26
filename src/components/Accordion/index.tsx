@@ -6,7 +6,7 @@
 
 import { AccordionStyle, ItemStyle } from './style';
 import React from 'react';
-import { ArrowDown, ArrowUp } from '../Svg';
+import { Icon } from '../Icon';
 
 interface AccordionItemPropTypes {
   disabled?: boolean;
@@ -113,7 +113,11 @@ let Accordion: React.RefForwardingComponent<AccordionRefObject, AccordionProps> 
           <ItemStyle key={index} {...item} className={cssStyle.join(' ')}>
             <header onClick={() => handleToggle(index)}>
               {item.title}
-              {!item.disabled && <i>{item.expanded ? <ArrowUp /> : <ArrowDown />}</i>}
+              {!item.disabled && item.expanded ? (
+                <Icon className="expansion-indicator" name="chevron-up-outline" />
+              ) : (
+                <Icon className="expansion-indicator" name="chevron-down-outline" />
+              )}
             </header>
             <div className={item.expanded ? 'expanded' : 'collapsed'}>
               <div className="item-body">{item.children}</div>

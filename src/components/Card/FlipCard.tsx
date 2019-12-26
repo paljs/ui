@@ -6,14 +6,13 @@
 
 import styled, { css } from '../../theme/styled-components';
 import React from 'react';
-import { ArrowRight, ArrowLeft } from '../Svg';
+import { Icon } from '../Icon';
 
 interface FlipCardProps {
   className: string;
   style: object;
   button: 'top' | 'bottom';
   flipped?: boolean;
-  children: [React.ReactNode, React.ReactNode];
 }
 
 const FlipCardStyled = styled.div<FlipCardProps>`
@@ -66,7 +65,7 @@ const FlipCardStyled = styled.div<FlipCardProps>`
   `}
 `;
 
-const FlipCard: React.FC<FlipCardProps> = props => {
+const FlipCard: React.FC<FlipCardProps & { children: [React.ReactNode, React.ReactNode] }> = props => {
   const [flipped, setFlipped] = React.useState<boolean>(false);
   const handleFlipped = () => {
     setFlipped(!flipped);
@@ -78,13 +77,13 @@ const FlipCard: React.FC<FlipCardProps> = props => {
         <div className="front">
           {props.children[0]}
           <i className="flip-button" onClick={handleFlipped}>
-            <ArrowRight />
+            <Icon name="chevron-right-outline" />
           </i>
         </div>
         <div className="back">
           {props.children[1]}
           <i className="flip-button" onClick={handleFlipped}>
-            <ArrowLeft />
+            <Icon name="chevron-left-outline" />
           </i>
         </div>
       </div>

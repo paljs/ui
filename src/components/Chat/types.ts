@@ -33,7 +33,7 @@ export interface ChatProps {
 
 export interface AttachedFile extends File {
   urlStyle: string;
-  src: string | ArrayBuffer | null;
+  src?: string | ArrayBuffer | null;
 }
 
 export interface ChatFormProps {

@@ -41,7 +41,7 @@ const AlertStyle = styled.div<AlertProps>`
     ${status &&
       css`
         background-color: ${theme[`alert${status}BackgroundColor` as ThemeKey]};
-        color: ${theme[`alert${status}TextColor`]};
+        color: ${theme[`alert${status}TextColor` as ThemeKey]};
         a,
         a:hover {
           color: ${theme[`alert${status}TextColor` as ThemeKey]};

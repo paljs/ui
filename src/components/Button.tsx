@@ -7,6 +7,7 @@
 import styled, { css, keyframes } from '../theme/styled-components';
 import { ButtonTypes } from './types';
 import { ThemeKey } from '../theme/themeTypes';
+import { componentAnimation, outline } from './Shared';
 
 const btnPulse = (color: string) => {
   const pulse = keyframes`
@@ -36,7 +37,7 @@ const filled = css<ButtonTypes>`
 
     &:focus {
       outline: none;
-      box-shadow: 0 0 0 ${theme.buttonOutlineWidth} ${theme.buttonOutlineColor};
+      ${outline(theme.buttonOutlineWidth, theme.buttonOutlineColor)}
     }
 
     &:focus,
@@ -76,11 +77,7 @@ const outline = css<ButtonTypes>`
 
     &:focus {
       outline: none;
-      box-shadow: 0 0 0 ${theme.buttonOutlineWidth} ${theme.buttonOutlineColor};
-      &:not(:hover):not(:active) {
-        box-shadow: 0 0 0 ${theme.buttonOutlineWidth} ${theme.buttonOutlineColor},
-          inset 0 0 0 100vmax ${theme.buttonOutlineColor};
-      }
+      ${outline(theme.buttonOutlineWidth, theme.buttonOutlineColor, true)}
     }
 
     &:focus,
@@ -123,11 +120,7 @@ const ghost = css<ButtonTypes>`
 
     &:focus {
       outline: none;
-      box-shadow: 0 0 0 ${theme.buttonOutlineWidth} ${theme.buttonOutlineColor};
-      &:not(:hover):not(:active) {
-        box-shadow: 0 0 0 ${theme.buttonOutlineWidth} ${theme.buttonOutlineColor},
-          inset 0 0 0 100vmax ${theme.buttonOutlineColor};
-      }
+      ${outline(theme.buttonOutlineWidth, theme.buttonOutlineColor, true)}
     }
 
     &:focus,
@@ -253,9 +246,7 @@ const ButtonStyle = css<ButtonTypes>`
     ${fullWidth && 'width: 100%;'}
 
     &.transitions {
-      transition-duration: 0.15s;
-      transition-property: background-color, border-color, box-shadow, color;
-      transition-timing-function: ease-in;
+      ${componentAnimation('background-color, border-color, box-shadow, color')}
     }
     
     ${appearances[appearance]}

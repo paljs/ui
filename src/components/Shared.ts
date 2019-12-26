@@ -41,3 +41,24 @@ export const scrollbars = (fg: ThemeKeys, bg: ThemeKeys, size: ThemeKeys) => {
     }
   `;
 };
+
+export const componentAnimation = (properties: string) => {
+  return css`
+    transition-duration: 0.15s;
+    transition-property: ${properties};
+    transition-timing-function: ease-in;
+  `;
+};
+
+export const outline = (width: ThemeKeys, color: ThemeKeys, insetShadow = false) => {
+  const outsetShadow = `0 0 0 ${width} ${color}`;
+  return css`
+    box-shadow: ${outsetShadow};
+    ${insetShadow &&
+      css`
+        &:not(:hover):not(:active) {
+          box-shadow: ${outsetShadow}, inset 0 0 0 100vmax ${({ theme }) => theme.buttonOutlineColor};
+        }
+      `}
+  `;
+};

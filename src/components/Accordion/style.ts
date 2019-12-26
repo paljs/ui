@@ -50,9 +50,9 @@ const ItemStyle = styled.div`
         outline: 0;
       }
 
-      i {
+      &.expansion-indicator {
         position: absolute;
-        ${theme.dir === 'rtl' ? 'left: 1rem;' : 'right: 1rem;'}
+        ${theme.dir === 'rtl' ? 'left' : 'right'}: 1rem;
       }
     }
 

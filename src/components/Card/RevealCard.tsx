@@ -6,7 +6,7 @@
 
 import styled, { css } from '../../theme/styled-components';
 import React from 'react';
-import { ArrowUp, ArrowDown } from '../Svg';
+import { Icon } from '../Icon';
 
 interface RevealCardProps {
   className: string;
@@ -67,7 +67,7 @@ const RevealCard: React.FC<RevealCardProps & { children: [React.ReactNode, React
         <div className="container">{props.children[1]}</div>
       </div>
       <div className="reveal-button" onClick={handleRevealed}>
-        {revealed ? <ArrowDown /> : <ArrowUp />}
+        {revealed ? <Icon name="chevron-down-outline" /> : <Icon name="chevron-up-outline" />}
       </div>
     </RevealCardStyled>
   );
