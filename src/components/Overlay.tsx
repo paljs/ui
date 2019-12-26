@@ -4,7 +4,7 @@
  * Licensed under the MIT License. See License.txt in the project root for license information.
  */
 
-import styled from '../theme/styled-components';
+import styled from 'styled-components';
 import ReactDOM from 'react-dom';
 import React from 'react';
 

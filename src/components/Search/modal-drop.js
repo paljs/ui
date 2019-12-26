@@ -4,7 +4,7 @@
  * Licensed under the MIT License. See License.txt in the project root for license information.
  */
 
-import { css, keyframes } from '../../theme/styled-components';
+import { css, keyframes } from 'styled-components';
 
 const scaleUpDown = keyframes`
   0% {

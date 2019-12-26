@@ -18,16 +18,13 @@ function Search(props) {
   const inputRef = React.useRef();
   const layout = React.useContext(layoutContext);
 
-  React.useEffect(
-    () => {
-      if (show === 'show') {
-        inputRef.current.focus();
-      } else if (show === undefined) {
-        layout.removeClass([props.type]);
-      }
-    },
-    [show]
-  );
+  React.useEffect(() => {
+    if (show === 'show') {
+      inputRef.current.focus();
+    } else if (show === undefined) {
+      layout.removeClass([props.type]);
+    }
+  }, [show]);
 
   const handleOpen = () => {
     setShow('');
@@ -110,8 +107,8 @@ Search.propTypes = {
     'modal-drop',
     'modal-half',
     'curtain',
-    'column-curtain'
-  ]).isRequired
+    'column-curtain',
+  ]).isRequired,
 };
 
 export default Search;

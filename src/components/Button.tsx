@@ -4,10 +4,10 @@
  * Licensed under the MIT License. See License.txt in the project root for license information.
  */
 
-import styled, { css, keyframes } from '../theme/styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import { ButtonTypes } from './types';
-import { ThemeKey } from '../theme/themeTypes';
-import { componentAnimation, outline } from './Shared';
+import { ThemeKey } from '../theme/';
+import { componentAnimation, outlineShadow } from './Shared';
 
 const btnPulse = (color: string) => {
   const pulse = keyframes`
@@ -37,7 +37,7 @@ const filled = css<ButtonTypes>`
 
     &:focus {
       outline: none;
-      ${outline(theme.buttonOutlineWidth, theme.buttonOutlineColor)}
+      ${outlineShadow(theme.buttonOutlineWidth, theme.buttonOutlineColor)}
     }
 
     &:focus,
@@ -77,7 +77,7 @@ const outline = css<ButtonTypes>`
 
     &:focus {
       outline: none;
-      ${outline(theme.buttonOutlineWidth, theme.buttonOutlineColor, true)}
+      ${outlineShadow(theme.buttonOutlineWidth, theme.buttonOutlineColor, true)}
     }
 
     &:focus,
@@ -120,7 +120,7 @@ const ghost = css<ButtonTypes>`
 
     &:focus {
       outline: none;
-      ${outline(theme.buttonOutlineWidth, theme.buttonOutlineColor, true)}
+      ${outlineShadow(theme.buttonOutlineWidth, theme.buttonOutlineColor, true)}
     }
 
     &:focus,

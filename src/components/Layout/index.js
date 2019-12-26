@@ -13,7 +13,7 @@ import {
   LayoutColumns,
   LayoutColumn,
   HeaderStyle,
-  FooterStyle
+  FooterStyle,
 } from './style';
 import LayoutContext from './layout-context';
 
@@ -25,7 +25,7 @@ function LayoutHeader(props) {
   );
 }
 LayoutHeader.propTypes = {
-  fixed: PropTypes.bool
+  fixed: PropTypes.bool,
 };
 function LayoutFooter(props) {
   return (
@@ -36,26 +36,18 @@ function LayoutFooter(props) {
 }
 
 function Layout(props) {
-  const [className, setClassName] = React.useState(
-    props.className ? [...props.className.split(' ')] : []
-  );
+  const [className, setClassName] = React.useState(props.className ? [...props.className.split(' ')] : []);
 
   const scrollRef = React.useRef();
 
-  React.useEffect(
-    () => {
-      if (
-        (props.withScroll || props.windowMode) &&
-        !className.includes('with-scroll')
-      ) {
-        addClass(['with-scroll']);
-        document.body.style.overflow = 'hidden';
-      } else {
-        document.body.style.overflow = 'initial';
-      }
-    },
-    [props.withScroll]
-  );
+  React.useEffect(() => {
+    if ((props.withScroll || props.windowMode) && !className.includes('with-scroll')) {
+      addClass(['with-scroll']);
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'initial';
+    }
+  }, [props.withScroll]);
 
   const addClass = cssClass => {
     const updatedClass = [...className];
@@ -91,9 +83,7 @@ function Layout(props) {
   const removeEventListener = (event, listener, target = 'scrollArea') => {
     switch (target) {
       case 'Layout':
-        document
-          .getElementById('oah-layout')
-          .removeEventListener(event, listener);
+        document.getElementById('oah-layout').removeEventListener(event, listener);
         break;
 
       default:
@@ -121,7 +111,7 @@ function Layout(props) {
           removeClass,
           removeEventListener,
           addEventListener,
-          dir: props.dir
+          dir: props.dir,
         }}
       >
         <div ref={scrollRef} className="scrollable-container">
@@ -133,7 +123,7 @@ function Layout(props) {
   );
 }
 Layout.defaultProps = {
-  dir: 'ltr'
+  dir: 'ltr',
 };
 
 Layout.propTypes = {
@@ -142,7 +132,7 @@ Layout.propTypes = {
   style: PropTypes.object,
   withScroll: PropTypes.bool,
   windowMode: PropTypes.bool,
-  withSubHeader: PropTypes.bool
+  withSubHeader: PropTypes.bool,
 };
 
 export {
@@ -154,5 +144,5 @@ export {
   LayoutColumns,
   LayoutColumn,
   LayoutStyle,
-  LayoutContext
+  LayoutContext,
 };

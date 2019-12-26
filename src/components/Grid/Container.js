@@ -5,12 +5,8 @@
  */
 
 import PropTypes from 'prop-types';
-import styled, { css } from '../../theme/styled-components';
-import {
-  maxContainer,
-  breakpointUp,
-  getGridGutter
-} from '../../theme/breakpoints';
+import styled, { css } from 'styled-components';
+import { maxContainer, breakpointUp, getGridGutter } from '../../theme/breakpoints';
 
 const width = css`
   ${p =>
@@ -18,7 +14,7 @@ const width = css`
     Object.keys(maxContainer).map(
       key => breakpointUp(key)`
         max-width: ${maxContainer[key]}px;
-      `
+      `,
     )}
 `;
 
@@ -35,7 +31,7 @@ const Container = styled.div`
 
 Container.propTypes = {
   fluid: PropTypes.bool,
-  children: PropTypes.node
+  children: PropTypes.node,
 };
 
 export default Container;

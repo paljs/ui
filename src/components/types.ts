@@ -36,6 +36,7 @@ export interface ItemType {
   title: string;
   link?: any;
   expanded?: boolean;
+  selected?: boolean;
   group?: boolean;
   hidden?: boolean;
   icon?: string;

@@ -36,9 +36,9 @@ let Sidebar = (props, ref) => {
         if (state === 'visible') {
           setState('hidden');
         }
-      }
+      },
     }),
-    [state]
+    [state],
   );
 
   const mouseEnter = () => {
@@ -47,10 +47,7 @@ let Sidebar = (props, ref) => {
     }
   };
   const mouseLeave = () => {
-    if (
-      state === 'expanded' &&
-      ifWidthInBreakpoint(props.compactedBreakpoints)
-    ) {
+    if (state === 'expanded' && ifWidthInBreakpoint(props.compactedBreakpoints)) {
       setState('compacted');
     }
   };
@@ -106,7 +103,7 @@ Sidebar.defaultProps = {
   compactedBreakpoints: ['xs', 'is', 'sm', 'md', 'lg'],
   hiddenBreakpoints: ['xs', 'is'],
   property: 'start',
-  state: 'expanded'
+  state: 'expanded',
 };
 
 Sidebar.propTypes = {
@@ -116,7 +113,7 @@ Sidebar.propTypes = {
   hiddenBreakpoints: PropTypes.arrayOf(PropTypes.string),
   fixed: PropTypes.bool,
   containerFixed: PropTypes.bool,
-  responsive: PropTypes.bool
+  responsive: PropTypes.bool,
 };
 
-export {Sidebar, SidebarBody};
+export { Sidebar, SidebarBody };

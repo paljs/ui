@@ -1,4 +1,4 @@
-import { css } from '../theme/styled-components';
+import { css } from 'styled-components';
 import { ThemeKeys } from '../theme/themeTypes';
 
 export const getHeadings = css`
@@ -50,7 +50,7 @@ export const componentAnimation = (properties: string) => {
   `;
 };
 
-export const outline = (width: ThemeKeys, color: ThemeKeys, insetShadow = false) => {
+export const outlineShadow = (width: ThemeKeys, color: ThemeKeys, insetShadow = false) => {
   const outsetShadow = `0 0 0 ${width} ${color}`;
   return css`
     box-shadow: ${outsetShadow};

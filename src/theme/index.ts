@@ -4,13 +4,16 @@
  * Licensed under the MIT License. See License.txt in the project root for license information.
  */
 
+import { DefaultTheme } from 'styled-components';
 import cosmicTheme from './cosmic';
 import corporateTheme from './corporate';
 import darkTheme from './dark';
 import defaultTheme from './default';
 import mapping from './mapping';
-import { ThemeObject, ThemeKeys, ThemeTypes } from './themeTypes';
+import { ThemeObject, ThemeKeys, ThemeKey } from './themeTypes';
+
 export * from './breakpoints';
+export { ThemeObject, ThemeKeys, ThemeKey };
 
 const themeValues = {
   default: defaultTheme,
@@ -33,7 +36,7 @@ function getThemeValue(settings: ThemeObject): ThemeObject {
   return settings;
 }
 
-export function themes(theme: keyof typeof themeValues, settings: ThemeTypes): ThemeTypes {
+export function themes(theme: keyof typeof themeValues, settings: DefaultTheme): DefaultTheme {
   switch (theme) {
     case 'cosmic':
     case 'corporate':

@@ -15,11 +15,7 @@ function Tooltip(props) {
   const overlayRef = React.useRef();
   const targetRef = React.useRef();
 
-  const [position, placement, show, setShow] = usePopoverPosition(
-    props,
-    targetRef,
-    overlayRef
-  );
+  const [position, placement, show, setShow] = usePopoverPosition(props, targetRef, overlayRef);
   let timeOut;
   const onMouseLeave = () => {
     timeOut = setTimeout(() => {
@@ -35,11 +31,7 @@ function Tooltip(props) {
     <>
       {show &&
         ReactDOM.createPortal(
-          <TooltipStyle
-            position={position}
-            placement={placement}
-            status={props.status}
-          >
+          <TooltipStyle position={position} placement={placement} status={props.status}>
             <div
               className="overlay-pane"
               style={position && { top: position.top, left: position.left }}
@@ -57,7 +49,7 @@ function Tooltip(props) {
               </div>
             </div>
           </TooltipStyle>,
-          document.getElementById('overlay-container')
+          document.getElementById('overlay-container'),
         )}
       <div
         style={props.style}
@@ -73,13 +65,11 @@ function Tooltip(props) {
           trigger === 'hint'
             ? setShow(true)
             : trigger === 'hover' && !show
-              ? setShow(true)
-              : trigger === 'hover' && onMouseEnter()
+            ? setShow(true)
+            : trigger === 'hover' && onMouseEnter()
         }
         onMouseLeave={() => {
-          trigger === 'hint'
-            ? setShow(false)
-            : trigger === 'hover' && onMouseLeave();
+          trigger === 'hint' ? setShow(false) : trigger === 'hover' && onMouseLeave();
         }}
       >
         {props.children}
@@ -97,6 +87,6 @@ Tooltip.propTypes = {
   content: PropTypes.string,
   children: PropTypes.node.isRequired,
   style: PropTypes.object,
-  className: PropTypes.string
+  className: PropTypes.string,
 };
 export default Tooltip;

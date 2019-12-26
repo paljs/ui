@@ -1,10 +1,3 @@
-export type ThemeTypes = ThemeObject & ThemeName;
-
-interface ThemeName {
-  name: 'cosmic' | 'corporate' | 'dark' | 'default';
-  dir: 'ltr' | 'rtl';
-}
-
 export type ThemeKeys = ThemeKey | ((string | number) & {});
 export type ThemeKey = keyof ThemeObject;
 

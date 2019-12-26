@@ -4,7 +4,7 @@
  * Licensed under the MIT License. See License.txt in the project root for license information.
  */
 
-import styled, { css } from '../theme/styled-components';
+import styled, { css } from 'styled-components';
 import { Status, Position } from './types';
 import { getPhysicalPosition } from './positionHelper';
 import { ThemeKey } from '../theme/themeTypes';

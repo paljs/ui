@@ -5,7 +5,7 @@
  */
 
 import React from 'react';
-import styled, { css } from '../theme/styled-components';
+import styled, { css } from 'styled-components';
 import { Size, Status } from './types';
 import { ThemeKey } from '../theme/themeTypes';
 import { scrollbars } from './Shared';

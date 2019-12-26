@@ -21,6 +21,7 @@
     "editor.formatOnSave": false
   },
   "workbench.editor.enablePreview": false,
+  "editor.minimap.enabled": false,
   "workbench.editor.enablePreviewFromQuickOpen": false,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true

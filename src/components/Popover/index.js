@@ -14,11 +14,7 @@ import usePopoverPosition from '../popoverPosition';
 function Popover(props) {
   const overlayRef = React.useRef();
   const targetRef = React.useRef();
-  const [position, placement, show, setShow] = usePopoverPosition(
-    props,
-    targetRef,
-    overlayRef
-  );
+  const [position, placement, show, setShow] = usePopoverPosition(props, targetRef, overlayRef);
   let timeOut;
   const onMouseLeave = () => {
     timeOut = setTimeout(() => {
@@ -53,7 +49,7 @@ function Popover(props) {
               </div>
             </div>
           </PopoverStyle>,
-          document.getElementById('overlay-container')
+          document.getElementById('overlay-container'),
         )}
       <div
         style={props.style}
@@ -69,13 +65,11 @@ function Popover(props) {
           trigger === 'hint'
             ? setShow(true)
             : trigger === 'hover' && !show
-              ? setShow(true)
-              : trigger === 'hover' && onMouseEnter()
+            ? setShow(true)
+            : trigger === 'hover' && onMouseEnter()
         }
         onMouseLeave={() => {
-          trigger === 'hint'
-            ? setShow(false)
-            : trigger === 'hover' && onMouseLeave();
+          trigger === 'hint' ? setShow(false) : trigger === 'hover' && onMouseLeave();
         }}
       >
         {props.children}
@@ -91,6 +85,6 @@ Popover.propTypes = {
   overlay: PropTypes.any.isRequired,
   children: PropTypes.node.isRequired,
   style: PropTypes.object,
-  className: PropTypes.string
+  className: PropTypes.string,
 };
 export default Popover;

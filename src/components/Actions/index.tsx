@@ -61,7 +61,7 @@ interface ActionsProps {
   size: Size;
   inverse?: boolean;
   fullWidth?: boolean;
-  Link: any;
+  Link: React.ComponentType;
   className?: string;
   style?: React.CSSProperties;
 }

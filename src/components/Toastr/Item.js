@@ -51,7 +51,7 @@ export default function Item(props) {
           <div className="message">{props.message}</div>
         </div>
       </ToastrStyle>,
-      document.getElementById('toastr' + props.position)
+      document.getElementById('toastr' + props.position),
     )
   );
 }

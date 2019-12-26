@@ -4,7 +4,7 @@
  * Licensed under the MIT License. See License.txt in the project root for license information.
  */
 
-import styled, { css } from '../../theme/styled-components';
+import styled, { css } from 'styled-components';
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -72,8 +72,7 @@ const RadioStyle = styled.label`
     `;
   }}
 `;
-const hoverBorder = status =>
-  status ? `color${status}` : 'radioCheckedBorderColor';
+const hoverBorder = status => (status ? `color${status}` : 'radioCheckedBorderColor');
 
 function Radio(props) {
   const [options, setOptions] = React.useState(props.options);
@@ -116,8 +115,8 @@ Radio.propTypes = {
       label: PropTypes.any.isRequired,
       checked: PropTypes.bool,
       disabled: PropTypes.bool,
-      status: colorState
-    }).isRequired
-  ).isRequired
+      status: colorState,
+    }).isRequired,
+  ).isRequired,
 };
 export default Radio;

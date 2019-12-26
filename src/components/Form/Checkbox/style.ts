@@ -4,11 +4,11 @@
  * Licensed under the MIT License. See License.txt in the project root for license information.
  */
 
-import styled, { css } from '../../../theme/styled-components';
+import styled, { css } from 'styled-components';
 import { CheckboxStyleProps } from '.';
-import { outline, componentAnimation } from '../../Shared';
+import { outlineShadow, componentAnimation } from '../../Shared';
 import IconStyle from '../../Icon/style';
-import { ThemeKey } from '../../../theme/themeTypes';
+import { ThemeKey } from '../../../theme/';
 
 const CheckboxStyle = styled.label<CheckboxStyleProps>`
   ${({ theme, checked, disabled, status, indeterminate }) => css`
@@ -31,10 +31,10 @@ const CheckboxStyle = styled.label<CheckboxStyleProps>`
     }
 
     .native-input:focus:not(:checked) + .custom-checkbox {
-      ${outline(theme.checkboxOutlineWidth, theme.checkboxOutlineColor, true)}
+      ${outlineShadow(theme.checkboxOutlineWidth, theme.checkboxOutlineColor, true)}
     }
     .native-input:focus:checked + .custom-checkbox {
-      ${outline(theme.checkboxOutlineWidth, theme.checkboxOutlineColor)}
+      ${outlineShadow(theme.checkboxOutlineWidth, theme.checkboxOutlineColor)}
     }
 
     ${IconStyle} {

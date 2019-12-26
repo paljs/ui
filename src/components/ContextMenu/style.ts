@@ -1,4 +1,4 @@
-import styled, { css } from '../../theme/styled-components';
+import styled, { css } from 'styled-components';
 
 const ContextMenuStyle = styled.div`
   ${({ theme, placement, position }) => {

@@ -22,7 +22,7 @@ Tab.propTypes = {
   disabled: PropTypes.bool,
   className: PropTypes.string,
   style: PropTypes.object,
-  badge
+  badge,
 };
 
 function Tabs(props) {
@@ -34,24 +34,17 @@ function Tabs(props) {
     setActive(index);
   };
 
-  React.useEffect(
-    () => {
-      const children = React.Children.map(props.children, child => {
-        return { ...child.props };
-      });
-      setTabs(children);
-      if (!props.activeIndex) {
-        setActive(0);
-      }
-    },
-    [props.children]
-  );
+  React.useEffect(() => {
+    const children = React.Children.map(props.children, child => {
+      return { ...child.props };
+    });
+    setTabs(children);
+    if (!props.activeIndex) {
+      setActive(0);
+    }
+  }, [props.children]);
   return (
-    <TabsStyle
-      className={props.className}
-      style={props.style}
-      fullWidth={props.fullWidth}
-    >
+    <TabsStyle className={props.className} style={props.style} fullWidth={props.fullWidth}>
       <ul className="tabs">
         {tabs.map((tab, index) => {
           const cssClass = ['tab'];
@@ -68,11 +61,7 @@ function Tabs(props) {
             cssClass.push(...tab.className.split(' '));
           }
           return (
-            <li
-              key={index}
-              className={cssClass.join(' ')}
-              onClick={() => !tab.disabled && selectTab(index)}
-            >
+            <li key={index} className={cssClass.join(' ')} onClick={() => !tab.disabled && selectTab(index)}>
               <a>
                 {tab.icon && <i className={tab.icon} />}
                 {tab.title && <span>{tab.title}</span>}
@@ -100,7 +89,7 @@ Tabs.propType = {
   style: PropTypes.object,
   fullWidth: PropTypes.bool,
   onSelect: PropTypes.func,
-  activeIndex: PropTypes.number
+  activeIndex: PropTypes.number,
 };
 
 export { Tabs, Tab };

@@ -1,4 +1,4 @@
-import styled, { css } from '../../theme/styled-components';
+import styled, { css } from 'styled-components';
 import { adjustHue } from 'polished';
 
 const ToastrStyle = styled.div`
@@ -91,11 +91,7 @@ const ToastrStyle = styled.div`
 
         ${theme.theme === 'cosmic' &&
           css`
-            background-image: linear-gradient(
-              to right,
-              ${leftColor(status, theme)},
-              ${theme[`btn${status}Bg`]}
-            );
+            background-image: linear-gradient(to right, ${leftColor(status, theme)}, ${theme[`btn${status}Bg`]});
             color: ${theme.toastrColorFg};
 
             i {
@@ -113,11 +109,10 @@ const heroPercentage = {
   Warning: 10,
   Info: -10,
   Danger: -20,
-  Secondary: 20
+  Secondary: 20,
 };
 
-const leftColor = (status, theme) =>
-  adjustHue(heroPercentage[status], theme[`btn${status}Bg`]);
+const leftColor = (status, theme) => adjustHue(heroPercentage[status], theme[`btn${status}Bg`]);
 
 const ToastrContainer = styled.div`
   pointer-events: none;

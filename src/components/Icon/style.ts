@@ -1,5 +1,5 @@
-import styled, { css } from '../../theme/styled-components';
-import { ThemeKey } from '../../theme/themeTypes';
+import styled, { css } from 'styled-components';
+import { ThemeKey } from '../../theme';
 import { Status } from '../types';
 
 export default styled.div<{ status?: Status }>`

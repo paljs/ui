@@ -26,9 +26,7 @@ function User(props) {
   return (
     <UserStyle {...props}>
       <div className="user-container">
-        <div
-          className={'user-picture ' + (props.image ? 'image' : 'background')}
-        >
+        <div className={'user-picture ' + (props.image ? 'image' : 'background')}>
           {!props.image && props.showInitials && getInitials()}
           {props.badge && (
             <Badge status={props.badge.status} position={props.badge.position}>
@@ -48,7 +46,7 @@ function User(props) {
 }
 User.defaultProps = {
   size: 'MD',
-  showInitials: true
+  showInitials: true,
 };
 
 User.propTypes = {
@@ -60,7 +58,7 @@ User.propTypes = {
   showInitials: PropTypes.bool,
   onlyPicture: PropTypes.bool,
   inverse: PropTypes.bool,
-  badge: PropTypes.object
+  badge: PropTypes.object,
 };
 
 export default User;

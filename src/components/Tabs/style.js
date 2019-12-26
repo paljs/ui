@@ -4,7 +4,7 @@
  * Licensed under the MIT License. See License.txt in the project root for license information.
  */
 
-import styled, { css } from '../../theme/styled-components';
+import styled, { css } from 'styled-components';
 
 /* eslint-disable indent */
 const TabsStyle = styled.div`
@@ -51,11 +51,7 @@ const TabsStyle = styled.div`
             bottom: -2px;
             left: 0;
             background: ${theme.tabsSelected};
-            background-image: linear-gradient(
-              to right,
-              ${theme.tabsSelectedSecondColor},
-              ${theme.tabsSelected}
-            );
+            background-image: linear-gradient(to right, ${theme.tabsSelectedSecondColor}, ${theme.tabsSelected});
           }
           i {
             font-size: 1.5rem;
@@ -63,9 +59,7 @@ const TabsStyle = styled.div`
 
           i + span {
             ${({ theme }) => css`
-              ${theme.dir === 'rtl'
-                ? 'margin-right: 0.5rem;'
-                : 'margin-left: 0.5rem;'}
+              ${theme.dir === 'rtl' ? 'margin-right: 0.5rem;' : 'margin-left: 0.5rem;'}
             `}
           }
         }

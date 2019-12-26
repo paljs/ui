@@ -17,9 +17,9 @@ Stepper.propType = {
     PropTypes.shape({
       label: PropTypes.string.isRequired,
       hidden: PropTypes.bool,
-      completed: PropTypes.bool
-    })
-  )
+      completed: PropTypes.bool,
+    }),
+  ),
 };
 
 export { Stepper, Step };

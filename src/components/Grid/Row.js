@@ -5,12 +5,8 @@
  */
 
 import PropTypes from 'prop-types';
-import styled, { css } from '../../theme/styled-components';
-import {
-  breakpointUp,
-  getGridGutter,
-  breakpoints
-} from '../../theme/breakpoints';
+import styled, { css } from 'styled-components';
+import { breakpointUp, getGridGutter, breakpoints } from '../../theme/breakpoints';
 
 const valueType = PropTypes.oneOf(Object.keys(breakpoints));
 
@@ -74,7 +70,7 @@ Row.propTypes = {
   bottom: valueType,
   around: valueType,
   between: valueType,
-  children: PropTypes.node
+  children: PropTypes.node,
 };
 
 export default Row;

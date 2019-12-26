@@ -4,7 +4,7 @@
  * Licensed under the MIT License. See License.txt in the project root for license information.
  */
 
-import styled, { css } from '../../theme/styled-components';
+import styled, { css } from 'styled-components';
 import { breakpointDown } from '../../theme';
 import { MenuStyle } from '../Menu/style';
 /* eslint-disable indent */
@@ -82,27 +82,19 @@ const compacted = css`
         case 'start':
           return `
           & ~ .content {
-            ${theme.dir == 'rtl' ? 'margin-right:' : 'margin-left:'} ${
-            theme.sidebarWidthCompact
-          };
+            ${theme.dir == 'rtl' ? 'margin-right:' : 'margin-left:'} ${theme.sidebarWidthCompact};
           }
           & ~ .content.center {
-            ${theme.dir == 'rtl' ? 'padding-right:' : 'padding-left:'} ${
-            theme.sidebarWidthCompact
-          };
+            ${theme.dir == 'rtl' ? 'padding-right:' : 'padding-left:'} ${theme.sidebarWidthCompact};
           }
         `;
         case 'end':
           return `
           & ~ .content {
-            ${theme.dir == 'rtl' ? 'margin-left:' : 'margin-right:'} ${
-            theme.sidebarWidthCompact
-          };
+            ${theme.dir == 'rtl' ? 'margin-left:' : 'margin-right:'} ${theme.sidebarWidthCompact};
           }
           & ~ .content.center {
-            ${theme.dir == 'rtl' ? 'padding-left:' : 'padding-right:'} ${
-            theme.sidebarWidthCompact
-          };
+            ${theme.dir == 'rtl' ? 'padding-left:' : 'padding-right:'} ${theme.sidebarWidthCompact};
           }
         `;
         default:
@@ -201,9 +193,7 @@ const SidebarStyle = styled.aside`
     ${
       state === 'hidden'
         ? 'width: 0;padding: 0;overflow: hidden;'
-        : `overflow-y: auto;overflow-x: hidden;padding: ${
-            theme.sidebarPadding
-          };`
+        : `overflow-y: auto;overflow-x: hidden;padding: ${theme.sidebarPadding};`
     }
     flex: 1;
     position: relative;
@@ -222,11 +212,7 @@ const SidebarStyle = styled.aside`
   header,
   footer
    {
-     ${
-       state === 'hidden'
-         ? 'width: 0;padding: 0;overflow: hidden;'
-         : `padding: ${theme.sidebarPadding};`
-     }
+     ${state === 'hidden' ? 'width: 0;padding: 0;overflow: hidden;' : `padding: ${theme.sidebarPadding};`}
     display: block;
     
   }

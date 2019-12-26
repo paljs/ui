@@ -4,7 +4,7 @@
  * Licensed under the MIT License. See License.txt in the project root for license information.
  */
 
-import styled, { css, keyframes } from '../theme/styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import React from 'react';
 import { Size, Status } from './types';
 

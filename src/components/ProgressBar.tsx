@@ -1,4 +1,4 @@
-import styled, { css } from '../theme/styled-components';
+import styled, { css } from 'styled-components';
 import React from 'react';
 import { Size, Status } from './types';
 

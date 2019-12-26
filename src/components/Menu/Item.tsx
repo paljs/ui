@@ -7,15 +7,21 @@
 import { ItemStyle } from './style';
 import React from 'react';
 import { ArrowLeft, ArrowDown } from '../../svg';
+import { ItemType } from '../types';
 
-const Item = ({ item, toggleSidebar, toggleSubMenu, selectItem, id, Link }) => {
+interface ItemProps {
+  item: ItemType;
+  toggleSidebar: Function;
+  toggleSubMenu: (item: ItemType) => void;
+  selectItem: (id: string | number) => void;
+  id: string | number;
+  Link: React.ComponentType;
+}
+
+const Item: React.FC<ItemProps> = ({ item, toggleSidebar, toggleSubMenu, selectItem, id, Link }) => {
   React.useEffect(() => {
     const link = window.location.pathname;
-    if (
-      link === item.link ||
-      link === item.link + '/' ||
-      link + '/' === item.link
-    ) {
+    if (link === item.link || link === item.link + '/' || link + '/' === item.link) {
       selectItem(id);
     }
   }, []);
@@ -65,15 +71,9 @@ const Item = ({ item, toggleSidebar, toggleSubMenu, selectItem, id, Link }) => {
           >
             {item.icon && <i className={'menu-icon ' + item.icon} />}
             <span className="menu-title">{item.title}</span>
-            <i className="chevron">
-              {item.expanded ? <ArrowDown /> : <ArrowLeft />}
-            </i>
+            <i className="chevron">{item.expanded ? <ArrowDown /> : <ArrowLeft />}</i>
           </a>
-          <ul
-            className={
-              item.expanded ? 'menu-items expanded' : 'menu-items collapsed'
-            }
-          >
+          <ul className={item.expanded ? 'menu-items expanded' : 'menu-items collapsed'}>
             {item.children.map((item2, index) => {
               return (
                 !item.hidden && (

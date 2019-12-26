@@ -4,7 +4,7 @@
  * Licensed under the MIT License. See License.txt in the project root for license information.
  */
 
-import styled, { css } from '../../theme/styled-components';
+import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { shape } from '../types';
@@ -50,11 +50,7 @@ const GroupStyle = styled.div`
           );
         }
         &:not([disabled]):focus ~ .label{
-          color: ${
-            status
-              ? theme[`formControl${status}BorderColor`]
-              : theme.formControlSelectedBorderColor
-          };
+          color: ${status ? theme[`formControl${status}BorderColor`] : theme.formControlSelectedBorderColor};
         }
         &[value]:not([value=""]) ~ .label,
         &:-webkit-autofill ~ .label{
@@ -111,12 +107,12 @@ function InputGroup(props) {
 
 InputGroup.defaultProps = {
   fieldSize: 'MD',
-  shape: 'Rectangle'
+  shape: 'Rectangle',
 };
 InputGroup.propTypes = {
   shape,
   fullWidth: PropTypes.bool,
   fieldSize: PropTypes.oneOf(['SM', 'MD', 'LG']),
-  status: PropTypes.oneOf(['Info', 'Warning', 'Success', 'Danger'])
+  status: PropTypes.oneOf(['Info', 'Warning', 'Success', 'Danger']),
 };
 export default InputGroup;

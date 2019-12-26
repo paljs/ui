@@ -5,13 +5,8 @@
  */
 
 import PropTypes from 'prop-types';
-import styled, { css } from '../../theme/styled-components';
-import {
-  breakpointUp,
-  getGridSize,
-  breakpoints,
-  getGridGutter
-} from '../../theme/breakpoints';
+import styled, { css } from 'styled-components';
+import { breakpointUp, getGridSize, breakpoints, getGridGutter } from '../../theme/breakpoints';
 
 const valueType = PropTypes.oneOfType([PropTypes.number, PropTypes.bool]);
 const BP = Object.keys(breakpoints);
@@ -52,7 +47,7 @@ const offset = css`
         k =>
           breakpointUp(k.replace(/Offset$/, ''))`
           margin-${p.theme.dir == 'rtl' ? 'right' : 'left'}: 
-          ${(100 / getGridSize(p.theme)) * p[k]}%;`
+          ${(100 / getGridSize(p.theme)) * p[k]}%;`,
       )}
 `;
 const Col = styled.div`
@@ -75,7 +70,7 @@ Col.propTypes = {
   first: PropTypes.bool,
   last: PropTypes.bool,
   order: PropTypes.number,
-  children: PropTypes.node
+  children: PropTypes.node,
 };
 
 export default Col;

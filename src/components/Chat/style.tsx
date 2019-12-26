@@ -1,4 +1,4 @@
-import styled, { css } from '../../theme/styled-components';
+import styled, { css } from 'styled-components';
 import { ChatProps } from './types';
 import { scrollbars } from '../Shared';
 import { ThemeKey } from '../../theme/themeTypes';

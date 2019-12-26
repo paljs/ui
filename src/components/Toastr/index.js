@@ -21,7 +21,7 @@ let Toastr = (props, ref) => {
     ref,
     () => ({
       add(message, title = '', option = {}) {
-        let options = { ...props, ...option };
+        const options = { ...props, ...option };
 
         const newItems = [...items];
         let push = true;
@@ -36,17 +36,14 @@ let Toastr = (props, ref) => {
         if (push) {
           options.position = getLogicalPosition(layout.dir, options.position);
 
-          options.icon =
-            options.icon === undefined && options.icons
-              ? options.icons[options.status]
-              : options.icon;
+          options.icon = options.icon === undefined && options.icons ? options.icons[options.status] : options.icon;
 
           newItems.push({ ...options, title, message });
           setItems(newItems);
         }
-      }
+      },
     }),
-    [items]
+    [items],
   );
 
   return (
@@ -54,14 +51,11 @@ let Toastr = (props, ref) => {
       {createParents &&
         ['topStart', 'topEnd', 'bottomStart', 'bottomEnd'].map(position =>
           ReactDOM.createPortal(
-            <ToastrContainer
-              position={position}
-              isTop={position === 'topEnd' || position === 'topStart'}
-            >
+            <ToastrContainer position={position} isTop={position === 'topEnd' || position === 'topStart'}>
               <div className="overlay-pane" id={'toastr' + position} />
             </ToastrContainer>,
-            document.getElementById('overlay-container')
-          )
+            document.getElementById('overlay-container'),
+          ),
         )}
       {items.map((item, index) => (
         <Item key={index} {...item} />
@@ -78,7 +72,7 @@ Toastr.defaultProps = {
   duration: 3000,
   hasIcon: true,
   destroyByClick: true,
-  preventDuplicates: false
+  preventDuplicates: false,
 };
 
 Toastr.propTypes = {
@@ -88,7 +82,7 @@ Toastr.propTypes = {
   hasIcon: PropTypes.bool,
   destroyByClick: PropTypes.bool,
   preventDuplicates: PropTypes.bool,
-  icons: PropTypes.object
+  icons: PropTypes.object,
 };
 
 export default Toastr;

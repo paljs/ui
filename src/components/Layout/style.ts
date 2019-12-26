@@ -4,8 +4,8 @@
  * Licensed under the MIT License. See License.txt in the project root for license information.
  */
 
-import styled, { css } from '../../theme/styled-components';
-import { breakpointDown } from '../../theme/breakpoints';
+import styled, { css } from 'styled-components';
+import { breakpointDown } from '../../theme';
 import SidebarStyle from '../Sidebar/style';
 
 interface LayoutProps {
