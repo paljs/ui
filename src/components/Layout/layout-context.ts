@@ -1,11 +1,18 @@
 import React from 'react';
 
-const layoutContext = React.createContext({
-  addClass: () => {},
-  removeClass: () => {},
-  addEventListener: () => {},
-  removeEventListener: () => {},
-  dir: 'ltr',
-});
+interface ContextProps {
+  addClass?: (className: string[]) => void;
+  removeClass?: (className: string[]) => void;
+  addEventListener?: (event: string, listener: EventListener, target: 'scrollArea' | 'Layout') => void;
+  removeEventListener?: (event: string, listener: EventListener, target: 'scrollArea' | 'Layout') => void;
+  dir?: 'ltr' | 'rtl';
+  children?: React.ReactNode;
+}
 
-export default layoutContext;
+const initialContext: ContextProps = {
+  dir: 'ltr',
+};
+
+const LayoutContext: React.Context<ContextProps> = React.createContext(initialContext);
+
+export default LayoutContext;

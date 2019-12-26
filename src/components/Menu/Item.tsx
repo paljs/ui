@@ -6,28 +6,33 @@
 
 import { ItemStyle } from './style';
 import React from 'react';
-import { ArrowLeft, ArrowDown } from '../../svg';
-import { ItemType } from '../types';
+import { Icon } from '../Icon';
+import { ItemType, LinkProps } from '../types';
 
 interface ItemProps {
   item: ItemType;
-  toggleSidebar: Function;
+  toggleSidebar?: () => void;
   toggleSubMenu: (item: ItemType) => void;
   selectItem: (id: string | number) => void;
   id: string | number;
-  Link: React.ComponentType;
+  Link: React.ComponentType<LinkProps>;
 }
 
 const Item: React.FC<ItemProps> = ({ item, toggleSidebar, toggleSubMenu, selectItem, id, Link }) => {
-  React.useEffect(() => {
+  const checkSelected = () => {
     const link = window.location.pathname;
     if (link === item.link || link === item.link + '/' || link + '/' === item.link) {
       selectItem(id);
     }
+  };
+
+  React.useEffect(() => {
+    checkSelected();
   }, []);
 
-  const isActive = ({ isCurrent }) => {
-    isCurrent && !item.selected && selectItem(id);
+  const onClickHandler = () => {
+    !item.selected && checkSelected();
+    toggleSidebar && toggleSidebar();
   };
 
   const handleToggleSubMenu = () => {
@@ -44,11 +49,10 @@ const Item: React.FC<ItemProps> = ({ item, toggleSidebar, toggleSubMenu, selectI
       ) : item.link && !item.children ? (
         <Link
           to={item.link}
-          getProps={isActive}
           title={item.title}
           target={item.target}
           className={item.selected ? 'active' : ''}
-          onClick={toggleSidebar}
+          onClick={onClickHandler}
         >
           {item.icon && <i className={'menu-icon ' + item.icon} />}
           <span className="menu-title">{item.title}</span>
@@ -71,7 +75,9 @@ const Item: React.FC<ItemProps> = ({ item, toggleSidebar, toggleSubMenu, selectI
           >
             {item.icon && <i className={'menu-icon ' + item.icon} />}
             <span className="menu-title">{item.title}</span>
-            <i className="chevron">{item.expanded ? <ArrowDown /> : <ArrowLeft />}</i>
+            <i className="chevron">
+              {item.expanded ? <Icon name="chevron-down-outline" /> : <Icon name="chevron-up-outline" />}
+            </i>
           </a>
           <ul className={item.expanded ? 'menu-items expanded' : 'menu-items collapsed'}>
             {item.children.map((item2, index) => {

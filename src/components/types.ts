@@ -53,3 +53,10 @@ export interface ButtonTypes {
   shape?: Shape;
   status?: Status;
 }
+
+export interface LinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
+  to: any;
+  component?: React.ComponentType<any>;
+  replace?: boolean;
+  innerRef?: React.Ref<HTMLAnchorElement>;
+}

@@ -7,12 +7,12 @@
 import React from 'react';
 import { MenuStyle } from './style';
 import Item from './Item';
-import { ItemType } from '../types';
+import { ItemType, LinkProps } from '../types';
 
 interface MenuProps {
   items: ItemType[];
-  toggleSidebar?: (event: React.MouseEvent<HTMLLinkElement, MouseEvent>) => void;
-  Link: React.ComponentType;
+  toggleSidebar?: () => void;
+  Link: React.ComponentType<LinkProps>;
   className?: string;
   style?: React.CSSProperties;
 }
@@ -89,7 +89,7 @@ let Menu: React.RefForwardingComponent<MenuRefObject, MenuProps> = (props, ref) 
                 id={index}
                 item={item}
                 Link={props.Link}
-                selectItem={(i: number) => onSelectItem(i)}
+                selectItem={i => onSelectItem(i)}
                 toggleSidebar={props.toggleSidebar}
                 toggleSubMenu={(item: ItemType) => onToggleSubMenu(item)}
               />

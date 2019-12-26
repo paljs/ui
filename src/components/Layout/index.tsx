@@ -5,7 +5,6 @@
  */
 
 import React from 'react';
-import PropTypes from 'prop-types';
 import {
   LayoutStyle,
   LayoutContainer,
@@ -17,28 +16,43 @@ import {
 } from './style';
 import LayoutContext from './layout-context';
 
-function LayoutHeader(props) {
+const LayoutHeader: React.FC<{ fixed?: boolean; className?: string }> = props => {
+  const className = props.className ? props.className.split(' ') : [];
+  props.fixed && className.push('fixed');
   return (
-    <HeaderStyle {...props}>
+    <HeaderStyle className={className.join(' ')}>
       <nav>{props.children}</nav>
     </HeaderStyle>
   );
-}
-LayoutHeader.propTypes = {
-  fixed: PropTypes.bool,
 };
-function LayoutFooter(props) {
+
+const LayoutFooter: React.FC = props => {
   return (
     <FooterStyle {...props}>
       <nav>{props.children}</nav>
     </FooterStyle>
   );
+};
+
+interface LayoutProps {
+  dir?: 'ltr' | 'rtl';
+  className?: string;
+  style?: React.CSSProperties;
+  withScroll?: boolean;
+  windowMode?: boolean;
+  withSubHeader?: boolean;
 }
 
-function Layout(props) {
-  const [className, setClassName] = React.useState(props.className ? [...props.className.split(' ')] : []);
+const Layout: React.FC<LayoutProps> = props => {
+  const [className, setClassName] = React.useState<string[]>(props.className ? [...props.className.split(' ')] : []);
 
-  const scrollRef = React.useRef();
+  const scrollRef = React.useRef<HTMLDivElement>(null);
+
+  const addClass = (cssClass: string[]) => {
+    const updatedClass = [...className];
+    updatedClass.push(...cssClass);
+    setClassName(updatedClass);
+  };
 
   React.useEffect(() => {
     if ((props.withScroll || props.windowMode) && !className.includes('with-scroll')) {
@@ -49,13 +63,7 @@ function Layout(props) {
     }
   }, [props.withScroll]);
 
-  const addClass = cssClass => {
-    const updatedClass = [...className];
-    updatedClass.push(...cssClass);
-    setClassName(updatedClass);
-  };
-
-  const removeClass = cssClass => {
+  const removeClass = (cssClass: string[]) => {
     const updatedClass = [...className];
     for (const i of updatedClass.keys()) {
       if (cssClass.includes(updatedClass[i])) {
@@ -65,30 +73,31 @@ function Layout(props) {
     setClassName(updatedClass);
   };
 
-  const addEventListener = (event, listener, target = 'scrollArea') => {
+  const addEventListener = (event: string, listener: EventListener, target = 'scrollArea') => {
     switch (target) {
       case 'Layout':
-        document.getElementById('oah-layout').addEventListener(event, listener);
+        document.getElementById('oah-layout')!.addEventListener(event, listener);
         break;
 
       default:
-        if (props.withScroll || props.windowMode) {
-          scrollRef.current.addEventListener(event, listener);
+        if ((props.withScroll || props.windowMode) && scrollRef.current) {
+          scrollRef?.current.addEventListener(event, listener);
         } else {
           window.addEventListener(event, listener);
         }
         break;
     }
   };
-  const removeEventListener = (event, listener, target = 'scrollArea') => {
+
+  const removeEventListener = (event: string, listener: EventListener, target = 'scrollArea') => {
     switch (target) {
       case 'Layout':
-        document.getElementById('oah-layout').removeEventListener(event, listener);
+        document.getElementById('oah-layout')!.removeEventListener(event, listener);
         break;
 
       default:
-        if (props.withScroll || props.windowMode) {
-          scrollRef.current.removeEventListener(event, listener);
+        if ((props.withScroll || props.windowMode) && scrollRef.current) {
+          scrollRef?.current.removeEventListener(event, listener);
         } else {
           window.removeEventListener(event, listener);
         }
@@ -121,18 +130,10 @@ function Layout(props) {
       </LayoutContext.Provider>
     </LayoutStyle>
   );
-}
-Layout.defaultProps = {
-  dir: 'ltr',
 };
 
-Layout.propTypes = {
-  dir: PropTypes.oneOf(['ltr', 'rtl']),
-  className: PropTypes.string,
-  style: PropTypes.object,
-  withScroll: PropTypes.bool,
-  windowMode: PropTypes.bool,
-  withSubHeader: PropTypes.bool,
+Layout.defaultProps = {
+  dir: 'ltr',
 };
 
 export {
