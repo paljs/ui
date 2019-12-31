@@ -5,8 +5,7 @@
  */
 
 import React from 'react';
-
-import { Badge as BadgeType, Size } from '../types';
+import { Badge as BadgeType, Size, LinkProps } from '../types';
 import { ActionsStyle, ActionStyle } from './style';
 import Badge from '../Badge';
 
@@ -48,7 +47,7 @@ Actions.defaultProps = {
 interface Action {
   icon?: string;
   events?: object;
-  link?: string;
+  link?: any;
   url?: string;
   target?: string;
   content?: any;
@@ -61,7 +60,7 @@ interface ActionsProps {
   size: Size;
   inverse?: boolean;
   fullWidth?: boolean;
-  Link: React.ComponentType;
+  Link: React.ComponentType<LinkProps>;
   className?: string;
   style?: React.CSSProperties;
 }

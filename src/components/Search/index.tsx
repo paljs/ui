@@ -5,22 +5,20 @@
  */
 
 import React from 'react';
-import PropTypes from 'prop-types';
-
 import { SearchStyle, SearchFieldStyle } from './style';
-import { SearchIcon, CloseCircled } from '../../svg';
 import Overlay from '../Overlay';
 import layoutContext from '../Layout/layout-context';
+import { Icon } from '../Icon';
 
-function Search(props) {
+const Search: React.FC<SearchProps> = props => {
   const [value, setValue] = React.useState('');
   const [show, setShow] = React.useState();
-  const inputRef = React.useRef();
+  const inputRef = React.useRef<HTMLInputElement>(null);
   const layout = React.useContext(layoutContext);
 
   React.useEffect(() => {
     if (show === 'show') {
-      inputRef.current.focus();
+      inputRef.current?.focus();
     } else if (show === undefined) {
       layout.removeClass([props.type]);
     }
@@ -42,7 +40,7 @@ function Search(props) {
     }, 200);
   };
 
-  const onChangeHandle = e => {
+  const onChangeHandle = (e: React.ChangeEvent<HTMLInputElement>) => {
     typeof props.onChange === 'function' && props.onChange(e.target.value);
     setValue(e.target.value);
   };
@@ -50,7 +48,7 @@ function Search(props) {
   return (
     <SearchStyle className={props.className}>
       <button onClick={handleOpen}>
-        <SearchIcon />
+        <Icon name="search-outline" />
       </button>
       {show !== undefined && (
         <Overlay>
@@ -63,7 +61,7 @@ function Search(props) {
               }}
             >
               <button onClick={handleClose}>
-                <CloseCircled />
+                <Icon name="close-outline" />
               </button>
               <div className="form-wrapper">
                 <div className="form">
@@ -81,7 +79,7 @@ function Search(props) {
                       placeholder={props.placeholder}
                       className="search-input"
                       autoComplete="off"
-                      tabIndex="-1"
+                      tabIndex={-1}
                       value={value}
                     />
                   </div>
@@ -94,21 +92,15 @@ function Search(props) {
       )}
     </SearchStyle>
   );
-}
-Search.propTypes = {
-  hint: PropTypes.string,
-  placeholder: PropTypes.string,
-  submit: PropTypes.func.isRequired,
-  onChange: PropTypes.func,
-  type: PropTypes.oneOf([
-    'rotate-layout',
-    'modal-zoomin',
-    'modal-move',
-    'modal-drop',
-    'modal-half',
-    'curtain',
-    'column-curtain',
-  ]).isRequired,
 };
+
+interface SearchProps {
+  hint?: string;
+  placeholder?: string;
+  submit: (value: string) => void;
+  onChange?: (value: string) => void;
+  className?: string;
+  type: 'rotate-layout' | 'modal-zoomin' | 'modal-move' | 'modal-drop' | 'modal-half' | 'curtain' | 'column-curtain';
+}
 
 export default Search;

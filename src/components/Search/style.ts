@@ -15,36 +15,28 @@ import modalZoomin from './modal-zoomin';
 import rotateLayout from './rotate-layout';
 
 const SearchStyle = styled.div`
-  ${({ theme }) => css`
-    button {
-      path {
-        fill: ${theme.searchBtnOpenFg};
-      }
-      margin: 0 auto;
-      padding: 0;
-      cursor: pointer;
-      border: none;
-      background: none;
+  button {
+    margin: 0 auto;
+    padding: 0;
+    cursor: pointer;
+    border: none;
+    background: none;
 
-      &:focus {
-        box-shadow: none;
-        outline: none;
-      }
+    &:focus {
+      box-shadow: none;
+      outline: none;
     }
-  `}
+  }
 `;
 
 const SearchFieldStyle = styled.div`
   ${({ theme }) => css`
-  
     .search {
-      background: ${theme.searchBg};
+      background: ${theme.searchBackgroundColor};
 
       button {
-        g {
-          fill: ${theme.searchBtnCloseFg};
-        }
-        margin: 0;
+        font-size: 2rem;
+        margin: 0 auto;
         padding: 0;
         cursor: pointer;
         border: none;
@@ -57,9 +49,11 @@ const SearchFieldStyle = styled.div`
       }
 
       span {
-        color: ${theme.searchInfo};
-        font-size: 90%;
-        font-weight: bold;
+        color: ${theme.searchInfoTextColor};
+        font-family: ${theme.searchInfoTextFontFamily};
+        font-size: ${theme.searchInfoTextFontSize};
+        font-weight: ${theme.searchInfoTextFontWeight};
+        line-height: ${theme.searchInfoTextLineHeight};
         display: block;
         width: 75%;
         margin: 0 auto;
@@ -68,8 +62,12 @@ const SearchFieldStyle = styled.div`
       }
 
       input {
-        color: ${theme.searchText};
-        border-bottom: 4px solid ${theme.searchDash};
+        border-bottom: ${theme.searchDividerWidth} ${theme.searchDividerStyle} ${theme.searchDividerColor};
+        color: ${theme.searchTextColor};
+        font-family: ${theme.searchTextFontFamily};
+        font-size: ${theme.searchTextFontSize};
+        font-weight: ${theme.searchTextFontWeight};
+        line-height: ${theme.searchTextLineHeight};
         border-top: 0;
         border-right: 0;
         border-left: 0;
@@ -82,7 +80,7 @@ const SearchFieldStyle = styled.div`
         -webkit-appearance: none;
 
         &::placeholder {
-          color: ${theme.searchPlaceholder};
+          color: ${theme.searchPlaceholderTextColor};
           opacity: 0.3;
         }
         &:focus {
@@ -98,24 +96,24 @@ const SearchFieldStyle = styled.div`
 
     &.rotate-layout {
       ${rotateLayout}
-      background: ${theme.searchBg};
+      background: ${theme.searchBackgroundColor};
     }
 
     &.modal-zoomin {
       ${modalZoomin}
       .search::before,
       .search::after {
-        border: 1.5rem solid ${theme.searchBgSecondary};
+        border: 1.5rem solid ${theme.searchExtraBackgroundColor};
       }
     }
 
     &.modal-half {
       ${modalHalf}
       .form-wrapper {
-        background: ${theme.searchBg};
+        background: ${theme.searchBackgroundColor};
       }
       .search::before {
-        background: ${theme.searchBgSecondary};
+        background: ${theme.searchExtraBackgroundColor};
       }
     }
     &.modal-move {
@@ -124,10 +122,10 @@ const SearchFieldStyle = styled.div`
 
     &.modal-drop {
       .form-content::after {
-        background: ${theme.searchDash};
+        background: ${theme.searchDividerColor};
       }
       .search::before {
-        background: ${theme.searchBg};
+        background: ${theme.searchBackgroundColor};
       }
       ${modalDrop}
     }
@@ -135,23 +133,23 @@ const SearchFieldStyle = styled.div`
     &.curtain {
       ${curtain}
       .search::after {
-        background: ${theme.searchBg};
+        background: ${theme.searchBackgroundColor};
       }
       .search {
-        background: ${theme.searchBg};
+        background: ${theme.searchBackgroundColor};
       }
     }
 
     &.column-curtain {
       ${columnCurtain}
       &::before {
-        background: ${theme.searchBg};
+        background: ${theme.searchBackgroundColor};
       }
       &::after {
         background: transparent;
       }
       &.show::after {
-        background: ${theme.searchBgSecondary};
+        background: ${theme.searchExtraBackgroundColor};
       }
     }
   `}
