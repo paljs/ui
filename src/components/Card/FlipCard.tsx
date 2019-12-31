@@ -35,15 +35,15 @@ const FlipCardStyled = styled.div<FlipCardProps>`
           padding: ${theme.cardPadding};
           cursor: pointer;
           position: absolute;
-          ${theme.dir === 'rtl' ? 'left: 0;' : 'right: 0;'}
-          ${button === 'bottom' ? 'bottom: 0;' : 'top: 0;'}
+          ${theme.dir === 'rtl' ? 'left' : 'right'}: 0;
+          ${button === 'bottom' ? 'bottom' : 'top'}: 0;
           opacity: 1;
           transition: opacity 0s 0.15s;
         }
       }
 
       & > .front {
-        ${theme.dir === 'rtl' ? 'margin-left: -100%;' : 'margin-right: -100%;'}
+        margin-${theme.dir === 'rtl' ? 'left' : 'right'}: -100%;
         transition: opacity 0s 0.2s;
         backface-visibility: visible;
         ${flipped &&

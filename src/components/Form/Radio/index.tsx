@@ -5,7 +5,7 @@
  */
 
 import React from 'react';
-import { Status } from '../types';
+import { Status } from '../../types';
 import RadioStyle from './style';
 
 const Radio: React.FC<RadioProps> = props => {
@@ -30,8 +30,8 @@ const Radio: React.FC<RadioProps> = props => {
         onClick={() => onClickHandler(option.value)}
         className="native-input visually-hidden"
       />
-      <span className="outer-circle"></span>
-      <span className="inner-circle"></span>
+      <span className="outer-circle"/>
+      <span className="inner-circle"/>
       <span className="text">{option.label}</span>
     </RadioStyle>
   ));

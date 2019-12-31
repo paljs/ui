@@ -7,7 +7,7 @@
 import styled, { css } from 'styled-components';
 import { Status, Size } from '../types';
 import { getHeadings, scrollbars } from '../Shared';
-import { ThemeKey } from '../../theme/themeTypes';
+import { ThemeKey } from '../../theme';
 
 interface CardProps {
   status: Status;
@@ -86,12 +86,14 @@ const Card = styled.div<CardProps>`
 `;
 
 const CardBody = styled.div`
-  padding: ${({ theme }) => theme.cardPadding};
-  overflow: auto;
-  flex: 1;
-  -ms-flex: 1 1 auto;
-  position: relative;
-  ${scrollbars(theme.cardScrollbarColor, theme.cardScrollbarBackgroundColor, theme.cardScrollbarWidth)}
+  ${({ theme }) => css`
+    padding: ${theme.cardPadding};
+    overflow: auto;
+    flex: 1;
+    -ms-flex: 1 1 auto;
+    position: relative;
+    ${scrollbars(theme.cardScrollbarColor, theme.cardScrollbarBackgroundColor, theme.cardScrollbarWidth)}
+  `}
 `;
 
 export { Card, CardBody };

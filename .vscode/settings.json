@@ -3,8 +3,8 @@
   "editor.detectIndentation": false,
   "editor.renderWhitespace": "boundary",
   "files.exclude": {
-    "**/dist": true,
-    "**/.rpt2_cache": true,
+    //"**/dist": true,
+    //"**/.rpt2_cache": true,
     "**/node_modules": true
   },
   "editor.formatOnSave": true,

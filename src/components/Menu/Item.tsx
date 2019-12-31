@@ -6,14 +6,14 @@
 
 import { ItemStyle } from './style';
 import React from 'react';
-import { Icon } from '../Icon';
+import { Icon, EvaIcon } from '../Icon';
 import { ItemType, LinkProps } from '../types';
 
 const ItemIcon: React.FC<{ icon: ItemType['icon'] }> = ({ icon }) => {
   if (typeof icon === 'string') {
     return <i className={'menu-icon ' + icon} />;
   } else if (typeof icon === 'object') {
-    return <Icon {...icon} />;
+    return <EvaIcon {...icon} />;
   } else {
     return <></>;
   }

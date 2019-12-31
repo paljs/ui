@@ -1,5 +1,5 @@
 import { css } from 'styled-components';
-import { ThemeKeys } from '../theme/themeTypes';
+import { ThemeKeys } from '../theme';
 
 export const getHeadings = css`
   h1 {

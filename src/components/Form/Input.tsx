@@ -12,7 +12,7 @@ import { componentAnimation } from '../Shared';
 
 const GroupStyle = styled.div<InputGroupProps>`
   ${({ theme, size, status, shape, fullWidth }) => {
-    const padding = theme[`input${size}Padding` as ThemeKey].split(' ');
+    const padding = (theme[`input${size}Padding` as ThemeKey] as string).split(' ');
     return css`
       display: flex;
       min-width: 0%;
@@ -46,13 +46,11 @@ const GroupStyle = styled.div<InputGroupProps>`
           );
         }
         &:not([disabled]):focus ~ .label{
-          color: ${
-            status ? theme[`formControl${status}BorderColor` as ThemeKey] : theme.formControlSelectedBorderColor
-          };
+          color: ${theme[`input${status}PlaceholderTextColor` as ThemeKey]};
         }
         &[value]:not([value=""]) ~ .label,
         &:-webkit-autofill ~ .label{
-          ${status && `color: ${theme[`formControl${status}BorderColor` as ThemeKey]}`};
+          color: ${theme[`input${status}PlaceholderTextColor` as ThemeKey]};
         }
       }
 
@@ -137,9 +135,9 @@ const GroupStyle = styled.div<InputGroupProps>`
 `;
 
 interface InputGroupProps {
-  shape?: Shape;
+  shape: Shape;
   fullWidth?: boolean;
-  size?: Size;
+  size: Size;
   status?: Status;
   label?: string;
   children: React.ReactNode;

@@ -154,7 +154,7 @@ const MenuStyle = styled.div`
 
         .menu-title {
           flex: 1 0 auto;
-          ${(theme.dir = 'rtl' && 'text-align: right;')}
+          ${(theme.dir === 'rtl' && 'text-align: right;')}
         }
       }
 

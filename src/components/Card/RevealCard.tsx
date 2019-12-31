@@ -49,8 +49,8 @@ const RevealCardStyled = styled.div<RevealCardProps>`
       transition: transform 0.3s;
       line-height: ${theme.cardTextLineHeight};
       padding: ${theme.cardPadding};
-      ${theme.dir === 'rtl' ? 'left: 0;' : 'right: 0;'};
-      ${button === 'bottom' ? 'bottom: 0;' : 'top: 0;'};
+      ${theme.dir === 'rtl' ? 'left' : 'right'}: 0;
+      ${button === 'bottom' ? 'bottom' : 'top'}: 0;
     }
   `}
 `;

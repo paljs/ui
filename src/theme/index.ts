@@ -22,15 +22,15 @@ const themeValues = {
   dark: darkTheme,
 };
 
-function getKeyValue(settings: ThemeObject, key: keyof ThemeObject): ThemeKeys {
+function getKeyValue(settings: ThemeObject, key: ThemeKey): ThemeKeys {
   if (settings[key] in settings) {
-    getKeyValue(settings, settings[key] as keyof ThemeObject);
+    getKeyValue(settings, settings[key] as ThemeKey);
   }
   return settings[key];
 }
 
 function getThemeValue(settings: ThemeObject): ThemeObject {
-  (Object.keys(settings) as Array<keyof ThemeObject>).forEach(key => {
+  (Object.keys(settings) as Array<ThemeKey>).forEach(key => {
     settings[key] = getKeyValue(settings, key);
   });
   return settings;

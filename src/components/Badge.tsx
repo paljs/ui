@@ -7,7 +7,7 @@
 import styled, { css } from 'styled-components';
 import { Status, Position } from './types';
 import { getPhysicalPosition } from './positionHelper';
-import { ThemeKey } from '../theme/themeTypes';
+import { ThemeKey } from '../theme';
 
 const Badge = styled.span<BadgeProps>`
   ${({ theme, status }) => css`

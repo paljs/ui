@@ -6,10 +6,10 @@
 
 import styled, { css, keyframes } from 'styled-components';
 import { ButtonTypes } from './types';
-import { ThemeKey } from '../theme/';
+import { ThemeKey, ThemeKeys } from '../theme/';
 import { componentAnimation, outlineShadow } from './Shared';
 
-const btnPulse = (color: string) => {
+const btnPulse = (color: ThemeKeys) => {
   const pulse = keyframes`
   0% {
       box-shadow: none;
@@ -219,7 +219,6 @@ const ButtonStyle = css<ButtonTypes>`
     vertical-align: middle;
     user-select: none;
 
-    color: ${theme.btnFg};
     cursor: ${theme.buttonCursor};
     font-family: ${theme.buttonTextFontFamily};
     font-weight: ${theme.buttonTextFontWeight};
@@ -249,34 +248,38 @@ const ButtonStyle = css<ButtonTypes>`
       ${componentAnimation('background-color, border-color, box-shadow, color')}
     }
     
-    ${appearances[appearance]}
+    ${appearance && appearances[appearance]}
   `}
 `;
 
-const defaultProps = {
+const defaultProps: ButtonTypes = {
   size: 'Medium',
   status: 'Primary',
 };
 
-const Button = styled.button<ButtonTypes>`
+const Button = styled.button`
   ${ButtonStyle}
 `;
 
 Button.defaultProps = defaultProps;
 
-const ButtonLink = styled.a<ButtonTypes>`
+const ButtonLink = styled.a`
   ${ButtonStyle}
 `;
 
 ButtonLink.defaultProps = defaultProps;
 
-const ButtonInput = styled.input<ButtonTypes & { type: 'button' | 'submit' }>`
+interface ButtonInputProps extends ButtonTypes {
+  type: 'button' | 'submit';
+}
+
+const ButtonInput = styled.input<ButtonInputProps>`
   &[type='button'],
   &[type='submit'] {
     ${ButtonStyle}
   }
 `;
 
-ButtonInput.defaultProps = { ...defaultProps, type: 'button' };
+ButtonInput.defaultProps = { size: 'Medium', status: 'Primary', type: 'button' } as ButtonInputProps;
 
 export { Button, ButtonLink, ButtonInput, ButtonStyle };

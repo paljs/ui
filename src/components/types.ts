@@ -51,9 +51,9 @@ export interface ButtonTypes {
   fullWidth?: boolean;
   pulse?: boolean;
   appearance?: Appearance;
-  size?: Size;
+  size: Size;
   shape?: Shape;
-  status?: Status;
+  status: Status;
 }
 
 export interface LinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {

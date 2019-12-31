@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 import React from 'react';
-import { Icons } from '../../../eva-icon/src/types';
+import { Icons } from '../EvaTypes';
 
 interface ContextProps {
   addClass: (className: string[]) => void;

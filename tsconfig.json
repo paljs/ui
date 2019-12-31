@@ -5,11 +5,12 @@
     "downlevelIteration": true,
     "strict": true,
     "allowSyntheticDefaultImports": true,
-    "sourceMap": true,
+    //"sourceMap": true,
     "noUnusedParameters": true,
     "strictNullChecks": true,
     "moduleResolution": "node",
     "noImplicitAny": true,
+    "skipLibCheck": true,
     "outDir": "./dist",
     "target": "es5",
     "jsx": "react"

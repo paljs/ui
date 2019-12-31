@@ -40,7 +40,7 @@ const ItemStyle = styled.div`
       font-weight: ${theme.accordionHeaderTextFontWeight};
       line-height: ${theme.accordionHeaderTextLineHeight};
 
-      ${getHeadings}
+      ${getHeadings};
 
       display: flex;
       align-items: center;

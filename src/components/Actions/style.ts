@@ -51,7 +51,7 @@ const ActionStyle = styled.div<ActionProps>`
         }
       }
 
-      i.control-icon {
+      .control-icon {
         &:hover {
           cursor: pointer;
         }
@@ -81,10 +81,6 @@ const ActionStyle = styled.div<ActionProps>`
           `}
         ${inverse &&
           css`
-            i.control-icon {
-              color: ${theme.actionsBg};
-            }
-
             border-${theme.dir === 'rtl' ? 'right' : 'left'}: 
             ${theme.actionsDividerWidth} ${theme.actionsDividerStyle} ${theme.actionsDividerColor}; 
           `}

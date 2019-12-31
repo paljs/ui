@@ -7,7 +7,7 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import { Size, Status } from './types';
-import { ThemeKey } from '../theme/themeTypes';
+import { ThemeKey } from '../theme';
 import { scrollbars } from './Shared';
 
 interface AlertProps {

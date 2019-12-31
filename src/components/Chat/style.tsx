@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import { ChatProps } from './types';
 import { scrollbars } from '../Shared';
-import { ThemeKey } from '../../theme/themeTypes';
+import { ThemeKey } from '../../theme';
 
 const MessageTextStyle = styled.div`
   ${({ theme }) => css`
@@ -92,7 +92,7 @@ const MessageQuoteStyle = styled.div`
   `}
 `;
 
-const MessageStyle = styled.div<{ reply: boolean }>`
+const MessageStyle = styled.div<{ reply?: boolean }>`
   ${({ theme, reply }) => css`
     margin-bottom: 1.5rem;
     display: flex;
@@ -104,9 +104,8 @@ const MessageStyle = styled.div<{ reply: boolean }>`
       border-radius: 50%;
       flex-shrink: 0;
       background: ${theme.chatMessageAvatarBackgroundColor};
-      background-position: center;
       background-size: 3.4rem 2.6rem;
-      background-repeat: no-repeat;
+      background: no-repeat center;
       width: 2.5rem;
       height: 2.5rem;
       text-align: center;
@@ -115,7 +114,7 @@ const MessageStyle = styled.div<{ reply: boolean }>`
       color: white;
     }
     ${reply
-      ? css`
+  ? css`
       flex-direction: row-reverse;
       .message {
         margin-${theme.dir === 'rtl' ? 'left' : 'right'}: 0.5rem;
@@ -136,7 +135,7 @@ const MessageStyle = styled.div<{ reply: boolean }>`
         align-items: flex-start;
       }
     `
-      : css`
+  : css`
       .message {
         margin-${theme.dir === 'rtl' ? 'right' : 'left'}: 0.5rem;
         margin-${theme.dir === 'rtl' ? 'left' : 'right'}: 3rem;

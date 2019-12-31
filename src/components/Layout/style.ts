@@ -4,15 +4,15 @@
  * Licensed under the MIT License. See License.txt in the project root for license information.
  */
 
-import styled, { css, DefaultTheme } from 'styled-components';
-import { breakpointDown, ThemeKeys } from '../../theme';
+import styled, { css } from 'styled-components';
+import { breakpointDown, ThemeKeys, ThemeObject } from '../../theme';
 import SidebarStyle from '../Sidebar/style';
 import { scrollbars } from '../Shared';
 
 interface LayoutProps {
-  withScroll: boolean;
-  windowMode: boolean;
-  withSubHeader: boolean;
+  withScroll?: boolean;
+  windowMode?: boolean;
+  withSubHeader?: boolean;
 }
 
 const LayoutContainer = styled.div`
@@ -139,7 +139,7 @@ const FooterStyle = styled.footer`
   `}
 `;
 
-const getWindowMode = (theme: DefaultTheme, padding: ThemeKeys, action: number) => {
+const getWindowMode = (theme: ThemeObject, padding: ThemeKeys, action: number) => {
   return css`
     padding-top: calc(${padding} / ${action});
 
@@ -224,7 +224,7 @@ const LayoutStyle = styled.div<LayoutProps>`
           @media screen and (min-width: ${theme.layoutWindowModeMaxWidth} + 20px) {
             ${getWindowMode(theme, windowPadding, 4)}
 
-            ${LayoutStyle}.with-scroll {
+            #oah-layout.with-scroll {
               .scrollable-container {
                 height: calc(100vh - ${windowPadding});
               }
@@ -233,7 +233,7 @@ const LayoutStyle = styled.div<LayoutProps>`
           @media screen and (min-width: ${theme.layoutWindowModeMaxWidth} + 150px) {
             ${getWindowMode(theme, windowPadding, 2)}
 
-            ${LayoutStyle}.with-scroll {
+            #oah-layout.with-scroll {
               .scrollable-container {
                 height: calc(100vh - ${windowPadding});
               }
@@ -242,7 +242,7 @@ const LayoutStyle = styled.div<LayoutProps>`
           @media screen and (min-width: ${theme.layoutWindowModeMaxWidth} + 300px) {
             ${getWindowMode(theme, windowPadding, 1)}
 
-            ${LayoutStyle}.with-scroll {
+            #oah-layout.with-scroll {
               .scrollable-container {
                 height: calc(100vh - ${windowPadding});
               }

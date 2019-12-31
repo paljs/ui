@@ -15,7 +15,7 @@ import {
   FooterStyle,
 } from './style';
 import LayoutContext from './layout-context';
-import { Icons } from '../../../eva-icon/src/types';
+import { Icons } from '../EvaTypes';
 
 const LayoutHeader: React.FC<{ fixed?: boolean; className?: string }> = props => {
   const className = props.className ? props.className.split(' ') : [];

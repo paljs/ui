@@ -9,7 +9,7 @@ import { outlineShadow } from '../../Shared';
 import { Option } from './index';
 import { ThemeKey } from '../../../theme';
 
-const RadioStyle = styled.label<Option>`
+const RadioStyle = styled.label<Partial<Option>>`
   ${({ theme, status }) => css`
     display: inline-flex;
     margin: 0;
