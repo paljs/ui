@@ -7,6 +7,7 @@
 import styled, { css, keyframes } from 'styled-components';
 import React from 'react';
 import { Size, Status } from './types';
+import { ThemeKey } from '../theme';
 
 const spin = keyframes`
   0% {
@@ -41,9 +42,7 @@ const SpinnerStyle = styled.div<SpinnerProps>`
     justify-content: center;
     align-items: center;
     visibility: visible;
-    background-color: ${theme.spinnerBg};
-     ${size && `font-size: ${theme[`spinner${size}`]}`};
-    }
+    ${size && `font-size: ${theme[`spinnerHeight${size}` as ThemeKey]};`}
 
     .spin-circle {
       animation: ${spin} 0.8s infinite linear;
@@ -52,18 +51,28 @@ const SpinnerStyle = styled.div<SpinnerProps>`
       border-width: 0.125em;
       width: 1em;
       height: 1em;
-      border-left-color: ${theme.spinnerCircleBg};
-      border-top-color: ${theme.spinnerCircleBg};
-      border-bottom-color: ${theme.spinnerCircleBg};
-      ${status && `border-right-color: ${theme[`spinner${status}Bg`]};`}
     }
 
     .message {
       margin-left: 0.5rem;
-      line-height: 1rem;
-      font-size: 1rem;
-      color: ${theme.spinnerFg};
+      color: ${theme.spinnerTextColor};
+      font-family: ${theme.spinnerTextFontFamily};
+      font-size: ${theme.spinnerTextFontSize};
+      font-weight: ${theme.spinnerTextFontWeight};
+      line-height: ${theme.spinnerTextLineHeight};
     }
+
+    ${status &&
+      css`
+        background-color: ${theme[`spinner${status}BackgroundColor` as ThemeKey]};
+
+        .spin-circle {
+          border-top-color: ${theme[`spinner${status}CircleFilledColor` as ThemeKey]};
+          border-right-color: ${theme[`spinner${status}CircleEmptyColor` as ThemeKey]};
+          border-bottom-color: ${theme[`spinner${status}CircleFilledColor` as ThemeKey]};
+          border-left-color: ${theme[`spinner${status}CircleFilledColor` as ThemeKey]};
+        }
+      `}
   `}
 `;
 
@@ -77,7 +86,7 @@ const Spinner: React.FC<SpinnerProps> = props => {
 };
 
 Spinner.defaultProps = {
-  size: 'MD',
+  size: 'Medium',
   status: 'Primary',
 };
 

@@ -51,9 +51,9 @@ let Menu: React.RefForwardingComponent<MenuRefObject, MenuProps> = (props, ref) 
     },
   }));
 
-  const updateSelected = (updateItems: ItemType[], ia: string[] | number[]) => {
+  const updateSelected = (updateItems: ItemType[], ia: number[]) => {
     for (const item of updateItems) {
-      const state = updateItems.indexOf(item) === Number(ia[0]);
+      const state = updateItems.indexOf(item) === ia[0];
       item.selected = state;
       if (state) {
         item.expanded = true;
@@ -69,9 +69,8 @@ let Menu: React.RefForwardingComponent<MenuRefObject, MenuProps> = (props, ref) 
     return updateItems;
   };
 
-  const onSelectItem = (index: string | number) => {
-    const indexArray = typeof index === 'number' ? [index] : index.split(',');
-    setItems(updateSelected([...items], indexArray));
+  const onSelectItem = (index: number[]) => {
+    setItems(updateSelected([...items], index));
   };
 
   const onToggleSubMenu = (item: ItemType) => {
@@ -86,7 +85,7 @@ let Menu: React.RefForwardingComponent<MenuRefObject, MenuProps> = (props, ref) 
             !item.hidden && (
               <Item
                 key={index}
-                id={index}
+                id={[index]}
                 item={item}
                 Link={props.Link}
                 selectItem={i => onSelectItem(i)}

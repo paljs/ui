@@ -4,15 +4,14 @@
  * Licensed under the MIT License. See License.txt in the project root for license information.
  */
 
-import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
-import { maxContainer, breakpointUp, getGridGutter } from '../../theme/breakpoints';
+import { maxContainer, breakpointUp, getGridGutter, BreakPointKeys } from '../../theme/breakpoints';
 
-const width = css`
-  ${p =>
-    !p.fluid &&
-    Object.keys(maxContainer).map(
-      key => breakpointUp(key)`
+const width = css<{ fluid?: boolean }>`
+  ${({ fluid }) =>
+    !fluid &&
+    (Object.keys(maxContainer) as Array<BreakPointKeys>).map(
+      key => breakpointUp(key as BreakPointKeys)`
         max-width: ${maxContainer[key]}px;
       `,
     )}
@@ -28,10 +27,5 @@ const Container = styled.div`
   width: 100%;
   ${width}
 `;
-
-Container.propTypes = {
-  fluid: PropTypes.bool,
-  children: PropTypes.node,
-};
 
 export default Container;

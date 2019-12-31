@@ -1,4 +1,5 @@
 import React from 'react';
+import { Icons } from '../../../eva-icon/src/types';
 
 interface ContextProps {
   addClass?: (className: string[]) => void;
@@ -6,6 +7,7 @@ interface ContextProps {
   addEventListener?: (event: string, listener: EventListener, target: 'scrollArea' | 'Layout') => void;
   removeEventListener?: (event: string, listener: EventListener, target: 'scrollArea' | 'Layout') => void;
   dir?: 'ltr' | 'rtl';
+  evaIcons?: Icons;
   children?: React.ReactNode;
 }
 

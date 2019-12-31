@@ -9,12 +9,22 @@ import React from 'react';
 import { Icon } from '../Icon';
 import { ItemType, LinkProps } from '../types';
 
+const ItemIcon: React.FC<{ icon: ItemType['icon'] }> = ({ icon }) => {
+  if (typeof icon === 'string') {
+    return <i className={'menu-icon ' + icon} />;
+  } else if (typeof icon === 'object') {
+    return <Icon {...icon} />;
+  } else {
+    return <></>;
+  }
+};
+
 interface ItemProps {
   item: ItemType;
   toggleSidebar?: () => void;
   toggleSubMenu: (item: ItemType) => void;
-  selectItem: (id: string | number) => void;
-  id: string | number;
+  selectItem: (id: number[]) => void;
+  id: number[];
   Link: React.ComponentType<LinkProps>;
 }
 
@@ -43,7 +53,7 @@ const Item: React.FC<ItemProps> = ({ item, toggleSidebar, toggleSubMenu, selectI
     <ItemStyle className={item.group ? 'menu-item menu-group' : 'menu-item'}>
       {item.group ? (
         <span>
-          {item.icon && <i className={'menu-icon ' + item.icon} />}
+          <ItemIcon icon={item.icon} />
           {item.title}
         </span>
       ) : item.link && !item.children ? (
@@ -54,12 +64,12 @@ const Item: React.FC<ItemProps> = ({ item, toggleSidebar, toggleSubMenu, selectI
           className={item.selected ? 'active' : ''}
           onClick={onClickHandler}
         >
-          {item.icon && <i className={'menu-icon ' + item.icon} />}
+          <ItemIcon icon={item.icon} />
           <span className="menu-title">{item.title}</span>
         </Link>
       ) : item.url && !item.children ? (
         <a href={item.url} target={item.target} title={item.title}>
-          {item.icon && <i className={'menu-icon ' + item.icon} />}
+          <ItemIcon icon={item.icon} />
           <span className="menu-title">{item.title}</span>
         </a>
       ) : item.children ? (
@@ -73,7 +83,7 @@ const Item: React.FC<ItemProps> = ({ item, toggleSidebar, toggleSubMenu, selectI
             }}
             className={item.selected ? 'active' : ''}
           >
-            {item.icon && <i className={'menu-icon ' + item.icon} />}
+            <ItemIcon icon={item.icon} />
             <span className="menu-title">{item.title}</span>
             <i className="chevron">
               {item.expanded ? <Icon name="chevron-down-outline" /> : <Icon name="chevron-up-outline" />}
@@ -86,7 +96,7 @@ const Item: React.FC<ItemProps> = ({ item, toggleSidebar, toggleSubMenu, selectI
                   <Item
                     key={index}
                     item={item2}
-                    id={id + ',' + index}
+                    id={id.concat([index])}
                     Link={Link}
                     selectItem={selectItem}
                     toggleSidebar={toggleSidebar}

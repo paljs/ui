@@ -14,12 +14,19 @@ const List = styled.div`
 `;
 const ListItem = styled.div`
   ${({ theme }) => css`
-    border-bottom: 1px solid ${theme.listItemBorderColor};
+    border-bottom: ${theme.listItemDividerWidth} ${theme.listItemDividerStyle} ${theme.listItemDividerColor};
+    color: ${theme.listItemTextColor};
+    font-family: ${theme.listItemFontFamily};
+    font-size: ${theme.listItemFontSize};
+    font-weight: ${theme.listItemFontWeight};
+    line-height: ${theme.listItemLineHeight};
     padding: ${theme.listItemPadding};
+    display: flex;
+    align-items: center;
     flex-shrink: 0;
 
     &:first-child {
-      border-top: 1px solid ${theme.listItemBorderColor};
+      border-top: ${theme.listItemDividerWidth} ${theme.listItemDividerStyle} ${theme.listItemDividerColor};
     }
   `}
 `;

@@ -5,11 +5,29 @@
  */
 
 import React from 'react';
-import PropTypes from 'prop-types';
 import SidebarStyle from './style';
-import { ifWidthInBreakpoint } from '../../theme';
+import { ifWidthInBreakpoint, BreakPointKeys } from '../../theme';
 
-let Sidebar = (props, ref) => {
+export interface SidebarStyleProps {
+  state: 'hidden' | 'visible' | 'compacted' | 'expanded';
+  property: 'right' | 'left' | 'start' | 'end';
+  fixed?: boolean;
+  containerFixed?: boolean;
+  className?: string;
+}
+
+interface SidebarProps extends SidebarStyleProps {
+  compactedBreakpoints: BreakPointKeys[];
+  hiddenBreakpoints: BreakPointKeys[];
+  responsive?: boolean;
+}
+
+interface SidebarRefObject {
+  toggle: () => void;
+  hide: () => void;
+}
+
+let Sidebar: React.RefForwardingComponent<SidebarRefObject, SidebarProps> = (props, ref) => {
   const [fixed, setFixed] = React.useState(props.fixed);
   const [state, setState] = React.useState(props.state);
 
@@ -93,9 +111,9 @@ let Sidebar = (props, ref) => {
   );
 };
 
-function SidebarBody(props) {
+const SidebarBody: React.FC<{ children: React.ReactNode }> = props => {
   return <div className="scrollable">{props.children}</div>;
-}
+};
 
 Sidebar = React.forwardRef(Sidebar);
 
@@ -104,16 +122,6 @@ Sidebar.defaultProps = {
   hiddenBreakpoints: ['xs', 'is'],
   property: 'start',
   state: 'expanded',
-};
-
-Sidebar.propTypes = {
-  state: PropTypes.oneOf(['hidden', 'visible', 'compacted', 'expanded']),
-  property: PropTypes.oneOf(['right', 'left', 'start', 'end']),
-  compactedBreakpoints: PropTypes.arrayOf(PropTypes.string),
-  hiddenBreakpoints: PropTypes.arrayOf(PropTypes.string),
-  fixed: PropTypes.bool,
-  containerFixed: PropTypes.bool,
-  responsive: PropTypes.bool,
 };
 
 export { Sidebar, SidebarBody };

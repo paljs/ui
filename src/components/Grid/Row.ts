@@ -4,13 +4,11 @@
  * Licensed under the MIT License. See License.txt in the project root for license information.
  */
 
-import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
-import { breakpointUp, getGridGutter, breakpoints } from '../../theme/breakpoints';
+import { breakpointUp, getGridGutter, BreakPointKeys } from '../../theme/';
+import { Record } from '../types';
 
-const valueType = PropTypes.oneOf(Object.keys(breakpoints));
-
-const Row = styled.div`
+const Row = styled.div<RowProps>`
   display: flex;
   flex-wrap: wrap;
   ${p => css`
@@ -60,17 +58,10 @@ const Row = styled.div`
   `}
 `;
 
-Row.propTypes = {
-  reverse: PropTypes.bool,
-  start: valueType,
-  center: valueType,
-  end: valueType,
-  top: valueType,
-  middle: valueType,
-  bottom: valueType,
-  around: valueType,
-  between: valueType,
-  children: PropTypes.node,
-};
+type FlexProps = 'start' | 'center' | 'end' | 'top' | 'middle' | 'bottom' | 'around' | 'between';
+
+interface RowProps extends Record<FlexProps, BreakPointKeys> {
+  reverse: boolean;
+}
 
 export default Row;

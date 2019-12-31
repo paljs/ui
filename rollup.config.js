@@ -47,24 +47,24 @@ const files = [];
 });
 
 export default [
-  ...folders,
-  ...files,
-  {
+  //...folders,
+  //...files,
+  /* {
     input: 'src/components/index.js',
     output: { format: 'cjs', file: `${dir}/index.js`, globals },
     plugins,
     external,
-  },
+  }, */
   {
-    input: 'src/svg/index.js',
-    output: { format: 'cjs', file: `${dir}/svg.js`, globals },
+    input: 'src/index.ts',
+    output: { format: 'cjs', file: `${dir}/index.js`, globals },
     plugins,
     external,
   },
-  {
+  /* {
     input: 'src/theme/index.js',
     output: { format: 'cjs', file: `${dir}/theme.js`, globals },
     plugins,
     external,
-  },
+  }, */
 ];

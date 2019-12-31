@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "declaration": true,
-    "declarationDir": "./dist",
+    //"declaration": true,
+    //"declarationDir": "./dist",
     "downlevelIteration": true,
     "strict": true,
     "allowSyntheticDefaultImports": true,

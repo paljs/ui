@@ -4,6 +4,8 @@
  * Licensed under the MIT License. See License.txt in the project root for license information.
  */
 
+import { IconProps } from './Icon';
+
 export interface Badge {
   status: Status;
   title: string;
@@ -39,7 +41,7 @@ export interface ItemType {
   selected?: boolean;
   group?: boolean;
   hidden?: boolean;
-  icon?: string;
+  icon?: string | IconProps;
   target?: string;
   url?: string;
   children?: ItemType[];
@@ -60,3 +62,7 @@ export interface LinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement>
   replace?: boolean;
   innerRef?: React.Ref<HTMLAnchorElement>;
 }
+
+export type Record<K extends keyof any, T> = {
+  [P in K]?: T;
+};

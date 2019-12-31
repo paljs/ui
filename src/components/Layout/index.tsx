@@ -15,6 +15,7 @@ import {
   FooterStyle,
 } from './style';
 import LayoutContext from './layout-context';
+import { Icons } from '../../../eva-icon/src/types';
 
 const LayoutHeader: React.FC<{ fixed?: boolean; className?: string }> = props => {
   const className = props.className ? props.className.split(' ') : [];
@@ -41,6 +42,7 @@ interface LayoutProps {
   withScroll?: boolean;
   windowMode?: boolean;
   withSubHeader?: boolean;
+  evaIcons?: Icons;
 }
 
 const Layout: React.FC<LayoutProps> = props => {
@@ -121,6 +123,7 @@ const Layout: React.FC<LayoutProps> = props => {
           removeEventListener,
           addEventListener,
           dir: props.dir,
+          evaIcons: props.evaIcons,
         }}
       >
         <div ref={scrollRef} className="scrollable-container">

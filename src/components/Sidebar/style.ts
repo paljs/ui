@@ -7,9 +7,10 @@
 import styled, { css } from 'styled-components';
 import { breakpointDown } from '../../theme';
 import { MenuStyle } from '../Menu/style';
-/* eslint-disable indent */
+import { scrollbars } from '../Shared';
+import { SidebarStyleProps } from '.';
 
-const compacted = css`
+const compacted = css<SidebarStyleProps>`
   ${MenuStyle} {
     width: ${({ theme }) => theme.sidebarWidthCompact};
 
@@ -23,7 +24,7 @@ const compacted = css`
         top: 0;
         height: 100%;
         width: 4px;
-        background: ${({ theme }) => theme.colorFgHighlight};
+        background: ${({ theme }) => theme.sidebarMenuItemHighlightColor};
       }
     }
 
@@ -104,7 +105,7 @@ const compacted = css`
   }}
 `;
 
-const fixedStyle = css`
+const fixedStyle = css<SidebarStyleProps>`
   ${({ theme, property, state }) => css`
     position: fixed;
     height: 100%;
@@ -140,11 +141,16 @@ const fixedStyle = css`
   `}
 `;
 
-const SidebarStyle = styled.aside`
+const SidebarStyle = styled.aside<SidebarStyleProps>`
   ${({ theme, property, state, containerFixed, fixed }) => css`
-  font-size: ${theme.sidebarFontSize};
-  font-weight: ${theme.sidebarFontWeight};
-  box-shadow: ${theme.sidebarShadow};
+    background-color: ${theme.sidebarBackgroundColor};
+    box-shadow: ${theme.sidebarShadow};
+    color: ${theme.sidebarTextColor};
+    font-family: ${theme.sidebarTextFontFamily};
+    font-size: ${theme.sidebarTextFontSize};
+    font-weight: ${theme.sidebarTextFontWeight};
+    line-height: ${theme.sidebarTextLineHeight};
+    width: ${theme.sidebarWidth};
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -181,7 +187,7 @@ const SidebarStyle = styled.aside`
         : `width: ${theme.sidebarWidth};`
     }
     height: ${theme.sidebarHeight};
-    background: ${theme.sidebarBg};
+      width: ${theme.sidebarWidth};
     transform: translate3d(0, 0, 0);
     display: flex;
     flex-direction: column;
@@ -202,6 +208,7 @@ const SidebarStyle = styled.aside`
       overflow-y: scroll;
       -webkit-overflow-scrolling: touch;
       `}
+    ${scrollbars(theme.sidebarScrollbarColor, theme.sidebarScrollbarBackgroundColor, theme.sidebarScrollbarWidth)}
   }
   
   ${fixed && fixedStyle}

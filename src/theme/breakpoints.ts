@@ -4,7 +4,7 @@
  * Licensed under the MIT License. See License.txt in the project root for license information.
  */
 
-import { css } from './styled-components';
+import { css, DefaultTheme } from 'styled-components';
 
 interface Breakpoint {
   xs?: number;
@@ -17,7 +17,7 @@ interface Breakpoint {
   xxxl: number;
 }
 
-type BreakPointKeys = keyof Breakpoint;
+export type BreakPointKeys = keyof Breakpoint;
 type CSSType = typeof css;
 
 const gridSize = 12;
@@ -43,11 +43,11 @@ const maxContainer: Breakpoint = {
   xxxl: 1500,
 };
 
-function getGridSize(theme: any) {
+function getGridSize(theme: any): number {
   return theme.gridSize ? theme.gridSize : gridSize;
 }
 
-function getGridGutter(theme: any) {
+function getGridGutter(theme: any): number {
   return theme.gridGutter ? theme.gridGutter : gridGutter;
 }
 
