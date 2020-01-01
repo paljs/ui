@@ -1,6 +1,6 @@
 import React from 'react';
 import { defaultIcons } from './defaultIcons';
-import { Status } from '../types';
+import { Status, IconField } from '../types';
 import IconStyle from './style';
 import { EvaIconOptions, Icons } from '../EvaTypes';
 import { LayoutContext } from '../Layout';
@@ -29,4 +29,20 @@ export const EvaIcon: React.FC<IconProps> = props => {
     svgIcon = evaIcons[props.name](props.options);
   }
   return <IconStyle dangerouslySetInnerHTML={{ __html: svgIcon }} status={props.status} className={props.className} />;
+};
+
+interface ItemIconProps {
+  icon: IconField;
+  className?: string;
+}
+
+export const ItemIcon: React.FC<ItemIconProps> = ({ icon, className }) => {
+  if (typeof icon === 'string') {
+    return <i className={className + ' ' + icon} />;
+  } else if (typeof icon === 'object') {
+    icon.className += ' ' + className;
+    return <EvaIcon {...icon} />;
+  } else {
+    return <></>;
+  }
 };

@@ -332,7 +332,7 @@ const mapping: Partial<ThemeObject> = {
   popoverBorderColor: 'transparent',
   popoverBorderRadius: 'borderRadius',
   popoverShadow: 'shadow',
-  popoverArrowSize: '0.6875rem',
+  popoverArrowSize: '11px',
   popoverPadding: '0.75rem 1rem',
 
   contextMenuBackgroundColor: 'backgroundBasicColor1',
@@ -2213,7 +2213,7 @@ const mapping: Partial<ThemeObject> = {
   datepickerBorderWidth: 0,
   datepickerBorderRadius: 'borderRadius',
   datepickerShadow: 'shadow',
-  datepickerArrowSize: '0.6875rem',
+  datepickerArrowSize: '11px',
 
   radioWidth: '1.125rem',
   radioHeight: '1.125rem',

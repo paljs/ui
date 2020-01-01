@@ -40,7 +40,7 @@ let Accordion: React.RefForwardingComponent<AccordionRefObject, AccordionProps> 
       if (!React.isValidElement<AccordionItemPropTypes>(child)) {
         return false;
       }
-      return child.props;
+      return { ...child.props };
     }).filter((child): boolean => !!child) as AccordionItemPropTypes[];
     setItems(children);
   }, [props.children]);

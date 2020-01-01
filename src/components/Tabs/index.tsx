@@ -5,31 +5,32 @@
  */
 
 import React from 'react';
-import PropTypes from 'prop-types';
 
-import { badge } from '../types';
+import { Badge as BadgeType, IconField } from '../types';
 import TabsStyle from './style';
 import Badge from '../Badge';
+import { ItemIcon } from '../Icon';
 
-function Tab(props) {
+const Tab: React.FC<TabProps> = props => {
   return <div className="tab-content">{props.children}</div>;
-}
-
-Tab.propTypes = {
-  title: PropTypes.string,
-  icon: PropTypes.string,
-  responsive: PropTypes.bool,
-  disabled: PropTypes.bool,
-  className: PropTypes.string,
-  style: PropTypes.object,
-  badge,
 };
 
-function Tabs(props) {
-  const [tabs, setTabs] = React.useState([]);
-  const [active, setActive] = React.useState(props.activeIndex);
+interface TabProps {
+  title?: string;
+  icon?: IconField;
+  responsive?: boolean;
+  disabled?: boolean;
+  className?: string;
+  style?: React.CSSProperties;
+  badge?: BadgeType;
+  children?: React.ReactNode;
+}
 
-  const selectTab = index => {
+const Tabs: React.FC<TabsProps> = props => {
+  const [tabs, setTabs] = React.useState<TabProps[]>([]);
+  const [active, setActive] = React.useState<number>(props.activeIndex ?? 0);
+
+  const selectTab = (index: number) => {
     typeof props.onSelect === 'function' && props.onSelect(index);
     setActive(index);
   };
@@ -39,10 +40,8 @@ function Tabs(props) {
       return { ...child.props };
     });
     setTabs(children);
-    if (!props.activeIndex) {
-      setActive(0);
-    }
   }, [props.children]);
+
   return (
     <TabsStyle className={props.className} style={props.style} fullWidth={props.fullWidth}>
       <ul className="tabs">
@@ -63,7 +62,7 @@ function Tabs(props) {
           return (
             <li key={index} className={cssClass.join(' ')} onClick={() => !tab.disabled && selectTab(index)}>
               <a>
-                {tab.icon && <i className={tab.icon} />}
+                {tab.icon && <ItemIcon icon={tab.icon} className="tabs-icon" />}
                 {tab.title && <span>{tab.title}</span>}
               </a>
               {tab.badge && (
@@ -82,14 +81,15 @@ function Tabs(props) {
       })}
     </TabsStyle>
   );
-}
-
-Tabs.propType = {
-  classNames: PropTypes.string,
-  style: PropTypes.object,
-  fullWidth: PropTypes.bool,
-  onSelect: PropTypes.func,
-  activeIndex: PropTypes.number,
 };
+
+interface TabsProps {
+  className?: string;
+  style?: React.CSSProperties;
+  fullWidth?: boolean;
+  onSelect?: (index: number) => void;
+  activeIndex?: number;
+  children: React.ReactElement<TabProps>[];
+}
 
 export { Tabs, Tab };

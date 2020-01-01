@@ -6,9 +6,10 @@
 
 import styled, { css } from 'styled-components';
 import { UserProps } from './';
+import { ThemeKey } from '../../theme';
 
 const UserStyle = styled.div<UserProps>`
-  ${({ theme, size, image, color }) => css`
+  ${({ theme, size, image, color, shape }) => css`
     display: flex;
 
     .user-container {
@@ -18,20 +19,16 @@ const UserStyle = styled.div<UserProps>`
     }
 
     .user-picture {
-      background: ${theme.userBg};
-      border: solid 2px ${theme.userFgHighlight};
+      background-color: ${theme.userPictureBoxBackgroundColor};
+      border: ${theme.userPictureBoxBorderWidth} solid ${theme.userPictureBoxBorderColor};
       position: relative;
       border-radius: 50%;
       flex-shrink: 0;
-      ${size &&
-        css`
-          height: ${theme[`userSize${size}`]};
-          width: ${theme[`userSize${size}`]};
-          ${size === 'SM' && 'font-size: 70%;'}
-        `}
 
-      &.background {
-        color: ${theme.userFg};
+      &.initials {
+        color: ${theme.userInitialsTextColor};
+        font-family: ${theme.userInitialsTextFontFamily};
+        font-weight: ${theme.userInitialsTextFontWeight};
         display: flex;
         align-items: center;
         justify-content: center;
@@ -45,10 +42,15 @@ const UserStyle = styled.div<UserProps>`
     }
 
     .user-name {
-      font-family: ${theme.userFontFamilySecondary};
+      color: ${theme.userNameTextColor};
+      font-family: ${theme.userNameTextFontFamily};
+      font-weight: ${theme.userNameTextFontWeight};
     }
 
     .user-title {
+      color: ${theme.userTitleTextColor};
+      font-family: ${theme.userTitleTextFontFamily};
+      font-weight: ${theme.userTitleTextFontWeight};
       font-size: 0.75rem;
     }
 
@@ -61,15 +63,32 @@ const UserStyle = styled.div<UserProps>`
       margin-${theme.dir === 'rtl' ? 'right' : 'left'}: 0.5rem;
     }
 
-    &.inverse {
-      .user-picture {
-        background: ${theme.userFg};
-
-        &.background {
-          color: ${theme.userBg};
+    ${size &&
+      css`
+        .user-picture {
+          height: ${theme[`user${size}Height` as ThemeKey]};
+          width: ${theme[`user${size}Width` as ThemeKey]};
         }
-      }
-    }
+        .initials {
+          font-size: ${theme[`user${size}InitialsTextFontSize` as ThemeKey]};
+          line-height: ${theme[`user${size}InitialsTextLineHeight` as ThemeKey]};
+        }
+        .user-name {
+          font-size: ${theme[`user${size}NameTextFontSize` as ThemeKey]};
+          line-height: ${theme[`user${size}NameTextLineHeight` as ThemeKey]};
+        }
+        .user-title {
+          font-size: ${theme[`user${size}TitleTextFontSize` as ThemeKey]};
+          line-height: ${theme[`user${size}TitleTextLineHeight` as ThemeKey]};
+        }
+      `}
+
+      ${shape &&
+        css`
+          .user-picture {
+            border-radius: ${theme[`user${shape}BorderRadius` as ThemeKey]};
+          }
+        `}
   `}
 `;
 

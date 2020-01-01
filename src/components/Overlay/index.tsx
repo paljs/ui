@@ -6,16 +6,29 @@
 
 import ReactDOM from 'react-dom';
 import React from 'react';
-import PropTypes from 'prop-types';
-import PopoverStyle from './style';
-import { trigger, placement } from '../types';
 import usePopoverPosition from '../popoverPosition';
+import { Trigger, Placement } from '../types';
+import { OverlayStyle } from './style';
 
-function Popover(props) {
-  const overlayRef = React.useRef();
-  const targetRef = React.useRef();
-  const [position, placement, show, setShow] = usePopoverPosition(props, targetRef, overlayRef);
-  let timeOut;
+interface OverlayProps {
+  children: React.ReactNode;
+  target: React.ReactNode;
+  eventListener?: string;
+  trigger: Trigger;
+  placement: Placement;
+  style?: React.CSSProperties;
+  className?: string;
+  transformSize: number;
+  arrowRound: number;
+  arrowSize: string;
+}
+
+const Overlay: React.FC<OverlayProps> = props => {
+  const overlayRef = React.useRef<HTMLDivElement>(null);
+  const targetRef = React.useRef<HTMLDivElement>(null);
+  const { position, placement, show, setShow } = usePopoverPosition(props, targetRef, overlayRef);
+
+  let timeOut: number;
   const onMouseLeave = () => {
     timeOut = setTimeout(() => {
       setShow(false);
@@ -25,12 +38,19 @@ function Popover(props) {
   const onMouseEnter = () => {
     clearTimeout(timeOut);
   };
-  const { trigger } = props;
+
+  const { trigger, transformSize } = props;
   return (
     <>
       {show &&
         ReactDOM.createPortal(
-          <PopoverStyle position={position} placement={placement}>
+          <OverlayStyle
+            position={!!position}
+            placement={placement}
+            size={transformSize}
+            arrowRound={props.arrowRound}
+            arrowSize={props.arrowSize}
+          >
             <div
               className="overlay-pane"
               style={position && { top: position.top, left: position.left }}
@@ -39,17 +59,10 @@ function Popover(props) {
               onMouseEnter={() => trigger === 'hover' && onMouseEnter()}
               onMouseLeave={() => trigger === 'hover' && onMouseLeave()}
             >
-              <div className="popover">
-                <span className="arrow" />
-                {typeof props.overlay === 'string' ? (
-                  <div className="primitive-overlay">{props.overlay}</div>
-                ) : (
-                  props.overlay
-                )}
-              </div>
+              {props.children}
             </div>
-          </PopoverStyle>,
-          document.getElementById('overlay-container'),
+          </OverlayStyle>,
+          document.getElementById('overlay-container')!,
         )}
       <div
         style={props.style}
@@ -72,19 +85,10 @@ function Popover(props) {
           trigger === 'hint' ? setShow(false) : trigger === 'hover' && onMouseLeave();
         }}
       >
-        {props.children}
+        {props.target}
       </div>
     </>
   );
-}
-
-Popover.propTypes = {
-  eventListener: PropTypes.string,
-  trigger: trigger.isRequired,
-  placement: placement.isRequired,
-  overlay: PropTypes.any.isRequired,
-  children: PropTypes.node.isRequired,
-  style: PropTypes.object,
-  className: PropTypes.string,
 };
-export default Popover;
+
+export default Overlay;

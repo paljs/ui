@@ -7,7 +7,7 @@
 import React from 'react';
 import Badge from '../Badge';
 import UserStyle from './style';
-import { Size, Badge as BadgeType } from '../types';
+import { Size, Badge as BadgeType, Shape } from '../types';
 
 const User: React.FC<UserProps> = props => {
   const getInitials = () => {
@@ -24,7 +24,7 @@ const User: React.FC<UserProps> = props => {
   return (
     <UserStyle {...props}>
       <div className="user-container">
-        <div className={'user-picture ' + (props.image ? 'image' : 'background')}>
+        <div className={'user-picture ' + (props.image ? 'image' : 'initials')}>
           {!props.image && props.showInitials && getInitials()}
           {props.badge && (
             <Badge status={props.badge.status} position={props.badge.position}>
@@ -49,6 +49,7 @@ User.defaultProps = {
 
 export interface UserProps {
   size?: Size;
+  shape?: Shape;
   name?: string;
   title?: string;
   color?: string;

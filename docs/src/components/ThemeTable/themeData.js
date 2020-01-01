@@ -5,7 +5,7 @@ import defaultTheme from '../../../../src/theme/default';
 const themeValues = {
   default: defaultTheme,
   cosmic: cosmicTheme,
-  corporate: corporateTheme
+  corporate: corporateTheme,
 };
 
 export function getTheme(theme) {
@@ -23,7 +23,7 @@ function getThemeParent(settings, theme) {
       key,
       value: getKeyValue(settings, key),
       default: !themeValues[theme][key],
-      parent: settings[settings[key]] ? settings[key] : false
+      parent: settings[settings[key]] ? settings[key] : false,
     };
   });
 }

@@ -5,24 +5,25 @@
  */
 
 import React from 'react';
-import { Badge as BadgeType, Size, LinkProps } from '../types';
+import { Badge as BadgeType, Size, LinkProps, IconField } from '../types';
 import { ActionsStyle, ActionStyle } from './style';
 import Badge from '../Badge';
+import { ItemIcon } from '../Icon';
 
 const Actions: React.FC<ActionsProps> = ({ actions, className, style, fullWidth, size, inverse, Link }) => {
   return (
     <ActionsStyle className={className} style={style}>
-      {actions.map((action, index) => {
+      {actions.map((action: Action, index: number) => {
         return (
           <ActionStyle key={index} fullWidth={fullWidth} size={size} inverse={inverse} disabled={!!action.disabled}>
             {action.icon ? (
               action.link ? (
                 <Link to={action.link} target={action.target} className="icon-container" {...action.events}>
-                  <i className={'control-icon ' + action.icon} />
+                  <ItemIcon icon={action.icon} className="control-icon" />
                 </Link>
               ) : (
                 <a href={action.url} target={action.target} className="icon-container" {...action.events}>
-                  <i className={'control-icon ' + action.icon} />
+                  <ItemIcon icon={action.icon} className="control-icon" />
                 </a>
               )
             ) : (
@@ -45,7 +46,7 @@ Actions.defaultProps = {
 };
 
 interface Action {
-  icon?: string;
+  icon?: IconField;
   events?: object;
   link?: any;
   url?: string;

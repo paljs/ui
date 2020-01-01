@@ -6,18 +6,8 @@
 
 import { ItemStyle } from './style';
 import React from 'react';
-import { Icon, EvaIcon } from '../Icon';
+import { Icon, ItemIcon } from '../Icon';
 import { ItemType, LinkProps } from '../types';
-
-const ItemIcon: React.FC<{ icon: ItemType['icon'] }> = ({ icon }) => {
-  if (typeof icon === 'string') {
-    return <i className={'menu-icon ' + icon} />;
-  } else if (typeof icon === 'object') {
-    return <EvaIcon {...icon} />;
-  } else {
-    return <></>;
-  }
-};
 
 interface ItemProps {
   item: ItemType;
@@ -53,7 +43,7 @@ const Item: React.FC<ItemProps> = ({ item, toggleSidebar, toggleSubMenu, selectI
     <ItemStyle className={item.group ? 'menu-item menu-group' : 'menu-item'}>
       {item.group ? (
         <span>
-          <ItemIcon icon={item.icon} />
+          <ItemIcon icon={item.icon} className="menu-icon" />
           {item.title}
         </span>
       ) : item.link && !item.children ? (
@@ -64,12 +54,12 @@ const Item: React.FC<ItemProps> = ({ item, toggleSidebar, toggleSubMenu, selectI
           className={item.selected ? 'active' : ''}
           onClick={onClickHandler}
         >
-          <ItemIcon icon={item.icon} />
+          <ItemIcon icon={item.icon} className="menu-icon" />
           <span className="menu-title">{item.title}</span>
         </Link>
       ) : item.url && !item.children ? (
         <a href={item.url} target={item.target} title={item.title}>
-          <ItemIcon icon={item.icon} />
+          <ItemIcon icon={item.icon} className="menu-icon" />
           <span className="menu-title">{item.title}</span>
         </a>
       ) : item.children ? (
@@ -83,7 +73,7 @@ const Item: React.FC<ItemProps> = ({ item, toggleSidebar, toggleSubMenu, selectI
             }}
             className={item.selected ? 'active' : ''}
           >
-            <ItemIcon icon={item.icon} />
+            <ItemIcon icon={item.icon} className="menu-icon" />
             <span className="menu-title">{item.title}</span>
             <i className="chevron">
               {item.expanded ? <Icon name="chevron-down-outline" /> : <Icon name="chevron-up-outline" />}

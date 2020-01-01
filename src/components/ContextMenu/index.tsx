@@ -6,20 +6,15 @@
 
 import ReactDOM from 'react-dom';
 import React from 'react';
-import PropTypes from 'prop-types';
 import ContextMenuStyle from './style';
-import { placement, menuItemsType } from '../types';
+import { Placement, ItemType, LinkProps } from '../types';
 import usePopoverPosition from '../popoverPosition';
 import Menu from '../Menu';
 
-function ContextMenu(props) {
-  const overlayRef = React.useRef();
-  const targetRef = React.useRef();
-  const [position, placement, show, setShow] = usePopoverPosition(
-    props,
-    targetRef,
-    overlayRef
-  );
+const ContextMenu: React.FC<ContextMenuProps> = props => {
+  const overlayRef = React.useRef<HTMLDivElement>(null);
+  const targetRef = React.useRef<HTMLDivElement>(null);
+  const { position, placement, show, setShow } = usePopoverPosition(props, targetRef, overlayRef);
 
   return (
     <>
@@ -43,7 +38,7 @@ function ContextMenu(props) {
               </div>
             </div>
           </ContextMenuStyle>,
-          document.getElementById('overlay-container')
+          document.getElementById('overlay-container')!,
         )}
       <div
         style={props.style}
@@ -58,15 +53,16 @@ function ContextMenu(props) {
       </div>
     </>
   );
+};
+
+interface ContextMenuProps {
+  items: ItemType;
+  eventListener?: string;
+  placement: Placement;
+  children: React.ReactNode;
+  Link: React.ComponentType<LinkProps>;
+  style?: React.CSSProperties;
+  className?: string;
 }
 
-ContextMenu.propTypes = {
-  items: menuItemsType,
-  eventListener: PropTypes.string,
-  placement: placement.isRequired,
-  children: PropTypes.node.isRequired,
-  Link: PropTypes.object.isRequired,
-  style: PropTypes.object,
-  className: PropTypes.string
-};
 export default ContextMenu;

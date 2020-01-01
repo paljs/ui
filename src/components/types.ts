@@ -34,6 +34,8 @@ export type Shape = 'Rectangle' | 'SemiRound' | 'Round';
 
 export type Appearance = 'filled' | 'outline' | 'ghost' | 'hero';
 
+export type IconField = string | IconProps;
+
 export interface ItemType {
   title: string;
   link?: any;
@@ -41,7 +43,7 @@ export interface ItemType {
   selected?: boolean;
   group?: boolean;
   hidden?: boolean;
-  icon?: string | IconProps;
+  icon?: IconField;
   target?: string;
   url?: string;
   children?: ItemType[];
