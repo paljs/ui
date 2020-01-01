@@ -14,19 +14,33 @@ interface OverlayProps {
   children: React.ReactNode;
   target: React.ReactNode;
   eventListener?: string;
-  trigger: Trigger;
+  trigger?: Trigger;
   placement: Placement;
   style?: React.CSSProperties;
   className?: string;
   transformSize: number;
-  arrowRound: number;
-  arrowSize: string;
+  arrowRound?: number;
+  arrowSize?: string;
+  contextMenu?: boolean;
+}
+export interface OverlayRefObject {
+  hide: () => void;
 }
 
-const Overlay: React.FC<OverlayProps> = props => {
+const Overlay: React.RefForwardingComponent<OverlayRefObject, OverlayProps> = (props, ref) => {
   const overlayRef = React.useRef<HTMLDivElement>(null);
   const targetRef = React.useRef<HTMLDivElement>(null);
   const { position, placement, show, setShow } = usePopoverPosition(props, targetRef, overlayRef);
+
+  React.useImperativeHandle(
+    ref,
+    () => ({
+      hide() {
+        setShow(false);
+      },
+    }),
+    [show],
+  );
 
   let timeOut: number;
   const onMouseLeave = () => {
@@ -40,6 +54,39 @@ const Overlay: React.FC<OverlayProps> = props => {
   };
 
   const { trigger, transformSize } = props;
+
+  const overlayMouse = props.contextMenu
+    ? {}
+    : {
+        onMouseEnter: () => trigger === 'hover' && onMouseEnter(),
+        onMouseLeave: () => trigger === 'hover' && onMouseLeave(),
+      };
+
+  const targetMouse = props.contextMenu
+    ? {
+        onClick: e => {
+          e.stopPropagation();
+          setShow(!show);
+        },
+      }
+    : {
+        onFocus: () => trigger === 'focus' && setShow(true),
+        onBlur: () => trigger === 'focus' && setShow(false),
+        onClick: e => {
+          e.stopPropagation();
+          trigger === 'click' && setShow(!show);
+        },
+        onMouseEnter: () =>
+          trigger === 'hint'
+            ? setShow(true)
+            : trigger === 'hover' && !show
+            ? setShow(true)
+            : trigger === 'hover' && onMouseEnter(),
+        onMouseLeave: () => {
+          trigger === 'hint' ? setShow(false) : trigger === 'hover' && onMouseLeave();
+        },
+      };
+
   return (
     <>
       {show &&
@@ -56,39 +103,18 @@ const Overlay: React.FC<OverlayProps> = props => {
               style={position && { top: position.top, left: position.left }}
               ref={overlayRef}
               onClick={e => e.stopPropagation()}
-              onMouseEnter={() => trigger === 'hover' && onMouseEnter()}
-              onMouseLeave={() => trigger === 'hover' && onMouseLeave()}
+              {...overlayMouse}
             >
               {props.children}
             </div>
           </OverlayStyle>,
           document.getElementById('overlay-container')!,
         )}
-      <div
-        style={props.style}
-        className={props.className}
-        ref={targetRef}
-        onFocus={() => trigger === 'focus' && setShow(true)}
-        onBlur={() => trigger === 'focus' && setShow(false)}
-        onClick={e => {
-          e.stopPropagation();
-          trigger === 'click' && setShow(!show);
-        }}
-        onMouseEnter={() =>
-          trigger === 'hint'
-            ? setShow(true)
-            : trigger === 'hover' && !show
-            ? setShow(true)
-            : trigger === 'hover' && onMouseEnter()
-        }
-        onMouseLeave={() => {
-          trigger === 'hint' ? setShow(false) : trigger === 'hover' && onMouseLeave();
-        }}
-      >
+      <div style={props.style} className={props.className} ref={targetRef} {...targetMouse}>
         {props.target}
       </div>
     </>
   );
 };
 
-export default Overlay;
+export default React.forwardRef(Overlay);

@@ -54,8 +54,8 @@ interface OverlayStyleProps {
   placement: PositionKeys;
   position: boolean;
   size: number;
-  arrowRound: number;
-  arrowSize: string;
+  arrowRound?: number;
+  arrowSize?: string;
 }
 
 export const OverlayStyle = styled.div<OverlayStyleProps>`
@@ -79,7 +79,7 @@ export const OverlayStyle = styled.div<OverlayStyleProps>`
       max-height: 100%;
       box-sizing: border-box;
       ${!position && 'visibility: hidden;'}
-      ${placementArrow(placement, arrowSize, arrowRound)}
+      ${arrowSize && arrowRound && placementArrow(placement, arrowSize, arrowRound)}
 
       .icon + span {
         margin-${placement === 'right' ? 'right' : 'left'}: 0.5rem;

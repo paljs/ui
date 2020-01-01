@@ -21,7 +21,7 @@ interface MenuRefObject {
   toggle: () => void;
 }
 
-let Menu: React.RefForwardingComponent<MenuRefObject, MenuProps> = (props, ref) => {
+const Menu: React.RefForwardingComponent<MenuRefObject, MenuProps> = (props, ref) => {
   const [items, setItems] = React.useState<ItemType[]>(props.items);
   const [expended, setExpended] = React.useState(false);
 
@@ -99,6 +99,5 @@ let Menu: React.RefForwardingComponent<MenuRefObject, MenuProps> = (props, ref) 
     </MenuStyle>
   );
 };
-Menu = React.forwardRef(Menu);
 
-export default Menu;
+export default React.forwardRef(Menu);
