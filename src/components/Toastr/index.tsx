@@ -1,15 +1,37 @@
 import ReactDOM from 'react-dom';
 import React from 'react';
-import PropTypes from 'prop-types';
 import layoutContext from '../Layout/layout-context';
 import { getLogicalPosition } from '../positionHelper';
 import { ToastrContainer } from './style';
 import Item from './Item';
-import { position, statusArray } from '../types';
+import { Position, Status, Record, IconField } from '../types';
 
-let Toastr = (props, ref) => {
-  const [items, setItems] = React.useState([]);
-  const [createParents, setCreateParents] = React.useState(false);
+interface ToastrRef {
+  add: (message: string, title: string, option?: ToastrProps | {}) => void;
+}
+
+interface ToastrParent {
+  position: Position;
+  status: Status;
+  duration: number;
+  hasIcon: boolean;
+  destroyByClick: boolean;
+  preventDuplicates: boolean;
+}
+
+export interface ToastrItem extends ToastrParent {
+  message: string;
+  title: string;
+  icon?: IconField;
+}
+
+interface ToastrProps extends ToastrParent {
+  icons: Record<Status, IconField>;
+}
+
+let Toastr: React.RefForwardingComponent<ToastrRef, ToastrProps> = (props, ref) => {
+  const [items, setItems] = React.useState<ToastrItem[]>([]);
+  const [createParents, setCreateParents] = React.useState<boolean>(false);
 
   const layout = React.useContext(layoutContext);
 
@@ -21,7 +43,7 @@ let Toastr = (props, ref) => {
     ref,
     () => ({
       add(message, title = '', option = {}) {
-        const options = { ...props, ...option };
+        const options: ToastrProps = { ...props, ...option };
 
         const newItems = [...items];
         let push = true;
@@ -34,11 +56,9 @@ let Toastr = (props, ref) => {
         }
 
         if (push) {
-          options.position = getLogicalPosition(layout.dir, options.position);
+          options.position = getLogicalPosition(layout.dir ?? 'ltr', options.position) as Position;
 
-          options.icon = options.icon === undefined && options.icons ? options.icons[options.status] : options.icon;
-
-          newItems.push({ ...options, title, message });
+          newItems.push({ ...options, title, message, icon: options.icons[options.status] });
           setItems(newItems);
         }
       },
@@ -54,7 +74,7 @@ let Toastr = (props, ref) => {
             <ToastrContainer position={position} isTop={position === 'topEnd' || position === 'topStart'}>
               <div className="overlay-pane" id={'toastr' + position} />
             </ToastrContainer>,
-            document.getElementById('overlay-container'),
+            document.getElementById('overlay-container')!,
           ),
         )}
       {items.map((item, index) => (
@@ -73,16 +93,15 @@ Toastr.defaultProps = {
   hasIcon: true,
   destroyByClick: true,
   preventDuplicates: false,
-};
-
-Toastr.propTypes = {
-  position,
-  status: PropTypes.oneOf([...statusArray, 'Default']),
-  duration: PropTypes.number,
-  hasIcon: PropTypes.bool,
-  destroyByClick: PropTypes.bool,
-  preventDuplicates: PropTypes.bool,
-  icons: PropTypes.object,
+  icons: {
+    Danger: 'flash-outline',
+    Success: 'checkmark-outline',
+    Info: 'question-mark-outline',
+    Warning: 'alert-triangle-outline',
+    Primary: 'email-outline',
+    Control: 'email-outline',
+    Basic: 'email-outline',
+  },
 };
 
 export default Toastr;

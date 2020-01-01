@@ -37,9 +37,16 @@ interface ItemIconProps {
 }
 
 export const ItemIcon: React.FC<ItemIconProps> = ({ icon, className }) => {
+  const { evaIcons } = React.useContext(LayoutContext);
   if (typeof icon === 'string') {
-    return <i className={className + ' ' + icon} />;
-  } else if (typeof icon === 'object') {
+    if (icon in defaultIcons) {
+      return <Icon name={icon as keyof typeof defaultIcons} className={className} />;
+    } else if (evaIcons && icon in evaIcons) {
+      return <EvaIcon name={icon as keyof Icons} className={className} />;
+    } else {
+      <i className={className + ' ' + icon} />;
+    }
+  } else if (typeof icon === 'object' && evaIcons && evaIcons[icon.name]) {
     icon.className += ' ' + className;
     return <EvaIcon {...icon} />;
   } else {

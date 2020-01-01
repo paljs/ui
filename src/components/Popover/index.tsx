@@ -7,7 +7,7 @@
 import React from 'react';
 import { withTheme, DefaultTheme } from 'styled-components';
 import PopoverStyle from './style';
-import Overlay from '../Overlay';
+import Overlay from '../PopoverLay';
 import { Trigger, Placement } from '../types';
 
 const Popover: React.FC<PopoverProps> = props => {

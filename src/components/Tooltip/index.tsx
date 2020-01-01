@@ -8,7 +8,7 @@ import React from 'react';
 import TooltipStyle from './style';
 import { Trigger, Placement, Status, IconField } from '../types';
 import { ItemIcon } from '../Icon';
-import Overlay from '../Overlay';
+import Overlay from '../PopoverLay';
 
 const Tooltip: React.FC<TooltipProps> = props => {
   const arrowSize = 6;
