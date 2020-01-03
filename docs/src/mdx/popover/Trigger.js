@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardBody, Button, Popover } from 'oah-ui';
+import { Card, CardBody, Button, Popover } from '../../../../src';
 
 function Trigger() {
   return (

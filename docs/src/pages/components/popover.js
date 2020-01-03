@@ -10,10 +10,7 @@ import { popoverProps } from '../../mdx/popover/ApiArray';
 export default function PopoverPage() {
   return (
     <Row>
-      <SEO
-        title="Popover Component"
-        keywords={['OAH', 'application', 'react']}
-      />
+      <SEO title="Popover Component" keywords={['OAH', 'application', 'react']} />
       <Col xs={12}>
         <Switch title="Popover Component">
           <Overview />

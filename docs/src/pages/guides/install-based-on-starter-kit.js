@@ -7,10 +7,7 @@ import GuideStyle from '../../components/GuideStyle';
 function InstallBasedKit() {
   return (
     <Row>
-      <SEO
-        title="Install Based on Starter Kit"
-        keywords={['OAH', 'application', 'react']}
-      />
+      <SEO title="Install Based on Starter Kit" keywords={['OAH', 'application', 'react']} />
       <Col xs={12}>
         <GuideStyle>
           <MdxContent />

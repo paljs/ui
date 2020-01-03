@@ -11,10 +11,7 @@ import { toastrProps, toastrMethod } from '../../mdx/toastr/ApiArray';
 export default function ToastrPage() {
   return (
     <Row>
-      <SEO
-        title="Toastr Component"
-        keywords={['OAH', 'application', 'react']}
-      />
+      <SEO title="Toastr Component" keywords={['OAH', 'application', 'react']} />
       <Col xs={12}>
         <Switch title="Toastr Component">
           <Overview />

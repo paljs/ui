@@ -8,15 +8,16 @@ import styled, { css } from 'styled-components';
 import { Status, Size } from '../types';
 import { getHeadings, scrollbars } from '../Shared';
 import { ThemeKey } from '../../theme';
+import React from 'react';
 
 interface CardProps {
-  status: Status;
-  accent: Status;
-  size: Size;
+  status?: Status;
+  accent?: Status;
+  size?: Size;
 }
 
 const headerBg = css<CardProps>`
-  ${({ theme, status }) => css`
+  ${({ theme, status, accent }) => css`
     padding: ${theme.cardPadding};
     border-bottom: ${theme.cardDividerWidth} ${theme.cardDividerStyle} ${theme.cardDividerColor};
     border-top-left-radius: ${theme.cardBorderRadius};
@@ -40,11 +41,11 @@ const headerBg = css<CardProps>`
           color: ${theme[`cardHeader${status}TextColor` as ThemeKey]};
         }
       `}
+    ${accent && 'border-radius: 0;'}
   `}
-  ${({ accent }) => (accent ? 'border-radius: 0;' : '')}
 `;
 
-const Card = styled.div<CardProps>`
+const CardStyle = styled.div<CardProps>`
   ${({ theme, accent, size }) => css`
     display: flex;
     flex-direction: column;
@@ -95,5 +96,7 @@ const CardBody = styled.div`
     ${scrollbars(theme.cardScrollbarColor, theme.cardScrollbarBackgroundColor, theme.cardScrollbarWidth)}
   `}
 `;
+
+const Card: React.FC<CardProps> = props => <CardStyle {...props}>{props.children}</CardStyle>;
 
 export { Card, CardBody };

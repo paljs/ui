@@ -6,8 +6,8 @@ import {
   LayoutColumn,
   LayoutContainer,
   LayoutContent,
-  LayoutFooter
-} from 'oah-ui';
+  LayoutFooter,
+} from '../../../../src';
 import styled from 'styled-components';
 const SimpleStyle = styled.div`
   height: 50vh;
@@ -32,7 +32,7 @@ export default function Column() {
             <LayoutColumns>
               <LayoutColumn className="first">first column</LayoutColumn>
               <LayoutColumn position="left" className="second">
-                second column take position="left"
+                second column take position=&quot;left&quot;
               </LayoutColumn>
               <LayoutColumn className="second">Third</LayoutColumn>
             </LayoutColumns>

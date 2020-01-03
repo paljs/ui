@@ -10,10 +10,7 @@ import { checkboxProps } from '../../mdx/checkbox/ApiArray';
 export default function CheckboxPage() {
   return (
     <Row>
-      <SEO
-        title="Checkbox Component"
-        keywords={['OAH', 'application', 'react']}
-      />
+      <SEO title="Checkbox Component" keywords={['OAH', 'application', 'react']} />
       <Col xs={12}>
         <Switch title="Checkbox Component">
           <Overview />

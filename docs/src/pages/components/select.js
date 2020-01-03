@@ -10,10 +10,7 @@ import { selectProps } from '../../mdx/select/ApiArray';
 export default function SelectPage() {
   return (
     <Row>
-      <SEO
-        title="Select Component"
-        keywords={['OAH', 'application', 'react']}
-      />
+      <SEO title="Select Component" keywords={['OAH', 'application', 'react']} />
       <Col xs={12}>
         <Switch title="Select Component">
           <Overview />

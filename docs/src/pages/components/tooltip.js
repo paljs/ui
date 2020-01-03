@@ -10,10 +10,7 @@ import { tooltipProps } from '../../mdx/tooltip/ApiArray';
 export default function TooltipPage() {
   return (
     <Row>
-      <SEO
-        title="Tooltip Component"
-        keywords={['OAH', 'application', 'react']}
-      />
+      <SEO title="Tooltip Component" keywords={['OAH', 'application', 'react']} />
       <Col xs={12}>
         <Switch title="Tooltip Component">
           <Overview />

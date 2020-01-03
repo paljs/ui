@@ -16,13 +16,15 @@ export interface SidebarStyleProps {
   className?: string;
 }
 
-interface SidebarProps extends SidebarStyleProps {
+export interface SidebarProps extends SidebarStyleProps {
   compactedBreakpoints: BreakPointKeys[];
   hiddenBreakpoints: BreakPointKeys[];
   responsive?: boolean;
+  children: React.ReactNode[] | React.ReactNode;
+  ref?: React.RefObject<SidebarRefObject>;
 }
 
-interface SidebarRefObject {
+export interface SidebarRefObject {
   toggle: () => void;
   hide: () => void;
 }

@@ -7,8 +7,8 @@ import {
   LayoutContainer,
   LayoutContent,
   Sidebar,
-  Actions
-} from 'oah-ui';
+  Actions,
+} from '../../../../src';
 import styled from 'styled-components';
 const SimpleStyle = styled.div`
   height: 50vh;
@@ -37,9 +37,9 @@ export default function Column() {
                 events: {
                   onClick() {
                     sidebarRef.current.toggle();
-                  }
-                }
-              }
+                  },
+                },
+              },
             ]}
           />
         </LayoutHeader>
@@ -51,14 +51,14 @@ export default function Column() {
                 size="SM"
                 actions={[
                   {
-                    icon: 'icon ion-ios-water'
+                    icon: 'icon ion-ios-water',
                   },
                   {
-                    icon: 'icon ion-ios-eye'
+                    icon: 'icon ion-ios-eye',
                   },
                   {
-                    icon: 'icon ion-ios-settings'
-                  }
+                    icon: 'icon ion-ios-settings',
+                  },
                 ]}
               />
             </LayoutHeader>

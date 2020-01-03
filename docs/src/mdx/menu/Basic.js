@@ -1,12 +1,12 @@
 import React from 'react';
-import { Menu } from 'oah-ui';
+import { Menu } from '../../../../src';
 import { Link } from 'gatsby';
 
 function Basic() {
   const items = [
     {
       title: 'Getting Started',
-      link: '/getting-started'
+      link: '/getting-started',
     },
     {
       title: 'Guides',
@@ -14,13 +14,13 @@ function Basic() {
       children: [
         {
           title: 'Start new project',
-          link: '/guides/start-new-project' // goes into @reach/router `router Link`
+          link: '/guides/start-new-project', // goes into @reach/router `router Link`
         },
         {
           title: 'Github Repository',
-          url: 'https://github.com/AhmedElywa/oah-ui' // goes directly into `href` attribute
-        }
-      ]
+          url: 'https://github.com/AhmedElywa/oah-ui', // goes directly into `href` attribute
+        },
+      ],
     },
     {
       title: 'Components',
@@ -28,26 +28,20 @@ function Basic() {
       children: [
         {
           title: 'Navigation',
-          group: true
+          group: true,
         },
         {
           title: 'Menu',
-          link: '/components/menu' // selected link
-        }
-      ]
+          link: '/components/menu', // selected link
+        },
+      ],
     },
     {
       title: 'Themes',
-      link: '/themes'
-    }
+      link: '/themes',
+    },
   ];
-  return (
-    <Menu
-      style={{ maxWidth: '20rem', margin: '0 auto' }}
-      items={items}
-      Link={Link}
-    />
-  );
+  return <Menu style={{ maxWidth: '20rem', margin: '0 auto' }} items={items} Link={Link} />;
 }
 
 export default Basic;

@@ -7,10 +7,7 @@ import GuideStyle from '../../components/GuideStyle';
 function StartNewProject() {
   return (
     <Row>
-      <SEO
-        title="Start new project"
-        keywords={['OAH', 'application', 'react']}
-      />
+      <SEO title="Start new project" keywords={['OAH', 'application', 'react']} />
       <Col xs={12}>
         <GuideStyle>
           <MdxContent />

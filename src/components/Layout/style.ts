@@ -22,7 +22,7 @@ const LayoutContainer = styled.div`
   flex-direction: row;
 `;
 
-const LayoutContent = styled.div<{ center: boolean }>`
+const LayoutContent = styled.div<{ center?: boolean }>`
   ${({ theme, center }) => css`
     display: flex;
     flex: 1;
@@ -49,7 +49,7 @@ const LayoutColumns = styled.div`
   width: 100%;
 `;
 
-const LayoutColumn = styled.div<{ position: 'start' | 'left' }>`
+const LayoutColumn = styled.div<{ position?: 'start' | 'left' }>`
   ${({ theme, position }) => css`
     order: 1;
     flex: 1 0;

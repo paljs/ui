@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardBody, Button, Tooltip } from 'oah-ui';
+import { Card, CardBody, Button, Tooltip } from '../../../../src';
 
 function Placement() {
   return (

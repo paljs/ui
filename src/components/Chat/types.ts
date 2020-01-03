@@ -1,9 +1,9 @@
-import { Size, Status } from '../types';
+import { IconField, Size, Status } from '../types';
 
 export interface MessageFile {
   url: string;
-  icon: string;
-  type: string;
+  icon?: string;
+  type?: string;
 }
 
 export interface MessageProps {
@@ -27,8 +27,8 @@ export interface MessagesProps {
 
 export interface ChatProps {
   title: string;
-  size: Size;
-  status: Status;
+  size?: Size;
+  status?: Status;
 }
 
 export interface AttachedFile extends File {
@@ -37,14 +37,14 @@ export interface AttachedFile extends File {
 }
 
 export interface ChatFormProps {
-  imgDropTypes: string[];
+  imgDropTypes?: string[];
   message?: string;
-  buttonTitle: string;
-  buttonIcon?: string;
-  showButton: boolean;
-  dropFiles: boolean;
+  buttonTitle?: string;
+  buttonIcon?: IconField;
+  showButton?: boolean;
+  dropFiles?: boolean;
   onSend?: (data: { message: string; files: AttachedFile[] }) => void;
-  placeholder: string;
-  fileOverPlaceholder: string;
+  placeholder?: string;
+  fileOverPlaceholder?: string;
   filesIcon?: string;
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardBody, User } from 'oah-ui';
+import { Card, CardBody, User } from '../../../../src';
 
 function Image() {
   return (
@@ -7,11 +7,7 @@ function Image() {
       <Card>
         <header>User avatar image set as link</header>
         <CardBody>
-          <User
-            title="Manger"
-            name="ahmed elywa"
-            image="url('/icons/icon-72x72.png')"
-          />
+          <User title="Manger" name="ahmed elywa" image="url('/icons/icon-72x72.png')" />
         </CardBody>
       </Card>
       <Card>

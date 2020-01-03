@@ -19,3 +19,4 @@ Chat.defaultProps = {
 };
 
 export { Chat, ChatMessages, ChatForm };
+export * from './types';

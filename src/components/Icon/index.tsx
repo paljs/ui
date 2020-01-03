@@ -12,7 +12,7 @@ export interface IconProps {
   options?: EvaIconOptions;
 }
 
-export const Icon: React.FC<IconProps & { name: keyof typeof defaultIcons }> = props => {
+export const Icon: React.FC<Omit<IconProps, 'name'> & { name: keyof typeof defaultIcons }> = props => {
   return (
     <IconStyle
       dangerouslySetInnerHTML={{ __html: defaultIcons[props.name] }}
@@ -44,7 +44,7 @@ export const ItemIcon: React.FC<ItemIconProps> = ({ icon, className }) => {
     } else if (evaIcons && icon in evaIcons) {
       return <EvaIcon name={icon as keyof Icons} className={className} />;
     } else {
-      <i className={className + ' ' + icon} />;
+      return <i className={className + ' ' + icon} />;
     }
   } else if (typeof icon === 'object' && evaIcons && evaIcons[icon.name]) {
     icon.className += ' ' + className;

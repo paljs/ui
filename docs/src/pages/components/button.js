@@ -10,17 +10,15 @@ import { buttonProps } from '../../mdx/button/ApiArray';
 export default function ButtonPage() {
   return (
     <Row>
-      <SEO
-        title="Button Components"
-        keywords={['OAH', 'application', 'react']}
-      />
+      <SEO title="Button Components" keywords={['OAH', 'application', 'react']} />
       <Col xs={12}>
         <Switch title="Button Components">
           <Overview />
-          <ApiTable 
-          name="Button" 
-          props={buttonProps} 
-          hint="This component just styled component not have any React function so you can pass any props like styled component"/>
+          <ApiTable
+            name="Button"
+            props={buttonProps}
+            hint="This component just styled component not have any React function so you can pass any props like styled component"
+          />
           <StyleTable keys={['btn']} />
         </Switch>
       </Col>

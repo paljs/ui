@@ -23,12 +23,10 @@ import { Link } from 'gatsby';
 To enable theme you must use [styled-components](https://www.styled-components.com/docs) package
 `themes` function take 2 args first one theme name second take object of settings that need to custom theme or use it in your styled components
 
-```jsx
+```tsx
 // import ThemeProvider from styled-components to give it theme values
 import { ThemeProvider } from 'styled-components';
-// import themes function from oah-ui/theme
-import { themes } from 'oah-ui/theme';
-import { Layout } from 'oah-ui';
+import { Layout, createTheme } from 'oah-ui';
 
 export default function LayoutPage(props) {
   // define default theme and direction

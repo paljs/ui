@@ -14,9 +14,11 @@ export * from './Form';
 export * from './Button';
 export * from './Chat';
 export * from './positionHelper';
+export * from './Menu';
+export * from './Actions';
+export * from './types';
 
-export { default as Actions } from './Actions';
-export { default as Menu } from './Menu';
+export { EvaIcon } from './Icon';
 export { default as Badge } from './Badge';
 export { default as GlobalStyle } from './GlobalStyle';
 export { default as Overlay } from './Overlay';

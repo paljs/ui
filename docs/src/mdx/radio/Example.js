@@ -1,5 +1,5 @@
 import React from 'react';
-import { Radio } from 'oah-ui';
+import { Radio } from '../../../../src';
 
 function Example() {
   const onChangeRadio = value => {
@@ -13,18 +13,18 @@ function Example() {
         {
           value: 'value 1',
           label: 'option 1',
-          checked: true
+          checked: true,
         },
         {
           value: 'value 2',
           label: 'option 2',
-          status: 'Info'
+          status: 'Info',
         },
         {
           value: 'value 3',
           label: 'option 3',
-          status: 'Danger'
-        }
+          status: 'Danger',
+        },
       ]}
     />
   );

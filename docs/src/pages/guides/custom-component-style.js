@@ -7,10 +7,7 @@ import GuideStyle from '../../components/GuideStyle';
 export default function CustomComponentStyle() {
   return (
     <Row>
-      <SEO
-        title="Custom Component Style"
-        keywords={['OAH', 'application', 'react']}
-      />
+      <SEO title="Custom Component Style" keywords={['OAH', 'application', 'react']} />
       <Col xs={12}>
         <GuideStyle>
           <MdxContent />

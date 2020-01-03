@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Card, Spinner, Tabs, Tab } from 'oah-ui';
+import { Card, Spinner, Tabs, Tab } from '../../../../src';
 
 function TabTest() {
   const [showTab, setShowTab] = useState(false);

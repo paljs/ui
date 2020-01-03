@@ -36,26 +36,26 @@ function getThemeValue(settings: ThemeObject): ThemeObject {
   return settings;
 }
 
-export function themes(theme: keyof typeof themeValues, settings: DefaultTheme): DefaultTheme {
-  switch (theme) {
+export function createTheme(name: keyof typeof themeValues, settings: Partial<DefaultTheme> = {}): DefaultTheme {
+  switch (name) {
     case 'cosmic':
     case 'corporate':
     case 'dark':
       return {
-        name: theme,
+        name,
         dir: 'ltr',
         ...getThemeValue({
           ...defaultTheme,
           ...mapping,
-          ...themeValues[theme],
+          ...themeValues[name]!,
           ...settings,
         }),
       };
     default:
       return {
-        name: theme,
+        name,
         dir: 'ltr',
-        ...getThemeValue({ ...defaultTheme, ...mapping, ...settings }),
+        ...getThemeValue({ ...defaultTheme, ...mapping!, ...settings }),
       };
   }
 }

@@ -9,9 +9,9 @@ import React from 'react';
 import { Icon } from '../Icon';
 
 interface RevealCardProps {
-  className: string;
-  style: object;
-  button: 'top' | 'bottom';
+  className?: string;
+  style?: object;
+  button?: 'top' | 'bottom';
   revealed?: boolean;
 }
 

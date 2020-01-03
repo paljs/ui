@@ -15,7 +15,7 @@ const GroupStyle = styled.div<InputGroupProps>`
     const padding = (theme[`input${size}Padding` as ThemeKey] as string).split(' ');
     return css`
       display: flex;
-      min-width: 0%;
+      min-width: 0;
       position: relative;
       margin-bottom: 1rem;
       
@@ -135,9 +135,9 @@ const GroupStyle = styled.div<InputGroupProps>`
 `;
 
 interface InputGroupProps {
-  shape: Shape;
+  shape?: Shape;
   fullWidth?: boolean;
-  size: Size;
+  size?: Size;
   status?: Status;
   label?: string;
   children: React.ReactNode;

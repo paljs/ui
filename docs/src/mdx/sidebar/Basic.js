@@ -1,13 +1,5 @@
 import React from 'react';
-import {
-  Layout,
-  LayoutColumns,
-  LayoutColumn,
-  LayoutContainer,
-  LayoutContent,
-  Sidebar,
-  SidebarBody
-} from 'oah-ui';
+import { Layout, LayoutColumns, LayoutColumn, LayoutContainer, LayoutContent, Sidebar, SidebarBody } from '../../../../src';
 import styled from 'styled-components';
 const SimpleStyle = styled.div`
   height: 50vh;

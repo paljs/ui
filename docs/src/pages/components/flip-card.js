@@ -9,10 +9,7 @@ import { flipCardProps } from '../../mdx/flip-card/ApiArray';
 export default function FlipCardPage() {
   return (
     <Row>
-      <SEO
-        title="FlipCard Component"
-        keywords={['OAH', 'application', 'react']}
-      />
+      <SEO title="FlipCard Component" keywords={['OAH', 'application', 'react']} />
       <Col xs={12}>
         <Switch title="FlipCard Components">
           <Overview />

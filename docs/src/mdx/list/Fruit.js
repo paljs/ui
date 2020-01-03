@@ -1,4 +1,4 @@
-import { Card, List, ListItem } from 'oah-ui';
+import { Card, List, ListItem } from '../../../../src';
 import React from 'react';
 
 export default function Basic() {
@@ -13,7 +13,7 @@ export default function Basic() {
     'Watermelon',
     'Cantaloupe',
     'Oranges',
-    'Peaches'
+    'Peaches',
   ];
   return (
     <Card style={{ maxWidth: '20rem', margin: '0 auto' }} size="MD">

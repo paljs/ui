@@ -5,29 +5,17 @@ import Switch from '../../components/Switch';
 import Overview from '../../mdx/layout/overview.mdx';
 import StyleTable from '../../components/StyleTable';
 import ApiTable from '../../components/ApiTable';
-import {
-  layoutProps,
-  layoutMethod,
-  headerProps,
-  columnProps
-} from '../../mdx/layout/ApiArray';
+import { layoutProps, layoutMethod, headerProps, columnProps } from '../../mdx/layout/ApiArray';
 
 function LayoutPage() {
   return (
     <Row>
-      <SEO
-        title="Layout Components"
-        keywords={['OAH', 'application', 'react']}
-      />
+      <SEO title="Layout Components" keywords={['OAH', 'application', 'react']} />
       <Col xs={12}>
         <Switch title="Layout Components">
           <Overview />
           <>
-            <ApiTable
-              name="Layout"
-              props={layoutProps}
-              methods={layoutMethod}
-            />
+            <ApiTable name="Layout" props={layoutProps} methods={layoutMethod} />
             <ApiTable name="LayoutHeader" props={headerProps} />
             <ApiTable name="LayoutColumn" props={columnProps} />
           </>

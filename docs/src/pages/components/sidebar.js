@@ -10,18 +10,11 @@ import { sidebarProps, sidebarMethod } from '../../mdx/sidebar/ApiArray';
 export default function SidebarPage() {
   return (
     <Row>
-      <SEO
-        title="Sidebar Components"
-        keywords={['OAH', 'application', 'react']}
-      />
+      <SEO title="Sidebar Components" keywords={['OAH', 'application', 'react']} />
       <Col xs={12}>
         <Switch title="Sidebar Components">
           <Overview />
-          <ApiTable
-            name="Sidebar"
-            props={sidebarProps}
-            methods={sidebarMethod}
-          />
+          <ApiTable name="Sidebar" props={sidebarProps} methods={sidebarMethod} />
           <StyleTable keys={['sidebar']} />
         </Switch>
       </Col>

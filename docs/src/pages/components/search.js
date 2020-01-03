@@ -10,10 +10,7 @@ import { searchProps } from '../../mdx/search/ApiArray';
 export default function SearchPage() {
   return (
     <Row>
-      <SEO
-        title="Search Component"
-        keywords={['OAH', 'application', 'react']}
-      />
+      <SEO title="Search Component" keywords={['OAH', 'application', 'react']} />
       <Col xs={12}>
         <Switch title="Search Component">
           <Overview />

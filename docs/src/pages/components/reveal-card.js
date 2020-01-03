@@ -9,10 +9,7 @@ import { revealCardProps } from '../../mdx/reveal-card/ApiArray';
 export default function RevealCardPage() {
   return (
     <Row>
-      <SEO
-        title="RevealCard Component"
-        keywords={['OAH', 'application', 'react']}
-      />
+      <SEO title="RevealCard Component" keywords={['OAH', 'application', 'react']} />
       <Col xs={12}>
         <Switch title="RevealCard Components">
           <Overview />

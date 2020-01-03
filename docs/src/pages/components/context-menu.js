@@ -11,18 +11,16 @@ import { itemProps } from '../../mdx/menu/ApiArray';
 export default function ContextMenuPage() {
   return (
     <Row>
-      <SEO
-        title="ContextMenu Component"
-        keywords={['OAH', 'application', 'react']}
-      />
+      <SEO title="ContextMenu Component" keywords={['OAH', 'application', 'react']} />
       <Col xs={12}>
         <Switch title="ContextMenu Component">
           <Overview />
           <>
-            <ApiTable 
-            name="ContextMenu" 
-            props={contextProps} 
-            hint="items prop take array of object item go down to see his props ↓"/>
+            <ApiTable
+              name="ContextMenu"
+              props={contextProps}
+              hint="items prop take array of object item go down to see his props ↓"
+            />
             <ApiTable name="Item" props={itemProps} />
           </>
           <StyleTable keys={['context']} />

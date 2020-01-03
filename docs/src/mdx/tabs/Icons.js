@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Tabs, Tab } from 'oah-ui';
+import { Card, Tabs, Tab } from '../../../../src';
 
 function Icons() {
   return (
@@ -48,11 +48,7 @@ function Icons() {
       <h3>With Badge</h3>
       <Card>
         <Tabs fullWidth>
-          <Tab
-            icon="icon ion-ios-home"
-            badge={{ status: 'Danger', title: '11', position: 'topStart' }}
-            responsive
-          >
+          <Tab icon="icon ion-ios-home" badge={{ status: 'Danger', title: '11', position: 'topStart' }} responsive>
             <h1>Content 1</h1>
           </Tab>
           <Tab
@@ -62,11 +58,7 @@ function Icons() {
           >
             <h1>Content 2</h1>
           </Tab>
-          <Tab
-            icon="icon ion-ios-switch"
-            badge={{ status: 'Success', title: '11', position: 'topStart' }}
-            responsive
-          >
+          <Tab icon="icon ion-ios-switch" badge={{ status: 'Success', title: '11', position: 'topStart' }} responsive>
             <h1>Content 3</h1>
           </Tab>
         </Tabs>

@@ -20,12 +20,13 @@ const AccordionItem: React.FC<AccordionItemPropTypes> = () => {
 };
 
 interface AccordionProps {
-  multi: boolean;
-  className: string;
+  multi?: boolean;
+  className?: string;
   children: React.ReactElement<AccordionItemPropTypes>[];
+  ref?: React.RefObject<AccordionRefObject>;
 }
 
-interface AccordionRefObject {
+export interface AccordionRefObject {
   openAll(): void;
   closeAll(): void;
   open(index: number): void;
@@ -104,7 +105,7 @@ let Accordion: React.RefForwardingComponent<AccordionRefObject, AccordionProps> 
   );
 
   return (
-    <AccordionStyle {...props}>
+    <AccordionStyle className={props.className}>
       {items.map((item, index) => {
         const cssStyle = [];
         item.expanded ? cssStyle.push('expanded') : cssStyle.push('collapsed');

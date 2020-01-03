@@ -6,8 +6,8 @@ import {
   LayoutColumn,
   LayoutContainer,
   LayoutContent,
-  LayoutFooter
-} from 'oah-ui';
+  LayoutFooter,
+} from '../../../../src';
 import styled from 'styled-components';
 const SimpleStyle = styled.div`
   height: 50vh;

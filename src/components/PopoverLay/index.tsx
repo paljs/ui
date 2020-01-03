@@ -22,6 +22,7 @@ interface OverlayProps {
   arrowRound?: number;
   arrowSize?: string;
   contextMenu?: boolean;
+  ref?: React.RefObject<OverlayRefObject>;
 }
 export interface OverlayRefObject {
   hide: () => void;

@@ -1,18 +1,18 @@
 import React from 'react';
-import { Select } from 'oah-ui';
+import { Select } from '../../../../src';
 
 const positionOptions = [
   { value: 'topRight', label: 'Top-Right' },
   { value: 'topLeft', label: 'Top-Left' },
   { value: 'bottomRight', label: 'Bottom-Right' },
-  { value: 'bottomLeft', label: 'Bottom-Left' }
+  { value: 'bottomLeft', label: 'Bottom-Left' },
 ];
 const statusOption = [
   { label: 'Clean' },
   { value: 'Info', label: 'Info' },
   { value: 'Success', label: 'Success' },
   { value: 'Danger', label: 'Danger' },
-  { value: 'Primary', label: 'Primary' }
+  { value: 'Primary', label: 'Primary' },
 ];
 
 function Example() {
@@ -22,11 +22,7 @@ function Example() {
       <Select options={statusOption} placeholder="Status" />
 
       <h4>multiple Select</h4>
-      <Select
-        options={positionOptions}
-        multiple
-        placeholder="Select multiple"
-      />
+      <Select options={positionOptions} multiple placeholder="Select multiple" />
     </>
   );
 }

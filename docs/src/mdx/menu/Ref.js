@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { Menu, Button } from 'oah-ui';
+import { Menu, Button } from '../../../../src';
 import { Link } from 'gatsby';
 
 function Ref() {
@@ -12,13 +12,13 @@ function Ref() {
       children: [
         {
           title: 'Start new project',
-          link: '/guides/start-new-project' // goes into @reach/router `router Link`
+          link: '/guides/start-new-project', // goes into @reach/router `router Link`
         },
         {
           title: 'Github Repository',
-          url: 'https://github.com/AhmedElywa/oah-ui' // goes directly into `href` attribute
-        }
-      ]
+          url: 'https://github.com/AhmedElywa/oah-ui', // goes directly into `href` attribute
+        },
+      ],
     },
     {
       title: 'Components',
@@ -26,14 +26,14 @@ function Ref() {
       children: [
         {
           title: 'Navigation',
-          group: true
+          group: true,
         },
         {
           title: 'Menu',
-          link: '/components/menu' // selected link
-        }
-      ]
-    }
+          link: '/components/menu', // selected link
+        },
+      ],
+    },
   ];
   return (
     <>

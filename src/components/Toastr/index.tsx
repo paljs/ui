@@ -27,6 +27,7 @@ export interface ToastrItem extends ToastrParent {
 
 interface ToastrProps extends ToastrParent {
   icons: Record<Status, IconField>;
+  ref?: React.RefObject<ToastrRef>;
 }
 
 let Toastr: React.RefForwardingComponent<ToastrRef, ToastrProps> = (props, ref) => {

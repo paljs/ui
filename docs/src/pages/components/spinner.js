@@ -10,10 +10,7 @@ import { spinnerProps } from '../../mdx/spinner/ApiArray';
 export default function SpinnerPage() {
   return (
     <Row>
-      <SEO
-        title="Spinner Component"
-        keywords={['OAH', 'application', 'react']}
-      />
+      <SEO title="Spinner Component" keywords={['OAH', 'application', 'react']} />
       <Col xs={12}>
         <Switch title="Spinner Component">
           <Overview />

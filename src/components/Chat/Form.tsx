@@ -1,6 +1,7 @@
 import React from 'react';
 import { FormStyle } from './style';
 import { ChatFormProps, AttachedFile } from './types';
+import { ItemIcon } from '../Icon';
 
 const ChatForm: React.FC<ChatFormProps> = props => {
   const [message, setMessage] = React.useState<string>(props.message ?? '');
@@ -116,7 +117,7 @@ const ChatForm: React.FC<ChatFormProps> = props => {
             }}
           />
           <button className="btn" onClick={sendMessage}>
-            {props.buttonIcon ? <span className={props.buttonIcon} /> : props.buttonTitle}
+            {props.buttonIcon ? <ItemIcon icon={props.buttonIcon} /> : props.buttonTitle}
           </button>
         </div>
       </FormStyle>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Card, Tabs, Tab } from 'oah-ui';
+import { Card, Tabs, Tab } from '../../../../src';
 
 function Controlled() {
   const [activeIndex, setActiveIndex] = useState(1);

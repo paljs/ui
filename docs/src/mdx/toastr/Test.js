@@ -1,15 +1,5 @@
 import React, { useRef, useState } from 'react';
-import {
-  Row,
-  Col,
-  InputGroup,
-  Checkbox,
-  Select,
-  Toastr,
-  Button,
-  Card,
-  CardBody
-} from 'oah-ui';
+import { Row, Col, InputGroup, Checkbox, Select, Toastr, Button, Card, CardBody } from '../../../../src';
 
 export default function ToastrPage() {
   const [count, setCount] = useState(1);
@@ -27,8 +17,8 @@ export default function ToastrPage() {
       Warning: 'ion-ios-alert',
       Danger: 'ion-ios-bug',
       Success: 'ion-ios-checkmark-circle',
-      Info: 'ion-ios-help-circle'
-    }
+      Info: 'ion-ios-help-circle',
+    },
   });
 
   const toastrRef = useRef();
@@ -52,7 +42,7 @@ export default function ToastrPage() {
     { value: 'topStart', label: 'Top-Start' },
     { value: 'topEnd', label: 'Top-End' },
     { value: 'bottomStart', label: 'Bottom-Start' },
-    { value: 'bottomEnd', label: 'Bottom-End' }
+    { value: 'bottomEnd', label: 'Bottom-End' },
   ];
   const statusOption = [
     { value: 'Info', label: 'Info' },
@@ -60,18 +50,18 @@ export default function ToastrPage() {
     { value: 'Danger', label: 'Danger' },
     { value: 'Primary', label: 'Primary' },
     { value: 'Warning', label: 'Warning' },
-    { value: 'Default', label: 'Default' }
+    { value: 'Default', label: 'Default' },
   ];
 
   return (
     <Row>
-      <Col xs={12}>
+      <Col breakPoint={{ xs: 12 }}>
         <Toastr ref={toastrRef} />
         <Card>
           <header>Toaster configuration</header>
           <CardBody>
             <Row>
-              <Col xs={12} md={6}>
+              <Col breakPoint={{ xs: 12 }} md={6}>
                 <Select
                   style={{ marginBottom: '1rem' }}
                   fullWidth
@@ -81,33 +71,20 @@ export default function ToastrPage() {
                   onChange={v => onChangeHandle('position', v)}
                 />
                 <InputGroup fullWidth label="Title">
-                  <input
-                    type="text"
-                    value={data.title}
-                    onChange={e => onChangeHandle('title', e.target.value)}
-                  />
+                  <input type="text" value={data.title} onChange={e => onChangeHandle('title', e.target.value)} />
                 </InputGroup>
                 <InputGroup fullWidth label="Message">
-                  <input
-                    type="text"
-                    value={data.message}
-                    onChange={e => onChangeHandle('message', e.target.value)}
-                  />
+                  <input type="text" value={data.message} onChange={e => onChangeHandle('message', e.target.value)} />
                 </InputGroup>
-                <InputGroup
-                  fullWidth
-                  label="Time to hide toast, ms. 0 to persistent toast"
-                >
+                <InputGroup fullWidth label="Time to hide toast, ms. 0 to persistent toast">
                   <input
                     type="number"
                     value={data.duration}
-                    onChange={e =>
-                      onChangeHandle('duration', e.target.valueAsNumber)
-                    }
+                    onChange={e => onChangeHandle('duration', e.target.valueAsNumber)}
                   />
                 </InputGroup>
               </Col>
-              <Col xs={12} md={6}>
+              <Col breakPoint={{ xs: 12 }} md={6}>
                 <Select
                   style={{ marginBottom: '1rem' }}
                   fullWidth
@@ -117,22 +94,13 @@ export default function ToastrPage() {
                   onChange={v => onChangeHandle('status', v)}
                 />
                 <div style={{ display: 'flex', flexDirection: 'column' }}>
-                  <Checkbox
-                    checked={data.destroyByClick}
-                    onChange={v => onChangeHandle('destroyByClick', v)}
-                  >
+                  <Checkbox checked={data.destroyByClick} onChange={v => onChangeHandle('destroyByClick', v)}>
                     Hide on click
                   </Checkbox>
-                  <Checkbox
-                    checked={data.preventDuplicates}
-                    onChange={v => onChangeHandle('preventDuplicates', v)}
-                  >
+                  <Checkbox checked={data.preventDuplicates} onChange={v => onChangeHandle('preventDuplicates', v)}>
                     Prevent arising of duplicate toast
                   </Checkbox>
-                  <Checkbox
-                    checked={data.hasIcon}
-                    onChange={v => onChangeHandle('hasIcon', v)}
-                  >
+                  <Checkbox checked={data.hasIcon} onChange={v => onChangeHandle('hasIcon', v)}>
                     Show toast with icon
                   </Checkbox>
                 </div>

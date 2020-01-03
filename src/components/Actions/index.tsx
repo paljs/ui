@@ -10,10 +10,10 @@ import { ActionsStyle, ActionStyle } from './style';
 import Badge from '../Badge';
 import { ItemIcon } from '../Icon';
 
-const Actions: React.FC<ActionsProps> = ({ actions, className, style, fullWidth, size, inverse, Link }) => {
+export const Actions: React.FC<ActionsProps> = ({ actions, className, style, fullWidth, size, inverse, Link }) => {
   return (
     <ActionsStyle className={className} style={style}>
-      {actions.map((action: Action, index: number) => {
+      {actions.map((action: ActionType, index: number) => {
         return (
           <ActionStyle key={index} fullWidth={fullWidth} size={size} inverse={inverse} disabled={!!action.disabled}>
             {action.icon ? (
@@ -45,7 +45,7 @@ Actions.defaultProps = {
   size: 'Small',
 };
 
-interface Action {
+export interface ActionType {
   icon?: IconField;
   events?: object;
   link?: any;
@@ -57,13 +57,11 @@ interface Action {
 }
 
 interface ActionsProps {
-  actions: Action[];
+  actions: ActionType[];
   size: Size;
   inverse?: boolean;
   fullWidth?: boolean;
-  Link: React.ComponentType<LinkProps>;
+  Link?: React.ComponentType<LinkProps>;
   className?: string;
   style?: React.CSSProperties;
 }
-
-export default Actions;

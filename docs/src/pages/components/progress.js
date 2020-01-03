@@ -10,10 +10,7 @@ import { progressProps } from '../../mdx/progress/ApiArray';
 export default function ProgressPage() {
   return (
     <Row>
-      <SEO
-        title="Progress Component"
-        keywords={['OAH', 'application', 'react']}
-      />
+      <SEO title="Progress Component" keywords={['OAH', 'application', 'react']} />
       <Col xs={12}>
         <Switch title="Progress Component">
           <Overview />

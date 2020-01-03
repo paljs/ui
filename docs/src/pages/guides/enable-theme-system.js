@@ -7,10 +7,7 @@ import GuideStyle from '../../components/GuideStyle';
 function EnableThemeSystem() {
   return (
     <Row>
-      <SEO
-        title="Enable Theme System"
-        keywords={['OAH', 'application', 'react']}
-      />
+      <SEO title="Enable Theme System" keywords={['OAH', 'application', 'react']} />
       <Col xs={12}>
         <GuideStyle>
           <MdxContent />

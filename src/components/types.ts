@@ -4,6 +4,7 @@
  * Licensed under the MIT License. See License.txt in the project root for license information.
  */
 
+import React from 'react';
 import { IconProps } from './Icon';
 
 export interface Badge {
@@ -53,16 +54,13 @@ export interface ButtonTypes {
   fullWidth?: boolean;
   pulse?: boolean;
   appearance?: Appearance;
-  size: Size;
+  size?: Size;
   shape?: Shape;
-  status: Status;
+  status?: Status;
 }
 
 export interface LinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   to: any;
-  component?: React.ComponentType<any>;
-  replace?: boolean;
-  innerRef?: React.Ref<HTMLAnchorElement>;
 }
 
 export type Record<K extends keyof any, T> = {

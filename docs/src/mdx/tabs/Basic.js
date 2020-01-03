@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Tabs, Tab } from 'oah-ui';
+import { Card, Tabs, Tab } from '../../../../src';
 
 function Basic() {
   return (

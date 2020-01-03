@@ -9,9 +9,9 @@ import React from 'react';
 import { Icon } from '../Icon';
 
 interface FlipCardProps {
-  className: string;
-  style: object;
-  button: 'top' | 'bottom';
+  className?: string;
+  style?: object;
+  button?: 'top' | 'bottom';
   flipped?: boolean;
 }
 

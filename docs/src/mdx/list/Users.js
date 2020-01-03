@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, List, ListItem, User } from 'oah-ui';
+import { Card, List, ListItem, User } from '../../../../src';
 
 function Users() {
   const userList = [
@@ -7,7 +7,7 @@ function Users() {
     { name: 'Bob Kelso', title: 'Doctor of Medicine' },
     { name: 'Janitor', title: 'Janitor' },
     { name: 'Perry Cox', title: 'Doctor of Medicine' },
-    { name: 'Ben Sullivan', title: 'Carpenter and photographer' }
+    { name: 'Ben Sullivan', title: 'Carpenter and photographer' },
   ];
   return (
     <Card style={{ maxWidth: '20rem', margin: '0 auto' }} size="SM">

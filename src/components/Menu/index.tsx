@@ -15,13 +15,14 @@ interface MenuProps {
   Link: React.ComponentType<LinkProps>;
   className?: string;
   style?: React.CSSProperties;
+  ref?: React.RefObject<MenuRefObject>;
 }
 
-interface MenuRefObject {
+export interface MenuRefObject {
   toggle: () => void;
 }
 
-const Menu: React.RefForwardingComponent<MenuRefObject, MenuProps> = (props, ref) => {
+let Menu: React.RefForwardingComponent<MenuRefObject, MenuProps> = (props, ref) => {
   const [items, setItems] = React.useState<ItemType[]>(props.items);
   const [expended, setExpended] = React.useState(false);
 
@@ -100,4 +101,5 @@ const Menu: React.RefForwardingComponent<MenuRefObject, MenuProps> = (props, ref
   );
 };
 
-export default React.forwardRef(Menu);
+Menu = React.forwardRef(Menu);
+export { Menu };
