@@ -6,7 +6,7 @@
 
 import { ThemeObject } from './themeTypes';
 
-const corporate: Partial<ThemeObject> & { [key: string]: string } = {
+const corporate: Partial<ThemeObject> = {
   borderRadius: '0.17rem',
   shadow: 'none',
 
@@ -18,9 +18,6 @@ const corporate: Partial<ThemeObject> & { [key: string]: string } = {
   contextMenuBorderWidth: '1px',
   contextMenuBorderColor: 'borderBasicColor4',
 
-  tabsSelected: 'colorPrimary500',
-  tabsSelectedSecondColor: 'colorPrimary500',
-
   popoverBorderWidth: '1px',
   popoverBorderColor: 'borderBasicColor4',
 
@@ -28,7 +25,6 @@ const corporate: Partial<ThemeObject> & { [key: string]: string } = {
   routeTabsetBorderRadius: 'borderRadius',
   userRectangleBorderRadius: 'borderRadius',
   checkboxBorderRadius: 'borderRadius',
-  modalBorderRadius: 'borderRadius',
 
   tabsetShadow: 'none',
   routeTabsetShadow: 'none',

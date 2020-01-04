@@ -10,7 +10,7 @@ import {
   LayoutColumns,
   LayoutColumn,
   SidebarRefObject,
-} from '../../../src';
+} from 'oah-ui';
 
 import Header from './Header';
 import SimpleLayout from './SimpleLayout';

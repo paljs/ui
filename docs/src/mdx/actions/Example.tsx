@@ -1,4 +1,4 @@
-import { Card, Actions, CardBody, ActionType } from '../../../../src';
+import { Card, Actions, CardBody, ActionType } from 'oah-ui';
 import React from 'react';
 import { Link } from 'gatsby';
 

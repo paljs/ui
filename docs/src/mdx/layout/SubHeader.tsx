@@ -9,7 +9,7 @@ import {
   Sidebar,
   Actions,
   SidebarRefObject,
-} from '../../../../src';
+} from 'oah-ui';
 import styled from 'styled-components';
 const SimpleStyle = styled.div`
   height: 50vh;

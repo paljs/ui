@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Card, CardBody, Actions, Progress, Status } from '../../../../src';
+import { Card, CardBody, Actions, Progress, Status } from 'oah-ui';
 import styled from 'styled-components';
 
 const Container = styled.div`

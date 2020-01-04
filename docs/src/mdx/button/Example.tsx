@@ -1,4 +1,4 @@
-import { Row, Col, Card, CardBody, Button, ButtonLink } from '../../../../src';
+import { Row, Col, Card, CardBody, Button, ButtonLink } from 'oah-ui';
 import { navigate } from 'gatsby';
 import React from 'react';
 import { appearance, shape, size } from '../shared';

@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { breakpointUp } from '../../../../src';
+import { breakpointUp } from 'oah-ui';
 
 interface BoxProps {
   nested?: boolean;

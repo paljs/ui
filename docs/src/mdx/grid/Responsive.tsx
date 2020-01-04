@@ -1,4 +1,4 @@
-import { Container, Row, Col } from '../../../../src';
+import { Container, Row, Col } from 'oah-ui';
 import React from 'react';
 import Box from './Box';
 

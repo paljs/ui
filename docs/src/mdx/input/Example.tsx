@@ -1,4 +1,4 @@
-import { Card, CardBody, InputGroup } from '../../../../src';
+import { Card, CardBody, InputGroup } from 'oah-ui';
 import React from 'react';
 
 const InputPage = () => {

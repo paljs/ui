@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardBody, Button, Popover, Tabs, Tab } from '../../../../src';
+import { Card, CardBody, Button, Popover, Tabs, Tab } from 'oah-ui';
 
 function Component() {
   return (

@@ -12,7 +12,7 @@ import {
   SelectOption,
   ToastrRef,
   ToastrProps,
-} from '../../../../src';
+} from 'oah-ui';
 
 export default function ToastrPage() {
   const [count, setCount] = useState(1);

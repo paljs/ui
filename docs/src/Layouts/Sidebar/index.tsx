@@ -1,5 +1,5 @@
 import React, { useRef, useState, forwardRef, useImperativeHandle } from 'react';
-import { Menu, SidebarBody, Button, SidebarRefObject, MenuRefObject, EvaIcon, SidebarProps } from '../../../../src';
+import { Menu, SidebarBody, Button, SidebarRefObject, MenuRefObject, EvaIcon, SidebarProps } from 'oah-ui';
 import menuItems from '../menuItem';
 import { Link } from 'gatsby';
 import Sidebar from './style';

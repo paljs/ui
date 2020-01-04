@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { DefaultTheme } from 'styled-components';
-import { Card, CardBody, InputGroup } from '../../../../src';
+import { Card, CardBody, InputGroup } from 'oah-ui';
 import { Link } from 'gatsby';
 import Table from '../StyleTable/style';
 import { getTheme, ReturnThemeData } from './themeData';

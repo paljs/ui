@@ -5,7 +5,7 @@ import corporateTheme from '../../../../src/theme/corporate';
 import defaultTheme from '../../../../src/theme/default';
 import darkTheme from '../../../../src/theme/dark';
 
-import { ThemeObject, ThemeKey, ThemeKeys } from '../../../../src';
+import { ThemeObject, ThemeKey, ThemeKeys } from 'oah-ui';
 
 const themeValues = {
   default: defaultTheme,

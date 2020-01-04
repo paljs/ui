@@ -1,4 +1,4 @@
-import { Card, List, ListItem } from '../../../../src';
+import { Card, List, ListItem } from 'oah-ui';
 import React from 'react';
 
 export default function Basic() {

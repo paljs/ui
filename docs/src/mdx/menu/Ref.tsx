@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { Menu, Button, MenuItemType, MenuRefObject } from '../../../../src';
+import { Menu, Button, MenuItemType, MenuRefObject } from 'oah-ui';
 import { Link } from 'gatsby';
 
 function Ref() {

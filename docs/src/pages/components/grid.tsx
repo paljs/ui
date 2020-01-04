@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Col } from '../../../../src';
+import { Row, Col } from 'oah-ui';
 import Overview from '../../mdx/grid/overview.mdx';
 import SEO from '../../components/SEO';
 import Switch from '../../components/Switch';

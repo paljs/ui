@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardBody, RevealCard } from '../../../../src';
+import { Card, CardBody, RevealCard } from 'oah-ui';
 
 export default function Colored() {
   return (

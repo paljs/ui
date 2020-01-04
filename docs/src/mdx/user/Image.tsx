@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardBody, User } from '../../../../src';
+import { Card, CardBody, User } from 'oah-ui';
 
 function Image() {
   return (

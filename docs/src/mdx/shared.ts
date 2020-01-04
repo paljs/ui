@@ -1,4 +1,4 @@
-import { Status, Placement, Trigger, Shape, Appearance, Size, Position } from '../../../src';
+import { Status, Placement, Trigger, Shape, Appearance, Size, Position } from 'oah-ui';
 
 export const status: Status[] = ['Info', 'Success', 'Danger', 'Primary', 'Warning', 'Control', 'Basic'];
 

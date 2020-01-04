@@ -1,6 +1,6 @@
 import { createGlobalStyle, css } from 'styled-components';
-import { breakpointDown } from '../../../src';
-import { GlobalStyle } from '../../../src';
+import { breakpointDown } from 'oah-ui';
+import { GlobalStyle } from 'oah-ui';
 
 const SimpleLayout = createGlobalStyle`
 ${({ theme }) => css`

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Checkbox, Row, Col } from '../../../../src';
+import { Checkbox, Row, Col } from 'oah-ui';
 import { status } from '../shared';
 
 function Example() {

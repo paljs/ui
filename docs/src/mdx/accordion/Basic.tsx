@@ -1,5 +1,5 @@
 import React from 'react';
-import { Accordion, AccordionItem } from '../../../../src';
+import { Accordion, AccordionItem } from 'oah-ui';
 
 export default function Basic() {
   return (

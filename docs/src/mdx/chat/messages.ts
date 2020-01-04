@@ -1,4 +1,4 @@
-import { MessageProps } from '../../../../src';
+import { MessageProps } from 'oah-ui';
 
 const messages: MessageProps[] = [
   {

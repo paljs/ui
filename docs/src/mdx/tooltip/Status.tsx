@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardBody, Button, Tooltip } from '../../../../src';
+import { Card, CardBody, Button, Tooltip } from 'oah-ui';
 import { status } from '../shared';
 
 function Status() {

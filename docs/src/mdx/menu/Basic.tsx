@@ -1,5 +1,5 @@
 import React from 'react';
-import { Menu, MenuItemType } from '../../../../src';
+import { Menu, MenuItemType } from 'oah-ui';
 import { Link } from 'gatsby';
 
 function Basic() {

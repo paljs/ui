@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
+/* eslint-disable @typescript-eslint/camelcase */
 const path = require('path');
 
 module.exports = {
@@ -11,7 +13,7 @@ module.exports = {
     'gatsby-plugin-layout',
     'gatsby-plugin-typescript',
     {
-      resolve: 'gatsby-mdx',
+      resolve: 'gatsby-plugin-mdx',
       options: {
         decks: [],
         defaultLayouts: {
@@ -19,12 +21,12 @@ module.exports = {
         },
         extensions: ['.mdx', '.md'],
         gatsbyRemarkPlugins: [
-          {
-            resolve: 'gatsby-plugin-mdx-code-demo',
-            options: {
-              demoComponent: path.resolve('./src/components/Example.tsx'),
-            },
-          },
+          // {
+          //   resolve: 'gatsby-plugin-mdx-code-demo',
+          //   options: {
+          //     demoComponent: path.resolve('./src/components/Example'),
+          //   },
+          // },
           {
             resolve: 'gatsby-remark-prismjs',
             options: {

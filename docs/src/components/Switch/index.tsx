@@ -1,5 +1,5 @@
 import React, { useState, Fragment } from 'react';
-import { Card, EvaIcon } from '../../../../src';
+import { Card, EvaIcon } from 'oah-ui';
 
 import TabStyle from './style';
 

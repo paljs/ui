@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardBody, Alert } from '../../../../src';
+import { Card, CardBody, Alert } from 'oah-ui';
 import { size } from '../shared';
 
 function Accent() {

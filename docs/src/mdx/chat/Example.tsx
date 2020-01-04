@@ -1,4 +1,4 @@
-import { Chat, ChatForm, ChatMessages, MessageProps, AttachedFile } from '../../../../src';
+import { Chat, ChatForm, ChatMessages, MessageProps, AttachedFile } from 'oah-ui';
 import React, { useState } from 'react';
 import defaultMessages from './messages';
 

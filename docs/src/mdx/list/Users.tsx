@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, List, ListItem, User } from '../../../../src';
+import { Card, List, ListItem, User } from 'oah-ui';
 
 function Users() {
   const userList = [

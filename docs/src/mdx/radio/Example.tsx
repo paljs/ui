@@ -1,5 +1,5 @@
 import React from 'react';
-import { Radio } from '../../../../src';
+import { Radio } from 'oah-ui';
 
 function Example() {
   const onChangeRadio = (_: any) => {

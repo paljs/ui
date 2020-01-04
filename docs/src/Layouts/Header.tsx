@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { DefaultTheme } from 'styled-components';
-import { breakpointDown, Actions, Select, LayoutHeader } from '../../../src';
+import { breakpointDown, Actions, Select, LayoutHeader } from 'oah-ui';
 
 const SidebarIcon = styled(Actions)`
   display: none;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Select, SelectOption } from '../../../../src';
+import { Select, SelectOption } from 'oah-ui';
 import { shape } from '../shared';
 
 const options: SelectOption[] = [

@@ -1,9 +1,9 @@
 import React from 'react';
 import { MessageFileStyle } from './style';
 import MessageText from './MessageText';
-import { MessageProps, MessageFile } from './types';
+import { MessageProps, MessageFileType } from './types';
 
-interface FileWithStyle extends MessageFile {
+interface FileWithStyle extends MessageFileType {
   urlStyle: string;
   isImage: boolean;
 }
@@ -18,8 +18,8 @@ const FileComponent: React.FC<FileWithStyle> = props => {
 };
 
 const MessageFile: React.FC<MessageProps> = props => {
-  const isImages = (file: MessageFile) => {
-    return ['image/png', 'image/jpeg', 'image/gif'].includes(file.type);
+  const isImages = (file: MessageFileType) => {
+    return !!file.type && ['image/png', 'image/jpeg', 'image/gif'].includes(file.type);
   };
   const readyFiles: FileWithStyle[] = props.files
     ? props.files.map(file => {

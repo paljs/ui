@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Sidebar, breakpointDown } from '../../../../src';
+import { Sidebar, breakpointDown } from 'oah-ui';
 
 const SidebarStyled = styled(Sidebar)`
   background: transparent;

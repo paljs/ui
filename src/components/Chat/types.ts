@@ -1,6 +1,6 @@
 import { IconField, Size, Status } from '../types';
 
-export interface MessageFile {
+export interface MessageFileType {
   url: string;
   icon?: string;
   type?: string;
@@ -10,7 +10,7 @@ export interface MessageProps {
   sender?: string;
   message: string;
   date?: string;
-  files?: MessageFile[];
+  files?: MessageFileType[];
   quote?: string;
   latitude?: number;
   longitude?: number;

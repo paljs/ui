@@ -5,7 +5,7 @@ import babel from 'rollup-plugin-babel';
 const plugins = [
   typescript({
     typescript: require('typescript'),
-    check: true,
+    check: false,
     clean: true,
   }),
   babel({

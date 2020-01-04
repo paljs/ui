@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Col, Card, CardBody, Spinner } from '../../../../src';
+import { Row, Col, Card, CardBody, Spinner } from 'oah-ui';
 import { status } from '../shared';
 
 function Status() {

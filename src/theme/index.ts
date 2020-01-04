@@ -22,15 +22,15 @@ const themeValues = {
   dark: darkTheme,
 };
 
-function getKeyValue(settings: ThemeObject, key: ThemeKey): ThemeKeys {
+function getKeyValue(settings: any, key: any) {
   if (settings[key] in settings) {
-    getKeyValue(settings, settings[key] as ThemeKey);
+    getKeyValue(settings, settings[key]);
   }
   return settings[key];
 }
 
-function getThemeValue(settings: ThemeObject): ThemeObject {
-  (Object.keys(settings) as Array<ThemeKey>).forEach(key => {
+function getThemeValue(settings: any) {
+  Object.keys(settings).forEach(key => {
     settings[key] = getKeyValue(settings, key);
   });
   return settings;
@@ -47,7 +47,7 @@ export function createTheme(name: keyof typeof themeValues, settings: Partial<De
         ...getThemeValue({
           ...defaultTheme,
           ...mapping,
-          ...themeValues[name]!,
+          ...themeValues[name],
           ...settings,
         }),
       };
@@ -55,7 +55,7 @@ export function createTheme(name: keyof typeof themeValues, settings: Partial<De
       return {
         name,
         dir: 'ltr',
-        ...getThemeValue({ ...defaultTheme, ...mapping!, ...settings }),
+        ...getThemeValue({ ...defaultTheme, ...mapping, ...settings }),
       };
   }
 }

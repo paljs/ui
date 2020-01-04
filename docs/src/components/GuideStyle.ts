@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { CardBody } from '../../../src';
+import { CardBody } from 'oah-ui';
 
 const GuideStyle = styled.div`
   ${CardBody} {

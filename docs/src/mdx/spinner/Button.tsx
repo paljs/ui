@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Card, CardBody, Spinner, Button, Col, Row, Status } from '../../../../src';
+import { Card, CardBody, Spinner, Button, Col, Row, Status } from 'oah-ui';
 
 function ButtonTest() {
   const [show, setShow] = useState(false);

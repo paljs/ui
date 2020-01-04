@@ -1,5 +1,5 @@
 import React from 'react';
-import { Select, SelectOption } from '../../../../src';
+import { Select, SelectOption } from 'oah-ui';
 
 const positionOptions: SelectOption[] = [
   { value: 'topRight', label: 'Top-Right' },

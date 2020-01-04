@@ -1,5 +1,5 @@
 import React from 'react';
-import { ContextMenu, Button } from '../../../../src';
+import { ContextMenu, Button } from 'oah-ui';
 import { Link } from 'gatsby';
 
 function Basic() {

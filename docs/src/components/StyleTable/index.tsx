@@ -1,6 +1,6 @@
 import React from 'react';
-import { Card, CardBody } from '../../../../src';
-import { createTheme } from '../../../../src';
+import { Card, CardBody } from 'oah-ui';
+import { createTheme } from 'oah-ui';
 import Table from './style';
 import { DefaultTheme } from 'styled-components';
 

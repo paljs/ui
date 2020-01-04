@@ -57,9 +57,14 @@ let Toastr: React.RefForwardingComponent<ToastrRef, ToastrProps> = (props, ref) 
         }
 
         if (push) {
-          options.position = getLogicalPosition(layout.dir ?? 'ltr', options.position) as Position;
+          options.position = getLogicalPosition(layout.dir ?? 'ltr', options.position as string) as Position;
 
-          newItems.push({ ...options, title, message, icon: options.icons?[options.status] });
+          newItems.push({
+            ...options,
+            title,
+            message,
+            icon: options.icons ? options.icons[options.status as Status] : '',
+          });
           setItems(newItems);
         }
       },

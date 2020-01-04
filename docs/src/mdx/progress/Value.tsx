@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardBody, Progress } from '../../../../src';
+import { Card, CardBody, Progress } from 'oah-ui';
 
 function Value() {
   const style = { marginBottom: '1rem' };

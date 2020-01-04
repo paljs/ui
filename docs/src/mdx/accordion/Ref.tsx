@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { Accordion, AccordionItem, Row, Col, Button, AccordionRefObject } from '../../../../src';
+import { Accordion, AccordionItem, Row, Col, Button, AccordionRefObject } from 'oah-ui';
 
 export default function Ref() {
   const accordionRef = useRef<AccordionRefObject>(null);

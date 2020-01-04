@@ -95,7 +95,7 @@ let Sidebar: React.RefForwardingComponent<SidebarRefObject, SidebarProps> = (pro
   }, []);
 
   const className = props.className ? props.className.split(' ') : [];
-  className.push(state ?? '', props.property);
+  className.push(state ?? '', props.property ?? '');
   fixed && className.push('fixed');
 
   return (

@@ -1,4 +1,4 @@
-import { Row, Col, Card, CardBody, Search, SearchProps } from '../../../../src';
+import { Row, Col, Card, CardBody, Search, SearchProps } from 'oah-ui';
 import React, { useState } from 'react';
 
 export default function SearchPage() {

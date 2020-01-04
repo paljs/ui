@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardBody, FlipCard } from '../../../../src';
+import { Card, CardBody, FlipCard } from 'oah-ui';
 
 export default function Basic() {
   return (

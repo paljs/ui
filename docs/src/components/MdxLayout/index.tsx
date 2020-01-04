@@ -2,7 +2,7 @@ import React from 'react';
 import { MDXProvider } from '@mdx-js/react';
 import { Link } from 'gatsby';
 import MdxLayoutStyle from './style';
-import { CardBody } from '../../../../src';
+import { CardBody } from 'oah-ui';
 
 const ALink: React.FC<{ href: string }> = ({ href, children }) => {
   const internal = /^\/(?!\/)/.test(href);

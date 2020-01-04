@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Tabs, Tab } from '../../../../src';
+import { Card, Tabs, Tab } from 'oah-ui';
 
 function Icons() {
   return (
