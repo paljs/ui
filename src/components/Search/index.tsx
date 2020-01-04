@@ -10,7 +10,7 @@ import Overlay from '../Overlay';
 import layoutContext from '../Layout/layout-context';
 import { Icon } from '../Icon';
 
-const Search: React.FC<SearchProps> = props => {
+export const Search: React.FC<SearchProps> = props => {
   const [value, setValue] = React.useState('');
   const [show, setShow] = React.useState();
   const inputRef = React.useRef<HTMLInputElement>(null);
@@ -94,7 +94,7 @@ const Search: React.FC<SearchProps> = props => {
   );
 };
 
-interface SearchProps {
+export interface SearchProps {
   hint?: string;
   placeholder?: string;
   submit: (value: string) => void;
@@ -102,5 +102,3 @@ interface SearchProps {
   className?: string;
   type: 'rotate-layout' | 'modal-zoomin' | 'modal-move' | 'modal-drop' | 'modal-half' | 'curtain' | 'column-curtain';
 }
-
-export default Search;

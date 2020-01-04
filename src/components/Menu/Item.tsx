@@ -7,12 +7,12 @@
 import { ItemStyle } from './style';
 import React from 'react';
 import { Icon, ItemIcon } from '../Icon';
-import { ItemType, LinkProps } from '../types';
+import { MenuItemType, LinkProps } from '../types';
 
 interface ItemProps {
-  item: ItemType;
+  item: MenuItemType;
   toggleSidebar?: () => void;
-  toggleSubMenu: (item: ItemType) => void;
+  toggleSubMenu: (item: MenuItemType) => void;
   selectItem: (id: number[]) => void;
   id: number[];
   Link: React.ComponentType<LinkProps>;

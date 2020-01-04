@@ -6,11 +6,11 @@ import { SelectCard, SelectStyle, Option } from './style';
 import { ButtonTypes } from '../../types';
 import layoutContext from '../../Layout/layout-context';
 
-const Select: React.FC<SelectProps> = props => {
+export const Select: React.FC<SelectProps> = props => {
   const layout = React.useContext(layoutContext);
   const [options, setOptions] = React.useState([...props.options]);
   const [opened, setOpened] = React.useState(false);
-  const [placement, setPlacement] = React.useState<Placement>('bottom');
+  const [placement, setPlacement] = React.useState<SelectPlacement>('bottom');
   const [position, setPosition] = React.useState<Position>();
 
   const overlayRef = React.useRef<HTMLDivElement>(null);
@@ -34,7 +34,7 @@ const Select: React.FC<SelectProps> = props => {
     const target = targetRef.current?.getBoundingClientRect();
     const overlay = overlayRef.current?.getBoundingClientRect();
     if (target && overlay) {
-      const data: { placement: Placement; position: Position } = {
+      const data: { placement: SelectPlacement; position: Position } = {
         placement: 'bottom',
         position: { top: 0, left: target.left, maxHeight: 'none' },
       };
@@ -162,29 +162,29 @@ const Select: React.FC<SelectProps> = props => {
   );
 };
 
-export type Placement = 'top' | 'bottom';
+export type SelectPlacement = 'top' | 'bottom';
 type Position = { top: number; left: number; maxHeight: string | number };
 
-interface SelectOption {
+export interface SelectOption {
   value: any;
   label: any;
   selected?: boolean;
   disabled?: boolean;
 }
 
-interface SelectProps extends ButtonTypes {
+export interface SelectProps extends ButtonTypes {
   options: SelectOption[];
   eventListener?: string;
   customLabel?: string;
   multiple?: boolean;
   onChange?: (value: any) => void;
-  value?: SelectOption;
+  value?: any;
   placeholder?: any;
+  style?: React.CSSProperties;
+  className?: string;
 }
 
 Select.defaultProps = {
   size: 'Medium',
   status: 'Primary',
 };
-
-export default Select;

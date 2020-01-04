@@ -6,17 +6,17 @@ import { ToastrContainer } from './style';
 import Item from './Item';
 import { Position, Status, Record, IconField } from '../types';
 
-interface ToastrRef {
+export interface ToastrRef {
   add: (message: string, title: string, option?: ToastrProps | {}) => void;
 }
 
-interface ToastrParent {
-  position: Position;
-  status: Status;
-  duration: number;
-  hasIcon: boolean;
-  destroyByClick: boolean;
-  preventDuplicates: boolean;
+export interface ToastrParent {
+  position?: Position;
+  status?: Status;
+  duration?: number;
+  hasIcon?: boolean;
+  destroyByClick?: boolean;
+  preventDuplicates?: boolean;
 }
 
 export interface ToastrItem extends ToastrParent {
@@ -25,8 +25,8 @@ export interface ToastrItem extends ToastrParent {
   icon?: IconField;
 }
 
-interface ToastrProps extends ToastrParent {
-  icons: Record<Status, IconField>;
+export interface ToastrProps extends ToastrParent {
+  icons?: Record<Status, IconField>;
   ref?: React.RefObject<ToastrRef>;
 }
 
@@ -59,7 +59,7 @@ let Toastr: React.RefForwardingComponent<ToastrRef, ToastrProps> = (props, ref) 
         if (push) {
           options.position = getLogicalPosition(layout.dir ?? 'ltr', options.position) as Position;
 
-          newItems.push({ ...options, title, message, icon: options.icons[options.status] });
+          newItems.push({ ...options, title, message, icon: options.icons?[options.status] });
           setItems(newItems);
         }
       },
@@ -105,4 +105,4 @@ Toastr.defaultProps = {
   },
 };
 
-export default Toastr;
+export { Toastr };

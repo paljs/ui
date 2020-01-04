@@ -37,7 +37,7 @@ export type Appearance = 'filled' | 'outline' | 'ghost' | 'hero';
 
 export type IconField = string | IconProps;
 
-export interface ItemType {
+export interface MenuItemType {
   title: string;
   link?: any;
   expanded?: boolean;
@@ -47,7 +47,7 @@ export interface ItemType {
   icon?: IconField;
   target?: string;
   url?: string;
-  children?: ItemType[];
+  children?: MenuItemType[];
 }
 
 export interface ButtonTypes {

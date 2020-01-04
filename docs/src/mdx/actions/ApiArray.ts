@@ -1,4 +1,4 @@
-import { sizeString } from '../shared';
+import { sizeString, statusString, positionString } from '../shared';
 
 export const actionsProps = [
   {
@@ -79,9 +79,8 @@ export const actionProps = [
     name: 'badge',
     type: 'object',
     description: `accept object with three keys 
-    'status': (adds specific styles): Info, Success, Danger, Primary, Warning.
-    'position': Can be set to any class or to one of predefined positions: 
-    topRight, topLeft, bottomRight, bottomLeft, topStart, topEnd, bottomStart, bottomEnd
+    'status': (adds specific styles): ${statusString}.
+    'position': Can be set to any class or to one of predefined positions: ${positionString}
     'title': accept badge contain`,
   },
 ];

@@ -6,8 +6,8 @@
 
 import React from 'react';
 import ContextMenuStyle from './style';
-import { Placement, ItemType, LinkProps } from '../types';
-import Menu from '../Menu';
+import { Placement, MenuItemType, LinkProps } from '../types';
+import { Menu } from '../Menu';
 import Overlay, { OverlayRefObject } from '../PopoverLay';
 
 const ContextMenu: React.FC<ContextMenuProps> = props => {
@@ -31,7 +31,7 @@ const ContextMenu: React.FC<ContextMenuProps> = props => {
 };
 
 interface ContextMenuProps {
-  items: ItemType[];
+  items: MenuItemType[];
   eventListener?: string;
   placement: Placement;
   children: React.ReactNode;

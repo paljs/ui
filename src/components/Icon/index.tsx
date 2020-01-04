@@ -32,7 +32,7 @@ export const EvaIcon: React.FC<IconProps> = props => {
 };
 
 interface ItemIconProps {
-  icon: IconField;
+  icon?: IconField;
   className?: string;
 }
 

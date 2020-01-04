@@ -23,7 +23,7 @@ const SEO: React.FC<SEOProps> = ({ description, lang, meta, keywords, title }) =
         return (
           <Helmet
             htmlAttributes={{
-              lang,
+              lang: lang ?? 'en',
             }}
             title={title}
             titleTemplate={`%s | ${data.site.siteMetadata.title}`}
@@ -62,14 +62,14 @@ const SEO: React.FC<SEOProps> = ({ description, lang, meta, keywords, title }) =
               },
             ]
               .concat(
-                keywords.length > 0
+                keywords && keywords.length > 0
                   ? {
                       name: 'keywords',
                       content: keywords.join(', '),
                     }
                   : [],
               )
-              .concat(meta)}
+              .concat(meta ?? [])}
           />
         );
       }}
@@ -78,16 +78,14 @@ const SEO: React.FC<SEOProps> = ({ description, lang, meta, keywords, title }) =
 };
 
 SEO.defaultProps = {
-  lang: 'en',
-  meta: [],
-  keywords: [],
+  keywords: ['OAH', 'application', 'react'],
 };
 
 interface SEOProps {
   description?: string;
-  lang: string;
-  meta: any[];
-  keywords: string[];
+  lang?: string;
+  meta?: any[];
+  keywords?: string[];
   title: string;
 }
 

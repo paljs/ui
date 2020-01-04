@@ -14,6 +14,8 @@ interface CardProps {
   status?: Status;
   accent?: Status;
   size?: Size;
+  style?: React.CSSProperties;
+  className?: string;
 }
 
 const headerBg = css<CardProps>`

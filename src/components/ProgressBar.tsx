@@ -8,6 +8,8 @@ interface ProgressProps {
   status?: Status;
   value?: number;
   displayValue?: boolean;
+  className?: string;
+  style?: React.CSSProperties;
 }
 
 const ProgressStyle = styled.div<ProgressProps>`

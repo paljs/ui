@@ -9,18 +9,18 @@ import SidebarStyle from './style';
 import { ifWidthInBreakpoint, BreakPointKeys } from '../../theme';
 
 export interface SidebarStyleProps {
-  state: 'hidden' | 'visible' | 'compacted' | 'expanded';
-  property: 'right' | 'left' | 'start' | 'end';
+  state?: 'hidden' | 'visible' | 'compacted' | 'expanded';
+  property?: 'right' | 'left' | 'start' | 'end';
   fixed?: boolean;
   containerFixed?: boolean;
   className?: string;
 }
 
 export interface SidebarProps extends SidebarStyleProps {
-  compactedBreakpoints: BreakPointKeys[];
-  hiddenBreakpoints: BreakPointKeys[];
+  compactedBreakpoints?: BreakPointKeys[];
+  hiddenBreakpoints?: BreakPointKeys[];
   responsive?: boolean;
-  children: React.ReactNode[] | React.ReactNode;
+  children?: React.ReactNode[] | React.ReactNode;
   ref?: React.RefObject<SidebarRefObject>;
 }
 
@@ -95,7 +95,7 @@ let Sidebar: React.RefForwardingComponent<SidebarRefObject, SidebarProps> = (pro
   }, []);
 
   const className = props.className ? props.className.split(' ') : [];
-  className.push(state, props.property);
+  className.push(state ?? '', props.property);
   fixed && className.push('fixed');
 
   return (

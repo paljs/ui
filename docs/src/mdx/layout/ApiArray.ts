@@ -2,7 +2,7 @@ export const layoutProps = [
   {
     name: 'dir',
     type: 'string',
-    description: 'It take RTL or LTR to change direction of page',
+    description: 'It take rtl or ltr to change direction of page',
   },
   {
     name: 'windowMode',
@@ -20,6 +20,11 @@ export const layoutProps = [
     name: 'withSubHeader',
     type: 'boolean',
     description: 'Defines when you have sub header and want remove sidebar shadow',
+  },
+  {
+    name: 'evaIcons',
+    type: 'Icons',
+    description: 'icons function from oah-eva-icon npm package import icons from "oah-eva-icon"',
   },
   {
     name: 'className',

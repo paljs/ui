@@ -2,9 +2,9 @@ import styled, { css } from 'styled-components';
 import { ButtonStyle } from '../../Button/style';
 import { Card, CardBody } from '../../Card';
 import CheckboxStyle from '../Checkbox/style';
-import { Placement } from './index';
+import { SelectPlacement } from './index';
 
-const getBorder = (placement: Placement) => {
+const getBorder = (placement: SelectPlacement) => {
   const pos = placement === 'top' ? 'bottom' : 'top';
   return `border-${pos}-left-radius: 0;border-${pos}-right-radius: 0;`;
 };

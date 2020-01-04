@@ -134,7 +134,7 @@ const GroupStyle = styled.div<InputGroupProps>`
   }}
 `;
 
-interface InputGroupProps {
+export interface InputGroupProps {
   shape?: Shape;
   fullWidth?: boolean;
   size?: Size;
@@ -143,7 +143,7 @@ interface InputGroupProps {
   children: React.ReactNode;
 }
 
-const InputGroup: React.FC<InputGroupProps> = props => {
+export const InputGroup: React.FC<InputGroupProps> = props => {
   return (
     <GroupStyle {...props}>
       {props.children}
@@ -156,5 +156,3 @@ InputGroup.defaultProps = {
   size: 'Medium',
   shape: 'Rectangle',
 };
-
-export default InputGroup;
