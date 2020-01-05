@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Col, Tabs, Tab } from 'oah-ui';
+import { Row, Tabs, Tab, Col } from 'oah-ui';
 import styled, { css } from 'styled-components';
 
 const Style = styled.div`
@@ -15,7 +15,7 @@ const Style = styled.div`
   `}
 `;
 
-const Example = ({ code, children }) => {
+const Example: React.FC<{ code: string }> = ({ code, children }) => {
   return (
     <Row>
       <Col breakPoint={{ xs: 12 }}>

@@ -5,6 +5,6 @@ declare module 'styled-components' {
     name: 'cosmic' | 'corporate' | 'dark' | 'default';
     dir: 'ltr' | 'rtl';
     sidebarHeaderGap: string;
-    tableLink: string;
+    gridSize: number;
   }
 }

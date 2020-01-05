@@ -1,15 +1,17 @@
 import React from 'react';
 import { Card, CardBody } from 'oah-ui';
-import { createTheme } from 'oah-ui';
 import Table from './style';
-import { DefaultTheme } from 'styled-components';
+import { getTheme } from '../ThemeTable/themeData';
 
 const StyleTable: React.FC<{ keys: string[] }> = ({ keys }) => {
-  const theme = createTheme('default');
-
   const getColor = (value: string) => {
-    value = value.replace(/(#[a-f0-9]{6}|rgba.*?\))/gi, '$&<span class="color-swatch" style="background: $&"/>');
-    return value.replace(/,/g, ', ');
+    if (value) {
+      value = value
+        .toString()
+        .replace(/(#[a-f0-9]{6}|rgba.*?\))/gi, '$&<span class="color-swatch" style="background: $&"/>');
+      return value.replace(/,/g, ', ');
+    }
+    return '';
   };
 
   return keys.map(key => (
@@ -20,23 +22,19 @@ const StyleTable: React.FC<{ keys: string[] }> = ({ keys }) => {
           <thead>
             <tr>
               <td>Name</td>
-              <td>Default</td>
-              <td>Cosmic</td>
-              <td>Corporate</td>
+              <td>Theme Variable</td>
+              <td>Default Value</td>
             </tr>
           </thead>
           <tbody>
-            {(Object.keys(theme) as Array<keyof DefaultTheme>).map(key2 => {
-              if (key2.startsWith(key)) {
-                return (
-                  <tr key={key2}>
-                    <td>{key2}</td>
-                    <td dangerouslySetInnerHTML={{ __html: getColor(createTheme('default')[key2] as string) }} />
-                    <td dangerouslySetInnerHTML={{ __html: getColor(createTheme('cosmic')[key2] as string) }} />
-                    <td dangerouslySetInnerHTML={{ __html: getColor(createTheme('corporate')[key2] as string) }} />
-                  </tr>
-                );
-              }
+            {getTheme('default', key).map(v => {
+              return (
+                <tr key={v.key}>
+                  <td>{v.key}</td>
+                  <td>{v.parent}</td>
+                  <td dangerouslySetInnerHTML={{ __html: getColor(v.value) }} />
+                </tr>
+              );
             })}
           </tbody>
         </Table>

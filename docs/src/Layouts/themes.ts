@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/no-use-before-define */
-import { createTheme } from 'oah-ui';
+import { createTheme } from '../../../src';
 import { DefaultTheme } from 'styled-components';
 
 export default function themeService(theme: DefaultTheme['name']) {
   switch (theme) {
+    case 'dark':
     case 'cosmic':
-      return createTheme(theme, { ...shared, tableLink: '#fff' });
     case 'corporate':
     default:
       return createTheme(theme, shared);
@@ -14,7 +14,7 @@ export default function themeService(theme: DefaultTheme['name']) {
 
 const shared: Partial<DefaultTheme> = {
   sidebarHeaderGap: '2rem',
-  tableLink: '#4479e7',
+  gridSize: 12,
   fontFamilyPrimary: `-apple-system,BlinkMacSystemFont,
           "Segoe UI",Roboto,"Helvetica Neue",
           Arial,sans-serif,"Apple Color Emoji",

@@ -59,7 +59,7 @@ const Checkbox: React.FC<CheckboxProps> = props => {
       )}
 
       <span className="custom-checkbox">
-        {value && props.indeterminate && <Icon name="checkmark-bold-outline" />}
+        {value && !props.indeterminate && <Icon name="checkmark-bold-outline" />}
         {props.indeterminate && <Icon name="minus-bold-outline" />}
       </span>
       <span className="text">{props.children}</span>

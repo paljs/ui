@@ -6,9 +6,9 @@ export default function Offset() {
   return (
     <Container>
       <Row>
-        {Array.from(Array(11), v => {
+        {Array.from(Array(11), (v, i) => {
           return (
-            <Col key={v} offset={{ xs: 12 - v }} breakPoint={{ xs: v }}>
+            <Col key={i} offset={{ xs: 11 - i }} breakPoint={{ xs: i + 1 }}>
               <Box row />
             </Col>
           );

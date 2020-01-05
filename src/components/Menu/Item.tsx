@@ -31,7 +31,7 @@ const Item: React.FC<ItemProps> = ({ item, toggleSidebar, toggleSubMenu, selectI
   }, []);
 
   const onClickHandler = () => {
-    !item.selected && checkSelected();
+    !item.selected && selectItem(id);
     toggleSidebar && toggleSidebar();
   };
 

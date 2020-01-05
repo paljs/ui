@@ -9,7 +9,9 @@ const ThemeTable: React.FC<{ theme: DefaultTheme['name'] }> = props => {
   const [search, setSearch] = useState('');
 
   const getColor = (value: string) => {
-    value = value.replace(/(#[a-f0-9]{6}|rgba.*?\))/gi, '$&<span class="color-swatch" style="background: $&"/>');
+    value = value
+      .toString()
+      .replace(/(#[a-f0-9]{6}|rgba.*?\))/gi, '$&<span class="color-swatch" style="background: $&"/>');
     return value.replace(/,/g, ', ');
   };
 

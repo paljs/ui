@@ -75,7 +75,7 @@ const Tabs: React.FC<TabsProps> = props => {
         })}
       </ul>
       {React.Children.map(props.children, (child, i) => {
-        if (i === active) {
+        if (i === active && child.props.children) {
           return child;
         }
       })}

@@ -21,12 +21,12 @@ module.exports = {
         },
         extensions: ['.mdx', '.md'],
         gatsbyRemarkPlugins: [
-          // {
-          //   resolve: 'gatsby-plugin-mdx-code-demo',
-          //   options: {
-          //     demoComponent: path.resolve('./src/components/Example'),
-          //   },
-          // },
+          {
+            resolve: 'gatsby-plugin-mdx-code-demo',
+            options: {
+              demoComponent: path.resolve('./src/components/Example'),
+            },
+          },
           {
             resolve: 'gatsby-remark-prismjs',
             options: {

@@ -32,12 +32,12 @@ const MdxLayoutStyle = styled(Card)`
       }
 
       &.note-info {
-        color: ${theme.colorInfo};
+        color: ${theme.colorInfo600};
         background-color: #f0f6ff;
       }
 
       &.note-warning {
-        color: ${theme.colorWarning};
+        color: ${theme.colorWarning600};
         background-color: #fffae4;
       }
     }
@@ -52,15 +52,15 @@ const MdxLayoutStyle = styled(Card)`
       border-radius: 2px;
     }
     p {
-      font-size: ${theme.fontSize};
+      font-size: ${theme.textParagraphFontSize};
       line-height: 1.5;
     }
     a {
-      color: ${theme.tableLink};
-      font-weight: ${theme.fontWeightBold};
+      color: ${theme.linkTextColor};
+      font-weight: ${theme.cardTextFontWeight};
       text-decoration: none;
       &:hover {
-        color: ${theme.tableLink};
+        color: ${theme.linkTextHoverColor};
         text-decoration: underline;
       }
     }

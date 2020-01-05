@@ -101,4 +101,4 @@ const CardBody = styled.div`
 
 const Card: React.FC<CardProps> = props => <CardStyle {...props}>{props.children}</CardStyle>;
 
-export { Card, CardBody };
+export { Card, CardBody, CardStyle };

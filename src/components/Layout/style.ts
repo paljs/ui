@@ -94,7 +94,7 @@ const HeaderStyle = styled.header`
       min-height: calc(${theme.layoutMinHeight + ' - ' + theme.headerHeight});
     }
 
-    .fixed {
+    &.fixed {
       position: fixed;
       top: 0;
       left: 0;

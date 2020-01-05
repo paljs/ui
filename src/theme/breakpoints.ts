@@ -44,11 +44,11 @@ const maxContainer: Breakpoint = {
 };
 
 function getGridSize(theme: any): number {
-  return theme.gridSize ? theme.gridSize : gridSize;
+  return theme.gridSize ?? gridSize;
 }
 
 function getGridGutter(theme: any): number {
-  return theme.gridGutter ? theme.gridGutter : gridGutter;
+  return theme.gridGutter ?? gridGutter;
 }
 
 function breakpointMin(name: BreakPointKeys): number | null {
@@ -91,24 +91,24 @@ const breakpointDown: (name: BreakPointKeys) => CSSType = name => (first: any, .
   if (max) {
     return css`
       @media (max-width: ${max}px) {
-        ${css(first, args)}
+        ${css(first, ...args)}
       }
     `;
   } else {
-    return css(first, args);
+    return css(first, ...args);
   }
 };
 
-const breakpointUp: (name: BreakPointKeys) => CSSType = name => (first: any, ...args: any[]) => {
+const breakpointUp: (name: BreakPointKeys) => CSSType = name => (first: any, ...args: any) => {
   const min = breakpointMin(name);
   if (min) {
     return css`
       @media (min-width: ${min}px) {
-        ${css(first, args)}
+        ${css(first, ...args)}
       }
     `;
   } else {
-    return css(first, args);
+    return css(first, ...args);
   }
 };
 
@@ -121,15 +121,15 @@ const breakpointBetween: (lower: BreakPointKeys, upper: BreakPointKeys) => CSSTy
   if (min != null && max != null) {
     return css`
       @media (min-width: ${min}px) and (max-width: ${max}px) {
-        ${css(first, args)}
+        ${css(first, ...args)}
       }
     `;
   } else if (max == null) {
-    return breakpointUp(lower)(first, args);
+    return breakpointUp(lower)(first, ...args);
   } else if (min == null) {
-    return breakpointDown(upper)(first, args);
+    return breakpointDown(upper)(first, ...args);
   } else {
-    return css(first, args);
+    return css(first, ...args);
   }
 };
 
@@ -139,15 +139,15 @@ const breakpointOnly: (name: BreakPointKeys) => CSSType = name => (first: any, .
   if (min != null && max != null) {
     return css`
       @media (min-width: ${min}px) and (max-width: ${max}px) {
-        ${css(first, args)}
+        ${css(first, ...args)}
       }
     `;
   } else if (max == null) {
-    return breakpointUp(name)(first, args);
+    return breakpointUp(name)(first, ...args);
   } else if (min == null) {
-    return breakpointDown(name)(first, args);
+    return breakpointDown(name)(first, ...args);
   } else {
-    return css(first, args);
+    return css(first, ...args);
   }
 };
 

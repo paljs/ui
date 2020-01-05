@@ -12,7 +12,7 @@ import { ThemeKey } from '../../../theme/';
 
 const CheckboxStyle = styled.label<CheckboxStyleProps>`
   ${({ theme, checked, disabled, status, indeterminate }) => css`
-  position: relative;
+    position: relative;
     display: inline-flex;
     align-items: center;
     margin: 0;

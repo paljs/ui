@@ -187,4 +187,6 @@ export interface SelectProps extends ButtonTypes {
 Select.defaultProps = {
   size: 'Medium',
   status: 'Primary',
+  appearance: 'filled',
+  shape: 'Rectangle',
 };

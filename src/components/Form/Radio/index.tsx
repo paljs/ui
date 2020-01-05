@@ -8,7 +8,7 @@ import React from 'react';
 import { Status } from '../../types';
 import RadioStyle from './style';
 
-const Radio: React.FC<RadioProps> = props => {
+export const Radio: React.FC<RadioProps> = props => {
   const [options, setOptions] = React.useState<Option[]>(props.options);
 
   const onClickHandler = (value: number | string) => {
@@ -52,5 +52,3 @@ interface RadioProps {
   className?: string;
   disabled?: boolean;
 }
-
-export default Radio;

@@ -61,7 +61,7 @@ const Header: React.FC<HeaderProps> = props => {
             size="Medium"
             actions={[
               {
-                icon: 'icon ion-ios-menu',
+                icon: 'menu',
                 events: {
                   onClick: props.toggleSidebar,
                 },

@@ -24,7 +24,7 @@ const themeValues = {
 
 function getKeyValue(settings: any, key: any) {
   if (settings[key] in settings) {
-    getKeyValue(settings, settings[key]);
+    return getKeyValue(settings, settings[key]);
   }
   return settings[key];
 }
@@ -39,6 +39,17 @@ function getThemeValue(settings: any) {
 export function createTheme(name: keyof typeof themeValues, settings: Partial<DefaultTheme> = {}): DefaultTheme {
   switch (name) {
     case 'cosmic':
+      return {
+        name,
+        dir: 'ltr',
+        ...getThemeValue({
+          ...defaultTheme,
+          ...mapping,
+          ...themeValues['dark'],
+          ...themeValues[name],
+          ...settings,
+        }),
+      };
     case 'corporate':
     case 'dark':
       return {

@@ -31,11 +31,11 @@ const Table = styled.table`
       font-weight: 500;
     }
     a {
-      color: ${({ theme }) => theme.tableLink};
-      font-weight: ${({ theme }) => theme.fontWeightBold};
+      color: ${({ theme }) => theme.linkTextColor};
+      font-weight: ${({ theme }) => theme.cardTextFontWeight};
       text-decoration: none;
       &:hover {
-        color: ${({ theme }) => theme.tableLink};
+        color: ${({ theme }) => theme.linkTextHoverColor};
         text-decoration: underline;
       }
     }
@@ -43,7 +43,7 @@ const Table = styled.table`
 
   &.striped {
     tbody tr:nth-child(odd) {
-      background: ${({ theme }) => theme.layoutBg};
+      background: ${({ theme }) => theme.layoutBackgroundColor};
     }
 
     td {

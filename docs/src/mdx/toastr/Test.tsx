@@ -68,7 +68,7 @@ export default function ToastrPage() {
           <header>Toaster configuration</header>
           <CardBody>
             <Row>
-              <Col breakPoint={{ xs: 12 }} md={6}>
+              <Col breakPoint={{ xs: 12, md: 6 }}>
                 <Select
                   style={{ marginBottom: '1rem' }}
                   fullWidth

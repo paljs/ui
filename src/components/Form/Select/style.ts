@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 import { ButtonStyle } from '../../Button/style';
-import { Card, CardBody } from '../../Card';
+import { CardBody, CardStyle } from '../../Card';
 import CheckboxStyle from '../Checkbox/style';
 import { SelectPlacement } from './index';
 
@@ -119,7 +119,7 @@ const SelectCard = styled.div`
       box-sizing: border-box;
       ${!position && 'visibility: hidden;'}
 
-      ${Card} {
+      ${CardStyle} {
         background-color: ${theme.selectBg};
         max-height: ${theme.selectMaxHeight};
         margin-bottom: 0;

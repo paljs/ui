@@ -15,6 +15,8 @@ const ButtonLink: React.FC<ButtonTypes &
 const defaultProps: ButtonTypes = {
   size: 'Medium',
   status: 'Primary',
+  appearance: 'filled',
+  shape: 'Rectangle',
 };
 
 Button.defaultProps = defaultProps;

@@ -1,7 +1,7 @@
 import { Row, Col, Card, CardBody, Button, ButtonLink } from 'oah-ui';
 import { navigate } from 'gatsby';
 import React from 'react';
-import { appearance, shape, size } from '../shared';
+import { appearance, shape, size, status } from '../shared';
 
 const style = { marginBottom: '1.5rem' };
 

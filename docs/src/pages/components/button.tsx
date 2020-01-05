@@ -19,7 +19,7 @@ export default function ButtonPage() {
             props={buttonProps}
             hint="This component just styled component not have any React function so you can pass any props like styled component"
           />
-          <StyleTable keys={['btn']} />
+          <StyleTable keys={['button']} />
         </Switch>
       </Col>
     </Row>
