@@ -176,6 +176,10 @@ export default [
         link: '/themes/default',
       },
       {
+        title: 'Dark',
+        link: '/themes/dark',
+      },
+      {
         title: 'Cosmic',
         link: '/themes/cosmic',
       },

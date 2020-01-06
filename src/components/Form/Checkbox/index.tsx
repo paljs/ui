@@ -18,12 +18,12 @@ export interface CheckboxStyleProps {
   indeterminate?: boolean;
 }
 
-interface CheckboxProps extends CheckboxStyleProps {
+export interface CheckboxProps extends CheckboxStyleProps {
   onChange?: (value: boolean) => void;
   onBlur?: (event: React.SyntheticEvent) => void;
 }
 
-const Checkbox: React.FC<CheckboxProps> = props => {
+export const Checkbox: React.FC<CheckboxProps> = props => {
   const [value, setValue] = React.useState<boolean>(props.checked ? props.checked : false);
 
   const uncontrolled = typeof props.onChange === 'function';
@@ -66,5 +66,3 @@ const Checkbox: React.FC<CheckboxProps> = props => {
     </CheckboxStyle>
   );
 };
-
-export default Checkbox;

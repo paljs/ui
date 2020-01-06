@@ -1,9 +1,10 @@
 import React from 'react';
+import { withTheme, DefaultTheme } from 'styled-components';
 import { Card, CardBody } from 'oah-ui';
 import Table from './style';
 import { getTheme } from '../ThemeTable/themeData';
 
-const StyleTable: React.FC<{ keys: string[] }> = ({ keys }) => {
+const StyleTable: React.FC<{ keys: string[]; theme: DefaultTheme }> = ({ keys, theme }) => {
   const getColor = (value: string) => {
     if (value) {
       value = value
@@ -14,33 +15,37 @@ const StyleTable: React.FC<{ keys: string[] }> = ({ keys }) => {
     return '';
   };
 
-  return keys.map(key => (
-    <Card key={key}>
-      <CardBody>
-        <h2 style={{ textTransform: 'uppercase' }}>{key}</h2>
-        <Table className="striped">
-          <thead>
-            <tr>
-              <td>Name</td>
-              <td>Theme Variable</td>
-              <td>Default Value</td>
-            </tr>
-          </thead>
-          <tbody>
-            {getTheme('default', key).map(v => {
-              return (
-                <tr key={v.key}>
-                  <td>{v.key}</td>
-                  <td>{v.parent}</td>
-                  <td dangerouslySetInnerHTML={{ __html: getColor(v.value) }} />
+  return (
+    <>
+      {keys.map(key => (
+        <Card key={key}>
+          <CardBody>
+            <h2 style={{ textTransform: 'uppercase' }}>{key}</h2>
+            <Table className="striped">
+              <thead>
+                <tr>
+                  <td>Name</td>
+                  <td>Theme Variable</td>
+                  <td>Default Value</td>
                 </tr>
-              );
-            })}
-          </tbody>
-        </Table>
-      </CardBody>
-    </Card>
-  ));
+              </thead>
+              <tbody>
+                {getTheme(theme.name, key).map(v => {
+                  return (
+                    <tr key={v.key}>
+                      <td>{v.key}</td>
+                      <td>{v.parent}</td>
+                      <td dangerouslySetInnerHTML={{ __html: getColor(v.value) }} />
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </Table>
+          </CardBody>
+        </Card>
+      ))}
+    </>
+  );
 };
 
-export default StyleTable;
+export default withTheme(StyleTable);

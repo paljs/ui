@@ -1,7 +1,7 @@
 import ReactDOM from 'react-dom';
 import React from 'react';
 import { Card, CardBody } from '../../Card';
-import Checkbox from '../Checkbox';
+import { Checkbox } from '../Checkbox';
 import { SelectCard, SelectStyle, Option } from './style';
 import { ButtonTypes } from '../../types';
 import layoutContext from '../../Layout/layout-context';

@@ -167,7 +167,7 @@ const MenuStyle = styled.div`
 const ItemStyle = styled.li`
   ul {
     &.expanded {
-      max-height: 1500px;
+      max-height: 2000px;
       transition: max-height 0.5s cubic-bezier(1, 0.15, 1, 1);
     }
 

@@ -7,7 +7,7 @@
 import { ItemStyle } from './style';
 import React from 'react';
 import { Icon, ItemIcon } from '../Icon';
-import { MenuItemType, LinkProps } from '../types';
+import { MenuItemType } from '../types';
 
 interface ItemProps {
   item: MenuItemType;
@@ -15,10 +15,20 @@ interface ItemProps {
   toggleSubMenu: (item: MenuItemType) => void;
   selectItem: (id: number[]) => void;
   id: number[];
-  Link: React.ComponentType<LinkProps>;
+  Link: any;
+  nextJs?: boolean;
 }
 
-const Item: React.FC<ItemProps> = ({ item, toggleSidebar, toggleSubMenu, selectItem, id, Link }) => {
+const LinkContent: React.FC<{ item: MenuItemType }> = ({ item }) => {
+  return (
+    <>
+      <ItemIcon icon={item.icon} className="menu-icon" />
+      <span className="menu-title">{item.title}</span>
+    </>
+  );
+};
+
+const Item: React.FC<ItemProps> = ({ item, toggleSidebar, toggleSubMenu, selectItem, id, Link, nextJs }) => {
   const checkSelected = () => {
     const link = window.location.pathname;
     if (link === item.link || link === item.link + '/' || link + '/' === item.link) {
@@ -47,25 +57,23 @@ const Item: React.FC<ItemProps> = ({ item, toggleSidebar, toggleSubMenu, selectI
           {item.title}
         </span>
       ) : item.link && !item.children ? (
-        <Link
-          to={item.link}
-          title={item.title}
-          target={item.target}
-          className={item.selected ? 'active' : ''}
-          onClick={onClickHandler}
-        >
-          <ItemIcon icon={item.icon} className="menu-icon" />
-          <span className="menu-title">{item.title}</span>
+        <Link {...item.link} className={item.selected ? 'active' : ''} onClick={onClickHandler}>
+          {nextJs ? (
+            <a>
+              <LinkContent item={item} />
+            </a>
+          ) : (
+            <LinkContent item={item} />
+          )}
         </Link>
       ) : item.url && !item.children ? (
-        <a href={item.url} target={item.target} title={item.title}>
-          <ItemIcon icon={item.icon} className="menu-icon" />
-          <span className="menu-title">{item.title}</span>
+        <a href={item.url}>
+          <LinkContent item={item} />
         </a>
       ) : item.children ? (
         <>
           <a
-            href={item.link}
+            href={typeof item.link === 'string' ? item.link : ''}
             title={item.title}
             onClick={e => {
               e.preventDefault();

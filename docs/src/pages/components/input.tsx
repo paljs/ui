@@ -15,7 +15,7 @@ export default function InputPage() {
         <Switch title="Input Component">
           <Overview />
           <ApiTable name="InputGroup" props={inputProps} />
-          <StyleTable keys={['form']} />
+          <StyleTable keys={['input']} />
         </Switch>
       </Col>
     </Row>

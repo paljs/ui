@@ -7,12 +7,12 @@
 import React from 'react';
 import { MenuStyle } from './style';
 import Item from './Item';
-import { MenuItemType, LinkProps } from '../types';
+import { MenuItemType } from '../types';
 
 interface MenuProps {
   items: MenuItemType[];
   toggleSidebar?: () => void;
-  Link: React.ComponentType<LinkProps>;
+  Link: any;
   className?: string;
   style?: React.CSSProperties;
   ref?: React.RefObject<MenuRefObject>;

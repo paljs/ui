@@ -12,7 +12,7 @@ import { Trigger, Placement } from '../types';
 
 const Popover: React.FC<PopoverProps> = props => {
   const arrowSize = parseInt(props.theme.popoverArrowSize as string);
-  const arrowRound = Math.round(-arrowSize - arrowSize / 2 + 2);
+  const arrowRound = Math.round(-arrowSize - arrowSize / 2);
   return (
     <Overlay
       target={props.children}

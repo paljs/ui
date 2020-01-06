@@ -22,7 +22,7 @@ const themeValues = {
   dark: darkTheme,
 };
 
-function getKeyValue(settings: any, key: any) {
+function getKeyValue(settings: any, key: any): any {
   if (settings[key] in settings) {
     return getKeyValue(settings, settings[key]);
   }

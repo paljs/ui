@@ -11,7 +11,7 @@ const getBorder = (placement: SelectPlacement) => {
 
 const Option = styled.div`
   ${({ theme }) => css`
-    display: block;
+    display: flex;
 
     &.disabled {
       pointer-events: none;
@@ -22,6 +22,7 @@ const Option = styled.div`
     }
 
     ${CheckboxStyle} {
+      display: flex;
       pointer-events: none;
       .description {
         color: inherit;

@@ -6,7 +6,7 @@
 
 import React from 'react';
 import ContextMenuStyle from './style';
-import { Placement, MenuItemType, LinkProps } from '../types';
+import { Placement, MenuItemType } from '../types';
 import { Menu } from '../Menu';
 import Overlay, { OverlayRefObject } from '../PopoverLay';
 
@@ -35,7 +35,7 @@ interface ContextMenuProps {
   eventListener?: string;
   placement: Placement;
   children: React.ReactNode;
-  Link: React.ComponentType<LinkProps>;
+  Link: any;
   style?: React.CSSProperties;
   className?: string;
 }

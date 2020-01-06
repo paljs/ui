@@ -5,25 +5,35 @@
  */
 
 import React from 'react';
-import { Badge as BadgeType, Size, LinkProps, IconField } from '../types';
+import { Badge as BadgeType, Size, IconField } from '../types';
 import { ActionsStyle, ActionStyle } from './style';
 import Badge from '../Badge';
 import { ItemIcon } from '../Icon';
 
-export const Actions: React.FC<ActionsProps> = ({ actions, className, style, fullWidth, size, inverse, Link }) => {
+export const Actions: React.FC<ActionsProps> = ({
+  actions,
+  className,
+  style,
+  fullWidth,
+  size,
+  inverse,
+  Link,
+  nextJs,
+}) => {
   return (
     <ActionsStyle className={className} style={style}>
       {actions.map((action: ActionType, index: number) => {
+        const icon = <ItemIcon icon={action.icon} className="control-icon" />;
         return (
           <ActionStyle key={index} fullWidth={fullWidth} size={size} inverse={inverse} disabled={!!action.disabled}>
             {action.icon ? (
               action.link ? (
-                <Link to={action.link} target={action.target} className="icon-container" {...action.events}>
-                  <ItemIcon icon={action.icon} className="control-icon" />
+                <Link {...action.link} className="icon-container">
+                  {nextJs ? <a>{icon}</a> : icon}
                 </Link>
               ) : (
-                <a href={action.url} target={action.target} className="icon-container" {...action.events}>
-                  <ItemIcon icon={action.icon} className="control-icon" />
+                <a {...action.url} className="icon-container">
+                  {icon}
                 </a>
               )
             ) : (
@@ -47,10 +57,8 @@ Actions.defaultProps = {
 
 export interface ActionType {
   icon?: IconField;
-  events?: object;
-  link?: any;
-  url?: string;
-  target?: string;
+  link?: object;
+  url?: object;
   content?: any;
   disabled?: boolean;
   badge?: BadgeType;
@@ -61,7 +69,8 @@ interface ActionsProps {
   size: Size;
   inverse?: boolean;
   fullWidth?: boolean;
-  Link?: React.ComponentType<LinkProps>;
+  Link?: any;
   className?: string;
   style?: React.CSSProperties;
+  nextJs?: boolean;
 }

@@ -12,47 +12,11 @@ import { componentAnimation } from '../Shared';
 
 const GroupStyle = styled.div<InputGroupProps>`
   ${({ theme, size, status, shape, fullWidth }) => {
-    const padding = (theme[`input${size}Padding` as ThemeKey] as string).split(' ');
     return css`
       display: flex;
       min-width: 0;
       position: relative;
       margin-bottom: 1rem;
-      
-      .label {
-        ${theme.dir === 'rtl' ? 'right' : 'left'}: 0;
-        top: 0;
-        transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1),
-        opacity 150ms cubic-bezier(0.4, 0, 0.2, 1);
-        z-index: 1;
-        transform-origin: top ${theme.dir === 'rtl' ? 'right' : 'left'};
-        pointer-events: none;
-        position: absolute;
-        padding: 0 5px;
-        transform: translate(
-          ${theme.dir === 'rtl' && '-'}${padding[1]}, 
-          calc(${padding[0]} + ${theme.inputBorderWidth})
-        );
-      }
-
-      input,
-      textarea {
-        &:not([disabled]):focus ~ .label,
-        &[value]:not([value=""]) ~ .label,
-        &:-webkit-autofill ~ .label {
-          transform: scale(.90) translate(
-            ${theme.dir === 'rtl' && '-'}${padding[1]}, 
-            -50%
-          );
-        }
-        &:not([disabled]):focus ~ .label{
-          color: ${theme[`input${status}PlaceholderTextColor` as ThemeKey]};
-        }
-        &[value]:not([value=""]) ~ .label,
-        &:-webkit-autofill ~ .label{
-          color: ${theme[`input${status}PlaceholderTextColor` as ThemeKey]};
-        }
-      }
 
       input,
       textarea {
@@ -65,18 +29,13 @@ const GroupStyle = styled.div<InputGroupProps>`
         
         ${fullWidth && 'width: 100%;'}
 
-        & ~ .label {
+        &::placeholder {
           font-family: ${theme.inputPlaceholderTextFontFamily};
           text-overflow: ellipsis;
         }
         
         &:focus {
           outline: none;
-        }
-
-      
-        &[disabled] ~ .label {
-          opacity: 0.5;
         }
       
         ${status &&
@@ -85,8 +44,9 @@ const GroupStyle = styled.div<InputGroupProps>`
             border-color: ${theme[`input${status}BorderColor` as ThemeKey]};
             color: ${theme[`input${status}TextColor` as ThemeKey]};
 
-            & ~ .label {
+            &::placeholder {
               color: ${theme[`input${status}PlaceholderTextColor` as ThemeKey]};
+              background-color: ${theme[`input${status}BackgroundColor` as ThemeKey]};
             }
 
             &:focus {
@@ -103,7 +63,7 @@ const GroupStyle = styled.div<InputGroupProps>`
               border-color: ${theme[`input${status}DisabledBorderColor` as ThemeKey]};
               color: ${theme[`input${status}DisabledTextColor` as ThemeKey]};
 
-              & ~ .label {
+              &::placeholder {
                 color: ${theme[`input${status}DisabledPlaceholderTextColor` as ThemeKey]};
               }
             }
@@ -123,7 +83,7 @@ const GroupStyle = styled.div<InputGroupProps>`
 
             ${!fullWidth && `max-width: ${theme[`input${size}MaxWidth` as ThemeKey]};`}
 
-            & ~ .label {
+            &::placeholder {
               font-size: ${theme[`input${size}PlaceholderTextFontSize` as ThemeKey]};
               font-weight: ${theme[`input${size}PlaceholderTextFontWeight` as ThemeKey]};
               line-height: ${theme[`input${size}PlaceholderTextLineHeight` as ThemeKey]};
@@ -139,20 +99,15 @@ export interface InputGroupProps {
   fullWidth?: boolean;
   size?: Size;
   status?: Status;
-  label?: string;
   children: React.ReactNode;
 }
 
 export const InputGroup: React.FC<InputGroupProps> = props => {
-  return (
-    <GroupStyle {...props}>
-      {props.children}
-      {props.label && <div className="label">{props.label}</div>}
-    </GroupStyle>
-  );
+  return <GroupStyle {...props}>{props.children}</GroupStyle>;
 };
 
 InputGroup.defaultProps = {
   size: 'Medium',
   shape: 'Rectangle',
+  status: 'Basic',
 };

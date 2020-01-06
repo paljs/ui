@@ -4,7 +4,6 @@
  * Licensed under the MIT License. See License.txt in the project root for license information.
  */
 
-import React from 'react';
 import { IconProps } from './Icon';
 
 export interface Badge {
@@ -39,13 +38,12 @@ export type IconField = string | IconProps;
 
 export interface MenuItemType {
   title: string;
-  link?: any;
+  link?: string | object;
   expanded?: boolean;
   selected?: boolean;
   group?: boolean;
   hidden?: boolean;
   icon?: IconField;
-  target?: string;
   url?: string;
   children?: MenuItemType[];
 }
@@ -57,10 +55,6 @@ export interface ButtonTypes {
   size?: Size;
   shape?: Shape;
   status?: Status;
-}
-
-export interface LinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
-  to: any;
 }
 
 export type Record<K extends keyof any, T> = {

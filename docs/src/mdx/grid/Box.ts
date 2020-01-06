@@ -15,13 +15,13 @@ const Box = styled.div<BoxProps>`
     min-height: 1rem;
     overflow: hidden;
     text-align: center;
-    background: ${theme.colorBasic1100};
+    background: ${theme.colorBasic600};
     padding: 0.75rem 0.25rem;
     border-radius: 0.25rem;
     ${large && 'height: 8rem;'};
     ${row && 'margin-bottom: 1rem  !important;'};
     ${container && 'padding: .5em;'};
-    ${nested && `background-color: ${theme.colorBasic100};`};
+    ${nested && `background-color: ${theme.colorBasic200};`};
     ${breakpointUp('md')`
     padding: 1rem;
   `}

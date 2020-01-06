@@ -65,7 +65,7 @@ const Overlay: React.RefForwardingComponent<OverlayRefObject, OverlayProps> = (p
 
   const targetMouse = props.contextMenu
     ? {
-        onClick: e => {
+        onClick: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
           e.stopPropagation();
           setShow(!show);
         },
@@ -73,7 +73,7 @@ const Overlay: React.RefForwardingComponent<OverlayRefObject, OverlayProps> = (p
     : {
         onFocus: () => trigger === 'focus' && setShow(true),
         onBlur: () => trigger === 'focus' && setShow(false),
-        onClick: e => {
+        onClick: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
           e.stopPropagation();
           trigger === 'click' && setShow(!show);
         },
