@@ -93,4 +93,8 @@ const Alert: React.FC<AlertProps> = props => {
   );
 };
 
+Alert.defaultProps = {
+  status: 'Basic',
+};
+
 export default Alert;

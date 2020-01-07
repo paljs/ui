@@ -9,6 +9,7 @@ import { SearchStyle, SearchFieldStyle } from './style';
 import Overlay from '../Overlay';
 import layoutContext from '../Layout/layout-context';
 import { Icon } from '../Icon';
+import { Button } from '../Button';
 
 export const Search: React.FC<SearchProps> = props => {
   const [value, setValue] = React.useState('');
@@ -47,9 +48,9 @@ export const Search: React.FC<SearchProps> = props => {
 
   return (
     <SearchStyle className={props.className}>
-      <button onClick={handleOpen}>
+      <Button appearance="ghost" onClick={handleOpen}>
         <Icon name="search-outline" />
-      </button>
+      </Button>
       {show !== undefined && (
         <Overlay>
           <SearchFieldStyle className={props.type + ' ' + show}>
@@ -60,9 +61,9 @@ export const Search: React.FC<SearchProps> = props => {
                 e.key === 'Escape' && handleClose();
               }}
             >
-              <button onClick={handleClose}>
+              <Button appearance="ghost" onClick={handleClose}>
                 <Icon name="close-outline" />
-              </button>
+              </Button>
               <div className="form-wrapper">
                 <div className="form">
                   <div className="form-content">

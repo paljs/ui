@@ -38,7 +38,7 @@ function Interactive() {
             actions={[
               {
                 icon: 'arrow-down',
-                events: { onClick: () => setProgressValue(value - 25) },
+                url: { onClick: () => setProgressValue(value - 25) },
               },
             ]}
           />
@@ -48,7 +48,7 @@ function Interactive() {
             actions={[
               {
                 icon: 'arrow-up',
-                events: { onClick: () => setProgressValue(value + 25) },
+                url: { onClick: () => setProgressValue(value + 25) },
               },
             ]}
           />

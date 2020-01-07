@@ -36,8 +36,11 @@ const Tabs: React.FC<TabsProps> = props => {
   };
 
   React.useEffect(() => {
-    const children = React.Children.map(props.children, child => {
-      return { ...child.props };
+    const children: TabProps[] = [];
+    React.Children.forEach(props.children, child => {
+      if (child.props.icon || child.props.title) {
+        children.push({ ...child.props });
+      }
     });
     setTabs(children);
   }, [props.children]);

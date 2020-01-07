@@ -35,7 +35,7 @@ export default function Column() {
             actions={[
               {
                 icon: 'menu',
-                events: {
+                link: {
                   onClick() {
                     sidebarRef.current?.toggle();
                   },

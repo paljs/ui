@@ -8,14 +8,14 @@ const InputPage = () => {
       <Card>
         <header>Input Sizes</header>
         <CardBody>
-          <InputGroup fullWidth size="Small" label="Size small">
-            <input type="text" />
+          <InputGroup fullWidth size="Small">
+            <input type="text" placeholder="Size small" />
           </InputGroup>
-          <InputGroup fullWidth label="Size Medium">
-            <input type="text" />
+          <InputGroup fullWidth>
+            <input type="text" placeholder="Size Medium" />
           </InputGroup>
-          <InputGroup fullWidth size="Large" label="Size Large">
-            <input type="text" />
+          <InputGroup fullWidth size="Large">
+            <input type="text" placeholder="Size Large" />
           </InputGroup>
         </CardBody>
       </Card>
@@ -23,14 +23,14 @@ const InputPage = () => {
       <Card>
         <header>Input Shapes</header>
         <CardBody>
-          <InputGroup fullWidth label="Rectangle border">
-            <input type="text" />
+          <InputGroup fullWidth>
+            <input type="text" placeholder="Rectangle border" />
           </InputGroup>
-          <InputGroup fullWidth shape="SemiRound" label="SemiRound border">
-            <input type="text" />
+          <InputGroup fullWidth shape="SemiRound">
+            <input type="text" placeholder="SemiRound border" />
           </InputGroup>
-          <InputGroup fullWidth shape="Round" label="Round border">
-            <input type="text" />
+          <InputGroup fullWidth shape="Round">
+            <input type="text" placeholder="Round border" />
           </InputGroup>
         </CardBody>
       </Card>
@@ -38,17 +38,17 @@ const InputPage = () => {
       <Card>
         <header>Input Colors</header>
         <CardBody>
-          <InputGroup fullWidth status="Info" label="Input with Info">
-            <input type="text" />
+          <InputGroup fullWidth status="Info">
+            <input type="text" placeholder="Input with Info" />
           </InputGroup>
-          <InputGroup fullWidth status="Warning" label="Input with Warning">
-            <input name="text" />
+          <InputGroup fullWidth status="Warning">
+            <input name="text" placeholder="Input with Warning" />
           </InputGroup>
-          <InputGroup fullWidth status="Success" label="Input with Success">
-            <input type="text" />
+          <InputGroup fullWidth status="Success">
+            <input type="text" placeholder="Input with Success" />
           </InputGroup>
-          <InputGroup fullWidth status="Danger" label="Input with Danger">
-            <input type="text" />
+          <InputGroup fullWidth status="Danger">
+            <input type="text" placeholder="Input with Danger" />
           </InputGroup>
         </CardBody>
       </Card>
@@ -56,11 +56,11 @@ const InputPage = () => {
       <Card>
         <header>Input Elements</header>
         <CardBody>
-          <InputGroup fullWidth label="Input">
-            <input type="text" />
+          <InputGroup fullWidth>
+            <input type="text" placeholder="Input" />
           </InputGroup>
-          <InputGroup fullWidth label="Text Area">
-            <textarea />
+          <InputGroup fullWidth>
+            <textarea placeholder="Text Area" />
           </InputGroup>
         </CardBody>
       </Card>

@@ -6,7 +6,7 @@ function Basic() {
   const items: MenuItemType[] = [
     {
       title: 'Getting Started',
-      link: '/getting-started',
+      link: { to: '/getting-started' },
     },
     {
       title: 'Guides',
@@ -14,7 +14,7 @@ function Basic() {
       children: [
         {
           title: 'Start new project',
-          link: '/guides/start-new-project', // goes into @reach/router `router Link`
+          link: { to: '/guides/start-new-project' }, // goes into @reach/router `router Link`
         },
         {
           title: 'Github Repository',
@@ -32,13 +32,13 @@ function Basic() {
         },
         {
           title: 'Menu',
-          link: '/components/menu', // selected link
+          link: { to: '/components/menu' }, // selected link
         },
       ],
     },
     {
       title: 'Themes',
-      link: '/themes',
+      link: { to: '/themes' },
     },
   ];
   return <Menu style={{ maxWidth: '20rem', margin: '0 auto' }} items={items} Link={Link} />;

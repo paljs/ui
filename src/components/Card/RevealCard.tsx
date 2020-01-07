@@ -7,6 +7,7 @@
 import styled, { css } from 'styled-components';
 import React from 'react';
 import { Icon } from '../Icon';
+import { CardStyle } from './Card';
 
 interface RevealCardProps {
   className?: string;
@@ -43,9 +44,17 @@ const RevealCardStyled = styled.div<RevealCardProps>`
         transition: top 0.5s;
       }
     }
+    & > .back,
+    & > .front {
+      ${CardStyle} {
+        box-shadow: none;
+        margin: 0;
+      }
+    }
     .reveal-button {
       cursor: pointer;
       position: absolute;
+      transform: ${revealed ? 'none' : 'rotate(180deg)'};
       transition: transform 0.3s;
       line-height: ${theme.cardTextLineHeight};
       padding: ${theme.cardPadding};
@@ -67,7 +76,7 @@ const RevealCard: React.FC<RevealCardProps & { children: [React.ReactNode, React
         <div className="container">{props.children[1]}</div>
       </div>
       <div className="reveal-button" onClick={handleRevealed}>
-        {revealed ? <Icon name="chevron-down-outline" /> : <Icon name="chevron-up-outline" />}
+        <Icon name="chevron-down-outline" />
       </div>
     </RevealCardStyled>
   );

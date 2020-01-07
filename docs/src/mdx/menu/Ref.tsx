@@ -8,11 +8,11 @@ function Ref() {
   const items: MenuItemType[] = [
     {
       title: 'Guides',
-      link: '/guides',
+      link: { to: '/guides' },
       children: [
         {
           title: 'Start new project',
-          link: '/guides/start-new-project', // goes into @reach/router `router Link`
+          link: { to: '/guides/start-new-project' }, // goes into @reach/router `router Link`
         },
         {
           title: 'Github Repository',
@@ -30,7 +30,7 @@ function Ref() {
         },
         {
           title: 'Menu',
-          link: '/components/menu', // selected link
+          link: { to: '/components/menu' }, // selected link
         },
       ],
     },

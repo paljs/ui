@@ -8,8 +8,8 @@ function Basic() {
       className="with-margin inline-block"
       placement="bottom"
       items={[
-        { title: 'Profile', link: '/profile' },
-        { title: 'Log out', link: '/logout' },
+        { title: 'Profile', link: { to: '/profile' } },
+        { title: 'Log out', link: { to: '/logout' } },
       ]}
       Link={Link}
     >

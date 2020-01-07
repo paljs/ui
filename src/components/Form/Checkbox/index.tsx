@@ -23,7 +23,7 @@ export interface CheckboxProps extends CheckboxStyleProps {
   onBlur?: (event: React.SyntheticEvent) => void;
 }
 
-export const Checkbox: React.FC<CheckboxProps> = props => {
+const Checkbox: React.FC<CheckboxProps> = props => {
   const [value, setValue] = React.useState<boolean>(props.checked ? props.checked : false);
 
   const uncontrolled = typeof props.onChange === 'function';
@@ -66,3 +66,9 @@ export const Checkbox: React.FC<CheckboxProps> = props => {
     </CheckboxStyle>
   );
 };
+
+Checkbox.defaultProps = {
+  status: 'Basic',
+};
+
+export { Checkbox };

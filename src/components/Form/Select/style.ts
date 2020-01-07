@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { ButtonStyle } from '../../Button/style';
+import { ButtonStyle } from '../../Button';
 import { CardBody, CardStyle } from '../../Card';
 import CheckboxStyle from '../Checkbox/style';
 import { SelectPlacement } from './index';
@@ -31,7 +31,7 @@ const Option = styled.div`
     &&.selected {
       ${CheckboxStyle} {
         .indicator {
-          border-color: ${theme.selectCheckboxColor};
+          border-color: ${theme.select};
 
           &::before {
             border-color: ${theme.selectCheckmarkColor};
@@ -59,7 +59,7 @@ const OptionGroup = styled.div`
   }
 `;
 
-const SelectStyle = styled.div`
+const SelectStyle = styled.div<SelectProps>`
   ${({ theme, opened, placement }) => css`
     display: block;
     button {

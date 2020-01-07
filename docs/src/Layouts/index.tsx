@@ -17,13 +17,11 @@ import SimpleLayout from './SimpleLayout';
 import SidebarCustom from './Sidebar';
 
 const LayoutPage: React.FC = props => {
-  const [theme, setTheme] = useState<DefaultTheme['name']>('corporate');
+  const [theme, setTheme] = useState<DefaultTheme['name']>('default');
   const sidebarRef = useRef<SidebarRefObject>(null);
-
   const changeTheme = (newTheme: DefaultTheme['name']) => {
     setTheme(newTheme);
   };
-
   return (
     <ThemeProvider theme={themes(theme)}>
       <Fragment>

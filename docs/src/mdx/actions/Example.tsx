@@ -31,7 +31,7 @@ const ActionsPage = () => {
     },
     {
       icon: 'browser-outline',
-      link: '/components/actions',
+      link: { to: '/' },
       badge: {
         status: 'Danger',
         title: '34',

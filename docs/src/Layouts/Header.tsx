@@ -62,7 +62,7 @@ const Header: React.FC<HeaderProps> = props => {
             actions={[
               {
                 icon: 'menu',
-                events: {
+                url: {
                   onClick: props.toggleSidebar,
                 },
               },
@@ -93,13 +93,11 @@ const Header: React.FC<HeaderProps> = props => {
           actions={[
             {
               icon: 'github',
-              url: 'https://github.com/AhmedElywa/oah-ui',
-              target: '_blank',
+              url: { href: 'https://github.com/AhmedElywa/oah-ui', target: '_blank' },
             },
             {
               icon: 'twitter',
-              url: 'https://twitter.com/AhmedElywh',
-              target: '_blank',
+              url: { href: 'https://twitter.com/AhmedElywh', target: '_blank' },
             },
           ]}
         />

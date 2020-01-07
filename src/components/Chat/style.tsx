@@ -114,7 +114,7 @@ const MessageStyle = styled.div<{ reply?: boolean }>`
       color: white;
     }
     ${reply
-  ? css`
+      ? css`
       flex-direction: row-reverse;
       .message {
         margin-${theme.dir === 'rtl' ? 'left' : 'right'}: 0.5rem;
@@ -135,7 +135,7 @@ const MessageStyle = styled.div<{ reply?: boolean }>`
         align-items: flex-start;
       }
     `
-  : css`
+      : css`
       .message {
         margin-${theme.dir === 'rtl' ? 'right' : 'left'}: 0.5rem;
         margin-${theme.dir === 'rtl' ? 'left' : 'right'}: 3rem;
@@ -183,18 +183,14 @@ const FormStyle = styled.div<FormProps>`
       `}
     }
 
-    button.btn {
+    .send-button {
       border-radius: 3rem;
       border-top-${theme.dir === 'rtl' ? 'right' : 'left'}-radius: 0;
       border-bottom-${theme.dir === 'rtl' ? 'right' : 'left'}-radius: 0;
-      padding: 0 1.5rem;
 
       ${buttonIcon &&
         css`
           font-size: 3rem;
-          line-height: 1;
-          padding: 0 1.25rem 0 0.875rem;
-          text-align: center;
         `}
     }
 

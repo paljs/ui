@@ -84,7 +84,7 @@ const Item: React.FC<ItemProps> = ({ item, toggleSidebar, toggleSubMenu, selectI
             <ItemIcon icon={item.icon} className="menu-icon" />
             <span className="menu-title">{item.title}</span>
             <i className="chevron">
-              {item.expanded ? <Icon name="chevron-down-outline" /> : <Icon name="chevron-up-outline" />}
+              {item.expanded ? <Icon name="chevron-down-outline" /> : <Icon name="chevron-left-outline" />}
             </i>
           </a>
           <ul className={item.expanded ? 'menu-items expanded' : 'menu-items collapsed'}>

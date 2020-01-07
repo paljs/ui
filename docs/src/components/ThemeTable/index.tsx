@@ -32,8 +32,8 @@ const ThemeTable: React.FC<{ theme: DefaultTheme['name'] }> = props => {
       <CardBody>
         <h2 style={{ textTransform: 'uppercase' }}>{props.theme}</h2>
         {props.theme !== 'default' && <p>inherited from default theme</p>}
-        <InputGroup fullWidth label="search for">
-          <input type="text" value={search} onChange={e => setSearch(e.target.value)} />
+        <InputGroup fullWidth>
+          <input placeholder="search for" type="text" value={search} onChange={e => setSearch(e.target.value)} />
         </InputGroup>
         <Table className="striped">
           <thead>

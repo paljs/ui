@@ -60,5 +60,8 @@
     "url": "https://github.com/AhmedElywa/oah-ui",
     "email": "ahmed.elywa@icloud.com"
   },
-  "homepage": "https://oah-ui.oahtech.io"
+  "homepage": "https://oah-ui.oahtech.io",
+  "dependencies": {
+    "history": "^4.10.1"
+  }
 }

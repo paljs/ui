@@ -21,6 +21,7 @@ const ContextMenu: React.FC<ContextMenuProps> = props => {
       className={props.className}
       eventListener={props.eventListener}
       transformSize={15}
+      contextMenu
     >
       <ContextMenuStyle>
         <span className="arrow" />

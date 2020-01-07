@@ -46,7 +46,6 @@ const GroupStyle = styled.div<InputGroupProps>`
 
             &::placeholder {
               color: ${theme[`input${status}PlaceholderTextColor` as ThemeKey]};
-              background-color: ${theme[`input${status}BackgroundColor` as ThemeKey]};
             }
 
             &:focus {
