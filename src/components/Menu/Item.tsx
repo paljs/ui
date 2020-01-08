@@ -16,7 +16,6 @@ interface ItemProps {
   selectItem: (id: number[]) => void;
   id: number[];
   Link: any;
-  nextJs?: boolean;
 }
 
 const LinkContent: React.FC<{ item: MenuItemType }> = ({ item }) => {
@@ -57,15 +56,17 @@ const Item: React.FC<ItemProps> = ({ item, toggleSidebar, toggleSubMenu, selectI
           {item.title}
         </span>
       ) : item.link && !item.children ? (
-        <Link {...item.link} className={item.selected ? 'active' : ''} onClick={onClickHandler}>
-          {nextJs ? (
-            <a>
+        nextJs ? (
+          <Link {...item.link}>
+            <a onClick={onClickHandler} className={item.selected ? 'active' : ''}>
               <LinkContent item={item} />
             </a>
-          ) : (
+          </Link>
+        ) : (
+          <Link {...item.link} className={item.selected ? 'active' : ''} onClick={onClickHandler}>
             <LinkContent item={item} />
-          )}
-        </Link>
+          </Link>
+        )
       ) : item.url && !item.children ? (
         <a href={item.url}>
           <LinkContent item={item} />

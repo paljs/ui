@@ -13,6 +13,7 @@ interface MenuProps {
   items: MenuItemType[];
   toggleSidebar?: () => void;
   Link: any;
+  nextJs?: boolean;
   className?: string;
   style?: React.CSSProperties;
   ref?: React.RefObject<MenuRefObject>;

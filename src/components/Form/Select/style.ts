@@ -66,7 +66,7 @@ const Option = styled.div`
 
 const OptionGroup = styled.div`
   display: block;
-  color: ${theme.selectGroupOptionTextColor};
+  color: ${({ theme }) => theme.selectGroupOptionTextColor};
   span {
     padding: 1.125rem 0.5rem;
     display: block;

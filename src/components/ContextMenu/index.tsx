@@ -25,7 +25,13 @@ const ContextMenu: React.FC<ContextMenuProps> = props => {
     >
       <ContextMenuStyle>
         <span className="arrow" />
-        <Menu className="context-menu" Link={props.Link} items={props.items} toggleSidebar={overlayRef.current?.hide} />
+        <Menu
+          className="context-menu"
+          nextJs={props.nextJs}
+          Link={props.Link}
+          items={props.items}
+          toggleSidebar={overlayRef.current?.hide}
+        />
       </ContextMenuStyle>
     </Overlay>
   );
@@ -37,6 +43,7 @@ interface ContextMenuProps {
   placement: Placement;
   children: React.ReactNode;
   Link: any;
+  nextJs?: boolean;
   style?: React.CSSProperties;
   className?: string;
 }

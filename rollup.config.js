@@ -17,7 +17,7 @@ const plugins = [
 
 const external = ['react', 'react-dom', 'styled-components'];
 const globals = { react: 'React', 'react-dom': 'ReactDOM', 'styled-components': 'styled' };
-const dir = 'docs/node_modules/oah-ui/dist';
+const dir = 'dist';
 
 export default [
   {
