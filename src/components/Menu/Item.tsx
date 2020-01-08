@@ -16,6 +16,7 @@ interface ItemProps {
   selectItem: (id: number[]) => void;
   id: number[];
   Link: any;
+  nextJs?: boolean;
 }
 
 const LinkContent: React.FC<{ item: MenuItemType }> = ({ item }) => {
@@ -97,6 +98,7 @@ const Item: React.FC<ItemProps> = ({ item, toggleSidebar, toggleSubMenu, selectI
                     item={item2}
                     id={id.concat([index])}
                     Link={Link}
+                    nextJs={nextJs}
                     selectItem={selectItem}
                     toggleSidebar={toggleSidebar}
                     toggleSubMenu={toggleSubMenu}

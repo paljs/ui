@@ -19,9 +19,15 @@ const Actions: React.FC<ActionsProps> = ({ actions, className, style, fullWidth,
           <ActionStyle key={index} fullWidth={fullWidth} size={size} inverse={inverse} disabled={!!action.disabled}>
             {action.icon ? (
               action.link && Link ? (
-                <Link {...action.link} className="icon-container">
-                  {nextJs ? <a>{icon}</a> : icon}
-                </Link>
+                nextJs ? (
+                  <Link {...action.link}>
+                    <a className="icon-container">{icon}</a>
+                  </Link>
+                ) : (
+                  <Link {...action.link} className="icon-container">
+                    {icon}
+                  </Link>
+                )
               ) : (
                 <a {...action.url} className="icon-container">
                   {icon}

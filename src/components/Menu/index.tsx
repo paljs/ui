@@ -90,6 +90,7 @@ let Menu: React.RefForwardingComponent<MenuRefObject, MenuProps> = (props, ref) 
                 id={[index]}
                 item={item}
                 Link={props.Link}
+                nextJs={props.nextJs}
                 selectItem={i => onSelectItem(i)}
                 toggleSidebar={props.toggleSidebar}
                 toggleSubMenu={(item: MenuItemType) => onToggleSubMenu(item)}
