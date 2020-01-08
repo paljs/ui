@@ -3,6 +3,7 @@ import { ButtonStyle } from '../../Button';
 import { CardBody, CardStyle } from '../../Card';
 import CheckboxStyle from '../Checkbox/style';
 import { SelectPlacement } from './index';
+import { componentAnimation } from '../../Shared';
 
 const getBorder = (placement: SelectPlacement) => {
   const pos = placement === 'top' ? 'bottom' : 'top';
@@ -11,11 +12,9 @@ const getBorder = (placement: SelectPlacement) => {
 
 const Option = styled.div`
   ${({ theme }) => css`
+    user-select: none;
     display: flex;
-
-    &.disabled {
-      pointer-events: none;
-    }
+    ${componentAnimation('background-color, color')};
 
     &:hover {
       cursor: pointer;
@@ -24,19 +23,42 @@ const Option = styled.div`
     ${CheckboxStyle} {
       display: flex;
       pointer-events: none;
-      .description {
-        color: inherit;
+      margin-${theme.dir === 'rtl' ? 'left' : 'right'}: 0.5rem;
+    }
+    &:focus {
+      outline: none;
+    }
+    &.selected {
+      background-color: ${theme.selectOptionSelectedBackgroundColor};
+      color: ${theme.selectOptionSelectedTextColor};
+    }
+    &:focus {
+      background-color: ${theme.selectOptionFocusBackgroundColor};
+      color: ${theme.selectOptionFocusTextColor};
+
+      &.selected {
+        background-color: ${theme.selectOptionSelectedFocusBackgroundColor};
+        color: ${theme.selectOptionSelectedFocusTextColor};
       }
     }
-    &&.selected {
-      ${CheckboxStyle} {
-        .indicator {
-          border-color: ${theme.select};
+    &:hover {
+      background-color: ${theme.selectOptionHoverBackgroundColor};
+      color: ${theme.selectOptionHoverTextColor};
 
-          &::before {
-            border-color: ${theme.selectCheckmarkColor};
-          }
-        }
+      &.selected {
+        background-color: ${theme.selectOptionSelectedHoverBackgroundColor};
+        color: ${theme.selectOptionSelectedHoverTextColor};
+      }
+    }
+
+    &.multiple {
+      &.selected {
+        background-color: ${theme.selectOptionBackgroundColor};
+        color: ${theme.selectOptionTextColor};
+      }
+      &:focus {
+        background-color: ${theme.selectOptionFocusBackgroundColor};
+        color: ${theme.selectOptionFocusTextColor};
       }
     }
   `}
@@ -44,7 +66,7 @@ const Option = styled.div`
 
 const OptionGroup = styled.div`
   display: block;
-
+  color: ${theme.selectGroupOptionTextColor};
   span {
     padding: 1.125rem 0.5rem;
     display: block;
@@ -143,9 +165,11 @@ const SelectCard = styled.div`
         ${getBorder(placement)}
         ${Option},
         ${OptionGroup} {
+          background-color: ${theme.selectOptionBackgroundColor};
+          color: ${theme.selectOptionTextColor};
           &.disabled {
-            background-color: ${theme.selectOptionDisabledBg};
-            opacity: ${theme.selectOptionDisabledOpacity};
+            background-color: ${theme.selectOptionDisabledBackgroundColor};
+            color: ${theme.selectOptionDisabledTextColor};
           }
         }
       } 

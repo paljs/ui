@@ -11,12 +11,16 @@ import { ThemeKey } from '../../../theme';
 
 const RadioStyle = styled.label<Partial<Option>>`
   ${({ theme, status }) => css`
-    display: inline-flex;
-    margin: 0;
-    min-height: inherit;
-    padding: 0.375rem 0;
-    padding-${theme.dir === 'rtl' ? 'left' : 'right'}: 1.5rem;
-    align-items: center;
+    display: block;
+    position: relative;
+    label {
+      display: inline-flex;
+      margin: 0;
+      min-height: inherit;
+      padding: 0.375rem 0;
+      padding-${theme.dir === 'rtl' ? 'left' : 'right'}: 1.5rem;
+      align-items: center;
+    }
 
     .outer-circle,
     .inner-circle {

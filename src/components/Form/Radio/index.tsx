@@ -20,23 +20,28 @@ export const Radio: React.FC<RadioProps> = props => {
     props.onChange(value);
   };
 
-  return options.map(option => (
-    <RadioStyle status={option.status} key={option.value} className={props.className}>
-      <input
-        type="radio"
-        checked={option.checked}
-        name={props.name}
-        disabled={option.disabled || props.disabled}
-        onClick={() => onClickHandler(option.value)}
-        className="native-input visually-hidden"
-      />
-      <span className="outer-circle" />
-      <span className="inner-circle" />
-      <span className="text">{option.label}</span>
-    </RadioStyle>
-  ));
+  return (
+    <>
+      {options.map(option => (
+        <RadioStyle status={option.status ?? 'Basic'} key={option.value} className={props.className}>
+          <label>
+            <input
+              type="radio"
+              checked={option.checked}
+              name={props.name}
+              disabled={option.disabled || props.disabled}
+              onClick={() => onClickHandler(option.value)}
+              className="native-input visually-hidden"
+            />
+            <span className="outer-circle" />
+            <span className="inner-circle" />
+            <span className="text">{option.label}</span>
+          </label>
+        </RadioStyle>
+      ))}
+    </>
+  );
 };
-
 export interface Option {
   value: number | string;
   label: string;
