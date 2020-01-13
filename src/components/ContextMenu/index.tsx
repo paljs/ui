@@ -28,6 +28,7 @@ const ContextMenu: React.FC<ContextMenuProps> = props => {
         <Menu
           className="context-menu"
           nextJs={props.nextJs}
+          currentPath={props.currentPath}
           Link={props.Link}
           items={props.items}
           toggleSidebar={overlayRef.current?.hide}
@@ -44,6 +45,7 @@ interface ContextMenuProps {
   children: React.ReactNode;
   Link: any;
   nextJs?: boolean;
+  currentPath?: string;
   style?: React.CSSProperties;
   className?: string;
 }

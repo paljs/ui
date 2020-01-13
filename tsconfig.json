@@ -2,10 +2,12 @@
   "compilerOptions": {
     "declaration": true,
     "declarationDir": "./dist",
+    "declarationMap": true,
     "downlevelIteration": true,
     "strict": true,
     "allowSyntheticDefaultImports": true,
-    //"sourceMap": true,
+    "sourceMap": true,
+    "removeComments": true,
     "noUnusedParameters": true,
     "strictNullChecks": true,
     "moduleResolution": "node",

@@ -7,7 +7,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import { breakpointUp, getGridSize, breakpoints, getGridGutter, BreakPointKeys } from '../../theme';
-import { Record } from '../types';
 
 const BP = Object.keys(breakpoints);
 

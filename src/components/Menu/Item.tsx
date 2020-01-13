@@ -17,6 +17,7 @@ interface ItemProps {
   id: number[];
   Link: any;
   nextJs?: boolean;
+  currentPath?: string;
 }
 
 const LinkContent: React.FC<{ item: MenuItemType }> = ({ item }) => {
@@ -28,21 +29,31 @@ const LinkContent: React.FC<{ item: MenuItemType }> = ({ item }) => {
   );
 };
 
-const Item: React.FC<ItemProps> = ({ item, toggleSidebar, toggleSubMenu, selectItem, id, Link, nextJs }) => {
-  const checkSelected = () => {
-    const link = window.location.pathname;
-    if (link === item.link || link === item.link + '/' || link + '/' === item.link) {
-      selectItem(id);
-    }
-  };
-
+const Item: React.FC<ItemProps> = ({
+  item,
+  toggleSidebar,
+  toggleSubMenu,
+  selectItem,
+  id,
+  Link,
+  nextJs,
+  currentPath,
+}) => {
   React.useEffect(() => {
-    checkSelected();
-  }, []);
+    if (nextJs) {
+      (currentPath === item.link?.href || (item.hasDynamicPath && currentPath?.startsWith(item.link?.href))) &&
+        !item.selected &&
+        selectItem(id);
+    }
+  }, [currentPath]);
 
   const onClickHandler = () => {
     !item.selected && selectItem(id);
     toggleSidebar && toggleSidebar();
+  };
+
+  const isActive = ({ isCurrent, isPartiallyCurrent }: { isCurrent: boolean; isPartiallyCurrent: boolean }) => {
+    (isCurrent || (item.hasDynamicPath && isPartiallyCurrent)) && !item.selected && selectItem(id);
   };
 
   const handleToggleSubMenu = () => {
@@ -64,7 +75,7 @@ const Item: React.FC<ItemProps> = ({ item, toggleSidebar, toggleSubMenu, selectI
             </a>
           </Link>
         ) : (
-          <Link {...item.link} className={item.selected ? 'active' : ''} onClick={onClickHandler}>
+          <Link {...item.link} getProps={isActive} className={item.selected ? 'active' : ''} onClick={onClickHandler}>
             <LinkContent item={item} />
           </Link>
         )
@@ -99,6 +110,7 @@ const Item: React.FC<ItemProps> = ({ item, toggleSidebar, toggleSubMenu, selectI
                     id={id.concat([index])}
                     Link={Link}
                     nextJs={nextJs}
+                    currentPath={currentPath}
                     selectItem={selectItem}
                     toggleSidebar={toggleSidebar}
                     toggleSubMenu={toggleSubMenu}

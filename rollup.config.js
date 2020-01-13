@@ -1,29 +1,20 @@
 import typescript from 'rollup-plugin-typescript2';
-import { terser } from 'rollup-plugin-terser';
-import babel from 'rollup-plugin-babel';
-
-const plugins = [
-  typescript({
-    typescript: require('typescript'),
-    check: false,
-    clean: true,
-  }),
-  babel({
-    exclude: 'node_modules/**',
-    plugins: ['babel-plugin-styled-components'],
-  }),
-  terser(),
-];
-
-const external = ['react', 'react-dom', 'styled-components'];
-const globals = { react: 'React', 'react-dom': 'ReactDOM', 'styled-components': 'styled' };
-const dir = 'dist';
+import pkg from './package.json';
 
 export default [
   {
     input: 'src/index.ts',
-    output: { format: 'cjs', file: `${dir}/index.js`, globals },
-    plugins,
-    external,
+    output: [
+      { file: pkg.main, format: 'cjs' },
+      { file: pkg.module, format: 'esm' },
+    ],
+    plugins: [
+      typescript({
+        typescript: require('typescript'),
+        check: false,
+        clean: true,
+      }),
+    ],
+    external: Object.keys(pkg.peerDependencies || {}),
   },
 ];

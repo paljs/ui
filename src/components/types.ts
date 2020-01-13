@@ -36,18 +36,20 @@ export type Appearance = 'filled' | 'outline' | 'ghost' | 'hero';
 
 export type IconField = string | IconProps;
 
-export interface MenuItemType {
+interface ItemType {
   title: string;
-  link?: string | object;
   expanded?: boolean;
   selected?: boolean;
-  group?: boolean;
   hidden?: boolean;
   icon?: IconField;
-  url?: string;
-  children?: MenuItemType[];
+  hasDynamicPath?: boolean;
+  url: string;
+  link: { [k: string]: any };
+  group: boolean;
+  children: RequireOnlyOne<ItemType, 'url' | 'children' | 'link' | 'group'>[];
 }
 
+export type MenuItemType = RequireOnlyOne<ItemType, 'url' | 'children' | 'link' | 'group'>;
 export interface ButtonTypes {
   fullWidth?: boolean;
   pulse?: boolean;
@@ -57,6 +59,7 @@ export interface ButtonTypes {
   status?: Status;
 }
 
-export type Record<K extends keyof any, T> = {
-  [P in K]?: T;
-};
+type RequireOnlyOne<T, Keys extends keyof T = keyof T> = Pick<T, Exclude<keyof T, Keys>> &
+  {
+    [K in Keys]-?: Required<Pick<T, K>> & Partial<Record<Exclude<Keys, K>, undefined>>;
+  }[Keys];

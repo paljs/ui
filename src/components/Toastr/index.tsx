@@ -4,7 +4,7 @@ import layoutContext from '../Layout/layout-context';
 import { getLogicalPosition } from '../positionHelper';
 import { ToastrContainer } from './style';
 import Item from './Item';
-import { Position, Status, Record, IconField } from '../types';
+import { Position, Status, IconField } from '../types';
 
 export interface ToastrRef {
   add: (message: string, title: string, option?: ToastrProps | {}) => void;

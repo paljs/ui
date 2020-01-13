@@ -14,6 +14,7 @@ interface MenuProps {
   toggleSidebar?: () => void;
   Link: any;
   nextJs?: boolean;
+  currentPath?: string;
   className?: string;
   style?: React.CSSProperties;
   ref?: React.RefObject<MenuRefObject>;
@@ -91,6 +92,7 @@ let Menu: React.RefForwardingComponent<MenuRefObject, MenuProps> = (props, ref) 
                 item={item}
                 Link={props.Link}
                 nextJs={props.nextJs}
+                currentPath={props.currentPath}
                 selectItem={i => onSelectItem(i)}
                 toggleSidebar={props.toggleSidebar}
                 toggleSubMenu={(item: MenuItemType) => onToggleSubMenu(item)}
