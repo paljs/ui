@@ -1,7 +1,8 @@
 import React, { useRef, useState, forwardRef, useImperativeHandle } from 'react';
-import { Menu, SidebarBody, Button, SidebarRefObject, MenuRefObject, EvaIcon, SidebarProps, Sidebar } from 'oah-ui';
+import { SidebarBody, Button, SidebarRefObject, MenuRefObject, EvaIcon, SidebarProps, Sidebar } from 'oah-ui';
 import menuItems from '../menuItem';
 import { Link } from 'gatsby';
+import { Menu } from '../Menu';
 
 const SidebarCustom: React.RefForwardingComponent<Omit<SidebarRefObject, 'hide'>, SidebarProps> = (_, ref) => {
   const [menuState, setMenuState] = useState(false);

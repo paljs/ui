@@ -1,41 +1,39 @@
 export default [
   {
     title: 'Getting Started',
-    link: { activeClassName: 'active', to: '/getting-started' },
+    link: { to: '/getting-started' },
   },
   {
     title: 'Guides',
-    link: '/guides',
     children: [
       {
         title: 'Install based on starter kit',
-        link: { activeClassName: 'active', to: '/guides/install-based-on-starter-kit' },
+        link: { to: '/guides/install-based-on-starter-kit' },
       },
       {
         title: 'Start new project',
-        link: { activeClassName: 'active', to: '/guides/start-new-project' },
+        link: { to: '/guides/start-new-project' },
       },
       {
         title: 'Theme System',
-        link: { activeClassName: 'active', to: '/guides/theme-system' },
+        link: { to: '/guides/theme-system' },
       },
       {
         title: 'Enable Theme System',
-        link: { activeClassName: 'active', to: '/guides/enable-theme-system' },
+        link: { to: '/guides/enable-theme-system' },
       },
       {
         title: 'Custom Component Style',
-        link: { activeClassName: 'active', to: '/guides/custom-component-style' },
+        link: { to: '/guides/custom-component-style' },
       },
       {
         title: 'Grid System',
-        link: { activeClassName: 'active', to: '/guides/grid-system' },
+        link: { to: '/guides/grid-system' },
       },
     ],
   },
   {
     title: 'Components',
-    link: '/components',
     children: [
       {
         title: 'Global',
@@ -43,31 +41,31 @@ export default [
       },
       {
         title: 'Layout',
-        link: { activeClassName: 'active', to: '/components/layout' },
+        link: { to: '/components/layout' },
       },
       {
         title: 'Grid',
-        link: { activeClassName: 'active', to: '/components/grid' },
+        link: { to: '/components/grid' },
       },
       {
         title: 'Card',
-        link: { activeClassName: 'active', to: '/components/card' },
+        link: { to: '/components/card' },
       },
       {
         title: 'Flip Card',
-        link: { activeClassName: 'active', to: '/components/flip-card' },
+        link: { to: '/components/flip-card' },
       },
       {
         title: 'Reveal Card',
-        link: { activeClassName: 'active', to: '/components/reveal-card' },
+        link: { to: '/components/reveal-card' },
       },
       {
         title: 'Accordion',
-        link: { activeClassName: 'active', to: '/components/accordion' },
+        link: { to: '/components/accordion' },
       },
       {
         title: 'List',
-        link: { activeClassName: 'active', to: '/components/list' },
+        link: { to: '/components/list' },
       },
       {
         title: 'Navigation',
@@ -75,19 +73,19 @@ export default [
       },
       {
         title: 'Sidebar',
-        link: { activeClassName: 'active', to: '/components/sidebar' },
+        link: { to: '/components/sidebar' },
       },
       {
         title: 'Menu',
-        link: { activeClassName: 'active', to: '/components/menu' },
+        link: { to: '/components/menu' },
       },
       {
         title: 'Tabs',
-        link: { activeClassName: 'active', to: '/components/tabs' },
+        link: { to: '/components/tabs' },
       },
       {
         title: 'Actions',
-        link: { activeClassName: 'active', to: '/components/actions' },
+        link: { to: '/components/actions' },
       },
       {
         title: 'Forms',
@@ -95,23 +93,23 @@ export default [
       },
       {
         title: 'Input',
-        link: { activeClassName: 'active', to: '/components/input' },
+        link: { to: '/components/input' },
       },
       {
         title: 'Checkbox',
-        link: { activeClassName: 'active', to: '/components/checkbox' },
+        link: { to: '/components/checkbox' },
       },
       {
         title: 'Radio',
-        link: { activeClassName: 'active', to: '/components/radio' },
+        link: { to: '/components/radio' },
       },
       {
         title: 'Button',
-        link: { activeClassName: 'active', to: '/components/button' },
+        link: { to: '/components/button' },
       },
       {
         title: 'Select',
-        link: { activeClassName: 'active', to: '/components/select' },
+        link: { to: '/components/select' },
       },
       {
         title: 'Modal && Overlays',
@@ -119,19 +117,19 @@ export default [
       },
       {
         title: 'Popover',
-        link: { activeClassName: 'active', to: '/components/popover' },
+        link: { to: '/components/popover' },
       },
       {
         title: 'Context Menu',
-        link: { activeClassName: 'active', to: '/components/context-menu' },
+        link: { to: '/components/context-menu' },
       },
       {
         title: 'Tooltip',
-        link: { activeClassName: 'active', to: '/components/tooltip' },
+        link: { to: '/components/tooltip' },
       },
       {
         title: 'Toastr',
-        link: { activeClassName: 'active', to: '/components/toastr' },
+        link: { to: '/components/toastr' },
       },
       {
         title: 'Extra',
@@ -139,53 +137,52 @@ export default [
       },
       {
         title: 'Global Search',
-        link: { activeClassName: 'active', to: '/components/search' },
+        link: { to: '/components/search' },
       },
       {
         title: 'User (Avatar)',
-        link: { activeClassName: 'active', to: '/components/user' },
+        link: { to: '/components/user' },
       },
       {
         title: 'Alert',
-        link: { activeClassName: 'active', to: '/components/alert' },
+        link: { to: '/components/alert' },
       },
       {
         title: 'Spinner',
-        link: { activeClassName: 'active', to: '/components/spinner' },
+        link: { to: '/components/spinner' },
       },
       {
         title: 'Progress Bar',
-        link: { activeClassName: 'active', to: '/components/progress' },
+        link: { to: '/components/progress' },
       },
       {
         title: 'Badge',
-        link: { activeClassName: 'active', to: '/components/badge' },
+        link: { to: '/components/badge' },
       },
       {
         title: 'Chat UI',
-        link: { activeClassName: 'active', to: '/components/chat' },
+        link: { to: '/components/chat' },
       },
     ],
   },
   {
     title: 'Themes',
-    link: '/themes',
     children: [
       {
         title: 'Default',
-        link: { activeClassName: 'active', to: '/themes/default' },
+        link: { to: '/themes/default' },
       },
       {
         title: 'Dark',
-        link: { activeClassName: 'active', to: '/themes/dark' },
+        link: { to: '/themes/dark' },
       },
       {
         title: 'Cosmic',
-        link: { activeClassName: 'active', to: '/themes/cosmic' },
+        link: { to: '/themes/cosmic' },
       },
       {
         title: 'Corporate',
-        link: { activeClassName: 'active', to: '/themes/corporate' },
+        link: { to: '/themes/corporate' },
       },
     ],
   },
