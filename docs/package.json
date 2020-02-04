@@ -16,7 +16,7 @@
     "gatsby-plugin-layout": "^1.1.18",
     "gatsby-plugin-manifest": "^2.2.34",
     "gatsby-plugin-mdx": "^1.0.64",
-    "gatsby-plugin-mdx-code-demo": "^1.0.0-beta.5",
+    "gatsby-plugin-mdx-code-demo-oah": "^1.0.0",
     "gatsby-plugin-offline": "^2.0.20",
     "gatsby-plugin-react-helmet": "^3.1.10",
     "gatsby-plugin-sharp": "^2.3.10",
@@ -32,6 +32,7 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-helmet": "^5.2.0",
+    "react-select": "^3.0.8",
     "styled-components": "^5.0.0",
     "typescript": "^3.7.4"
   },
@@ -49,6 +50,7 @@
   },
   "devDependencies": {
     "@types/react-helmet": "^5.0.14",
+    "@types/react-select": "^3.0.10",
     "@typescript-eslint/eslint-plugin": "^2.14.0",
     "@typescript-eslint/parser": "^2.14.0",
     "eslint": "^6.8.0",

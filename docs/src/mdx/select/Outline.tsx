@@ -1,6 +1,12 @@
 import React from 'react';
-import { Select, SelectOption } from 'oah-ui';
+import { SelectOption } from 'oah-ui';
 import { status } from '../shared';
+import Select from '../../components/Select';
+import styled from 'styled-components';
+
+const SelectStyled = styled(Select)`
+  margin-bottom: 1rem;
+`;
 
 const statusOption: SelectOption[] = [
   { label: 'Clean', value: '' },
@@ -15,7 +21,7 @@ function Outline() {
   return (
     <div style={{ maxWidth: '16rem' }}>
       {status.map(state => (
-        <Select
+        <SelectStyled
           key={state}
           style={style}
           appearance="outline"

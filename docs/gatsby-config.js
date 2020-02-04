@@ -22,7 +22,7 @@ module.exports = {
         extensions: ['.mdx', '.md'],
         gatsbyRemarkPlugins: [
           {
-            resolve: 'gatsby-plugin-mdx-code-demo',
+            resolve: 'gatsby-plugin-mdx-code-demo-oah',
             options: {
               demoComponent: path.resolve('./src/components/Example'),
             },
