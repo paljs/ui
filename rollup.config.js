@@ -5,6 +5,7 @@ export default [
   {
     input: 'src/index.ts',
     output: [
+     // { file: 'docs/node_modules/oah-ui/dist/index.cjs.js', format: 'cjs' },
       { file: pkg.main, format: 'cjs' },
       { file: pkg.module, format: 'esm' },
     ],

@@ -1,8 +1,12 @@
 import React, { useRef, useState, forwardRef, useImperativeHandle } from 'react';
-import { SidebarBody, Button, SidebarRefObject, MenuRefObject, EvaIcon, SidebarProps, Sidebar } from 'oah-ui';
+import { Menu, SidebarBody, Button, SidebarRefObject, MenuRefObject, EvaIcon, SidebarProps, Sidebar } from 'oah-ui';
 import menuItems from '../menuItem';
 import { Link } from 'gatsby';
-import { Menu } from '../Menu';
+import { Location } from '@reach/router';
+
+const getPathReady = (path: string) => {
+  return path.endsWith('/') ? path.slice(0, -1) : path;
+};
 
 const SidebarCustom: React.RefForwardingComponent<Omit<SidebarRefObject, 'hide'>, SidebarProps> = (_, ref) => {
   const [menuState, setMenuState] = useState(false);
@@ -39,13 +43,18 @@ const SidebarCustom: React.RefForwardingComponent<Omit<SidebarRefObject, 'hide'>
         </Button>
       </header>
       <SidebarBody>
-        <Menu
-          className="sidebar-menu"
-          Link={Link}
-          ref={menuRef}
-          items={menuItems}
-          toggleSidebar={() => sidebarRef.current?.hide()}
-        />
+        <Location>
+          {({ location }) => (
+            <Menu
+              className="sidebar-menu"
+              Link={Link}
+              ref={menuRef}
+              items={menuItems}
+              currentPath={getPathReady(location.pathname)}
+              toggleSidebar={() => sidebarRef.current?.hide()}
+            />
+          )}
+        </Location>
       </SidebarBody>
     </Sidebar>
   );

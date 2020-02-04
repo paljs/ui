@@ -17,7 +17,7 @@ import SimpleLayout from './SimpleLayout';
 import SidebarCustom from './Sidebar';
 
 const LayoutPage: React.FC = props => {
-  const [theme, setTheme] = useState<DefaultTheme['name']>('default');
+  const [theme, setTheme] = useState<DefaultTheme['name']>('dark');
   const sidebarRef = useRef<SidebarRefObject>(null);
   const changeTheme = (newTheme: DefaultTheme['name']) => {
     setTheme(newTheme);

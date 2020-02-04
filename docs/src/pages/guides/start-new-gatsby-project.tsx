@@ -1,10 +1,10 @@
 import React from 'react';
 import { Row, Col } from 'oah-ui';
-import MdxContent from '../../mdx/guides/start-new-project.mdx';
+import MdxContent from '../../mdx/guides/start-new-gatsby-project.mdx';
 import SEO from '../../components/SEO';
 import GuideStyle from '../../components/GuideStyle';
 
-function StartNewProject() {
+function StartNewGatsbyProject() {
   return (
     <Row>
       <SEO title="Start new project" />
@@ -17,4 +17,4 @@ function StartNewProject() {
   );
 }
 
-export default StartNewProject;
+export default StartNewGatsbyProject;

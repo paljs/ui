@@ -60,7 +60,7 @@ const RowStyle = styled.div<RowProps>`
 
 type FlexProps = 'start' | 'center' | 'end' | 'top' | 'middle' | 'bottom' | 'around' | 'between';
 
-interface RowProps extends Record<FlexProps, BreakPointKeys> {
+interface RowProps extends Partial<Record<FlexProps, BreakPointKeys>> {
   reverse?: boolean;
 }
 

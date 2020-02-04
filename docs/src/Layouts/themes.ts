@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-use-before-define */
 import { createTheme } from 'oah-ui';
 import { DefaultTheme } from 'styled-components';
 

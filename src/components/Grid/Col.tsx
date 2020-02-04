@@ -63,8 +63,8 @@ interface ColProps {
   first?: boolean;
   last?: boolean;
   order?: number;
-  offset?: Record<BreakPointKeys, number>;
-  breakPoint?: Record<BreakPointKeys, number | boolean>;
+  offset?: Partial<Record<BreakPointKeys, number>>;
+  breakPoint?: Partial<Record<BreakPointKeys, number | boolean>>;
   style?: React.CSSProperties;
   className?: string;
 }

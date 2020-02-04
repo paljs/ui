@@ -4,10 +4,10 @@
  * Licensed under the MIT License. See License.txt in the project root for license information.
  */
 
-import { ItemStyle } from './style';
 import React from 'react';
 import { Icon, ItemIcon } from '../Icon';
 import { MenuItemType } from '../types';
+import { ItemStyle } from './style';
 
 interface ItemProps {
   item: MenuItemType;
@@ -17,7 +17,7 @@ interface ItemProps {
   id: number[];
   Link: any;
   nextJs?: boolean;
-  currentPath?: string;
+  currentPath: string;
 }
 
 const LinkContent: React.FC<{ item: MenuItemType }> = ({ item }) => {
@@ -40,20 +40,14 @@ const Item: React.FC<ItemProps> = ({
   currentPath,
 }) => {
   React.useEffect(() => {
-    if (nextJs) {
-      (currentPath === item.link?.href || (item.hasDynamicPath && currentPath?.startsWith(item.link?.href))) &&
-        !item.selected &&
-        selectItem(id);
-    }
+    const link = nextJs ? item.link?.href : item.link?.to;
+    if (link && (currentPath === link || (item.hasDynamicPath && currentPath?.startsWith(link))) && !item.selected)
+      selectItem(id);
   }, [currentPath]);
 
   const onClickHandler = () => {
     !item.selected && selectItem(id);
     toggleSidebar && toggleSidebar();
-  };
-
-  const isActive = ({ isCurrent, isPartiallyCurrent }: { isCurrent: boolean; isPartiallyCurrent: boolean }) => {
-    (isCurrent || (item.hasDynamicPath && isPartiallyCurrent)) && !item.selected && selectItem(id);
   };
 
   const handleToggleSubMenu = () => {
@@ -75,7 +69,7 @@ const Item: React.FC<ItemProps> = ({
             </a>
           </Link>
         ) : (
-          <Link {...item.link} getProps={isActive} className={item.selected ? 'active' : ''} onClick={onClickHandler}>
+          <Link {...item.link} className={item.selected ? 'active' : ''} onClick={onClickHandler}>
             <LinkContent item={item} />
           </Link>
         )
@@ -86,7 +80,7 @@ const Item: React.FC<ItemProps> = ({
       ) : item.children ? (
         <>
           <a
-            href={typeof item.link === 'string' ? item.link : ''}
+            href="#"
             title={item.title}
             onClick={e => {
               e.preventDefault();
