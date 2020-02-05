@@ -5,7 +5,7 @@ export default [
   {
     input: 'src/index.ts',
     output: [
-     // { file: 'docs/node_modules/oah-ui/dist/index.cjs.js', format: 'cjs' },
+      // { file: 'docs/node_modules/oah-ui/dist/index.cjs.js', format: 'cjs' },
       { file: pkg.main, format: 'cjs' },
       { file: pkg.module, format: 'esm' },
     ],
@@ -16,6 +16,6 @@ export default [
         clean: true,
       }),
     ],
-    external: Object.keys(pkg.peerDependencies || {}),
+    external: [...Object.keys(pkg.peerDependencies || {}), 'react-select'],
   },
 ];

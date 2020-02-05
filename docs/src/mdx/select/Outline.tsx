@@ -1,14 +1,13 @@
 import React from 'react';
-import { SelectOption } from 'oah-ui';
+import { Select } from 'oah-ui';
 import { status } from '../shared';
-import Select from '../../components/Select';
 import styled from 'styled-components';
 
-const SelectStyled = styled(Select)`
+export const SelectStyled = styled(Select)`
   margin-bottom: 1rem;
 `;
 
-const statusOption: SelectOption[] = [
+const statusOption: { value: any, label: any }[] = [
   { label: 'Clean', value: '' },
   { value: 'Info', label: 'Info' },
   { value: 'Success', label: 'Success' },

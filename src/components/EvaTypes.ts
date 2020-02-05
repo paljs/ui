@@ -1,7 +1,3 @@
-export interface OriginalEvaIcon {
-  toSvg(options: EvaIconOptions): string;
-}
-
 export type Icon = (options?: EvaIconOptions) => string;
 
 export interface EvaIconOptions {

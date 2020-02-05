@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { DefaultTheme } from 'styled-components';
-import { breakpointDown, Actions, Select, LayoutHeader } from 'oah-ui';
+import { breakpointDown, Actions, Select, LayoutHeader, EvaIcon } from 'oah-ui';
 
 const SidebarIcon = styled(Actions)`
   display: none;
@@ -33,23 +33,51 @@ interface HeaderProps {
   changeTheme: (value: DefaultTheme['name']) => void;
 }
 
+const SelectStyled = styled(Select)`
+  min-width: 150px;
+`;
+
+const Label = styled.span`
+  display: flex;
+  align-items: center;
+`;
 const Header: React.FC<HeaderProps> = props => {
   const themeOptions = [
     {
       value: 'default',
-      label: 'Default',
+      label: (
+        <Label>
+          <EvaIcon name="droplet" options={{ fill: '#a6c1ff' }} />
+          Default
+        </Label>
+      ),
     },
     {
       value: 'dark',
-      label: 'Dark',
+      label: (
+        <Label>
+          <EvaIcon name="droplet" options={{ fill: '#192038' }} />
+          Dark
+        </Label>
+      ),
     },
     {
       value: 'cosmic',
-      label: 'Cosmic',
+      label: (
+        <Label>
+          <EvaIcon name="droplet" options={{ fill: '#5a37b8' }} />
+          Cosmic
+        </Label>
+      ),
     },
     {
       value: 'corporate',
-      label: 'Corporate',
+      label: (
+        <Label>
+          <EvaIcon name="droplet" options={{ fill: '#3366ff' }} />
+          Corporate
+        </Label>
+      ),
       selected: true,
     },
   ];
@@ -76,11 +104,12 @@ const Header: React.FC<HeaderProps> = props => {
               },
               {
                 content: (
-                  <Select
-                    size="Tiny"
-                    customLabel="Themes"
+                  <SelectStyled
+                    isSearchable={false}
+                    shape="SemiRound"
+                    placeholder="Themes"
                     options={themeOptions}
-                    onChange={(v: DefaultTheme['name']) => props.changeTheme(v)}
+                    onChange={({ value }: { value: DefaultTheme['name'] }) => props.changeTheme(value)}
                   />
                 ),
               },

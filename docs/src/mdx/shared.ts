@@ -36,3 +36,5 @@ export const sizeString = size.join(' | ');
 export const shapeString = shape.join(' | ');
 
 export const appearanceString = appearance.join(' | ');
+
+export type Option = { value: any, label: any };

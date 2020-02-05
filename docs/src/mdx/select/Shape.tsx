@@ -1,8 +1,8 @@
 import React from 'react';
-import { Select, SelectOption } from 'oah-ui';
 import { shape } from '../shared';
+import { SelectStyled } from "./Outline";
 
-const options: SelectOption[] = [
+const options: { value: any, label: any }[] = [
   { label: 'Clean', value: '' },
   { value: 'Info', label: 'Info' },
   { value: 'Success', label: 'Success' },
@@ -15,7 +15,7 @@ function Size() {
   return (
     <div style={{ maxWidth: '16rem' }}>
       {shape.map(shape => (
-        <Select key={shape} style={style} shape={shape} options={options} placeholder={shape} />
+        <SelectStyled key={shape} style={style} shape={shape} options={options} placeholder={shape} />
       ))}
     </div>
   );

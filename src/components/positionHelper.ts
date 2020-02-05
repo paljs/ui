@@ -1,3 +1,9 @@
+/*
+ * @license
+ * Copyright Ahmed Elywa. All Rights Reserved.
+ * Licensed under the MIT License. See License.txt in the project root for license information.
+ */
+
 const position1 = ['left', 'right', 'top', 'bottom'];
 const position2 = ['start', 'end'];
 const position3 = ['topRight', 'topLeft', 'bottomRight', 'bottomLeft'];

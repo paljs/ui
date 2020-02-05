@@ -1,13 +1,13 @@
 import React from 'react';
-import { Select, SelectOption } from 'oah-ui';
+import { Select } from 'oah-ui';
 
-const positionOptions: SelectOption[] = [
+const positionOptions: { value: any, label: any }[] = [
   { value: 'topRight', label: 'Top-Right' },
   { value: 'topLeft', label: 'Top-Left' },
   { value: 'bottomRight', label: 'Bottom-Right' },
   { value: 'bottomLeft', label: 'Bottom-Left' },
 ];
-const statusOption: SelectOption[] = [
+const statusOption: { value: any, label: any }[] = [
   { label: 'Clean', value: '' },
   { value: 'Info', label: 'Info' },
   { value: 'Success', label: 'Success' },
@@ -22,7 +22,7 @@ function Example() {
       <Select options={statusOption} placeholder="Status" />
 
       <h4>multiple Select</h4>
-      <Select options={positionOptions} multiple placeholder="Select multiple" />
+      <Select options={positionOptions} isMulti placeholder="Select multiple" />
     </>
   );
 }

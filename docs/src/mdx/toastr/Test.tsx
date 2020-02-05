@@ -4,15 +4,15 @@ import {
   Col,
   InputGroup,
   Checkbox,
-  Select,
   Toastr,
   Button,
   Card,
   CardBody,
-  SelectOption,
   ToastrRef,
   ToastrProps,
 } from 'oah-ui';
+import { SelectStyled } from "../select/Outline";
+import { Option } from "../shared";
 
 export default function ToastrPage() {
   const [count, setCount] = useState(1);
@@ -41,7 +41,7 @@ export default function ToastrPage() {
     setData(newData);
   };
 
-  const positionOptions: SelectOption[] = [
+  const positionOptions: Option[] = [
     { value: 'topRight', label: 'Top-Right' },
     { value: 'topLeft', label: 'Top-Left' },
     { value: 'bottomRight', label: 'Bottom-Right' },
@@ -51,7 +51,7 @@ export default function ToastrPage() {
     { value: 'bottomStart', label: 'Bottom-Start' },
     { value: 'bottomEnd', label: 'Bottom-End' },
   ];
-  const statusOption: SelectOption[] = [
+  const statusOption: Option[] = [
     { value: 'Info', label: 'Info' },
     { value: 'Success', label: 'Success' },
     { value: 'Danger', label: 'Danger' },
@@ -69,22 +69,22 @@ export default function ToastrPage() {
           <CardBody>
             <Row>
               <Col breakPoint={{ xs: 12, md: 6 }}>
-                <Select
-                  style={{ marginBottom: '1rem' }}
+                <SelectStyled
                   fullWidth
                   placeholder="Place to show toast"
                   options={positionOptions}
-                  value={data.position}
-                  onChange={v => onChangeHandle('position', v)}
+                  value={positionOptions.find(position => position.value === data.position)}
+                  onChange={(v: Option) => onChangeHandle('position', v.value)}
                 />
-                <InputGroup fullWidth label="Title">
-                  <input type="text" value={title} onChange={e => setTitle(e.target.value)} />
+                <InputGroup fullWidth>
+                  <input type="text" placeholder="Title" value={title} onChange={e => setTitle(e.target.value)} />
                 </InputGroup>
-                <InputGroup fullWidth label="Message">
-                  <input type="text" value={message} onChange={e => setMessage(e.target.value)} />
+                <InputGroup fullWidth>
+                  <input type="text" placeholder="Message" value={message} onChange={e => setMessage(e.target.value)} />
                 </InputGroup>
-                <InputGroup fullWidth label="Time to hide toast, ms. 0 to persistent toast">
+                <InputGroup fullWidth>
                   <input
+                    placeholder="Time to hide toast, ms. 0 to persistent toast"
                     type="number"
                     value={data.duration}
                     onChange={e => onChangeHandle('duration', e.target.valueAsNumber)}
@@ -92,13 +92,12 @@ export default function ToastrPage() {
                 </InputGroup>
               </Col>
               <Col breakPoint={{ xs: 12, md: 6 }}>
-                <Select
-                  style={{ marginBottom: '1rem' }}
+                <SelectStyled
                   fullWidth
                   placeholder="Toast Status"
                   options={statusOption}
-                  value={data.status}
-                  onChange={v => onChangeHandle('status', v)}
+                  value={statusOption.find(state => state.value === data.status )}
+                  onChange={(v: Option) => onChangeHandle('status', v.value)}
                 />
                 <div style={{ display: 'flex', flexDirection: 'column' }}>
                   <Checkbox checked={data.destroyByClick} onChange={v => onChangeHandle('destroyByClick', v)}>
