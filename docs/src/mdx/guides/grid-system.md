@@ -8,7 +8,7 @@ Grid system use this variables.
 // this default grid system
 
 const gridSize = 12; // grid column number
-const gridGutter = 24; //paddind 24 (12px on each side of a column)
+const gridGutter = 24; //padding 24 (12px on each side of a column)
 // default breakpoints
 const breakpoints = {
   xs: 0,
@@ -37,7 +37,7 @@ const maxContainer = {
 To customize this variables you need to send your values with theme settings
 sorry for now you can't customize breakpoints but will work on it
 
-```jsx
+```typescript jsx
 // here you can pass variables
 <ThemeProvider theme={themes(theme, { dir, gridSize: 10, gridGutter: 30 })}>
   <Layout dir={dir} />
@@ -51,8 +51,8 @@ OAH themes have 4 breakpoint functions to use simply in styled components
 #### breakpointUp
 
 ```js
-import styled { css } from 'styled-components';
-import { breakpointUp } from 'oah-ui/theme';
+import styled, { css } from 'styled-components';
+import { breakpointUp } from 'oah-ui';
 // Example: Hide starting at `min-width: 0`, and then show at the `md` breakpoint
 const Component = styled.div`
   display: none;
@@ -65,8 +65,8 @@ const Component = styled.div`
 #### breakpointDown
 
 ```js
-import styled { css } from 'styled-components';
-import { breakpointDown } from 'oah-ui/theme';
+import styled, { css } from 'styled-components';
+import { breakpointDown } from 'oah-ui';
 // Example: Hide from `xxxl`, and then show at the `md` breakpoint to `min-width: 0;`
 const Component = styled.div`
   display: none;
@@ -79,8 +79,8 @@ const Component = styled.div`
 #### breakpointBetween
 
 ```js
-import styled { css } from 'styled-components';
-import { breakpointBetween } from 'oah-ui/theme';
+import styled, { css } from 'styled-components';
+import { breakpointBetween } from 'oah-ui';
 // Example: show in width between 768 and 1200 this take lower breakpoint, upper breakpoint
 const Component = styled.div`
   display: none;
@@ -93,8 +93,8 @@ const Component = styled.div`
 #### breakpointOnly
 
 ```js
-import styled { css } from 'styled-components';
-import { breakpointOnly } from 'oah-ui/theme';
+import styled, { css } from 'styled-components';
+import { breakpointOnly } from 'oah-ui';
 // Example: show in width between 768 and 991 from md to under lg
 const Component = styled.div`
   display: none;

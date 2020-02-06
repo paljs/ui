@@ -374,6 +374,7 @@ export interface ThemeObject {
   dividerStyle: ThemeKeys;
   dividerWidth: ThemeKeys;
   linkTextColor: ThemeKeys;
+  linkTextDecoration: ThemeKeys;
   linkTextFocusColor: ThemeKeys;
   linkTextHoverColor: ThemeKeys;
   cardBackgroundColor: ThemeKeys;

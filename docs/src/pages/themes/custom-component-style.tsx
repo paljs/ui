@@ -1,13 +1,13 @@
 import React from 'react';
 import { Row, Col } from 'oah-ui';
-import MdxContent from '../../mdx/guides/enable-theme-system.md';
+import MdxContent from '../../mdx/themes/custom-component-style.md';
 import SEO from '../../components/SEO';
 import GuideStyle from '../../components/GuideStyle';
 
-function EnableThemeSystem() {
+export default function CustomComponentStyle() {
   return (
     <Row>
-      <SEO title="Enable Theme System" />
+      <SEO title="Custom Component Style" />
       <Col breakPoint={{ xs: 12 }}>
         <GuideStyle>
           <MdxContent />
@@ -16,5 +16,3 @@ function EnableThemeSystem() {
     </Row>
   );
 }
-
-export default EnableThemeSystem;

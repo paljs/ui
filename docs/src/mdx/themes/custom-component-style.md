@@ -11,9 +11,9 @@ every component have variables you can get it from component page theme tab and 
 
 Use [styled-components](https://www.styled-components.com/docs) package to do this simply too see example:
 
-```jsx
+```typescript jsx
 import styled from 'styled-components';
-import { Sidebar, breakpointDown } from 'oah-ui'; // import original component
+import { Sidebar } from 'oah-ui'; // import original component
 
 // then pass here
 const SidebarStyled = styled(Sidebar)`

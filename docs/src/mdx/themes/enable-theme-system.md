@@ -21,9 +21,10 @@ import { Link } from 'gatsby';
 ## Normal Setup
 
 To enable theme you must use [styled-components](https://www.styled-components.com/docs) package
-`themes` function take 2 args first one theme name second take object of settings that need to custom theme or use it in your styled components
+`createTheme` function take 2 args first one theme name second take object of settings that need to custom theme or use it in your styled components
 
-```tsx
+```jsx
+import React, { useState } from 'react';
 // import ThemeProvider from styled-components to give it theme values
 import { ThemeProvider } from 'styled-components';
 import { Layout, createTheme } from 'oah-ui';
@@ -46,7 +47,7 @@ export default function LayoutPage(props) {
   // to enable direction you must send dir here and in layout component
   return (
     <ThemeProvider
-      theme={themes(theme, { dir, fontSize: '2rem', fontMain: 'font family' })}
+      theme={createTheme(theme, { dir, borderRadius: '0.25rem', outlineWidth: '0.375rem' })}
     >
       <Layout dir={dir} />
     </ThemeProvider>
@@ -58,28 +59,27 @@ export default function LayoutPage(props) {
 
 You must enable Global style make new file with any name will be like this example:
 
-```jsx
+```js
 import { createGlobalStyle } from 'styled-components';
 import { GlobalStyle } from 'oah-ui';
 
-const SimpleLayout = createGlobalStyle`
+export const SimpleLayout = createGlobalStyle`
   ${GlobalStyle}
   html{
     font-size: 16px;
   }
 `;
-export defaut SimpleLayout;
 ```
 
 Then you need to import in LayoutPage see example:
 
 ```jsx{8}
-import SimpleLayout from './SimpleLayout';
+import { SimpleLayout } from './SimpleLayout';
 
 
 return (
     <ThemeProvider
-      theme={themes(theme, { dir, fontSize: '2rem', fontMain: 'font family' })}
+      theme={themes(theme, { dir, borderRadius: '0.25rem', outlineWidth: '0.375rem' })}
     >
       <SimpleLayout/>
       <Layout dir={dir} />
@@ -101,40 +101,61 @@ return (
 This setup assumes that you have gone through the _Normal Setup_ steps but you will take `themes` function and custom it
 
 ```js
-import { themes } from 'oah-ui/theme';
+import { createTheme } from 'oah-ui';
 
 export function themeService(theme, dir) {
   switch (theme) {
     case 'corporate':
-      return themes(theme, { dir, ...customCorporate });
+      return createTheme(theme, { dir, ...customCorporate });
     case 'dark':
       // this will take all default theme variables and over it with your custom variables
-      // if you want to inherit from another theme you can pase cosmic or corporate if first args
-      return themes('corporate', { dir, ...customDark });
+      // if you want to inherit from another theme you can pass cosmic or corporate in first args
+      return createTheme('corporate', { dir, ...customDark });
     case 'cosmic':
     default:
-      return themes(theme, { dir });
+      return createTheme(theme, { dir });
   }
 }
 //  you can custom oah theme
 const customCorporate = {
-  colorBg: '#4ca6ff',
-  shadow: '0 1px 2px 0 #3780c0',
-  layoutBg: '#ffffff',
-  colorFg: '#222222'
+  borderRadius: '0.25rem',
+  
+  outlineWidth: '0.375rem',
+  outlineColor: 'colorBasicTransparent200',
+  
+  scrollbarColor: 'backgroundBasicColor4',
+  scrollbarBackgroundColor: 'backgroundBasicColor2',
+  scrollbarWidth: '0.3125rem',
+  
+  shadow: '0 0.5rem 1rem 0 rgba(44, 51, 73, 0.1)',
+  
+  dividerColor: 'borderBasicColor3',
+  dividerStyle: 'solid',
+  dividerWidth: '1px',
 };
 
 const customDark = {
-  colorBg: '#222222',
-  shadow: '0 1px 2px 0 #000000',
-  colorFg: '#303030',
-  layoutBg: '#ededed'
+  borderRadius: '0.25rem',
+  
+  outlineWidth: '0.375rem',
+  outlineColor: 'colorBasicTransparent200',
+  
+  scrollbarColor: 'backgroundBasicColor4',
+  scrollbarBackgroundColor: 'backgroundBasicColor2',
+  scrollbarWidth: '0.3125rem',
+  
+  shadow: '0 0.5rem 1rem 0 rgba(44, 51, 73, 0.1)',
+  
+  dividerColor: 'borderBasicColor3',
+  dividerStyle: 'solid',
+  dividerWidth: '1px',
 };
 ```
 
 After you end your `themeService` function you need to add it in your layout page
 
 ```jsx
+import React, { useState } from 'react';
 import { ThemeProvider } from 'styled-components';
 import { themeService } from './themeService';
 import SimpleLayout from './SimpleLayout';
@@ -154,7 +175,7 @@ export default function LayoutPage(props) {
     setDir(newDir);
   };
 
-  // add custom theme function here and give it theme name and dirction value
+  // add custom theme function here and give it theme name and direction value
   return (
     <ThemeProvider theme={themeService(theme, dir)}>
       <SimpleLayout />
@@ -166,6 +187,6 @@ export default function LayoutPage(props) {
 
 ## Related Articles
 
-- [Theme System Concepts](/guides/theme-system).
+- [Theme System Concepts](/themes/theme-system).
 - [Default Theme variables table](/themes/default).
 - [Cosmic Theme variables table](/themes/cosmic).

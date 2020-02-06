@@ -15,20 +15,41 @@ export default [
         link: { to: '/guides/start-new-gatsby-project' },
       },
       {
-        title: 'Theme System',
-        link: { to: '/guides/theme-system' },
-      },
-      {
-        title: 'Enable Theme System',
-        link: { to: '/guides/enable-theme-system' },
-      },
-      {
         title: 'Custom Component Style',
         link: { to: '/guides/custom-component-style' },
       },
       {
         title: 'Grid System',
         link: { to: '/guides/grid-system' },
+      },
+    ],
+  },
+  {
+    title: 'Design System',
+    children: [
+      {
+        title: 'Design System Theme',
+        link: { to: '/themes/theme-system' },
+      },
+      {
+        title: 'Enable Theme System',
+        link: { to: '/themes/enable-theme-system' },
+      },
+      {
+        title: 'Default Theme',
+        link: { to: '/themes/default' },
+      },
+      {
+        title: 'Dark Theme',
+        link: { to: '/themes/dark' },
+      },
+      {
+        title: 'Cosmic Theme',
+        link: { to: '/themes/cosmic' },
+      },
+      {
+        title: 'Corporate Theme',
+        link: { to: '/themes/corporate' },
       },
     ],
   },
@@ -162,27 +183,6 @@ export default [
       {
         title: 'Chat UI',
         link: { to: '/components/chat' },
-      },
-    ],
-  },
-  {
-    title: 'Themes',
-    children: [
-      {
-        title: 'Default',
-        link: { to: '/themes/default' },
-      },
-      {
-        title: 'Dark',
-        link: { to: '/themes/dark' },
-      },
-      {
-        title: 'Cosmic',
-        link: { to: '/themes/cosmic' },
-      },
-      {
-        title: 'Corporate',
-        link: { to: '/themes/corporate' },
       },
     ],
   },

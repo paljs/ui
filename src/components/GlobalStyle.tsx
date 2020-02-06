@@ -5,6 +5,7 @@
  */
 
 import { css } from 'styled-components';
+import { ThemeKey } from '../theme';
 
 const GlobalStyle = css`
   ${({ theme }) => css`
@@ -91,6 +92,161 @@ const GlobalStyle = css`
         }
       }
     }
+    body {
+      color: ${theme.textBasicColor};
+      font-family: ${theme.textParagraphFontFamily};
+      font-size: ${theme.textParagraphFontSize};
+      font-weight: ${theme.textParagraphFontWeight};
+      line-height: ${theme.textParagraphLineHeight};
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    .h1,
+    .h2,
+    .h3,
+    .h4,
+    .h5,
+    .h6 {
+      color: ${theme.textBasicColor};
+    }
+
+    ${[1, 2, 3, 4, 5, 6].map(
+      size => css`
+        h${size}, .h${size} {
+          font-size: ${theme[`textHeading${size}FontSize` as ThemeKey]};
+          font-family: ${theme[`textHeading${size}FontFamily` as ThemeKey]};
+          font-weight: ${theme[`textHeading${size}FontWeight` as ThemeKey]};
+          line-height: ${theme[`textHeading${size}LineHeight` as ThemeKey]};
+        }
+      `,
+    )}
+
+    .subtitle,
+  .subtitle-2 {
+      color: ${theme.textBasicColor};
+    }
+
+    .subtitle {
+      font-family: ${theme.textSubtitleFontFamily};
+      font-size: ${theme.textSubtitleFontSize};
+      font-weight: ${theme.textSubtitleFontWeight};
+      line-height: ${theme.textSubtitleLineHeight};
+    }
+
+    .subtitle-2 {
+      font-family: ${theme.textSubtitle2FontFamily};
+      font-size: ${theme.textSubtitle2FontSize};
+      font-weight: ${theme.textSubtitle2FontWeight};
+      line-height: ${theme.textSubtitle2LineHeight};
+    }
+
+    p,
+    .paragraph {
+      color: ${theme.textBasicColor};
+      font-family: ${theme.textParagraphFontFamily};
+      font-size: ${theme.textParagraphFontSize};
+      font-weight: ${theme.textParagraphFontWeight};
+      line-height: ${theme.textParagraphLineHeight};
+    }
+
+    .paragraph-2 {
+      color: ${theme.textBasicColor};
+      font-family: ${theme.textParagraph2FontFamily};
+      font-size: ${theme.textParagraph2FontSize};
+      font-weight: ${theme.textParagraph2FontWeight};
+      line-height: ${theme.textParagraph2LineHeight};
+    }
+
+    a {
+      color: ${theme.linkTextColor};
+      text-decoration: ${theme.linkTextDecoration};
+      font-size: inherit;
+      font-style: inherit;
+      font-weight: inherit;
+      line-height: inherit;
+
+      &:focus {
+        color: ${theme.linkTextFocusColor};
+      }
+
+      &:hover {
+        color: ${theme.linkTextHoverColor};
+      }
+
+      &.link-control,
+      &.link-control:hover {
+        color: ${theme.textControlColor};
+      }
+
+      &.link-alternate,
+      &.link-alternate:hover {
+        color: ${theme.textAlternateColor};
+      }
+    }
+
+    .label {
+      color: ${theme.textHintColor};
+      font-family: ${theme.textLabelFontFamily};
+      font-size: ${theme.textLabelFontSize};
+      font-weight: ${theme.textLabelFontWeight};
+      line-height: ${theme.textLabelLineHeight};
+    }
+
+    .caption {
+      font-family: ${theme.textCaptionFontFamily};
+      font-size: ${theme.textCaptionFontSize};
+      font-weight: ${theme.textCaptionFontWeight};
+      line-height: ${theme.textCaptionLineHeight};
+    }
+
+    .caption-2 {
+      font-family: ${theme.textCaption2FontFamily};
+      font-size: ${theme.textCaption2FontSize};
+      font-weight: ${theme.textCaption2FontWeight};
+      line-height: ${theme.textCaption2LineHeight};
+    }
+
+    .caption,
+    .caption-2 {
+      color: ${theme.textHintColor};
+      ${['Info', 'Success', 'Danger', 'Primary', 'Warning', 'Control', 'Basic'].map(
+        status => css`
+          &.status-${status} {
+            color: ${theme[`text${status}Color` as ThemeKey]};
+          }
+        `,
+      )}
+    }
+
+    li {
+      color: ${theme.listItemTextColor};
+      font-family: ${theme.listItemFontFamily};
+      font-size: ${theme.listItemFontSize};
+      font-weight: ${theme.listItemFontWeight};
+      line-height: ${theme.listItemLineHeight};
+    }
+
+    .text-alternate {
+      color: ${theme.textAlternateColor};
+    }
+    .text-disabled {
+      color: ${theme.textDisabledColor};
+    }
+    .text-hint {
+      color: ${theme.textHintColor};
+    }
+    ${['Info', 'Success', 'Danger', 'Primary', 'Warning', 'Control', 'Basic'].map(
+      status => css`
+        .text-${status} {
+          color: ${theme[`text${status}Color` as ThemeKey]};
+        }
+      `,
+    )}
     .visually-hidden {
       position: absolute !important;
       height: 1px;

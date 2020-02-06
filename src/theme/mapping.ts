@@ -8,6 +8,7 @@ import { ThemeObject } from './themeTypes';
 
 const mapping: Partial<ThemeObject> = {
   linkTextColor: 'textPrimaryColor',
+  linkTextDecoration: 'underline',
   linkTextFocusColor: 'textPrimaryFocusColor',
   linkTextHoverColor: 'textPrimaryHoverColor',
 
@@ -1613,7 +1614,6 @@ const mapping: Partial<ThemeObject> = {
   listItemFontSize: 'textParagraphFontSize',
   listItemFontWeight: 'textParagraphFontWeight',
   listItemLineHeight: 'textParagraphLineHeight',
-
 
   overlayBackdropBackgroundColor: 'rgba(0, 0, 0, 0.35)',
 
