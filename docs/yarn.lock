@@ -9693,10 +9693,10 @@ oah-eva-icon@^1.0.1:
   dependencies:
     eva-icons "^1.1.2"
 
-oah-ui@^2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/oah-ui/-/oah-ui-2.0.1.tgz#fd0fcf648fce735a2a3849f2491e02e7d9474f58"
-  integrity sha512-Bg7lKfSkCBSUxQqQu60NYZQBpbwIwBNh9SfLGA/VQZv4//r1baOEy0xCvh4KOoJ0eGYSQ4mJIrWefnKvSqpelg==
+oah-ui@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/oah-ui/-/oah-ui-2.0.2.tgz#e112a14b5fe16e5854abd27e078e37eb39b1962d"
+  integrity sha512-Rm2hLHHNTsW1fDD57Ao9aCWdFuaczz/K7uLvXMmYUqAfVk8aJ0uNfTRcyhpFD61RwWkXxR2n3ZKMbA4hKUk26Q==
   dependencies:
     react-select "^3.0.8"
 

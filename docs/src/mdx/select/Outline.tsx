@@ -1,13 +1,14 @@
 import React from 'react';
-import { Select } from 'oah-ui';
+import { Card, CardBody, Select } from 'oah-ui';
 import { status } from '../shared';
 import styled from 'styled-components';
 
 export const SelectStyled = styled(Select)`
   margin-bottom: 1rem;
+  max-width: 16rem;
 `;
 
-const statusOption: { value: any, label: any }[] = [
+const statusOption: { value: any; label: any }[] = [
   { label: 'Clean', value: '' },
   { value: 'Info', label: 'Info' },
   { value: 'Success', label: 'Success' },
@@ -16,20 +17,15 @@ const statusOption: { value: any, label: any }[] = [
 ];
 
 function Outline() {
-  const style = { marginBottom: '1rem' };
   return (
-    <div style={{ maxWidth: '16rem' }}>
-      {status.map(state => (
-        <SelectStyled
-          key={state}
-          style={style}
-          appearance="outline"
-          status={state}
-          options={statusOption}
-          placeholder={state}
-        />
-      ))}
-    </div>
+    <Card>
+      <header>Status</header>
+      <CardBody>
+        {status.map(state => (
+          <SelectStyled key={state} appearance="outline" status={state} options={statusOption} placeholder={state} />
+        ))}
+      </CardBody>
+    </Card>
   );
 }
 

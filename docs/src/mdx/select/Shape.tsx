@@ -1,8 +1,9 @@
 import React from 'react';
 import { shape } from '../shared';
-import { SelectStyled } from "./Outline";
+import { SelectStyled } from './Outline';
+import { Card, CardBody } from 'oah-ui';
 
-const options: { value: any, label: any }[] = [
+const options: { value: any; label: any }[] = [
   { label: 'Clean', value: '' },
   { value: 'Info', label: 'Info' },
   { value: 'Success', label: 'Success' },
@@ -11,13 +12,15 @@ const options: { value: any, label: any }[] = [
 ];
 
 function Size() {
-  const style = { marginBottom: '1rem' };
   return (
-    <div style={{ maxWidth: '16rem' }}>
-      {shape.map(shape => (
-        <SelectStyled key={shape} style={style} shape={shape} options={options} placeholder={shape} />
-      ))}
-    </div>
+    <Card>
+      <header>Shape</header>
+      <CardBody>
+        {shape.map(shape => (
+          <SelectStyled key={shape} shape={shape} options={options} placeholder={shape} />
+        ))}
+      </CardBody>
+    </Card>
   );
 }
 
