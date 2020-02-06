@@ -2,7 +2,7 @@ import React from 'react';
 import { Row, Col } from 'oah-ui';
 import SEO from '../../components/SEO';
 import Switch from '../../components/Switch';
-import Overview from '../../mdx/tabs/overview.mdx';
+import Overview from '../../mdx/tabs/overview.md';
 import ApiTable from '../../components/ApiTable';
 import StyleTable from '../../components/StyleTable';
 import { tabsProps, tabProps } from '../../mdx/tabs/ApiArray';

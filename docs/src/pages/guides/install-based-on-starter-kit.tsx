@@ -1,6 +1,6 @@
 import React from 'react';
 import { Row, Col } from 'oah-ui';
-import MdxContent from '../../mdx/guides/install-based-on-starter-kit.mdx';
+import MdxContent from '../../mdx/guides/install-based-on-starter-kit.md';
 import SEO from '../../components/SEO';
 import GuideStyle from '../../components/GuideStyle';
 

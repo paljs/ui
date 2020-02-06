@@ -1,6 +1,6 @@
 import React from 'react';
 import { Row, Col } from 'oah-ui';
-import MdxContent from '../../mdx/guides/custom-component-style.mdx';
+import MdxContent from '../../mdx/guides/custom-component-style.md';
 import SEO from '../../components/SEO';
 import GuideStyle from '../../components/GuideStyle';
 

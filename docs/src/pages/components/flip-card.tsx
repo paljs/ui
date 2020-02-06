@@ -2,7 +2,7 @@ import React from 'react';
 import { Row, Col } from 'oah-ui';
 import SEO from '../../components/SEO';
 import Switch from '../../components/Switch';
-import Overview from '../../mdx/flip-card/overview.mdx';
+import Overview from '../../mdx/flip-card/overview.md';
 import ApiTable from '../../components/ApiTable';
 import { flipCardProps } from '../../mdx/flip-card/ApiArray';
 

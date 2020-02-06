@@ -2,7 +2,7 @@ import React from 'react';
 import { Row, Col } from 'oah-ui';
 import SEO from '../../components/SEO';
 import Switch from '../../components/Switch';
-import Overview from '../../mdx/reveal-card/overview.mdx';
+import Overview from '../../mdx/reveal-card/overview.md';
 import ApiTable from '../../components/ApiTable';
 import { revealCardProps } from '../../mdx/reveal-card/ApiArray';
 

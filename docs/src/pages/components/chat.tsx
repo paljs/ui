@@ -2,7 +2,7 @@ import React from 'react';
 import { Row, Col } from 'oah-ui';
 import SEO from '../../components/SEO';
 import Switch from '../../components/Switch';
-import Overview from '../../mdx/chat/overview.mdx';
+import Overview from '../../mdx/chat/overview.md';
 import ApiTable from '../../components/ApiTable';
 import StyleTable from '../../components/StyleTable';
 import { chatProps, messagesProps, fromProps } from '../../mdx/chat/ApiArray';

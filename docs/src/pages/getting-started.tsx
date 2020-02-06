@@ -1,6 +1,6 @@
 import React from 'react';
 import { Row, Col } from 'oah-ui';
-import GettingStarted from '../mdx/getting-started.mdx';
+import GettingStarted from '../mdx/getting-started.md';
 import SEO from '../components/SEO';
 import GuideStyle from '../components/GuideStyle';
 

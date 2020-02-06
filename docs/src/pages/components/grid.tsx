@@ -1,6 +1,6 @@
 import React from 'react';
 import { Row, Col } from 'oah-ui';
-import Overview from '../../mdx/grid/overview.mdx';
+import Overview from '../../mdx/grid/overview.md';
 import SEO from '../../components/SEO';
 import Switch from '../../components/Switch';
 import ApiTable from '../../components/ApiTable';

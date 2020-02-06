@@ -11,8 +11,8 @@ export default [
         link: { to: '/guides/install-based-on-starter-kit' },
       },
       {
-        title: 'Start new project',
-        link: { to: '/guides/start-new-project' },
+        title: 'Start new gatsby project',
+        link: { to: '/guides/start-new-gatsby-project' },
       },
       {
         title: 'Theme System',
