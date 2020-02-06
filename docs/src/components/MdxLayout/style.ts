@@ -4,16 +4,6 @@ import styled, { css } from 'styled-components';
 const MdxLayoutStyle = styled(Card)`
   ${({ theme }) => css`
     margin-bottom: 1rem;
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      line-height: 1.25;
-      margin-bottom: 1.25rem;
-      font-weight: bold;
-    }
 
     .note {
       padding: 1.25rem 3rem 1.5rem 1.25rem;
@@ -31,7 +21,8 @@ const MdxLayoutStyle = styled(Card)`
         line-height: 1.5;
       }
 
-      &.note-info {
+      &.note-info,
+      &.note-info p {
         color: ${theme.colorInfo600};
         background-color: #f0f6ff;
       }

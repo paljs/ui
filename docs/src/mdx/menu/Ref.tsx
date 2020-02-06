@@ -1,14 +1,17 @@
 import React, { useRef } from 'react';
-import { Menu, Button, MenuItemType, MenuRefObject } from 'oah-ui';
+import { Menu, Button, MenuItemType, MenuRefObject, Card, CardBody } from 'oah-ui';
 import { Link } from 'gatsby';
+import { Location } from '@reach/router';
+
+const getPathReady = (path: string) => {
+  return path.endsWith('/') ? path.slice(0, -1) : path;
+};
 
 function Ref() {
   const menuRef = useRef<MenuRefObject>(null);
-  const style = { maxWidth: '20rem', marginBottom: '1rem' };
   const items: MenuItemType[] = [
     {
       title: 'Guides',
-      link: { to: '/guides' },
       children: [
         {
           title: 'Start new project',
@@ -22,7 +25,6 @@ function Ref() {
     },
     {
       title: 'Components',
-      link: '/components',
       children: [
         {
           title: 'Navigation',
@@ -36,12 +38,20 @@ function Ref() {
     },
   ];
   return (
-    <>
-      <Button style={style} fullWidth onClick={() => menuRef.current?.toggle()}>
-        toggle menu
-      </Button>
-      <Menu ref={menuRef} style={style} items={items} Link={Link} />
-    </>
+    <Card style={{ maxWidth: '20rem', margin: '0 auto' }}>
+      <header>
+        <Button fullWidth onClick={() => menuRef.current?.toggle()}>
+          toggle menu
+        </Button>
+      </header>
+      <CardBody>
+        <Location>
+          {({ location }) => (
+            <Menu ref={menuRef} currentPath={getPathReady(location.pathname)} items={items} Link={Link} />
+          )}
+        </Location>
+      </CardBody>
+    </Card>
   );
 }
 

@@ -1,6 +1,11 @@
 import React from 'react';
-import { Menu, MenuItemType } from 'oah-ui';
+import { Card, CardBody, Menu, MenuItemType } from 'oah-ui';
 import { Link } from 'gatsby';
+import { Location } from '@reach/router';
+
+const getPathReady = (path: string) => {
+  return path.endsWith('/') ? path.slice(0, -1) : path;
+};
 
 function Basic() {
   const items: MenuItemType[] = [
@@ -10,7 +15,6 @@ function Basic() {
     },
     {
       title: 'Guides',
-      link: '/guides',
       children: [
         {
           title: 'Start new project',
@@ -24,7 +28,6 @@ function Basic() {
     },
     {
       title: 'Components',
-      link: '/components',
       children: [
         {
           title: 'Navigation',
@@ -41,7 +44,15 @@ function Basic() {
       link: { to: '/themes' },
     },
   ];
-  return <Menu style={{ maxWidth: '20rem', margin: '0 auto' }} items={items} Link={Link} />;
+  return (
+    <Card style={{ maxWidth: '20rem', margin: '0 auto' }}>
+      <CardBody>
+        <Location>
+          {({ location }) => <Menu currentPath={getPathReady(location.pathname)} items={items} Link={Link} />}
+        </Location>
+      </CardBody>
+    </Card>
+  );
 }
 
 export default Basic;

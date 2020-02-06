@@ -5,12 +5,10 @@ Powerful Tooltip Component, which provides the best UX for your users.
 <div class="note note-info">
   <div class="note-title">Note</div>
   <div class="note-body">
-    <p>
       The pest hard work in OAH UI Tooltip component placement will be changes
       automatically with clockwise if default placement hide any popover content
       and if no placement will cover popover content will choose the best one to
       show the most of contents
-    </p>
   </div>
 </div>
 

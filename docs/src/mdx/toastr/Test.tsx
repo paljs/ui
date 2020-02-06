@@ -1,18 +1,11 @@
 import React, { useRef, useState } from 'react';
-import {
-  Row,
-  Col,
-  InputGroup,
-  Checkbox,
-  Toastr,
-  Button,
-  Card,
-  CardBody,
-  ToastrRef,
-  ToastrProps,
-} from 'oah-ui';
-import { SelectStyled } from "../select/Outline";
-import { Option } from "../shared";
+import { Row, Col, InputGroup, Checkbox, Toastr, Button, Card, CardBody, ToastrRef, ToastrProps, Select } from 'oah-ui';
+import { Option } from '../shared';
+import styled from 'styled-components';
+
+const SelectStyled = styled(Select)`
+  margin-bottom: 1rem;
+`;
 
 export default function ToastrPage() {
   const [count, setCount] = useState(1);
@@ -96,7 +89,7 @@ export default function ToastrPage() {
                   fullWidth
                   placeholder="Toast Status"
                   options={statusOption}
-                  value={statusOption.find(state => state.value === data.status )}
+                  value={statusOption.find(state => state.value === data.status)}
                   onChange={(v: Option) => onChangeHandle('status', v.value)}
                 />
                 <div style={{ display: 'flex', flexDirection: 'column' }}>
