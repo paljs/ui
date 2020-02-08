@@ -37,7 +37,7 @@ const maxContainer = {
 To customize this variables you need to send your values with theme settings
 sorry for now you can't customize breakpoints but will work on it
 
-```typescript jsx
+```jsx
 // here you can pass variables
 <ThemeProvider theme={themes(theme, { dir, gridSize: 10, gridGutter: 30 })}>
   <Layout dir={dir} />

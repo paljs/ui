@@ -11,7 +11,7 @@ every component have variables you can get it from component page theme tab and 
 
 Use [styled-components](https://www.styled-components.com/docs) package to do this simply too see example:
 
-```typescript jsx
+```js
 import styled from 'styled-components';
 import { Sidebar } from 'oah-ui'; // import original component
 
@@ -32,4 +32,21 @@ const SidebarStyled = styled(Sidebar)`
 
 //export styled one and use it
 export default SidebarStyled;
+```
+
+#### Use Theme Variable
+
+In case when you need to access theme variables from your application component
+
+```js
+import styled, { css } from 'styled-components';
+
+export const newComponent = styled.div`
+  ${({ theme }) => css`
+    .my-text {
+      font-family: ${theme.fontFamilyPrimary};
+      color: ${theme.textBasicColor};
+    }
+  `}
+`;
 ```

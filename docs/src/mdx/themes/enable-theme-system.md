@@ -20,7 +20,8 @@ import { Link } from 'gatsby';
 
 ## Normal Setup
 
-To enable theme you must use [styled-components](https://www.styled-components.com/docs) package
+To enable theme you must use [styled-components](https://www.styled-components.com/docs) package. 
+
 `createTheme` function take 2 args first one theme name second take object of settings that need to custom theme or use it in your styled components
 
 ```jsx
@@ -98,7 +99,7 @@ return (
 
 **When**: You need to add multiple themes.
 
-This setup assumes that you have gone through the _Normal Setup_ steps but you will take `themes` function and custom it
+This setup assumes that you have gone through the _Normal Setup_ steps but you will take `createTheme` function and custom it
 
 ```js
 import { createTheme } from 'oah-ui';

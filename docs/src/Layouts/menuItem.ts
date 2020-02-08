@@ -15,10 +15,6 @@ export default [
         link: { to: '/guides/start-new-gatsby-project' },
       },
       {
-        title: 'Custom Component Style',
-        link: { to: '/guides/custom-component-style' },
-      },
-      {
         title: 'Grid System',
         link: { to: '/guides/grid-system' },
       },
@@ -32,8 +28,16 @@ export default [
         link: { to: '/themes/theme-system' },
       },
       {
+        title: 'Typography',
+        link: { to: '/themes/typography' },
+      },
+      {
         title: 'Enable Theme System',
         link: { to: '/themes/enable-theme-system' },
+      },
+      {
+        title: 'Custom Component Style',
+        link: { to: '/themes/custom-component-style' },
       },
       {
         title: 'Default Theme',
