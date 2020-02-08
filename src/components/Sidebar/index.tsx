@@ -27,6 +27,7 @@ export interface SidebarProps extends SidebarStyleProps {
 export interface SidebarRefObject {
   toggle: () => void;
   hide: () => void;
+  state?: 'hidden' | 'visible' | 'compacted' | 'expanded';
 }
 
 let Sidebar: React.RefForwardingComponent<SidebarRefObject, SidebarProps> = (props, ref) => {
@@ -57,6 +58,7 @@ let Sidebar: React.RefForwardingComponent<SidebarRefObject, SidebarProps> = (pro
           setState('hidden');
         }
       },
+      state,
     }),
     [state],
   );
