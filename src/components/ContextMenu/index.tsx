@@ -45,7 +45,7 @@ interface ContextMenuProps {
   children: React.ReactNode;
   Link: any;
   nextJs?: boolean;
-  currentPath?: string;
+  currentPath: string;
   style?: React.CSSProperties;
   className?: string;
 }

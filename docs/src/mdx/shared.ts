@@ -37,4 +37,4 @@ export const shapeString = shape.join(' | ');
 
 export const appearanceString = appearance.join(' | ');
 
-export type Option = { value: any, label: any };
+export type Option = { value: any; label: any };
