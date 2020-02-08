@@ -15,6 +15,10 @@ export default [
         link: { to: '/guides/start-new-gatsby-project' },
       },
       {
+        title: 'Install Eva Icons',
+        link: { to: '/guides/install-eva-icons' },
+      },
+      {
         title: 'Grid System',
         link: { to: '/guides/grid-system' },
       },
@@ -171,6 +175,10 @@ export default [
       {
         title: 'Alert',
         link: { to: '/components/alert' },
+      },
+      {
+        title: 'EvaIcon',
+        link: { to: '/components/eva-icon' },
       },
       {
         title: 'Spinner',
