@@ -89,7 +89,7 @@ const Header: React.FC<HeaderProps> = props => {
             size="Medium"
             actions={[
               {
-                icon: 'menu',
+                icon: 'menu-2-outline',
                 url: {
                   onClick: props.toggleSidebar,
                 },
