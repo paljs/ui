@@ -63,7 +63,7 @@ const ActionStyle = styled.div<ActionProps>`
           font-size: ${theme[`actions${size}TextFontSize` as ThemeKey]};
           height: ${theme[`actions${size}Height` as ThemeKey]};
           padding: ${theme[`actions${size}Padding` as ThemeKey]};
-          i.control-icon {
+          .control-icon {
             font-size: ${theme[`actions${size}IconHeight` as ThemeKey]};
           }
         `}
