@@ -13,6 +13,7 @@ export interface SidebarStyleProps {
   property?: 'right' | 'left' | 'start' | 'end';
   fixed?: boolean;
   containerFixed?: boolean;
+  getState?: (state?: 'hidden' | 'visible' | 'compacted' | 'expanded') => void;
   className?: string;
 }
 
@@ -27,7 +28,6 @@ export interface SidebarProps extends SidebarStyleProps {
 export interface SidebarRefObject {
   toggle: () => void;
   hide: () => void;
-  state?: 'hidden' | 'visible' | 'compacted' | 'expanded';
 }
 
 let Sidebar: React.RefForwardingComponent<SidebarRefObject, SidebarProps> = (props, ref) => {
@@ -58,7 +58,6 @@ let Sidebar: React.RefForwardingComponent<SidebarRefObject, SidebarProps> = (pro
           setState('hidden');
         }
       },
-      state,
     }),
     [state],
   );
@@ -95,6 +94,8 @@ let Sidebar: React.RefForwardingComponent<SidebarRefObject, SidebarProps> = (pro
       window.removeEventListener('resize', onMediaQueryChanges);
     };
   }, []);
+
+  typeof props.getState === 'function' && props.getState(state);
 
   const className = props.className ? props.className.split(' ') : [];
   className.push(state ?? '', props.property ?? '');
