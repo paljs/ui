@@ -151,11 +151,11 @@ const SidebarStyle = styled.aside<SidebarStyleProps>`
     font-weight: ${theme.sidebarTextFontWeight};
     line-height: ${theme.sidebarTextLineHeight};
     width: ${theme.sidebarWidth};
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  z-index: auto;
-  transition: width .3s cubic-bezier(0.4, 0, 0.6, 1) 0ms;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: auto;
+    transition: width .3s cubic-bezier(0.4, 0, 0.6, 1) 0ms;
 
   order: ${
     property === 'right'
@@ -187,7 +187,6 @@ const SidebarStyle = styled.aside<SidebarStyleProps>`
         : `width: ${theme.sidebarWidth};`
     }
     height: ${theme.sidebarHeight};
-      width: ${theme.sidebarWidth};
     transform: translate3d(0, 0, 0);
     display: flex;
     flex-direction: column;

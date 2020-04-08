@@ -16,7 +16,6 @@ const GroupStyle = styled.div<InputGroupProps>`
       display: flex;
       min-width: 0;
       position: relative;
-      margin-bottom: 1rem;
 
       input,
       textarea {
@@ -38,7 +37,8 @@ const GroupStyle = styled.div<InputGroupProps>`
           outline: none;
         }
       
-        ${status &&
+        ${
+          status &&
           css`
             background-color: ${theme[`input${status}BackgroundColor` as ThemeKey]};
             border-color: ${theme[`input${status}BorderColor` as ThemeKey]};
@@ -66,14 +66,18 @@ const GroupStyle = styled.div<InputGroupProps>`
                 color: ${theme[`input${status}DisabledPlaceholderTextColor` as ThemeKey]};
               }
             }
-          `}
+          `
+        }
 
-        ${shape &&
+        ${
+          shape &&
           css`
             border-radius: ${theme[`input${shape}BorderRadius` as ThemeKey]};
-          `}
+          `
+        }
 
-        ${size &&
+        ${
+          size &&
           css`
             font-size: ${theme[`input${size}TextFontSize` as ThemeKey]};
             font-weight: ${theme[`input${size}TextFontWeight` as ThemeKey]};
@@ -87,7 +91,8 @@ const GroupStyle = styled.div<InputGroupProps>`
               font-weight: ${theme[`input${size}PlaceholderTextFontWeight` as ThemeKey]};
               line-height: ${theme[`input${size}PlaceholderTextLineHeight` as ThemeKey]};
             }
-          `}
+          `
+        }
       }
     `;
   }}
@@ -99,9 +104,11 @@ export interface InputGroupProps {
   size?: Size;
   status?: Status;
   children: React.ReactNode;
+  style?: React.CSSProperties;
+  className?: string;
 }
 
-export const InputGroup: React.FC<InputGroupProps> = props => {
+export const InputGroup: React.FC<InputGroupProps> = (props) => {
   return <GroupStyle {...props}>{props.children}</GroupStyle>;
 };
 
