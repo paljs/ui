@@ -24,7 +24,6 @@ const TooltipStyle = styled.div<TooltipStyleProps>`
     z-index: 10000;
     border-radius: 5px;
     .content {
-      padding: 0.5rem 1.25rem;
       display: flex;
       align-items: center;
       color: ${theme.tooltipTextColor};
@@ -57,18 +56,18 @@ const TooltipStyle = styled.div<TooltipStyleProps>`
     }
 
     ${status &&
-      css`
-        background: ${theme[`tooltip${status}BackgroundColor` as ThemeKey]};
-        border-color: ${theme[`tooltip${status}BorderColor` as ThemeKey]};
+    css`
+      background: ${theme[`tooltip${status}BackgroundColor` as ThemeKey]};
+      border-color: ${theme[`tooltip${status}BorderColor` as ThemeKey]};
 
-        .arrow {
-          border-bottom-color: ${theme[`tooltip${status}BackgroundColor` as ThemeKey]};
-        }
+      .arrow {
+        border-bottom-color: ${theme[`tooltip${status}BackgroundColor` as ThemeKey]};
+      }
 
-        .content {
-          color: ${theme[`tooltip${status}TextColor` as ThemeKey]};
-        }
-      `}
+      .content {
+        color: ${theme[`tooltip${status}TextColor` as ThemeKey]};
+      }
+    `}
   `}
 `;
 
