@@ -30,7 +30,7 @@ export interface ToastrProps extends ToastrParent {
   ref?: React.RefObject<ToastrRef>;
 }
 
-let Toastr: React.RefForwardingComponent<ToastrRef, ToastrProps> = (props, ref) => {
+const Toastr = React.forwardRef<ToastrRef, ToastrProps>((props, ref) => {
   const [items, setItems] = React.useState<ToastrItem[]>([]);
   const [createParents, setCreateParents] = React.useState<boolean>(false);
 
@@ -75,7 +75,7 @@ let Toastr: React.RefForwardingComponent<ToastrRef, ToastrProps> = (props, ref) 
   return (
     <>
       {createParents &&
-        ['topStart', 'topEnd', 'bottomStart', 'bottomEnd'].map(position =>
+        ['topStart', 'topEnd', 'bottomStart', 'bottomEnd'].map((position) =>
           ReactDOM.createPortal(
             <ToastrContainer position={position} isTop={position === 'topEnd' || position === 'topStart'}>
               <div className="overlay-pane" id={'toastr' + position} />
@@ -88,9 +88,9 @@ let Toastr: React.RefForwardingComponent<ToastrRef, ToastrProps> = (props, ref) 
       ))}
     </>
   );
-};
+});
 
-Toastr = React.forwardRef(Toastr);
+Toastr.displayName = 'Toastr';
 
 Toastr.defaultProps = {
   position: 'topEnd',

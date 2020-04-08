@@ -24,7 +24,7 @@ export interface MenuRefObject {
   toggle: () => void;
 }
 
-let Menu: React.RefForwardingComponent<MenuRefObject, MenuProps> = (props, ref) => {
+const Menu = React.forwardRef<MenuRefObject, MenuProps>((props, ref) => {
   const [items, setItems] = React.useState<MenuItemType[]>(props.items);
   const [expended, setExpended] = React.useState(false);
 
@@ -93,7 +93,7 @@ let Menu: React.RefForwardingComponent<MenuRefObject, MenuProps> = (props, ref) 
                 Link={props.Link}
                 nextJs={props.nextJs}
                 currentPath={props.currentPath}
-                selectItem={i => onSelectItem(i)}
+                selectItem={(i) => onSelectItem(i)}
                 toggleSidebar={props.toggleSidebar}
                 toggleSubMenu={(item: MenuItemType) => onToggleSubMenu(item)}
               />
@@ -103,7 +103,8 @@ let Menu: React.RefForwardingComponent<MenuRefObject, MenuProps> = (props, ref) 
       </ul>
     </MenuStyle>
   );
-};
+});
 
-Menu = React.forwardRef(Menu);
+Menu.displayName = 'Menu';
+
 export { Menu };

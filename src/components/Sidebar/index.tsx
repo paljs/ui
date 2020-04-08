@@ -30,7 +30,7 @@ export interface SidebarRefObject {
   hide: () => void;
 }
 
-let Sidebar: React.RefForwardingComponent<SidebarRefObject, SidebarProps> = (props, ref) => {
+const Sidebar = React.forwardRef<SidebarRefObject, SidebarProps>((props, ref) => {
   const [fixed, setFixed] = React.useState(props.fixed);
   const [state, setState] = React.useState(props.state);
 
@@ -114,13 +114,13 @@ let Sidebar: React.RefForwardingComponent<SidebarRefObject, SidebarProps> = (pro
       <div className="main-container">{props.children}</div>
     </SidebarStyle>
   );
-};
+});
 
-const SidebarBody: React.FC<{ children: React.ReactNode }> = props => {
+const SidebarBody: React.FC<{ children: React.ReactNode }> = (props) => {
   return <div className="scrollable">{props.children}</div>;
 };
 
-Sidebar = React.forwardRef(Sidebar);
+Sidebar.displayName = 'Sidebar';
 
 Sidebar.defaultProps = {
   compactedBreakpoints: ['xs', 'is', 'sm', 'md', 'lg'],

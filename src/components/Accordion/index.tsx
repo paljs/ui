@@ -34,10 +34,10 @@ export interface AccordionRefObject {
   toggle(index: number): void;
 }
 
-let Accordion: React.RefForwardingComponent<AccordionRefObject, AccordionProps> = (props, ref) => {
+const Accordion = React.forwardRef<AccordionRefObject, AccordionProps>((props, ref) => {
   const [items, setItems] = React.useState<AccordionItemPropTypes[]>([]);
   React.useEffect(() => {
-    const children: AccordionItemPropTypes[] = React.Children.map(props.children, child => {
+    const children: AccordionItemPropTypes[] = React.Children.map(props.children, (child) => {
       if (!React.isValidElement<AccordionItemPropTypes>(child)) {
         return false;
       }
@@ -128,7 +128,7 @@ let Accordion: React.RefForwardingComponent<AccordionRefObject, AccordionProps> 
       })}
     </AccordionStyle>
   );
-};
+});
 
-Accordion = React.forwardRef(Accordion);
+Accordion.displayName = 'Accordion';
 export { AccordionItem, Accordion };

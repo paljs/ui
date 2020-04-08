@@ -112,7 +112,8 @@ const fixedStyle = css<SidebarStyleProps>`
     z-index: 999;
     top: ${theme.headerHeight};
     bottom: 0;
-    ${state === 'hidden' && ['left', 'start'].includes(property)
+    ${property &&
+    (state === 'hidden' && ['left', 'start'].includes(property)
       ? `
         & + .content {
           margin-left: 0;
@@ -124,7 +125,7 @@ const fixedStyle = css<SidebarStyleProps>`
           margin-right: 0;
         }
       `
-      : ''}
+      : '')}
     ${property === 'right'
       ? 'right: 0;'
       : property === 'left'
