@@ -1,6 +1,6 @@
 {
   "name": "oah-ui",
-  "version": "2.0.7",
+  "version": "2.0.8",
   "description": "React Styled Components with bootstrap grid system",
   "main": "dist/index.cjs.js",
   "jsnext:main": "dist/index.esm.js",
