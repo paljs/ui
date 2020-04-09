@@ -19,6 +19,7 @@ const TabsStyle = styled.div<{ fullWidth?: boolean }>`
       flex-direction: row;
       list-style-type: none;
       margin: 0;
+      padding: 0;
       ${fullWidth && 'justify-content: space-around;'}
 
       .tab {

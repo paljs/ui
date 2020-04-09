@@ -10,7 +10,7 @@ import PopoverStyle from './style';
 import Overlay from '../PopoverLay';
 import { Trigger, Placement } from '../types';
 
-const Popover: React.FC<PopoverProps> = props => {
+const Popover: React.FC<PopoverProps> = (props) => {
   const arrowSize = parseInt(props.theme.popoverArrowSize as string);
   const arrowRound = Math.round(-arrowSize - arrowSize / 2);
   return (
@@ -43,5 +43,10 @@ export interface PopoverProps {
   className?: string;
   theme: DefaultTheme;
 }
+const PopoverWithTheme = withTheme(Popover);
 
-export default withTheme(Popover);
+const Popover2: React.FC<Omit<PopoverProps, 'theme'>> = (props) => {
+  return <PopoverWithTheme {...props} />;
+};
+
+export default Popover2;

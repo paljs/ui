@@ -77,27 +77,27 @@ const customStyles: (theme: DefaultTheme, status?: Status, shape?: Shape) => Sty
         ...border,
       };
     },
-    placeholder: base => ({
+    placeholder: (base) => ({
       ...base,
       color: theme[`selectOutline${status}PlaceholderTextColor` as ThemeKey],
     }),
-    singleValue: base => ({
+    singleValue: (base) => ({
       ...base,
       color: theme[`selectOutline${status}TextColor` as ThemeKey],
     }),
-    indicatorSeparator: base => ({
+    indicatorSeparator: (base) => ({
       ...base,
       color: theme[`selectOutline${status}PlaceholderTextColor` as ThemeKey],
     }),
-    dropdownIndicator: base => ({
+    dropdownIndicator: (base) => ({
       ...base,
       color: theme[`selectOutline${status}PlaceholderTextColor` as ThemeKey],
     }),
-    multiValue: base => ({
+    multiValue: (base) => ({
       ...base,
       borderRadius: theme[`select${shape}BorderRadius` as ThemeKey],
     }),
-    multiValueRemove: base => {
+    multiValueRemove: (base) => {
       const borderTop = theme.dir === 'rtl' ? 'borderTopLeftRadius' : 'borderTopRightRadius';
       const borderBottom = theme.dir === 'rtl' ? 'borderBottomLeftRadius' : 'borderBottomRightRadius';
       return {
@@ -142,7 +142,7 @@ const customStyles: (theme: DefaultTheme, status?: Status, shape?: Shape) => Sty
   };
 };
 
-const SelectMain: React.FC<Props & SelectMainProps> = props => {
+const SelectMain: React.FC<Props & SelectMainProps> = (props) => {
   return (
     <Select
       {...props}
@@ -157,4 +157,10 @@ SelectMain.defaultProps = {
   status: 'Basic',
 };
 
-export default withTheme(SelectMain);
+const SelectMainWithTheme = withTheme(SelectMain);
+
+const SelectWithTheme: React.FC<Props & Partial<SelectMainProps>> = (props) => {
+  return <SelectMainWithTheme {...props} />;
+};
+
+export default SelectWithTheme;
