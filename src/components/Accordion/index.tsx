@@ -4,25 +4,17 @@
  * Licensed under the MIT License. See License.txt in the project root for license information.
  */
 
-import { AccordionStyle, ItemStyle } from './style';
+import { AccordionStyle } from './style';
 import React from 'react';
-import { Icon } from '../Icon';
-
-interface AccordionItemPropTypes {
-  disabled?: boolean;
-  expanded?: boolean;
-  title: string;
-  children: React.ReactNode;
-}
-
-const AccordionItem: React.FC<AccordionItemPropTypes> = () => {
-  return <div />;
-};
+import AccordionContext from './Context';
+import { AccordionItem } from './Item';
 
 interface AccordionProps {
+  disabled?: number[];
+  expanded?: number[];
   multi?: boolean;
   className?: string;
-  children: React.ReactElement<AccordionItemPropTypes>[];
+  children: React.ReactNode;
   ref?: React.RefObject<AccordionRefObject>;
 }
 
@@ -35,50 +27,49 @@ export interface AccordionRefObject {
 }
 
 const Accordion = React.forwardRef<AccordionRefObject, AccordionProps>((props, ref) => {
-  const [items, setItems] = React.useState<AccordionItemPropTypes[]>([]);
-  React.useEffect(() => {
-    const children: AccordionItemPropTypes[] = React.Children.map(props.children, (child) => {
-      if (!React.isValidElement<AccordionItemPropTypes>(child)) {
-        return false;
-      }
-      return { ...child.props };
-    }).filter((child): boolean => !!child) as AccordionItemPropTypes[];
-    setItems(children);
-  }, [props.children]);
+  const [expanded, setExpanded] = React.useState<number[]>(props.expanded ?? []);
+  const [keys, setKeys] = React.useState<number[]>([]);
 
   const handleAllState = (state: boolean) => {
-    const updateItems = [...items];
-    for (const item of updateItems) {
-      if (!item.disabled) {
-        item.expanded = state;
-      }
-    }
-    setItems(updateItems);
-  };
-  const handleState = (state: boolean, index: number) => {
-    const updateItems = [...items];
-    if (!updateItems[index].disabled) {
-      if (props.multi) {
-        updateItems[index].expanded = state;
-      } else {
-        for (const i of updateItems.keys()) {
-          updateItems[i].expanded = index === i ? state : state ? false : updateItems[i].expanded;
-        }
-      }
-      setItems(updateItems);
+    if (state) {
+      const items: number[] = [];
+      keys.forEach((key) => !(props.disabled && props.disabled.includes(key)) && items.push(key));
+      setExpanded(items);
+    } else {
+      setExpanded([]);
     }
   };
-  const handleToggle = (index: number) => {
-    const updateItems = [...items];
-    if (!updateItems[index].disabled) {
+
+  const handleState = (state: boolean, uniqueKey: number) => {
+    const index = expanded.indexOf(uniqueKey);
+    const newKeys = [...expanded];
+    if (index > -1 && !state) {
+      newKeys.splice(index, 1);
+    }
+    if (index < 0 && state) {
+      newKeys.push(uniqueKey);
+    }
+    setExpanded(newKeys);
+  };
+
+  const handleToggle = (uniqueKey: number) => {
+    if (!props.disabled?.includes(uniqueKey)) {
+      const index = expanded.indexOf(uniqueKey);
       if (props.multi) {
-        updateItems[index].expanded = !updateItems[index].expanded;
+        const newKeys = [...expanded];
+        if (index > -1) {
+          newKeys.splice(index, 1);
+        } else {
+          newKeys.push(uniqueKey);
+        }
+        setExpanded(newKeys);
       } else {
-        for (const i of updateItems.keys()) {
-          updateItems[i].expanded = index === i ? !updateItems[i].expanded : false;
+        if (index > -1) {
+          setExpanded([]);
+        } else {
+          setExpanded([uniqueKey]);
         }
       }
-      setItems(updateItems);
     }
   };
 
@@ -91,42 +82,23 @@ const Accordion = React.forwardRef<AccordionRefObject, AccordionProps>((props, r
       closeAll() {
         handleAllState(false);
       },
-      open(index: number) {
-        handleState(true, index);
+      open(uniqueKey: number) {
+        handleState(true, uniqueKey);
       },
-      close(index: number) {
-        handleState(false, index);
+      close(uniqueKey: number) {
+        handleState(false, uniqueKey);
       },
-      toggle(index: number) {
-        handleToggle(index);
+      toggle(uniqueKey: number) {
+        handleToggle(uniqueKey);
       },
     }),
-    [items],
+    [expanded, keys, props.disabled],
   );
 
   return (
-    <AccordionStyle className={props.className}>
-      {items.map((item, index) => {
-        const cssStyle = [];
-        item.expanded ? cssStyle.push('expanded') : cssStyle.push('collapsed');
-        item.disabled && cssStyle.push('disabled');
-        return (
-          <ItemStyle key={index} {...item} className={cssStyle.join(' ')}>
-            <header onClick={() => handleToggle(index)}>
-              {item.title}
-              {!item.disabled && item.expanded ? (
-                <Icon className="expansion-indicator" name="chevron-up-outline" />
-              ) : (
-                <Icon className="expansion-indicator" name="chevron-down-outline" />
-              )}
-            </header>
-            <div className={item.expanded ? 'expanded' : 'collapsed'}>
-              <div className="item-body">{item.children}</div>
-            </div>
-          </ItemStyle>
-        );
-      })}
-    </AccordionStyle>
+    <AccordionContext.Provider value={{ expanded, setKeys, keys, handleToggle, disabled: props.disabled ?? [] }}>
+      <AccordionStyle className={props.className}>{props.children}</AccordionStyle>
+    </AccordionContext.Provider>
   );
 });
 

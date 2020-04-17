@@ -10,7 +10,7 @@ import { Status } from '../../types';
 import { Icon } from '../../Icon';
 
 export interface CheckboxStyleProps {
-  checked?: boolean;
+  checked: boolean;
   disabled?: boolean;
   className?: string;
   style?: React.CSSProperties;
@@ -19,47 +19,29 @@ export interface CheckboxStyleProps {
 }
 
 export interface CheckboxProps extends CheckboxStyleProps {
-  onChange?: (value: boolean) => void;
+  onChange: (value: boolean) => void;
   onBlur?: (event: React.SyntheticEvent) => void;
 }
 
-const Checkbox: React.FC<CheckboxProps> = props => {
-  const [value, setValue] = React.useState<boolean>(props.checked ? props.checked : false);
-
-  const uncontrolled = typeof props.onChange === 'function';
-  const onChangeHandler = () => {
-    props.onChange && props.onChange(!value);
-    setValue(!value);
-  };
-
+const Checkbox: React.FC<CheckboxProps> = (props) => {
   return (
     <CheckboxStyle
       disabled={props.disabled}
-      checked={uncontrolled ? value : props.checked}
+      checked={props.checked}
       status={props.status}
       className={props.className}
       style={props.style}
     >
-      {uncontrolled ? (
-        <input
-          type="checkbox"
-          className="native-input visually-hidden"
-          disabled={props.disabled}
-          onBlur={props.onBlur}
-          checked={value}
-          onChange={onChangeHandler}
-        />
-      ) : (
-        <input
-          type="checkbox"
-          className="native-input visually-hidden"
-          disabled={props.disabled}
-          onBlur={props.onBlur}
-        />
-      )}
-
+      <input
+        type="checkbox"
+        className="native-input visually-hidden"
+        disabled={props.disabled}
+        onBlur={props.onBlur}
+        checked={props.checked}
+        onChange={(e) => props.onChange(e.target.checked)}
+      />
       <span className="custom-checkbox">
-        {value && !props.indeterminate && <Icon name="checkmark-bold-outline" />}
+        {props.checked && !props.indeterminate && <Icon name="checkmark-bold-outline" />}
         {props.indeterminate && <Icon name="minus-bold-outline" />}
       </span>
       <span className="text">{props.children}</span>
