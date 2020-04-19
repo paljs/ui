@@ -18,6 +18,8 @@ interface CardProps {
   className?: string;
 }
 
+const CardFooter = styled.footer``;
+
 const headerBg = css<CardProps>`
   ${({ theme, status, accent }) => css`
     padding: ${theme.cardPadding};
@@ -32,7 +34,8 @@ const headerBg = css<CardProps>`
 
     ${getHeadings}
 
-    ${status &&
+    ${
+      status &&
       css`
         background-color: ${theme[`cardHeader${status}BackgroundColor` as ThemeKey]};
         border-bottom-color: ${theme[`cardHeader${status}BackgroundColor` as ThemeKey]};
@@ -42,7 +45,8 @@ const headerBg = css<CardProps>`
         a:hover {
           color: ${theme[`cardHeader${status}TextColor` as ThemeKey]};
         }
-      `}
+      `
+    }
     ${accent && 'border-radius: 0;'}
   `}
 `;
@@ -64,21 +68,27 @@ const CardStyle = styled.div<CardProps>`
 
     ${scrollbars(theme.cardScrollbarColor, theme.cardScrollbarBackgroundColor, theme.cardScrollbarWidth)}
 
-    ${accent &&
+    ${
+      accent &&
       css`
         border-top-color: ${theme[`cardHeader${accent}BackgroundColor` as ThemeKey]};
         border-top-style: ${theme.cardBorderStyle};
         border-top-width: ${theme.cardBorderRadius};
-      `}
+      `
+    }
 
-    ${size &&
+    ${
+      size &&
       css`
         height: ${theme[`cardHeight${size}` as ThemeKey]};
-      `}
+      `
+    }
 
     & > header {
       ${headerBg}
     }
+    
+    ${CardFooter},
     & > footer {
       padding: ${theme.cardPadding};
       border-top: ${theme.cardDividerWidth} ${theme.cardDividerStyle} ${theme.cardDividerColor};
@@ -86,6 +96,10 @@ const CardStyle = styled.div<CardProps>`
       border-bottom-right-radius: ${theme.cardBorderRadius};
     }
   `};
+`;
+
+const CardHeader = styled.header`
+  ${headerBg}
 `;
 
 const CardBody = styled.div`
@@ -99,6 +113,6 @@ const CardBody = styled.div`
   `}
 `;
 
-const Card: React.FC<CardProps> = props => <CardStyle {...props}>{props.children}</CardStyle>;
+const Card: React.FC<CardProps> = (props) => <CardStyle {...props}>{props.children}</CardStyle>;
 
-export { Card, CardBody, CardStyle };
+export { Card, CardHeader, CardFooter, CardBody, CardStyle };

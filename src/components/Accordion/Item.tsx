@@ -4,7 +4,7 @@ import { ItemStyle } from './style';
 import { Icon } from '../Icon';
 
 interface AccordionItemPropTypes {
-  title: string;
+  title: any;
   uniqueKey: number;
   children: React.ReactNode;
 }
