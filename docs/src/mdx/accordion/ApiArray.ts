@@ -1,5 +1,15 @@
 export const accordionProps = [
   {
+    name: 'expanded',
+    type: 'number[]',
+    description: 'Array of items unique keys',
+  },
+  {
+    name: 'disabled',
+    type: 'number[]',
+    description: 'Array of items unique keys',
+  },
+  {
     name: 'multi',
     type: 'boolean',
     description: 'Allow multiple items to be expanded at the same time default: false.',
@@ -56,13 +66,8 @@ export const accordionItemProps = [
     description: 'Item header and it Required',
   },
   {
-    name: 'expanded',
-    type: 'boolean',
-    description: 'expand item default: false',
-  },
-  {
-    name: 'disabled',
-    type: 'boolean',
-    description: 'disable item default: false',
+    name: 'uniqueKey',
+    type: 'number',
+    description: 'Every Item must have number unique Key',
   },
 ];

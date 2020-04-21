@@ -1,19 +1,19 @@
 import React from 'react';
-import { Card, CardBody } from 'oah-ui';
+import { Card, CardBody, CardHeader } from 'oah-ui';
 
 export default function Colored() {
   return (
     <>
       <Card accent="Success">
-        <header>Card header</header>
+        <CardHeader>Card header</CardHeader>
         <CardBody>Card basic content container component.</CardBody>
       </Card>
       <Card accent="Primary">
-        <header>Card header</header>
+        <CardHeader>Card header</CardHeader>
         <CardBody>Card basic content container component.</CardBody>
       </Card>
       <Card status="Danger" accent="Primary">
-        <header>Card header</header>
+        <CardHeader>Card header</CardHeader>
         <CardBody>Card basic content container component.</CardBody>
       </Card>
     </>

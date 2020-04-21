@@ -9,7 +9,7 @@ Basic card example:
 ### Usage
 
 ```js
-import { Card, CardBody } from 'oah-ui';
+import { Card, CardBody, CardHeader, CardFooter } from 'oah-ui';
 ```
 
 Colored cards could be simply configured by providing a `status` property:
@@ -35,6 +35,12 @@ just html element
 <header></header>
 ```
 
+or
+
+```jsx
+<CardHeader></CardHeader>
+```
+
 ### CardBody
 
 Card scroll area container.
@@ -53,4 +59,10 @@ just html element
 
 ```html
 <footer></footer>
+```
+
+or
+
+```jsx
+<CardFooter></CardFooter>
 ```

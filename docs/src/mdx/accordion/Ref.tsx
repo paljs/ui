@@ -18,25 +18,29 @@ export default function Ref() {
           </Button>
         </Col>
         <Col style={style} breakPoint={{ xs: true }}>
-          <Button fullWidth onClick={() => accordionRef.current?.open(0)}>
+          <Button fullWidth onClick={() => accordionRef.current?.open(1)}>
             open first
           </Button>
         </Col>
         <Col style={style} breakPoint={{ xs: true }}>
-          <Button fullWidth onClick={() => accordionRef.current?.close(0)}>
+          <Button fullWidth onClick={() => accordionRef.current?.close(1)}>
             close first
           </Button>
         </Col>
         <Col style={style} breakPoint={{ xs: true }}>
-          <Button fullWidth onClick={() => accordionRef.current?.toggle(0)}>
+          <Button fullWidth onClick={() => accordionRef.current?.toggle(1)}>
             toggle first
           </Button>
         </Col>
       </Row>
-      <Accordion ref={accordionRef}>
-        <AccordionItem title="Head 1">An accordion allows to toggle the display of sections of content</AccordionItem>
-        <AccordionItem title="Head 2">An accordion allows to toggle the display of sections of content</AccordionItem>
-        <AccordionItem title="Head 3" disabled>
+      <Accordion ref={accordionRef} disabled={[3]}>
+        <AccordionItem uniqueKey={1} title="Head 1">
+          An accordion allows to toggle the display of sections of content
+        </AccordionItem>
+        <AccordionItem uniqueKey={2} title="Head 2">
+          An accordion allows to toggle the display of sections of content
+        </AccordionItem>
+        <AccordionItem uniqueKey={3} title="Head 3">
           An accordion allows to toggle the display of sections of content
         </AccordionItem>
       </Accordion>

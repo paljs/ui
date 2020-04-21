@@ -1,25 +1,31 @@
-import React from 'react';
-import { Checkbox, Row, Col, Card, CardBody } from 'oah-ui';
+import React, { useState } from 'react';
+import { Checkbox, Row, Col, Card, CardBody, Status } from 'oah-ui';
 import { status } from '../shared';
 
+const initState: any = {};
+status.forEach((key) => (initState[key] = false));
+
 function Example() {
-  const onChangeCheckbox = (_: boolean) => {
-    // value will be true or false
+  const [checkbox, setCheckbox] = useState(initState);
+  const onChangeCheckbox = (value: boolean, key: Status) => {
+    setCheckbox({ ...checkbox, [key]: value });
   };
   return (
     <Card>
       <header>Checkbox Status</header>
       <CardBody>
         <Row>
-          {status.map(key => (
+          {status.map((key) => (
             <Col key={key} breakPoint={{ xs: true }}>
-              <Checkbox status={key} onChange={onChangeCheckbox}>
+              <Checkbox checked={checkbox[key]} status={key} onChange={(value) => onChangeCheckbox(value, key)}>
                 {key}
               </Checkbox>
             </Col>
           ))}
           <Col breakPoint={{ xs: true }}>
-            <Checkbox disabled>disabled</Checkbox>
+            <Checkbox checked onChange={() => ({})} disabled>
+              disabled
+            </Checkbox>
           </Col>
         </Row>
       </CardBody>

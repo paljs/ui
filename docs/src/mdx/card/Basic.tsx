@@ -1,12 +1,12 @@
 import React from 'react';
-import { Card, CardBody } from 'oah-ui';
+import { Card, CardBody, CardHeader, CardFooter } from 'oah-ui';
 
 export default function Basic() {
   return (
     <Card>
-      <header>Card header</header>
+      <CardHeader>Card header</CardHeader>
       <CardBody>Card basic content container component.</CardBody>
-      <footer>Footer</footer>
+      <CardFooter>Footer</CardFooter>
     </Card>
   );
 }
