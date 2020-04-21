@@ -9,6 +9,7 @@ import { breakpointDown } from '../../theme';
 import { MenuStyle } from '../Menu/style';
 import { scrollbars } from '../Shared';
 import { SidebarStyleProps } from '.';
+import { LayoutContent } from '../Layout/style';
 
 const compacted = css<SidebarStyleProps>`
   ${MenuStyle} {
@@ -64,37 +65,37 @@ const compacted = css<SidebarStyleProps>`
       switch (property) {
         case 'right':
           return `
-          & ~ .content {
+          & ~ ${LayoutContent} {
             margin-right: ${theme.sidebarWidthCompact};
           }
-          & ~ .content.center {
+          & ~ ${LayoutContent}.center {
             padding-right: ${theme.sidebarWidthCompact};
           }
         `;
         case 'left':
           return `
-          & ~ .content {
+          & ~ ${LayoutContent} {
             margin-left: ${theme.sidebarWidthCompact};
           }
-          & ~ .content.center {
+          & ~ ${LayoutContent}.center {
             padding-left: ${theme.sidebarWidthCompact};
           }
         `;
         case 'start':
           return `
-          & ~ .content {
+          & ~ ${LayoutContent} {
             ${theme.dir == 'rtl' ? 'margin-right:' : 'margin-left:'} ${theme.sidebarWidthCompact};
           }
-          & ~ .content.center {
+          & ~ ${LayoutContent}.center {
             ${theme.dir == 'rtl' ? 'padding-right:' : 'padding-left:'} ${theme.sidebarWidthCompact};
           }
         `;
         case 'end':
           return `
-          & ~ .content {
+          & ~ ${LayoutContent} {
             ${theme.dir == 'rtl' ? 'margin-left:' : 'margin-right:'} ${theme.sidebarWidthCompact};
           }
-          & ~ .content.center {
+          & ~ ${LayoutContent}.center {
             ${theme.dir == 'rtl' ? 'padding-left:' : 'padding-right:'} ${theme.sidebarWidthCompact};
           }
         `;
