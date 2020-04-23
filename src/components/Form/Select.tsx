@@ -1,16 +1,17 @@
 import { DefaultTheme, withTheme } from 'styled-components';
 import Select, { Props, StylesConfig } from 'react-select';
 import React from 'react';
-import { Shape, Status } from '../types';
+import { Shape, Status, Size } from '../types';
 import { ThemeKey } from '../../theme';
 
 interface SelectMainProps {
   theme: DefaultTheme;
   shape?: Shape;
   status?: Status;
+  size?: Size;
 }
 
-const customStyles: (theme: DefaultTheme, status?: Status, shape?: Shape) => StylesConfig = (theme, status, shape) => {
+const customStyles: (props: SelectMainProps) => StylesConfig = ({ theme, status, shape, size }) => {
   return {
     control: (base, state) => {
       const { menuPlacement, isDisabled, menuIsOpen } = state.selectProps;
@@ -85,6 +86,10 @@ const customStyles: (theme: DefaultTheme, status?: Status, shape?: Shape) => Sty
       ...base,
       color: theme[`selectOutline${status}TextColor` as ThemeKey],
     }),
+    indicatorsContainer: (base) => ({
+      ...base,
+      padding: theme[`selectOutline${size}Padding` as ThemeKey],
+    }),
     indicatorSeparator: (base) => ({
       ...base,
       color: theme[`selectOutline${status}PlaceholderTextColor` as ThemeKey],
@@ -137,24 +142,20 @@ const customStyles: (theme: DefaultTheme, status?: Status, shape?: Shape) => Sty
       return {
         ...base,
         ...optionStyle,
+        padding: theme[`selectOptionOutline${size}Padding` as ThemeKey],
       };
     },
   };
 };
 
 const SelectMain: React.FC<Props & SelectMainProps> = (props) => {
-  return (
-    <Select
-      {...props}
-      isRtl={props.theme.dir === 'rtl'}
-      styles={customStyles(props.theme, props.status, props.shape)}
-    />
-  );
+  return <Select {...props} isRtl={props.theme.dir === 'rtl'} styles={customStyles(props)} />;
 };
 
 SelectMain.defaultProps = {
   shape: 'Rectangle',
   status: 'Basic',
+  size: 'Medium',
 };
 
 const SelectMainWithTheme = withTheme(SelectMain);

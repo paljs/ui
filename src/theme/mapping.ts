@@ -1796,6 +1796,12 @@ const mapping: Partial<ThemeObject> = {
   selectOptionOutlineLargePadding: 'selectOutlineLargePadding',
   selectOptionOutlineGiantPadding: 'selectOutlineGiantPadding',
 
+  selectOutlineTinyPadding: '0.1875rem',
+  selectOutlineSmallPadding: '0.1875rem',
+  selectOutlineMediumPadding: '0.4375rem',
+  selectOutlineLargePadding: '0.6875rem',
+  selectOutlineGiantPadding: '0.9375rem',
+
   selectOutlineAdjacentBorderStyle: 'selectOutlineBorderStyle',
   selectOutlineAdjacentBorderWidth: 'selectOutlineBorderWidth',
   selectOutlineBasicOpenBorderColor: 'selectOutlineBasicBorderColor',
