@@ -41,7 +41,11 @@ const customStyles: (props: SelectMainProps) => StylesConfig = ({ theme, status,
         backgroundColor: theme[`selectOutline${status}BackgroundColor` as ThemeKey],
         borderColor: theme[`selectOutline${status}BorderColor` as ThemeKey],
         color: theme[`selectOutline${status}TextColor` as ThemeKey],
+        minHeight: 'auto',
         boxShadow: 'none',
+        "div[class$='indicatorContainer']": {
+          padding: theme[`selectOutline${size}Padding` as ThemeKey],
+        },
         '&:focus': {
           backgroundColor: theme[`selectOutline${status}FocusBackgroundColor` as ThemeKey],
           borderColor: theme[`selectOutline${status}FocusBorderColor` as ThemeKey],
@@ -85,10 +89,6 @@ const customStyles: (props: SelectMainProps) => StylesConfig = ({ theme, status,
     singleValue: (base) => ({
       ...base,
       color: theme[`selectOutline${status}TextColor` as ThemeKey],
-    }),
-    indicatorsContainer: (base) => ({
-      ...base,
-      padding: theme[`selectOutline${size}Padding` as ThemeKey],
     }),
     indicatorSeparator: (base) => ({
       ...base,

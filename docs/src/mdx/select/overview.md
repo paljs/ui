@@ -2,6 +2,8 @@
 
 provides a capability to select one of the passed items.
 
+This Component build on [React Select](https://react-select.com/) you can look to his docs for mor props options
+
 ### Usage
 
 ```js
@@ -15,7 +17,6 @@ If you want to use it as the multi-select control you have to mark it as multipl
 And two additional style types - `outline`:
 
 [Outline](demo://Outline.tsx)
-
 
 Select is available in different shapes, that could be combined with the other properties:
 

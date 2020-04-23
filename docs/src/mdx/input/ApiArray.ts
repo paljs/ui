@@ -12,7 +12,7 @@ export const inputProps = [
     description: 'Field status (adds specific styles): ' + statusString,
   },
   {
-    name: 'fieldSize',
+    name: 'size',
     type: 'string',
     description: `Field size, available sizes: ${sizeString} default: Medium`,
   },
