@@ -19,6 +19,7 @@ export * from './Actions';
 export * from './types';
 export * from './Search';
 export * from './Toastr';
+export * from './Modal';
 
 export { EvaIcon } from './Icon';
 export { default as Badge } from './Badge';

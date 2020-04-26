@@ -102,6 +102,10 @@ const customStyles: (props: SelectMainProps) => StylesConfig = ({ theme, status,
       ...base,
       borderRadius: theme[`select${shape}BorderRadius` as ThemeKey],
     }),
+    input: (base) => ({
+      ...base,
+      color: theme[`selectOutline${status}TextColor` as ThemeKey],
+    }),
     multiValueRemove: (base) => {
       const borderTop = theme.dir === 'rtl' ? 'borderTopLeftRadius' : 'borderTopRightRadius';
       const borderBottom = theme.dir === 'rtl' ? 'borderBottomLeftRadius' : 'borderBottomRightRadius';

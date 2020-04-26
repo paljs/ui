@@ -16,20 +16,14 @@ const OverlayStyle = styled.div`
   display: flex;
   max-width: 100%;
   max-height: 100%;
+  justify-content: center;
+  align-items: center;
 `;
 
-const Overlay: React.FC<{ children: React.ReactNode }> = props => {
-  const [parent, setParent] = React.useState<HTMLDivElement>();
-
-  React.useEffect(() => {
-    const overlayParent = document.getElementById('overlay-container') as HTMLDivElement;
-    overlayParent && setParent(overlayParent);
-  }, []);
-
-  return parent !== undefined ? (
-    ReactDOM.createPortal(<OverlayStyle {...props}>{props.children}</OverlayStyle>, parent)
-  ) : (
-    <></>
+const Overlay: React.FC<{ children: React.ReactNode }> = (props) => {
+  return ReactDOM.createPortal(
+    <OverlayStyle {...props}>{props.children}</OverlayStyle>,
+    document.getElementById('overlay-container')!,
   );
 };
 
