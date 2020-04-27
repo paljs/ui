@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 /*
  * @license
  * Copyright Ahmed Elywa. All Rights Reserved.
@@ -22,26 +23,24 @@ interface OverlayProps {
   arrowRound?: number;
   arrowSize?: string;
   contextMenu?: boolean;
-  ref?: React.RefObject<OverlayRefObject>;
-}
-export interface OverlayRefObject {
-  hide: () => void;
 }
 
-const Overlay: React.RefForwardingComponent<OverlayRefObject, OverlayProps> = (props, ref) => {
+interface ContextProps {
+  positionHandle: () => void;
+  hide: () => void;
+  children?: React.ReactNode;
+}
+
+const initialContext: ContextProps = {
+  positionHandle() {},
+  hide() {},
+};
+
+export const OverLayContext: React.Context<ContextProps> = React.createContext(initialContext);
+const Overlay: React.FC<OverlayProps> = (props) => {
   const overlayRef = React.useRef<HTMLDivElement>(null);
   const targetRef = React.useRef<HTMLDivElement>(null);
-  const { position, placement, show, setShow } = usePopoverPosition(props, targetRef, overlayRef);
-
-  React.useImperativeHandle(
-    ref,
-    () => ({
-      hide() {
-        setShow(false);
-      },
-    }),
-    [show],
-  );
+  const { position, placement, show, setShow, positionHandle } = usePopoverPosition(props, targetRef, overlayRef);
 
   let timeOut: number;
   const onMouseLeave = () => {
@@ -99,15 +98,17 @@ const Overlay: React.RefForwardingComponent<OverlayRefObject, OverlayProps> = (p
             arrowRound={props.arrowRound}
             arrowSize={props.arrowSize}
           >
-            <div
-              className="overlay-pane"
-              style={position && { top: position.top, left: position.left }}
-              ref={overlayRef}
-              onClick={e => e.stopPropagation()}
-              {...overlayMouse}
-            >
-              {props.children}
-            </div>
+            <OverLayContext.Provider value={{ positionHandle, hide: () => setShow(false) }}>
+              <div
+                className="overlay-pane"
+                style={position && { top: position.top, left: position.left }}
+                ref={overlayRef}
+                onClick={(e) => e.stopPropagation()}
+                {...overlayMouse}
+              >
+                {props.children}
+              </div>
+            </OverLayContext.Provider>
           </OverlayStyle>,
           document.getElementById('overlay-container')!,
         )}
@@ -118,4 +119,4 @@ const Overlay: React.RefForwardingComponent<OverlayRefObject, OverlayProps> = (p
   );
 };
 
-export default React.forwardRef(Overlay);
+export default Overlay;

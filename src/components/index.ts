@@ -20,6 +20,7 @@ export * from './types';
 export * from './Search';
 export * from './Toastr';
 export * from './Modal';
+export { OverLayContext } from './PopoverLay';
 
 export { EvaIcon } from './Icon';
 export { default as Badge } from './Badge';

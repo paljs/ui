@@ -26,7 +26,7 @@ const getMaxPlacement = (target: DOMRect, overlay: DOMRect) => {
   };
   const arr = Object.values(positions);
   const max = Math.max(...arr);
-  return (Object.keys(positions) as PositionKeys[]).find(key => positions[key] === max) as PositionKeys;
+  return (Object.keys(positions) as PositionKeys[]).find((key) => positions[key] === max) as PositionKeys;
 };
 
 const getPositionOfPlacement: (placement: PositionKeys, target: DOMRect, overlay: DOMRect) => Position = (
@@ -159,5 +159,5 @@ export default function usePopoverPosition(
     }
   }, [show, overlayRef.current]);
 
-  return { position, placement, show, setShow };
+  return { position, placement, show, setShow, positionHandle };
 }

@@ -8,13 +8,27 @@ import React from 'react';
 import ContextMenuStyle from './style';
 import { Placement, MenuItemType } from '../types';
 import { Menu } from '../Menu';
-import Overlay, { OverlayRefObject } from '../PopoverLay';
+import Overlay, { OverLayContext } from '../PopoverLay';
 
-const ContextMenu: React.FC<ContextMenuProps> = props => {
-  const overlayRef = React.useRef<OverlayRefObject>(null);
+const Component: React.FC<ContextMenuProps> = (props) => {
+  const { hide } = React.useContext(OverLayContext);
+  return (
+    <ContextMenuStyle>
+      <span className="arrow" />
+      <Menu
+        className="context-menu"
+        nextJs={props.nextJs}
+        currentPath={props.currentPath}
+        Link={props.Link}
+        items={props.items}
+        toggleSidebar={hide}
+      />
+    </ContextMenuStyle>
+  );
+};
+const ContextMenu: React.FC<ContextMenuProps> = (props) => {
   return (
     <Overlay
-      ref={overlayRef}
       target={props.children}
       placement={props.placement}
       style={props.style}
@@ -23,17 +37,7 @@ const ContextMenu: React.FC<ContextMenuProps> = props => {
       transformSize={15}
       contextMenu
     >
-      <ContextMenuStyle>
-        <span className="arrow" />
-        <Menu
-          className="context-menu"
-          nextJs={props.nextJs}
-          currentPath={props.currentPath}
-          Link={props.Link}
-          items={props.items}
-          toggleSidebar={overlayRef.current?.hide}
-        />
-      </ContextMenuStyle>
+      <Component {...props} />
     </Overlay>
   );
 };
