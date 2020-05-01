@@ -30,7 +30,7 @@
     "react-helmet": "5.2.1",
     "react-select": "3.0.8",
     "styled-components": "5.0.1",
-    "typescript": "3.7.4"
+    "typescript": "3.8.3"
   },
   "keywords": [
     "gatsby"
