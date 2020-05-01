@@ -28,7 +28,7 @@
     "react": "16.12.0",
     "react-dom": "16.12.0",
     "react-helmet": "5.2.1",
-    "react-select": "3.0.8",
+    "react-select": "3.1.0",
     "styled-components": "5.1.0",
     "typescript": "3.8.3"
   },
@@ -49,7 +49,7 @@
     "@types/react": "16.9.34",
     "@types/react-dom": "16.9.7",
     "@types/react-helmet": "5.0.15",
-    "@types/react-select": "3.0.10",
+    "@types/react-select": "3.0.12",
     "@types/styled-components": "5.1.0",
     "@typescript-eslint/eslint-plugin": "2.19.0",
     "@typescript-eslint/parser": "2.19.0",
