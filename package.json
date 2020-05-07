@@ -52,7 +52,7 @@
     "pretty-quick": "2.0.1",
     "react": "16.13.1",
     "react-dom": "16.13.1",
-    "rollup": "2.7.6",
+    "rollup": "2.8.2",
     "rollup-plugin-typescript2": "0.27.0",
     "styled-components": "5.1.0",
     "tslib": "1.11.1",
