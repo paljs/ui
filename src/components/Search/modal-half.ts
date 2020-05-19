@@ -36,13 +36,13 @@ const modalHalf = css`
       font-size: 2.5rem;
       position: absolute;
       top: 3rem;
-      ${({ theme }) => (theme.dir === 'rtl' ? 'left: 3rem;' : 'right: 3rem;')}
       display: block;
       z-index: 100;
       opacity: 0;
       transform: scale3d(0.8, 0.8, 1);
       transition: opacity 0.6s, transform 0.6s;
       transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+      ${({ theme }) => (theme.dir === 'rtl' ? 'left' : 'right')}: 3rem;
     }
 
     .form-wrapper {

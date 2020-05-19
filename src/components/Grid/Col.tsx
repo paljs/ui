@@ -15,7 +15,7 @@ const colData = css<ColProps>`
     breakPoint &&
     (Object.keys(breakPoint) as Array<BreakPointKeys>)
       .sort((k1, k2) => BP.indexOf(k1) - BP.indexOf(k2))
-      .map(k => {
+      .map((k) => {
         if (typeof breakPoint[k] === 'number') {
           return breakpointUp(k)`
             flex: 0 0 ${(100 / getGridSize(theme)) * (breakPoint[k] as number)}%;
@@ -37,7 +37,7 @@ const offset = css<ColProps>`
   ${({ offset, theme }) =>
     offset &&
     (Object.keys(offset) as Array<BreakPointKeys>).map(
-      k =>
+      (k) =>
         breakpointUp(k)`
           margin-${theme.dir == 'rtl' ? 'right' : 'left'}: 
           ${(100 / getGridSize(theme)) * (offset[k] as number)}%;`,
@@ -69,6 +69,6 @@ interface ColProps {
   className?: string;
 }
 
-const Col: React.FC<ColProps> = props => <ColStyle {...props}>{props.children}</ColStyle>;
+const Col: React.FC<ColProps> = (props) => <ColStyle {...props}>{props.children}</ColStyle>;
 
 export default Col;

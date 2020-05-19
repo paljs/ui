@@ -41,7 +41,7 @@ const Label = styled.span`
   display: flex;
   align-items: center;
 `;
-const Header: React.FC<HeaderProps> = props => {
+const Header: React.FC<HeaderProps> = (props) => {
   const themeOptions = [
     {
       value: 'default',

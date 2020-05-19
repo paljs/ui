@@ -16,7 +16,7 @@ function Size() {
     <Card>
       <header>Shape</header>
       <CardBody>
-        {shape.map(shape => (
+        {shape.map((shape) => (
           <SelectStyled key={shape} shape={shape} options={options} placeholder={shape} />
         ))}
       </CardBody>

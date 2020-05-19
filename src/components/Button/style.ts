@@ -229,16 +229,20 @@ const ButtonStyle = css<ButtonTypes>`
       text-decoration: none;
     }
 
-    ${size &&
+    ${
+      size &&
       css`
         font-size: ${theme[`button${size}TextFontSize` as ThemeKey]};
         line-height: ${theme[`button${size}TextLineHeight` as ThemeKey]};
-      `}
+      `
+    }
 
-    ${shape &&
+    ${
+      shape &&
       css`
         border-radius: ${theme[`button${shape}BorderRadius` as ThemeKey]};
-      `}
+      `
+    }
 
     ${pulse && btnPulse(theme[`buttonHero${status}LeftBackgroundColor` as ThemeKey])}
 

@@ -53,8 +53,8 @@ const modalZoomin = css`
     button {
       position: absolute;
       top: 3rem;
-      ${({ theme }) => (theme.dir === 'rtl' ? 'left: 3rem;' : 'right: 3rem;')}
       font-size: 2.5rem;
+      ${({ theme }) => (theme.dir === 'rtl' ? 'left' : 'right')}: 3rem;
     }
 
     input {

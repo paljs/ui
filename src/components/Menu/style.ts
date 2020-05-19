@@ -28,7 +28,7 @@ const MenuStyle = styled.div`
       }
 
       .menu-group,
-      .menu-group nb-icon.menu-icon {
+      .menu-group .menu-icon {
         color: ${theme.menuGroupTextColor};
       }
 
@@ -135,7 +135,7 @@ const MenuStyle = styled.div`
 
       .menu-item > .menu-items > .menu-group {
         &,
-        & nb-icon.menu-icon {
+        & .menu-icon {
           color: ${theme.menuGroupTextColor};
         }
       }

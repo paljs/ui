@@ -17,7 +17,7 @@ const StyleTable: React.FC<{ keys: string[]; theme: DefaultTheme }> = ({ keys, t
 
   return (
     <>
-      {keys.map(key => (
+      {keys.map((key) => (
         <Card key={key}>
           <CardBody>
             <h2 style={{ textTransform: 'uppercase' }}>{key}</h2>
@@ -30,7 +30,7 @@ const StyleTable: React.FC<{ keys: string[]; theme: DefaultTheme }> = ({ keys, t
                 </tr>
               </thead>
               <tbody>
-                {getTheme(theme.name, key).map(v => {
+                {getTheme(theme.name, key).map((v) => {
                   return (
                     <tr key={v.key}>
                       <td>{v.key}</td>

@@ -61,10 +61,10 @@ export const outlineShadow = (width: ThemeKeys, color: ThemeKeys, insetShadow = 
   return css`
     box-shadow: ${outsetShadow};
     ${insetShadow &&
-      css`
-        &:not(:hover):not(:active) {
-          box-shadow: ${outsetShadow}, inset 0 0 0 100vmax ${({ theme }) => theme.buttonOutlineColor};
-        }
-      `}
+    css`
+      &:not(:hover):not(:active) {
+        box-shadow: ${outsetShadow}, inset 0 0 0 100vmax ${({ theme }) => theme.buttonOutlineColor};
+      }
+    `}
   `;
 };

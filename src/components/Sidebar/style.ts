@@ -9,7 +9,7 @@ import { breakpointDown } from '../../theme';
 import { MenuStyle } from '../Menu/style';
 import { scrollbars } from '../Shared';
 import { SidebarStyleProps } from '.';
-import { LayoutContent } from '../Layout/style';
+import { LayoutContent } from '../Layout';
 
 const compacted = css<SidebarStyleProps>`
   ${MenuStyle} {
@@ -21,11 +21,11 @@ const compacted = css<SidebarStyleProps>`
       &::before {
         position: absolute;
         content: '';
-        ${({ theme }) => (theme.dir === 'rtl' ? 'right: 0;' : 'left: 0;')}
         top: 0;
         height: 100%;
         width: 4px;
         background: ${({ theme }) => theme.sidebarMenuItemHighlightColor};
+        ${({ theme }) => (theme.dir === 'rtl' ? 'right' : 'left')}: 0;
       }
     }
 
@@ -157,30 +157,22 @@ const SidebarStyle = styled.aside<SidebarStyleProps>`
     flex-direction: column;
     overflow: hidden;
     z-index: auto;
-    transition: width .3s cubic-bezier(0.4, 0, 0.6, 1) 0ms;
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.6, 1) 0ms;
 
-  order: ${
-    property === 'right'
-      ? theme.dir == 'rtl'
-        ? '0'
-        : '4'
-      : property === 'left'
-      ? theme.dir == 'rtl'
+    order: ${
+      property === 'right'
+        ? theme.dir == 'rtl'
+          ? '0'
+          : '4'
+        : property === 'left'
+        ? theme.dir == 'rtl'
+          ? '4'
+          : '0'
+        : property === 'end'
         ? '4'
         : '0'
-      : property === 'end'
-      ? '4'
-      : '0'
-  };
-    
-  ${
-    state === 'hidden'
-      ? 'width: 0;padding: 0;'
-      : state === 'compacted'
-      ? `width: ${theme.sidebarWidthCompact};`
-      : `width: ${theme.sidebarWidth};`
-  }
-  .main-container {
+    };
+
     ${
       state === 'hidden'
         ? 'width: 0;padding: 0;'
@@ -188,55 +180,61 @@ const SidebarStyle = styled.aside<SidebarStyleProps>`
         ? `width: ${theme.sidebarWidthCompact};`
         : `width: ${theme.sidebarWidth};`
     }
-    height: ${theme.sidebarHeight};
-    transform: translate3d(0, 0, 0);
-    display: flex;
-    flex-direction: column;
-    transition: width .3s cubic-bezier(0.4, 0, 0.6, 1) 0ms;
-    ${containerFixed && 'position: fixed;'}
-  }
-
-  .scrollable {
-    ${
-      state === 'hidden'
-        ? 'width: 0;padding: 0;overflow: hidden;'
-        : `overflow-y: auto;overflow-x: hidden;padding: ${theme.sidebarPadding};`
+    .main-container {
+      height: ${theme.sidebarHeight};
+      transform: translate3d(0, 0, 0);
+      display: flex;
+      flex-direction: column;
+      transition: width 0.3s cubic-bezier(0.4, 0, 0.6, 1) 0ms;
+      ${
+        state === 'hidden'
+          ? 'width: 0;padding: 0;'
+          : state === 'compacted'
+          ? `width: ${theme.sidebarWidthCompact};`
+          : `width: ${theme.sidebarWidth};`
+      }
+      ${containerFixed && 'position: fixed;'}
     }
-    flex: 1;
-    position: relative;
-    -webkit-transform: translate3d(0, 0, 0);
-    ${breakpointDown('sm')`
+
+    .scrollable {
+      flex: 1;
+      position: relative;
+      -webkit-transform: translate3d(0, 0, 0);
+      ${
+        state === 'hidden'
+          ? 'width: 0;padding: 0;overflow: hidden;'
+          : `overflow-y: auto;overflow-x: hidden;padding: ${theme.sidebarPadding};`
+      }
+      ${breakpointDown('sm')`
       overflow-y: scroll;
       -webkit-overflow-scrolling: touch;
       `}
-    ${scrollbars(theme.sidebarScrollbarColor, theme.sidebarScrollbarBackgroundColor, theme.sidebarScrollbarWidth)}
-  }
-  
-  ${fixed && fixedStyle}
+      ${scrollbars(theme.sidebarScrollbarColor, theme.sidebarScrollbarBackgroundColor, theme.sidebarScrollbarWidth)}
+    }
 
-  ${state === 'compacted' && compacted}
+    ${fixed && fixedStyle}
+
+    ${state === 'compacted' && compacted}
 
 
   header,
-  footer
-   {
-     ${state === 'hidden' ? 'width: 0;padding: 0;overflow: hidden;' : `padding: ${theme.sidebarPadding};`}
-    display: block;
-    
-  }
-
-  header{
-    height: ${theme.sidebarHeaderHeight};
-  }
-
   footer {
-    margin-top: auto;
-    height: ${theme.sidebarFooterHeight};
-  }
+      display: block;
+      ${state === 'hidden' ? 'width: 0;padding: 0;overflow: hidden;' : `padding: ${theme.sidebarPadding};`}
+    }
 
-  ${MenuStyle}{
-    margin: 0 -${theme.sidebarPadding} -${theme.sidebarPadding};
-  }
-`}
+    header {
+      height: ${theme.sidebarHeaderHeight};
+    }
+
+    footer {
+      margin-top: auto;
+      height: ${theme.sidebarFooterHeight};
+    }
+
+    ${MenuStyle} {
+      margin: 0 -${theme.sidebarPadding} -${theme.sidebarPadding};
+    }
+  `}
 `;
 export default SidebarStyle;

@@ -176,11 +176,13 @@ const FormStyle = styled.div<FormProps>`
       border-radius: 2rem;
       outline: none;
       box-sizing: border-box;
-      ${showButton &&
+      ${
+        showButton &&
         css`
         border-top-${theme.dir === 'rtl' ? 'left' : 'right'}-radius: 0;
         border-bottom-${theme.dir === 'rtl' ? 'left' : 'right'}-radius: 0;
-      `}
+      `
+      }
     }
 
     .send-button {
@@ -188,10 +190,12 @@ const FormStyle = styled.div<FormProps>`
       border-top-${theme.dir === 'rtl' ? 'right' : 'left'}-radius: 0;
       border-bottom-${theme.dir === 'rtl' ? 'right' : 'left'}-radius: 0;
 
-      ${buttonIcon &&
+      ${
+        buttonIcon &&
         css`
           font-size: 3rem;
-        `}
+        `
+      }
     }
 
     .dropped-files {
@@ -272,12 +276,12 @@ const ChatStyle = styled.div<ChatProps>`
 
     ${size && `height: ${theme[`chat${size}Height` as ThemeKey]};`}
     ${status &&
-      css`
-        header {
-          background-color: ${theme[`chat${status}BackgroundColor` as ThemeKey]};
-          color: ${theme[`chat${status}TextColor` as ThemeKey]};
-        }
-      `}
+    css`
+      header {
+        background-color: ${theme[`chat${status}BackgroundColor` as ThemeKey]};
+        color: ${theme[`chat${status}TextColor` as ThemeKey]};
+      }
+    `}
   `}
 `;
 

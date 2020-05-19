@@ -55,7 +55,8 @@ const RadioStyle = styled.label<Partial<Option>>`
       padding-${theme.dir === 'rtl' ? 'right' : 'left'}: 0.5rem;
     }
 
-    ${status &&
+    ${
+      status &&
       css`
         .native-input:enabled + .outer-circle {
           background-color: ${theme[`radio${status}BackgroundColor` as ThemeKey]};
@@ -122,7 +123,8 @@ const RadioStyle = styled.label<Partial<Option>>`
             }
           }
         }
-      `}
+      `
+    }
     `}
 `;
 

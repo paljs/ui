@@ -8,7 +8,7 @@ import React from 'react';
 import { Status } from '../../types';
 import RadioStyle from './style';
 
-export const Radio: React.FC<RadioProps> = props => {
+export const Radio: React.FC<RadioProps> = (props) => {
   const [options, setOptions] = React.useState<Option[]>(props.options);
 
   const onClickHandler = (value: number | string) => {
@@ -22,7 +22,7 @@ export const Radio: React.FC<RadioProps> = props => {
 
   return (
     <>
-      {options.map(option => (
+      {options.map((option) => (
         <RadioStyle status={option.status ?? 'Basic'} key={option.value} className={props.className}>
           <label>
             <input

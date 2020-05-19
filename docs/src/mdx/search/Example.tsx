@@ -15,12 +15,12 @@ export default function SearchPage() {
   ];
   return (
     <Row>
-      {type.map(key => (
+      {type.map((key) => (
         <Col breakPoint={{ xs: 12, md: 6 }} key={key}>
           <Card>
             <header>{key} Search</header>
             <CardBody>
-              <Search submit={v => submitHandle(v)} type={key} placeholder="Search..." hint="Hit Enter to search" />
+              <Search submit={(v) => submitHandle(v)} type={key} placeholder="Search..." hint="Hit Enter to search" />
             </CardBody>
             <footer>You Search for: {value}</footer>
           </Card>

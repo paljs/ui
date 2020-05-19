@@ -38,7 +38,8 @@ const AlertStyle = styled.div<AlertProps>`
 
     ${size && `height: ${theme[`alert${size}Height` as ThemeKey]};`}
 
-    ${status &&
+    ${
+      status &&
       css`
         background-color: ${theme[`alert${status}BackgroundColor` as ThemeKey]};
         color: ${theme[`alert${status}TextColor` as ThemeKey]};
@@ -46,17 +47,22 @@ const AlertStyle = styled.div<AlertProps>`
         a:hover {
           color: ${theme[`alert${status}TextColor` as ThemeKey]};
         }
-      `}
+      `
+    }
 
-    ${accent &&
+    ${
+      accent &&
       css`
         border-top: ${theme.alertBorderRadius} solid ${theme[`alertAccent${status}Color` as ThemeKey]};
-      `}
+      `
+    }
 
-    ${outline &&
+    ${
+      outline &&
       css`
         border: ${theme.alertOutlineWidth} solid ${theme[`alertOutline${status}Color` as ThemeKey]};
-      `}
+      `
+    }
 
     .close {
       padding: ${theme.alertPadding};
@@ -73,14 +79,16 @@ const AlertStyle = styled.div<AlertProps>`
       border: 0;
       -webkit-appearance: none;
     }
-    ${closable &&
+    ${
+      closable &&
       css`
         padding-${theme.dir === 'rtl' ? 'left' : 'right'}: ${theme.alertClosableStartPadding};
-      `}
+      `
+    }
   `}
 `;
 
-const Alert: React.FC<AlertProps> = props => {
+const Alert: React.FC<AlertProps> = (props) => {
   return (
     <AlertStyle {...props}>
       {props.closable && (

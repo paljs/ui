@@ -14,7 +14,7 @@ function TabTest() {
   };
   return (
     <Card>
-      <Tabs activeIndex={activeTab} fullWidth onSelect={i => onSelect(i)}>
+      <Tabs activeIndex={activeTab} fullWidth onSelect={(i) => onSelect(i)}>
         <Tab title="Tab 1">
           <div style={{ position: 'relative' }}>
             <h1>Content 1</h1>

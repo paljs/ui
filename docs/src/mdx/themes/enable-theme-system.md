@@ -20,7 +20,7 @@ import { Link } from 'gatsby';
 
 ## Normal Setup
 
-To enable theme you must use [styled-components](https://www.styled-components.com/docs) package. 
+To enable theme you must use [styled-components](https://www.styled-components.com/docs) package.
 
 `createTheme` function take 2 args first one theme name second take object of settings that need to custom theme or use it in your styled components
 
@@ -36,7 +36,7 @@ export default function LayoutPage(props) {
   const [dir, setDir] = useState('ltr');
 
   // Change theme
-  const changeTheme = newTheme => {
+  const changeTheme = (newTheme) => {
     setTheme(newTheme);
   };
   // Change Direction from Ltr to Rtl
@@ -47,9 +47,7 @@ export default function LayoutPage(props) {
 
   // to enable direction you must send dir here and in layout component
   return (
-    <ThemeProvider
-      theme={createTheme(theme, { dir, borderRadius: '0.25rem', outlineWidth: '0.375rem' })}
-    >
+    <ThemeProvider theme={createTheme(theme, { dir, borderRadius: '0.25rem', outlineWidth: '0.375rem' })}>
       <Layout dir={dir} />
     </ThemeProvider>
   );
@@ -120,16 +118,16 @@ export function themeService(theme, dir) {
 //  you can custom oah theme
 const customCorporate = {
   borderRadius: '0.25rem',
-  
+
   outlineWidth: '0.375rem',
   outlineColor: 'colorBasicTransparent200',
-  
+
   scrollbarColor: 'backgroundBasicColor4',
   scrollbarBackgroundColor: 'backgroundBasicColor2',
   scrollbarWidth: '0.3125rem',
-  
+
   shadow: '0 0.5rem 1rem 0 rgba(44, 51, 73, 0.1)',
-  
+
   dividerColor: 'borderBasicColor3',
   dividerStyle: 'solid',
   dividerWidth: '1px',
@@ -137,16 +135,16 @@ const customCorporate = {
 
 const customDark = {
   borderRadius: '0.25rem',
-  
+
   outlineWidth: '0.375rem',
   outlineColor: 'colorBasicTransparent200',
-  
+
   scrollbarColor: 'backgroundBasicColor4',
   scrollbarBackgroundColor: 'backgroundBasicColor2',
   scrollbarWidth: '0.3125rem',
-  
+
   shadow: '0 0.5rem 1rem 0 rgba(44, 51, 73, 0.1)',
-  
+
   dividerColor: 'borderBasicColor3',
   dividerStyle: 'solid',
   dividerWidth: '1px',
@@ -167,7 +165,7 @@ export default function LayoutPage(props) {
   const [dir, setDir] = useState('ltr');
 
   // Change theme
-  const changeTheme = newTheme => {
+  const changeTheme = (newTheme) => {
     setTheme(newTheme);
   };
   // Change Direction from Ltr to Rtl

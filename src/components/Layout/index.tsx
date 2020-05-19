@@ -17,7 +17,7 @@ import {
 import LayoutContext from './layout-context';
 import { Icons } from '../EvaTypes';
 
-const LayoutHeader: React.FC<{ fixed?: boolean; className?: string }> = props => {
+const LayoutHeader: React.FC<{ fixed?: boolean; className?: string }> = (props) => {
   const className = props.className ? props.className.split(' ') : [];
   props.fixed && className.push('fixed');
   return (
@@ -27,7 +27,7 @@ const LayoutHeader: React.FC<{ fixed?: boolean; className?: string }> = props =>
   );
 };
 
-const LayoutFooter: React.FC = props => {
+const LayoutFooter: React.FC = (props) => {
   return (
     <FooterStyle {...props}>
       <nav>{props.children}</nav>
@@ -45,7 +45,7 @@ interface LayoutProps {
   evaIcons?: Icons;
 }
 
-const Layout: React.FC<LayoutProps> = props => {
+const Layout: React.FC<LayoutProps> = (props) => {
   const [className, setClassName] = React.useState<string[]>(props.className ? [...props.className.split(' ')] : []);
 
   const scrollRef = React.useRef<HTMLDivElement>(null);

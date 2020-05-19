@@ -46,7 +46,8 @@ const FlipCardStyled = styled.div<FlipCardProps>`
         margin-${theme.dir === 'rtl' ? 'left' : 'right'}: -100%;
         transition: opacity 0s 0.2s;
         backface-visibility: visible;
-        ${flipped &&
+        ${
+          flipped &&
           css`
             backface-visibility: hidden;
             opacity: 0;
@@ -54,7 +55,8 @@ const FlipCardStyled = styled.div<FlipCardProps>`
               opacity: 0;
               z-index: -1;
             }
-          `}
+          `
+        }
       }
 
       & > .back {
@@ -65,7 +67,7 @@ const FlipCardStyled = styled.div<FlipCardProps>`
   `}
 `;
 
-const FlipCard: React.FC<FlipCardProps & { children: [React.ReactNode, React.ReactNode] }> = props => {
+const FlipCard: React.FC<FlipCardProps & { children: [React.ReactNode, React.ReactNode] }> = (props) => {
   const [flipped, setFlipped] = React.useState<boolean>(false);
   const handleFlipped = () => {
     setFlipped(!flipped);

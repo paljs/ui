@@ -15,7 +15,7 @@ interface ApiTableProps {
   methods?: Props[];
 }
 
-const ApiTable: React.FC<ApiTableProps> = props => {
+const ApiTable: React.FC<ApiTableProps> = (props) => {
   return (
     <Card>
       <CardBody>
@@ -31,7 +31,7 @@ const ApiTable: React.FC<ApiTableProps> = props => {
             </tr>
           </thead>
           <tbody>
-            {props.props.map(v => (
+            {props.props.map((v) => (
               <tr key={v.name}>
                 <td>{v.name}</td>
                 <td>{v.type}</td>
@@ -52,7 +52,7 @@ const ApiTable: React.FC<ApiTableProps> = props => {
                 </tr>
               </thead>
               <tbody>
-                {props.methods.map(v => (
+                {props.methods.map((v) => (
                   <tr key={v.name}>
                     <td>{v.name}</td>
                     <td>{v.type}</td>

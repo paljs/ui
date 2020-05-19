@@ -21,7 +21,7 @@ Toastr.defaultProps = {
   duration: 3000,
   hasIcon: true,
   destroyByClick: true,
-  preventDuplicates: false
+  preventDuplicates: false,
 };
 ```
 

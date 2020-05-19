@@ -5,7 +5,7 @@ import { Link } from 'gatsby';
 import Table from '../StyleTable/style';
 import { getTheme, ReturnThemeData } from './themeData';
 
-const ThemeTable: React.FC<{ theme: DefaultTheme['name'] }> = props => {
+const ThemeTable: React.FC<{ theme: DefaultTheme['name'] }> = (props) => {
   const [search, setSearch] = useState('');
 
   const getColor = (value: string) => {
@@ -33,7 +33,7 @@ const ThemeTable: React.FC<{ theme: DefaultTheme['name'] }> = props => {
         <h2 style={{ textTransform: 'uppercase' }}>{props.theme}</h2>
         {props.theme !== 'default' && <p>inherited from default theme</p>}
         <InputGroup fullWidth>
-          <input placeholder="search for" type="text" value={search} onChange={e => setSearch(e.target.value)} />
+          <input placeholder="search for" type="text" value={search} onChange={(e) => setSearch(e.target.value)} />
         </InputGroup>
         <Table className="striped">
           <thead>
@@ -44,7 +44,7 @@ const ThemeTable: React.FC<{ theme: DefaultTheme['name'] }> = props => {
             </tr>
           </thead>
           <tbody>
-            {getTheme(props.theme).map(v => {
+            {getTheme(props.theme).map((v) => {
               if (v.key.includes(search)) {
                 return (
                   <tr key={v.key} id={v.key}>

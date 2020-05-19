@@ -63,20 +63,20 @@ const SpinnerStyle = styled.div<SpinnerProps>`
     }
 
     ${status &&
-      css`
-        background-color: ${theme[`spinner${status}BackgroundColor` as ThemeKey]};
+    css`
+      background-color: ${theme[`spinner${status}BackgroundColor` as ThemeKey]};
 
-        .spin-circle {
-          border-top-color: ${theme[`spinner${status}CircleFilledColor` as ThemeKey]};
-          border-right-color: ${theme[`spinner${status}CircleEmptyColor` as ThemeKey]};
-          border-bottom-color: ${theme[`spinner${status}CircleFilledColor` as ThemeKey]};
-          border-left-color: ${theme[`spinner${status}CircleFilledColor` as ThemeKey]};
-        }
-      `}
+      .spin-circle {
+        border-top-color: ${theme[`spinner${status}CircleFilledColor` as ThemeKey]};
+        border-right-color: ${theme[`spinner${status}CircleEmptyColor` as ThemeKey]};
+        border-bottom-color: ${theme[`spinner${status}CircleFilledColor` as ThemeKey]};
+        border-left-color: ${theme[`spinner${status}CircleFilledColor` as ThemeKey]};
+      }
+    `}
   `}
 `;
 
-const Spinner: React.FC<SpinnerProps> = props => {
+const Spinner: React.FC<SpinnerProps> = (props) => {
   return (
     <SpinnerStyle {...props}>
       <span className="spin-circle" />

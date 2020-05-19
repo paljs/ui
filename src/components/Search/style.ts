@@ -73,7 +73,6 @@ const SearchFieldStyle = styled.div`
         border-left: 0;
         background: transparent;
         border-radius: 0;
-        line-height: 1;
         display: inline-block;
         box-sizing: border-box;
         padding: 0.05rem 0;
@@ -87,7 +86,6 @@ const SearchFieldStyle = styled.div`
           outline: none;
         }
 
-
         &::-ms-clear {
           display: none;
         }
@@ -95,8 +93,8 @@ const SearchFieldStyle = styled.div`
     }
 
     &.rotate-layout {
-      ${rotateLayout}
       background: ${theme.searchBackgroundColor};
+      ${rotateLayout}
     }
 
     &.modal-zoomin {

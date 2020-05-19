@@ -5,7 +5,7 @@ function Controlled() {
   const [activeIndex, setActiveIndex] = useState(1);
   return (
     <Card>
-      <Tabs onSelect={i => setActiveIndex(i)} activeIndex={activeIndex}>
+      <Tabs onSelect={(i) => setActiveIndex(i)} activeIndex={activeIndex}>
         <Tab title="Tab 1">
           <h1>Content 1</h1>
         </Tab>

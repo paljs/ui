@@ -59,6 +59,7 @@ export const newComponent = styled.div`
 ```
 
 ## Customize Typography styles
+
 All text styles and colors are available as [OAH UI Theme](/themes/theme-system) properties. This means that all styles could be easily customized by changing theme variables:
 
 ```js
@@ -67,7 +68,7 @@ const theme = {
   textCaptionFontSize: '0.75rem',
   textCaptionFontWeight: 400,
   textCaptionLineHeight: '1rem',
-}
+};
 ```
 
 Complete list of typography variables could be find at[ Default Theme Variables](/themes/default) page.

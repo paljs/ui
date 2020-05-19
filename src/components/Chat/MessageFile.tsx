@@ -8,7 +8,7 @@ interface FileWithStyle extends MessageFileType {
   isImage: boolean;
 }
 
-const FileComponent: React.FC<FileWithStyle> = props => {
+const FileComponent: React.FC<FileWithStyle> = (props) => {
   return (
     <a href={props.url} target="_blank" rel="noopener noreferrer">
       {!props.urlStyle && <span className={props.icon} />}
@@ -17,12 +17,12 @@ const FileComponent: React.FC<FileWithStyle> = props => {
   );
 };
 
-const MessageFile: React.FC<MessageProps> = props => {
+const MessageFile: React.FC<MessageProps> = (props) => {
   const isImages = (file: MessageFileType) => {
     return !!file.type && ['image/png', 'image/jpeg', 'image/gif'].includes(file.type);
   };
   const readyFiles: FileWithStyle[] = props.files
-    ? props.files.map(file => {
+    ? props.files.map((file) => {
         const isImage = isImages(file);
         return {
           ...file,

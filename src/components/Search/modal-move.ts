@@ -26,10 +26,10 @@ const modalMove = css`
     button {
       position: absolute;
       top: 3rem;
-      ${({ theme }) => (theme.dir === 'rtl' ? 'left: 3rem;' : 'right: 3rem;')}
       font-size: 2.5rem;
       opacity: 0;
       transition: opacity 0.5s;
+      ${({ theme }) => (theme.dir === 'rtl' ? 'left' : 'right')}: 3rem;
     }
 
     .form {

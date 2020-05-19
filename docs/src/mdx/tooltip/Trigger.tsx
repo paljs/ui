@@ -7,7 +7,7 @@ function Trigger() {
     <Card size="Tiny">
       <header>Popover Trigger</header>
       <CardBody id="scrollTriggerId">
-        {trigger.map(trigger => (
+        {trigger.map((trigger) => (
           <Tooltip
             key={trigger}
             eventListener="#scrollTriggerId"

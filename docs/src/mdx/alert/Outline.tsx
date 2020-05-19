@@ -7,7 +7,7 @@ function Outline() {
     <Card>
       <header>Alert Outline</header>
       <CardBody>
-        {status.map(key => (
+        {status.map((key) => (
           <Alert key={key} closable outline={key}>
             You have been successfully authenticated!
           </Alert>

@@ -116,7 +116,7 @@ const GlobalStyle = css`
     }
 
     ${[1, 2, 3, 4, 5, 6].map(
-      size => css`
+      (size) => css`
         h${size}, .h${size} {
           font-size: ${theme[`textHeading${size}FontSize` as ThemeKey]};
           font-family: ${theme[`textHeading${size}FontFamily` as ThemeKey]};
@@ -215,7 +215,7 @@ const GlobalStyle = css`
     .caption-2 {
       color: ${theme.textHintColor};
       ${['Info', 'Success', 'Danger', 'Primary', 'Warning', 'Control', 'Basic'].map(
-        status => css`
+        (status) => css`
           &.status-${status} {
             color: ${theme[`text${status}Color` as ThemeKey]};
           }
@@ -241,7 +241,7 @@ const GlobalStyle = css`
       color: ${theme.textHintColor};
     }
     ${['Info', 'Success', 'Danger', 'Primary', 'Warning', 'Control', 'Basic'].map(
-      status => css`
+      (status) => css`
         .text-${status} {
           color: ${theme[`text${status}Color` as ThemeKey]};
         }

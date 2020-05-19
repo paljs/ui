@@ -59,10 +59,10 @@ const modalDrop = css`
       font-size: 2.5rem;
       position: absolute;
       top: 3rem;
-      ${({ theme }) => (theme.dir === 'rtl' ? 'left: 3rem;' : 'right: 3rem;')}
       display: block;
       opacity: 0;
       transition: opacity 0.4s;
+      ${({ theme }) => (theme.dir === 'rtl' ? 'left' : 'right')}: 3rem;
     }
 
     .form {

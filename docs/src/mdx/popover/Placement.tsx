@@ -7,7 +7,7 @@ function Placement() {
     <Card size="Tiny">
       <header>Popover Placement</header>
       <CardBody id="scrollPlacementId">
-        {placement.map(place => (
+        {placement.map((place) => (
           <Popover
             key={place}
             eventListener="#scrollPlacementId"

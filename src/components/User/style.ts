@@ -35,9 +35,9 @@ const UserStyle = styled.div<UserProps>`
         ${color && `background-color: ${color};`}
       }
       &.image {
-      ${image && `background-image: ${image};`}
         background-size: cover;
         background-repeat: no-repeat;
+      ${image && `background-image: ${image};`}
       }
     }
 
@@ -63,7 +63,8 @@ const UserStyle = styled.div<UserProps>`
       margin-${theme.dir === 'rtl' ? 'right' : 'left'}: 0.5rem;
     }
 
-    ${size &&
+    ${
+      size &&
       css`
         .user-picture {
           height: ${theme[`user${size}Height` as ThemeKey]};
@@ -81,14 +82,17 @@ const UserStyle = styled.div<UserProps>`
           font-size: ${theme[`user${size}TitleTextFontSize` as ThemeKey]};
           line-height: ${theme[`user${size}TitleTextLineHeight` as ThemeKey]};
         }
-      `}
+      `
+    }
 
-      ${shape &&
+      ${
+        shape &&
         css`
           .user-picture {
             border-radius: ${theme[`user${shape}BorderRadius` as ThemeKey]};
           }
-        `}
+        `
+      }
   `}
 `;
 

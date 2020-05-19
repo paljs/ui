@@ -15,7 +15,7 @@ function ButtonTest() {
     <Card>
       <CardBody>
         <Row>
-          {(['Primary', 'Success', 'Danger'] as Status[]).map(key => (
+          {(['Primary', 'Success', 'Danger'] as Status[]).map((key) => (
             <Col breakPoint={{ xs: true }} key={key}>
               <Button onClick={onClick} style={{ position: 'relative' }} fullWidth status={key}>
                 Primary

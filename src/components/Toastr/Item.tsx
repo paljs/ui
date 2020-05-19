@@ -7,7 +7,7 @@ import { isRightPosition } from '../positionHelper';
 import { ToastrItem } from '.';
 import { ItemIcon } from '../Icon';
 
-const Item: React.FC<ToastrItem> = props => {
+const Item: React.FC<ToastrItem> = (props) => {
   const [show, setShow] = React.useState(true);
   const [animation, setAnimation] = React.useState('animation');
 

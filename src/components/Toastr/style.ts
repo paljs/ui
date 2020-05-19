@@ -28,11 +28,13 @@ const ToastrStyle = styled.div<ToastrStyleProps>`
     }
 
     .content-container {
-      ${!hasIcon &&
+      ${
+        !hasIcon &&
         css`
           display: flex;
           flex-direction: row;
-        `}
+        `
+      }
       .title {
         font-weight: ${theme.toastrTitleTextFontWeight};
         font-family: ${theme.toastrTitleTextFontFamily};
@@ -47,14 +49,16 @@ const ToastrStyle = styled.div<ToastrStyleProps>`
         font-size: ${theme.toastrTextFontSize};
       }
     }
-    ${destroyByClick &&
+    ${
+      destroyByClick &&
       css`
         cursor: pointer;
 
         &:hover {
           opacity: 1;
         }
-      `}
+      `
+    }
     .icon {
       margin-${theme.dir === 'rtl' ? 'left' : 'right'}: 1.25rem;
       border-radius: ${theme.toastrBorderRadius};
@@ -70,7 +74,8 @@ const ToastrStyle = styled.div<ToastrStyleProps>`
       height: 2.5rem;
     }
 
-    ${status &&
+    ${
+      status &&
       css`
         background: ${theme[`toastr${status}BackgroundColor` as ThemeKey]};
         border-color: ${theme[`toastr${status}BorderColor` as ThemeKey]};
@@ -80,20 +85,21 @@ const ToastrStyle = styled.div<ToastrStyleProps>`
           color: ${theme[`toastr${status}TextColor` as ThemeKey]};
         }
         ${destroyByClick &&
-          css`
-            cursor: pointer;
+        css`
+          cursor: pointer;
 
-            &:hover {
-              background: ${theme[`toastrDestroyable${status}HoverBackgroundColor` as ThemeKey]};
-              border-color: ${theme[`toastrDestroyable${status}HoverBorderColor` as ThemeKey]};
-            }
-          `}
+          &:hover {
+            background: ${theme[`toastrDestroyable${status}HoverBackgroundColor` as ThemeKey]};
+            border-color: ${theme[`toastrDestroyable${status}HoverBorderColor` as ThemeKey]};
+          }
+        `}
 
         .icon {
           background: ${theme[`toastrIcon${status}BackgroundColor` as ThemeKey]};
           color: ${theme[`toastrIcon${status}Color` as ThemeKey]};
         }
-      `}
+      `
+    }
   `}
 `;
 

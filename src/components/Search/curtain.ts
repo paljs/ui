@@ -36,9 +36,9 @@ const curtain = css`
       font-size: 2.5rem;
       position: absolute;
       top: 3rem;
-      ${({ theme }) => (theme.dir === 'rtl' ? 'left: 3rem;' : 'right: 3rem;')}
       transition: opacity 0.1s;
       transition-delay: 0.3s;
+      ${({ theme }) => (theme.dir === 'rtl' ? 'left' : 'right')}: 3rem;
     }
 
     .form {

@@ -7,7 +7,7 @@ function Accent() {
     <Card>
       <header>Alert Size</header>
       <CardBody>
-        {size.map(key => (
+        {size.map((key) => (
           <Alert key={key} size={key}>
             You have been successfully authenticated!
           </Alert>

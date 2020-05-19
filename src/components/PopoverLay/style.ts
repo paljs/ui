@@ -68,28 +68,30 @@ export const OverlayStyle = styled.div<OverlayStyleProps>`
     height: 100%;
     min-width: 1px;
     min-height: 1px;
-    top: 0px;
-    left: 0px;
+    top: 0;
+    left: 0;
     .overlay-pane {
-      ${overlayPane(placement, size)}
       position: absolute;
       pointer-events: auto;
       display: flex;
       max-width: 100%;
       max-height: 100%;
       box-sizing: border-box;
+      ${overlayPane(placement, size)}
       ${!position && 'visibility: hidden;'}
       ${arrowSize && arrowRound && placementArrow(placement, arrowSize, arrowRound)}
 
       .icon + span {
         margin-${placement === 'right' ? 'right' : 'left'}: 0.5rem;
       }
-      ${placement === 'right' &&
+      ${
+        placement === 'right' &&
         css`
           .content {
             flex-direction: row-reverse;
           }
-        `}
+        `
+      }
     }
   `}
 `;

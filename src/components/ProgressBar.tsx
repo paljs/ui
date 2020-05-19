@@ -32,32 +32,32 @@ const ProgressStyle = styled.div<ProgressProps>`
       transition-property: width, background-color;
     }
     ${size &&
-      css`
-        .progress-container {
-          height: ${theme[`progressBar${size}Height` as ThemeKey]};
-        }
+    css`
+      .progress-container {
+        height: ${theme[`progressBar${size}Height` as ThemeKey]};
+      }
 
-        .progress-value {
-          font-size: ${theme[`progressBar${size}TextFontSize` as ThemeKey]};
-          font-weight: ${theme[`progressBar${size}TextFontWeight` as ThemeKey]};
-          line-height: ${theme[`progressBar${size}TextLineHeight` as ThemeKey]};
-        }
-      `}
+      .progress-value {
+        font-size: ${theme[`progressBar${size}TextFontSize` as ThemeKey]};
+        font-weight: ${theme[`progressBar${size}TextFontWeight` as ThemeKey]};
+        line-height: ${theme[`progressBar${size}TextLineHeight` as ThemeKey]};
+      }
+    `}
     ${status &&
-      css`
-        .progress-container {
-          background-color: ${theme[`progressBar${status}BackgroundColor` as ThemeKey]};
-        }
+    css`
+      .progress-container {
+        background-color: ${theme[`progressBar${status}BackgroundColor` as ThemeKey]};
+      }
 
-        .progress-value {
-          background-color: ${theme[`progressBar${status}FilledBackgroundColor` as ThemeKey]};
-          color: ${theme[`progressBar${status}TextColor` as ThemeKey]};
-        }
-      `}
+      .progress-value {
+        background-color: ${theme[`progressBar${status}FilledBackgroundColor` as ThemeKey]};
+        color: ${theme[`progressBar${status}TextColor` as ThemeKey]};
+      }
+    `}
   `}
 `;
 
-const Progress: React.FC<ProgressProps> = props => {
+const Progress: React.FC<ProgressProps> = (props) => {
   return (
     <ProgressStyle {...props}>
       <div className="progress-container">

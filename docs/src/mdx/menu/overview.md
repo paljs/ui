@@ -46,11 +46,7 @@ function Layout() {
 
   return (
     <Sidebar ref={sidebarRef}>
-      <Menu
-        items={items}
-        Link={Link}
-        toggleSidebar={() => sidebarRef.current.hide()}
-      />
+      <Menu items={items} Link={Link} toggleSidebar={() => sidebarRef.current.hide()} />
     </Sidebar>
   );
 }

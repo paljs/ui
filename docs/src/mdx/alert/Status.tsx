@@ -7,7 +7,7 @@ function Status() {
     <Card>
       <header>Alert Status</header>
       <CardBody>
-        {status.map(key => (
+        {status.map((key) => (
           <Alert key={key} closable status={key}>
             You have been successfully authenticated!
           </Alert>

@@ -18,7 +18,7 @@ export interface IconProps {
   options?: EvaIconOptions;
 }
 
-export const Icon: React.FC<Omit<IconProps, 'name'> & { name: keyof typeof defaultIcons }> = props => {
+export const Icon: React.FC<Omit<IconProps, 'name'> & { name: keyof typeof defaultIcons }> = (props) => {
   return (
     <IconStyle
       dangerouslySetInnerHTML={{ __html: defaultIcons[props.name] }}
@@ -28,7 +28,7 @@ export const Icon: React.FC<Omit<IconProps, 'name'> & { name: keyof typeof defau
   );
 };
 
-export const EvaIcon: React.FC<IconProps> = props => {
+export const EvaIcon: React.FC<IconProps> = (props) => {
   const { evaIcons } = React.useContext(LayoutContext);
   let svgIcon = '';
   if (evaIcons && evaIcons[props.name]) {

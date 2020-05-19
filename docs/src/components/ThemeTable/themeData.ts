@@ -24,8 +24,8 @@ function getKeyValue(settings: ThemeObject, key: ThemeKey): ThemeKeys {
 
 function getThemeParent(settings: ThemeObject, theme: DefaultTheme['name'], withMap: string) {
   return (Object.keys(settings) as ThemeKey[])
-    .filter(key => (withMap !== '' && key.startsWith(withMap)) || withMap === '')
-    .map(key => {
+    .filter((key) => (withMap !== '' && key.startsWith(withMap)) || withMap === '')
+    .map((key) => {
       return {
         key,
         value: getKeyValue(settings, key),

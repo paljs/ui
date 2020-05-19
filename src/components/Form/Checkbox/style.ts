@@ -55,7 +55,8 @@ const CheckboxStyle = styled.label<CheckboxStyleProps>`
       }
     }
 
-    ${status &&
+    ${
+      status &&
       css`
         .custom-checkbox {
           background-color: ${theme[`checkbox${status}BackgroundColor` as ThemeKey]};
@@ -67,37 +68,37 @@ const CheckboxStyle = styled.label<CheckboxStyleProps>`
         }
 
         ${checked &&
-          css`
-            .custom-checkbox {
-              background-color: ${theme[`checkbox${status}CheckedBackgroundColor` as ThemeKey]};
-              border-color: ${theme[`checkbox${status}CheckedBorderColor` as ThemeKey]};
+        css`
+          .custom-checkbox {
+            background-color: ${theme[`checkbox${status}CheckedBackgroundColor` as ThemeKey]};
+            border-color: ${theme[`checkbox${status}CheckedBorderColor` as ThemeKey]};
 
-              ${IconStyle} {
-                color: ${theme[`checkbox${status}CheckedCheckmarkColor` as ThemeKey]};
-              }
+            ${IconStyle} {
+              color: ${theme[`checkbox${status}CheckedCheckmarkColor` as ThemeKey]};
             }
-          `}
+          }
+        `}
         ${indeterminate &&
-          css`
-            .custom-checkbox {
-              background-color: ${theme[`checkbox${status}IndeterminateBackgroundColor` as ThemeKey]};
-              border-color: ${theme[`checkbox${status}IndeterminateBorderColor` as ThemeKey]};
+        css`
+          .custom-checkbox {
+            background-color: ${theme[`checkbox${status}IndeterminateBackgroundColor` as ThemeKey]};
+            border-color: ${theme[`checkbox${status}IndeterminateBorderColor` as ThemeKey]};
 
-              ${IconStyle} {
-                color: ${theme[`checkbox${status}IndeterminateCheckmarkColor` as ThemeKey]};
-              }
+            ${IconStyle} {
+              color: ${theme[`checkbox${status}IndeterminateCheckmarkColor` as ThemeKey]};
             }
-          `}
+          }
+        `}
 
         .native-input:enabled:focus + .custom-checkbox {
           background-color: ${theme[`checkbox${status}FocusBackgroundColor` as ThemeKey]};
           border-color: ${theme[`checkbox${status}FocusBorderColor` as ThemeKey]};
 
           ${(indeterminate || checked) &&
-            css`
-              background-color: ${theme[`checkbox${status}FocusCheckedBackgroundColor` as ThemeKey]};
-              border-color: ${theme[`checkbox${status}FocusCheckedBorderColor` as ThemeKey]};
-            `}
+          css`
+            background-color: ${theme[`checkbox${status}FocusCheckedBackgroundColor` as ThemeKey]};
+            border-color: ${theme[`checkbox${status}FocusCheckedBorderColor` as ThemeKey]};
+          `}
         }
 
         .custom-checkbox:hover {
@@ -105,10 +106,10 @@ const CheckboxStyle = styled.label<CheckboxStyleProps>`
           border-color: ${theme[`checkbox${status}HoverBorderColor` as ThemeKey]};
 
           ${(indeterminate || checked) &&
-            css`
-              background-color: ${theme[`checkbox${status}HoverCheckedBackgroundColor` as ThemeKey]};
-              border-color: ${theme[`checkbox${status}HoverCheckedBorderColor` as ThemeKey]};
-            `}
+          css`
+            background-color: ${theme[`checkbox${status}HoverCheckedBackgroundColor` as ThemeKey]};
+            border-color: ${theme[`checkbox${status}HoverCheckedBorderColor` as ThemeKey]};
+          `}
         }
 
         .native-input:enabled:active + .custom-checkbox {
@@ -116,32 +117,33 @@ const CheckboxStyle = styled.label<CheckboxStyleProps>`
           border-color: ${theme[`checkbox${status}ActiveBorderColor` as ThemeKey]};
 
           ${(indeterminate || checked) &&
-            css`
-              background-color: ${theme[`checkbox${status}ActiveCheckedBackgroundColor` as ThemeKey]};
-              border-color: ${theme[`checkbox${status}ActiveCheckedBorderColor` as ThemeKey]};
-            `}
+          css`
+            background-color: ${theme[`checkbox${status}ActiveCheckedBackgroundColor` as ThemeKey]};
+            border-color: ${theme[`checkbox${status}ActiveCheckedBorderColor` as ThemeKey]};
+          `}
         }
         ${disabled &&
-          css`
-            .native-input:disabled {
-              & + .custom-checkbox {
-                background-color: ${theme[`checkbox${status}DisabledBackgroundColor` as ThemeKey]};
-                border-color: ${theme[`checkbox${status}DisabledBorderColor` as ThemeKey]};
+        css`
+          .native-input:disabled {
+            & + .custom-checkbox {
+              background-color: ${theme[`checkbox${status}DisabledBackgroundColor` as ThemeKey]};
+              border-color: ${theme[`checkbox${status}DisabledBorderColor` as ThemeKey]};
 
-                ${IconStyle} {
-                  color: ${theme[`checkbox${status}DisabledCheckmarkColor` as ThemeKey]};
-                }
-              }
-              & ~ .text {
-                color: ${theme[`checkbox${status}DisabledTextColor` as ThemeKey]};
-              }
-              &:indeterminate + .custom-checkbox,
-              &:checked + .custom-checkbox {
-                background-color: ${theme[`checkbox${status}DisabledCheckedBackgroundColor` as ThemeKey]};
+              ${IconStyle} {
+                color: ${theme[`checkbox${status}DisabledCheckmarkColor` as ThemeKey]};
               }
             }
-          `}
-      `}
+            & ~ .text {
+              color: ${theme[`checkbox${status}DisabledTextColor` as ThemeKey]};
+            }
+            &:indeterminate + .custom-checkbox,
+            &:checked + .custom-checkbox {
+              background-color: ${theme[`checkbox${status}DisabledCheckedBackgroundColor` as ThemeKey]};
+            }
+          }
+        `}
+      `
+    }
   `}
 `;
 

@@ -64,7 +64,7 @@ const RevealCardStyled = styled.div<RevealCardProps>`
   `}
 `;
 
-const RevealCard: React.FC<RevealCardProps & { children: [React.ReactNode, React.ReactNode] }> = props => {
+const RevealCard: React.FC<RevealCardProps & { children: [React.ReactNode, React.ReactNode] }> = (props) => {
   const [revealed, setRevealed] = React.useState<boolean>(false);
   const handleRevealed = () => {
     setRevealed(!revealed);

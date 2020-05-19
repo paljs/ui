@@ -3,7 +3,7 @@ import { MessageQuoteStyle } from './style';
 import { MessageProps } from './types';
 import MessageText from './MessageText';
 
-const MessageQuote: React.FC<MessageProps> = props => {
+const MessageQuote: React.FC<MessageProps> = (props) => {
   return (
     <MessageQuoteStyle>
       {(props.sender || props.date) && (

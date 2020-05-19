@@ -4,7 +4,7 @@ import ChatMessages from './Messages';
 import ChatForm from './Form';
 import { ChatProps } from './types';
 
-const Chat: React.FC<ChatProps> = props => {
+const Chat: React.FC<ChatProps> = (props) => {
   return (
     <ChatStyle {...props}>
       <header>{props.title}</header>

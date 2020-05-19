@@ -8,7 +8,7 @@ export default function ChatPage() {
   const onSendHandle = (v: { message: string; files: AttachedFile[] }) => {
     const files = !v.files
       ? []
-      : v.files.map(file => {
+      : v.files.map((file) => {
           return {
             url: file.src as string,
             type: file.type,
@@ -30,7 +30,7 @@ export default function ChatPage() {
   return (
     <Chat title="Ahmed Elywa">
       <ChatMessages messages={messages} mapKey="API_KEY" />
-      <ChatForm onSend={v => onSendHandle(v)} dropFiles filesIcon="document" />
+      <ChatForm onSend={(v) => onSendHandle(v)} dropFiles filesIcon="document" />
     </Chat>
   );
 }

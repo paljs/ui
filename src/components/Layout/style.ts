@@ -30,14 +30,14 @@ const LayoutContent = styled.div<{ center?: boolean }>`
     flex-direction: column;
     min-width: 0;
     ${center &&
-      css`
-        max-width: 100%;
-        position: relative;
-        margin-left: auto;
-        margin-right: auto;
-        width: ${theme.layoutContentWidth};
-        flex: 0 100 ${theme.layoutContentWidth} !important;
-      `}
+    css`
+      max-width: 100%;
+      position: relative;
+      margin-left: auto;
+      margin-right: auto;
+      width: ${theme.layoutContentWidth};
+      flex: 0 100 ${theme.layoutContentWidth} !important;
+    `}
   `}
 `;
 
@@ -189,66 +189,66 @@ const LayoutStyle = styled.div<LayoutProps>`
       }
 
       ${(withScroll || windowMode) &&
-        css`
-          .scrollable-container {
-            overflow: auto;
-            height: 100vh;
-            display: block;
-            ${breakpointDown('sm')`
+      css`
+        .scrollable-container {
+          overflow: auto;
+          height: 100vh;
+          display: block;
+          ${breakpointDown('sm')`
               overflow-y: scroll;
               -webkit-overflow-scrolling: touch;
             `}
-          }
-        `}
+        }
+      `}
 
       ${windowMode &&
-        css`
-          background: ${theme.layoutWindowModeBackgroundColor};
-          display: block;
-          .scrollable-container {
+      css`
+        background: ${theme.layoutWindowModeBackgroundColor};
+        display: block;
+        .scrollable-container {
+          max-width: ${theme.layoutWindowModeMaxWidth};
+          margin: 0 auto;
+        }
+
+        .layout ${HeaderStyle} {
+          max-width: ${theme.layoutWindowModeMaxWidth};
+          margin-left: auto;
+          margin-right: auto;
+          width: 100%;
+          nav {
             max-width: ${theme.layoutWindowModeMaxWidth};
             margin: 0 auto;
           }
+        }
 
-          .layout ${HeaderStyle} {
-            max-width: ${theme.layoutWindowModeMaxWidth};
-            margin-left: auto;
-            margin-right: auto;
-            width: 100%;
-            nav {
-              max-width: ${theme.layoutWindowModeMaxWidth};
-              margin: 0 auto;
+        @media screen and (min-width: ${theme.layoutWindowModeMaxWidth} + 20px) {
+          ${getWindowMode(theme, windowPadding, 4)}
+
+          #oah-layout.with-scroll {
+            .scrollable-container {
+              height: calc(100vh - ${windowPadding});
             }
           }
+        }
+        @media screen and (min-width: ${theme.layoutWindowModeMaxWidth} + 150px) {
+          ${getWindowMode(theme, windowPadding, 2)}
 
-          @media screen and (min-width: ${theme.layoutWindowModeMaxWidth} + 20px) {
-            ${getWindowMode(theme, windowPadding, 4)}
-
-            #oah-layout.with-scroll {
-              .scrollable-container {
-                height: calc(100vh - ${windowPadding});
-              }
+          #oah-layout.with-scroll {
+            .scrollable-container {
+              height: calc(100vh - ${windowPadding});
             }
           }
-          @media screen and (min-width: ${theme.layoutWindowModeMaxWidth} + 150px) {
-            ${getWindowMode(theme, windowPadding, 2)}
+        }
+        @media screen and (min-width: ${theme.layoutWindowModeMaxWidth} + 300px) {
+          ${getWindowMode(theme, windowPadding, 1)}
 
-            #oah-layout.with-scroll {
-              .scrollable-container {
-                height: calc(100vh - ${windowPadding});
-              }
+          #oah-layout.with-scroll {
+            .scrollable-container {
+              height: calc(100vh - ${windowPadding});
             }
           }
-          @media screen and (min-width: ${theme.layoutWindowModeMaxWidth} + 300px) {
-            ${getWindowMode(theme, windowPadding, 1)}
-
-            #oah-layout.with-scroll {
-              .scrollable-container {
-                height: calc(100vh - ${windowPadding});
-              }
-            }
-          }
-        `}
+        }
+      `}
       .layout {
         background-color: ${theme.layoutBackgroundColor};
         color: ${theme.layoutTextColor};
@@ -259,11 +259,11 @@ const LayoutStyle = styled.div<LayoutProps>`
         min-height: ${theme.layoutMinHeight};
       }
       ${withSubHeader &&
-        css`
-          ${SidebarStyle} .main-container {
-            box-shadow: none;
-          }
-        `}
+      css`
+        ${SidebarStyle} .main-container {
+          box-shadow: none;
+        }
+      `}
       #overlay-container {
         position: fixed;
         z-index: 1040;

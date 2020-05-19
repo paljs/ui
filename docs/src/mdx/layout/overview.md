@@ -18,7 +18,7 @@ import {
   LayoutColumn,
   LayoutContainer,
   LayoutContent,
-  LayoutFooter
+  LayoutFooter,
 } from 'oah-ui';
 ```
 

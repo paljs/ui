@@ -7,7 +7,7 @@ import MessageQuote from './MessageQuote';
 import { MessageStyle } from './style';
 import { MessagesProps, MessageProps } from './types';
 
-const Messages: React.FC<MessagesProps> = props => {
+const Messages: React.FC<MessagesProps> = (props) => {
   const scrollRef = React.useRef<HTMLDivElement>(null);
 
   React.useEffect(() => {
@@ -41,7 +41,7 @@ const Messages: React.FC<MessagesProps> = props => {
       const names = name.split(' ');
 
       return names
-        .map(n => n.charAt(0))
+        .map((n) => n.charAt(0))
         .splice(0, 2)
         .join('')
         .toUpperCase();

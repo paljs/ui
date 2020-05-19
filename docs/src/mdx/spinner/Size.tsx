@@ -5,7 +5,7 @@ import { size } from '../shared';
 function Size() {
   return (
     <Row>
-      {size.map(key => (
+      {size.map((key) => (
         <Col key={key} breakPoint={{ xs: 12 }}>
           <Card style={{ position: 'relative' }}>
             <CardBody>Some card content.</CardBody>

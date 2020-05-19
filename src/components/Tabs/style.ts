@@ -49,7 +49,6 @@ const TabsStyle = styled.div<{ fullWidth?: boolean }>`
             position: absolute;
             content: '';
             width: 100%;
-            height: 6px;
             border-radius: 3px;
             bottom: -2px;
             left: 0;

@@ -5,7 +5,7 @@ import { status } from '../shared';
 function Status() {
   return (
     <Row>
-      {status.map(key => (
+      {status.map((key) => (
         <Col key={key} breakPoint={{ xs: 12 }}>
           <Card style={{ position: 'relative' }}>
             <CardBody>Some card content.</CardBody>

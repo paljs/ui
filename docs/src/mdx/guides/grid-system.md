@@ -18,7 +18,7 @@ const breakpoints = {
   lg: 992,
   xl: 1200,
   xxl: 1400,
-  xxxl: 1600
+  xxxl: 1600,
 };
 
 const maxContainer = {
@@ -28,7 +28,7 @@ const maxContainer = {
   lg: 960,
   xl: 1140,
   xxl: 1320,
-  xxxl: 1500
+  xxxl: 1500,
 };
 ```
 

@@ -12,22 +12,24 @@ const width = css<{ fluid?: boolean }>`
   ${({ fluid }) =>
     !fluid &&
     (Object.keys(maxContainer) as Array<BreakPointKeys>).map(
-      key => breakpointUp(key as BreakPointKeys)`
+      (key) => breakpointUp(key as BreakPointKeys)`
         max-width: ${maxContainer[key]}px;
       `,
     )}
 `;
 
 const ContainerStyle = styled.div`
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
   ${({ theme }) => css`
     padding-right: ${getGridGutter(theme) / 2}px;
     padding-left: ${getGridGutter(theme) / 2}px;
   `}
-  margin-right: auto;
-  margin-left: auto;
-  width: 100%;
   ${width}
 `;
-const Container: React.FC<{ fluid?: boolean }> = props => <ContainerStyle {...props}>{props.children}</ContainerStyle>;
+const Container: React.FC<{ fluid?: boolean }> = (props) => (
+  <ContainerStyle {...props}>{props.children}</ContainerStyle>
+);
 
 export default Container;

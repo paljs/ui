@@ -18,7 +18,7 @@ const SEO: React.FC<SEOProps> = ({ description, lang, meta, keywords, title }) =
   return (
     <StaticQuery
       query={detailsQuery}
-      render={data => {
+      render={(data) => {
         const metaDescription = description || data.site.siteMetadata.description;
         return (
           <Helmet

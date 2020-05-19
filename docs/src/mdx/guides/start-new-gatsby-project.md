@@ -69,7 +69,7 @@ import {
   ButtonLink,
   Sidebar,
   SidebarBody,
-  Menu
+  Menu,
 } from 'oah-ui';
 
 import menuItems from './menuItem';
@@ -83,7 +83,7 @@ export default function LayoutPage(props) {
   const menuRef = useRef();
 
   // Change theme
-  const changeTheme = newTheme => {
+  const changeTheme = (newTheme) => {
     setTheme(newTheme);
   };
   // Change Direction from Ltr to Rtl
@@ -93,20 +93,13 @@ export default function LayoutPage(props) {
   };
 
   return (
-    <ThemeProvider
-      theme={themes(theme, { dir, fontSize: '2rem', fontMain: 'font family' })}
-    >
+    <ThemeProvider theme={themes(theme, { dir, fontSize: '2rem', fontMain: 'font family' })}>
       <Fragment>
         <SimpleLayout />
         <Layout dir={dir} windowMode>
           <LayoutHeader fixed>Header</LayoutHeader>
           <LayoutContainer>
-            <Sidebar
-              ref={sidebarRef}
-              property="start"
-              containerFixed
-              responsive
-            >
+            <Sidebar ref={sidebarRef} property="start" containerFixed responsive>
               <header>sidebar header</header>
               <SidebarBody>
                 <Menu

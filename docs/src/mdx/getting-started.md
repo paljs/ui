@@ -22,7 +22,8 @@ OAH UI `npm` package contain two things:
   - Extra components (Search-User-Badge-Alert-ProgressBar-ChatUI-Spinner).
 
 OAH EVA ICON `oah-eva-icon`
-  - This is icons package passed on [eva-icon](https://akveo.github.io/eva-icons/) package.
+
+- This is icons package passed on [eva-icon](https://akveo.github.io/eva-icons/) package.
 
 - Admin dashboard starter kit [oah-admin](https://github.com/AhmedElywa/oah-admin) - Admin dashboard template based on Gatsby with oah-ui component package.
 

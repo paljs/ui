@@ -8,13 +8,13 @@ const style = { marginBottom: '1.5rem' };
 export default function ButtonPage() {
   return (
     <Row>
-      {appearance.map(a => (
+      {appearance.map((a) => (
         <Col breakPoint={{ xs: 12 }} key={a}>
           <Card>
             <header>Button {a}</header>
             <CardBody>
               <Row>
-                {status.map(state => (
+                {status.map((state) => (
                   <Col key={state} style={style} breakPoint={{ xs: true }}>
                     <Button fullWidth appearance={a} status={state}>
                       {state}
@@ -31,7 +31,7 @@ export default function ButtonPage() {
           <header>Button Size</header>
           <CardBody>
             <Row middle="xs">
-              {size.map(size => (
+              {size.map((size) => (
                 <Col key={size} style={style} breakPoint={{ xs: true }}>
                   <Button fullWidth size={size}>
                     {size}
@@ -47,7 +47,7 @@ export default function ButtonPage() {
           <header>Button Shape</header>
           <CardBody>
             <Row middle="xs">
-              {shape.map(shape => (
+              {shape.map((shape) => (
                 <Col key={shape} style={style} breakPoint={{ xs: true }}>
                   <Button fullWidth shape={shape}>
                     {shape}

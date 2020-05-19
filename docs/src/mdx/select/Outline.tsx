@@ -21,7 +21,7 @@ function Outline() {
     <Card>
       <header>Status</header>
       <CardBody>
-        {status.map(state => (
+        {status.map((state) => (
           <SelectStyled key={state} appearance="outline" status={state} options={statusOption} placeholder={state} />
         ))}
       </CardBody>

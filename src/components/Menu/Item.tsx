@@ -82,7 +82,7 @@ const Item: React.FC<ItemProps> = ({
           <a
             href="#"
             title={item.title}
-            onClick={e => {
+            onClick={(e) => {
               e.preventDefault();
               handleToggleSubMenu();
             }}

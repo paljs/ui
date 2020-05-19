@@ -10,7 +10,7 @@ import { Trigger, Placement, Status, IconField } from '../types';
 import { ItemIcon } from '../Icon';
 import Overlay from '../PopoverLay';
 
-const Tooltip: React.FC<TooltipProps> = props => {
+const Tooltip: React.FC<TooltipProps> = (props) => {
   const arrowSize = 6;
   const arrowRound = Math.round(-arrowSize - arrowSize / 2.5);
   return (

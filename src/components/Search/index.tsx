@@ -11,9 +11,9 @@ import layoutContext from '../Layout/layout-context';
 import { Icon } from '../Icon';
 import { Button } from '../Button';
 
-export const Search: React.FC<SearchProps> = props => {
+export const Search: React.FC<SearchProps> = (props) => {
   const [value, setValue] = React.useState('');
-  const [show, setShow] = React.useState();
+  const [show, setShow] = React.useState<string | undefined>();
   const inputRef = React.useRef<HTMLInputElement>(null);
   const layout = React.useContext(layoutContext);
 
@@ -56,7 +56,7 @@ export const Search: React.FC<SearchProps> = props => {
           <SearchFieldStyle className={props.type + ' ' + show}>
             <div
               className="search"
-              onKeyUp={e => {
+              onKeyUp={(e) => {
                 e.preventDefault();
                 e.key === 'Escape' && handleClose();
               }}
@@ -69,7 +69,7 @@ export const Search: React.FC<SearchProps> = props => {
                   <div className="form-content">
                     <input
                       ref={inputRef}
-                      onKeyUp={e => {
+                      onKeyUp={(e) => {
                         e.preventDefault();
                         if (e.key === 'Enter') {
                           handleClose();

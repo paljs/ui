@@ -1,4 +1,5 @@
 ## Eva Design System Theme
+
 In Eva Design System a **theme** is a set of semantic variables and connections between them, that represents the application's look & feel to achieves the following goals:
 
 - create new visual themes easily;
@@ -34,7 +35,7 @@ export default {
   colorBasicHover: 'colorBasic200',
   colorBasicDefault: 'colorBasic300',
   colorBasicActive: 'colorBasic400',
-}
+};
 ```
 
 Where _key_ - is a variable name, and _value_ - is a raw css value (color, string, etc) or **parent variable name**, so that you can inherit values from different variables:
@@ -83,7 +84,7 @@ const theme = {
   colorPrimaryTransparent400: 'rgba(51, 102, 255, 0.32)',
   colorPrimaryTransparent500: 'rgba(51, 102, 255, 0.4)',
   colorPrimaryTransparent600: 'rgba(51, 102, 255, 0.48)',
-}
+};
 ```
 
 You can also tune colors used for element states:
@@ -111,7 +112,7 @@ const theme = {
   colorPrimaryTransparentDefaultBorder: 'colorPrimary500',
   colorPrimaryTransparentActiveBorder: 'colorPrimary500',
   colorPrimaryTransparentDisabledBorder: 'colorBasicTransparent300',
-}
+};
 ```
 
 You can adjust these settings for each of the colors, to make states use lighter or darker colors.
@@ -134,7 +135,7 @@ const theme = {
   borderBasicColor3: 'colorBasic300',
   borderBasicColor4: 'colorBasic400',
   borderBasicColor5: 'colorBasic500',
-}
+};
 ```
 
 the most used of these are:
@@ -156,10 +157,11 @@ const dark = {
   borderBasicColor3: 'colorBasic1000',
   borderBasicColor4: 'colorBasic1100',
   borderBasicColor5: 'colorBasic1100',
-}
+};
 ```
 
 ## Text Colors
+
 There are 5 colors within the theme: `basic` - main text color, used on top of `basic` backgrounds `alternate` - alternative color used on top of `alternate` backgrounds, `control` - used on top of `status` colors (`primary`, `success`, etc), `disabled` color - to indicate text/component disabled state and `hint` - for secondary texts (for example placeholders and captions).
 
 Text colors use `basic` shades as a source:
@@ -171,10 +173,11 @@ const theme = {
   textControlColor: 'colorBasic100',
   textDisabledColor: 'colorBasicTransparent600',
   textHintColor: 'colorBasic600',
-}
+};
 ```
 
 ## Fonts & Text Styles
+
 Each theme has two available fonts: `default` and `secondary`. `secondary` font used for headers, while the `default` for the rest of the elements.
 
 There are 14 text styles:
@@ -194,12 +197,13 @@ const theme = {
   textCaptionFontSize: '0.75rem',
   textCaptionFontWeight: 400,
   textCaptionLineHeight: '1rem',
-}
+};
 ```
 
 Adjust these styles to change text style of specific groups of elements.
 
 ### General Theme Variables
+
 This section contains other supporting theme variables, such as `borderRadius`, `outlineWidth` & `outlineColor`, `shadow`, etc.
 
 ## Related Articles

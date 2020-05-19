@@ -7,7 +7,7 @@ function Status() {
     <Card size="Tiny">
       <header>Popover Status</header>
       <CardBody id="scrollStatusId">
-        {status.map(state => (
+        {status.map((state) => (
           <Tooltip
             key={state}
             eventListener="#scrollStatusId"

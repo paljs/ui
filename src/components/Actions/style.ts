@@ -34,11 +34,13 @@ const ActionStyle = styled.div<ActionProps>`
       flex-wrap: wrap;
       align-items: center;
       position: relative;
-      ${fullWidth &&
+      ${
+        fullWidth &&
         css`
           justify-content: center;
           width: 100%;
-        `}
+        `
+      }
 
       &:first-child {
         ${theme.dir === 'rtl' ? 'border-right: none !important;' : 'border-left: none !important;'}
@@ -58,7 +60,8 @@ const ActionStyle = styled.div<ActionProps>`
         color: ${theme.actionsIconColor};
       }
 
-      ${size &&
+      ${
+        size &&
         css`
           font-size: ${theme[`actions${size}TextFontSize` as ThemeKey]};
           height: ${theme[`actions${size}Height` as ThemeKey]};
@@ -66,9 +69,11 @@ const ActionStyle = styled.div<ActionProps>`
           .control-icon {
             font-size: ${theme[`actions${size}IconHeight` as ThemeKey]};
           }
-        `}
+        `
+      }
 
-        ${disabled &&
+        ${
+          disabled &&
           css`
             & > * {
               opacity: 0.5;
@@ -78,12 +83,15 @@ const ActionStyle = styled.div<ActionProps>`
               cursor: not-allowed !important;
               color: ${theme.actionsDisabledIconColor};
             }
-          `}
-        ${inverse &&
+          `
+        }
+        ${
+          inverse &&
           css`
             border-${theme.dir === 'rtl' ? 'right' : 'left'}: 
             ${theme.actionsDividerWidth} ${theme.actionsDividerStyle} ${theme.actionsDividerColor}; 
-          `}
+          `
+        }
         
       border-${theme.dir === 'rtl' ? 'right' : 'left'}: ${theme.actionsDividerWidth} ${theme.actionsDividerStyle} ${
     theme.actionsDividerColor

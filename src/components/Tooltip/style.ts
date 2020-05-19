@@ -22,7 +22,6 @@ const TooltipStyle = styled.div<TooltipStyleProps>`
     padding: ${theme.tooltipPadding};
     max-width: ${theme.tooltipMaxWidth};
     z-index: 10000;
-    border-radius: 5px;
     .content {
       display: flex;
       align-items: center;

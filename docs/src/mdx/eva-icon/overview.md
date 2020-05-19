@@ -1,5 +1,7 @@
 # EvaIcon
+
 To use EvaIcon component you need to install his package first from [install eva icons](/guides/install-eva-icons)
+
 ### Usage
 
 ```js

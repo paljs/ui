@@ -4,7 +4,7 @@ import { ChatFormProps, AttachedFile } from './types';
 import { ItemIcon } from '../Icon';
 import { Button } from '../Button';
 
-const ChatForm: React.FC<ChatFormProps> = props => {
+const ChatForm: React.FC<ChatFormProps> = (props) => {
   const [message, setMessage] = React.useState<string>(props.message ?? '');
   const [files, setFiles] = React.useState<AttachedFile[]>([]);
   const [fileOver, setFileOver] = React.useState<boolean>(false);
@@ -36,7 +36,7 @@ const ChatForm: React.FC<ChatFormProps> = props => {
 
           if (props.imgDropTypes.includes(e.dataTransfer.files[i].type)) {
             const fr = new FileReader();
-            fr.onload = event => {
+            fr.onload = (event) => {
               res.src = event.target?.result;
               res.urlStyle = `url(${res.src})`;
             };
@@ -108,9 +108,9 @@ const ChatForm: React.FC<ChatFormProps> = props => {
           <input
             type="text"
             value={message}
-            onChange={e => setMessage(e.target.value)}
+            onChange={(e) => setMessage(e.target.value)}
             placeholder={fileOver ? props.fileOverPlaceholder : props.placeholder}
-            onKeyUp={e => {
+            onKeyUp={(e) => {
               e.preventDefault();
               if (e.key === 'Enter') {
                 sendMessage();

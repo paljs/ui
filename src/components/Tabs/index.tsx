@@ -11,11 +11,11 @@ import TabsStyle from './style';
 import Badge from '../Badge';
 import { ItemIcon } from '../Icon';
 
-const Tab: React.FC<TabProps> = props => {
+const Tab: React.FC<TabProps> = (props) => {
   return <div className="tab-content">{props.children}</div>;
 };
 
-interface TabProps {
+export interface TabProps {
   title?: string;
   icon?: IconField;
   responsive?: boolean;
@@ -26,7 +26,7 @@ interface TabProps {
   children?: React.ReactNode;
 }
 
-const Tabs: React.FC<TabsProps> = props => {
+const Tabs: React.FC<TabsProps> = (props) => {
   const [tabs, setTabs] = React.useState<TabProps[]>([]);
   const [active, setActive] = React.useState<number>(props.activeIndex ?? 0);
 
@@ -37,7 +37,7 @@ const Tabs: React.FC<TabsProps> = props => {
 
   React.useEffect(() => {
     const children: TabProps[] = [];
-    React.Children.forEach(props.children, child => {
+    React.Children.forEach(props.children, (child) => {
       if (child.props.icon || child.props.title) {
         children.push({ ...child.props });
       }
@@ -63,7 +63,12 @@ const Tabs: React.FC<TabsProps> = props => {
             cssClass.push(...tab.className.split(' '));
           }
           return (
-            <li key={index} className={cssClass.join(' ')} onClick={() => !tab.disabled && selectTab(index)}>
+            <li
+              style={tab.style}
+              key={index}
+              className={cssClass.join(' ')}
+              onClick={() => !tab.disabled && selectTab(index)}
+            >
               <a>
                 {tab.icon && <ItemIcon icon={tab.icon} className="tabs-icon" />}
                 {tab.title && <span>{tab.title}</span>}
