@@ -1,10 +1,13 @@
-export default [
+import { MenuItemType } from 'oah-ui';
+
+const items: MenuItemType[] = [
   {
     title: 'Getting Started',
     link: { to: '/getting-started' },
   },
   {
     title: 'Guides',
+    expanded: true,
     children: [
       {
         title: 'Install based on starter kit',
@@ -26,6 +29,7 @@ export default [
   },
   {
     title: 'Design System',
+    expanded: true,
     children: [
       {
         title: 'Design System Theme',
@@ -199,3 +203,4 @@ export default [
     ],
   },
 ];
+export default items;
