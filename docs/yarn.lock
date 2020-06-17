@@ -12054,10 +12054,10 @@ oah-eva-icon@1.0.1:
   dependencies:
     eva-icons "^1.1.2"
 
-oah-ui@2.1.4:
-  version "2.1.4"
-  resolved "https://registry.yarnpkg.com/oah-ui/-/oah-ui-2.1.4.tgz#c155a56db379704cace7ab308ff516bc8b5f65ba"
-  integrity sha512-DzGPI5jlUnZxLcVwlcD/rgXcx1c6b8s28vfOfl9jcTBaPTvGxJmlCg8YYk4iprCzxRrArT8wCvH0yIu7/s+Teg==
+oah-ui@2.1.5:
+  version "2.1.5"
+  resolved "https://registry.yarnpkg.com/oah-ui/-/oah-ui-2.1.5.tgz#f8b31b6d116c8c44e745b48f2a412a90330b1ac7"
+  integrity sha512-t9gtG/bLLe5T5MUlF/xsHs5hZMVrLsr69P5LIhdzY2mTz4KWAgv1PJrEkO6vEvblo8TZkQB0ijyh9dHn339ztg==
   dependencies:
     react-select "^3.1.0"
 
