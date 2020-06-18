@@ -1,6 +1,6 @@
 {
   "name": "oah-ui",
-  "version": "2.1.4",
+  "version": "2.1.5",
   "description": "React Styled Components with bootstrap grid system",
   "main": "dist/index.cjs.js",
   "jsnext:main": "dist/index.esm.js",
@@ -16,6 +16,7 @@
   "scripts": {
     "test": "cross-env CI=1 react-scripts test --env=jsdom",
     "test:watch": "react-scripts test --env=jsdom",
+    "prepack": "rm -rf dist && yarn build",
     "build": "rollup -c",
     "pro": "cross-env NODE_ENV=production BABEL_ENV=production rollup -c",
     "start": "rollup -c -w"
@@ -67,8 +68,8 @@
     "dist"
   ],
   "bugs": {
-    "url": "https://github.com/AhmedElywa/oah-ui",
+    "url": "https://github.com/AhmedElywa/oah-ui/issues",
     "email": "ahmed.elywa@icloud.com"
   },
-  "homepage": "https://oah-ui.oahtech.io"
+  "homepage": "https://oah-ui.ahmedelywa.com/getting-started/"
 }
