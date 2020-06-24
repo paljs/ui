@@ -2,31 +2,34 @@
 
 ![components](./components.png)
 
-# What is OAH UI?
+# What is Pal.js UI?
 
-OAH UI is a set of essential modules for your next React application.
+Pal.js UI is a set of essential modules for your next React application.
 
 The purpose of the modules is to solve generic tasks faster and more efficient so that you can focus on business logic and leave routine behind.
 
 ## What's included
 
-OAH UI `npm` package contain three things:
+Pal.js UI `npm` package contain two things:
 
-- OAH UI Theme `oah-ui/theme`
-  - Theme System - set of `javaScript` object, which allows you to modify application look & feel by changing variables, with fewer custom styles.
+- Pal.js UI Theme
+  - Theme System - set of `TypeScript` object, which allows you to modify application look & feel by changing variables, with fewer custom styles.
   - Responsive breakpoints - have function to use in your `Styled Components` breakpointUp breakpointDown breakpointBetween breakpointOnly.
   - Server-side rendering compatibility!
   - Right-to-left writing system support for all components.
-- OAH UI Components `oah-ui`
+- Pal.js UI Components
   - Global components (Layout-Card-FlipCard-RevealCard-Accordion-List).
   - Navigation components (Sidebar-Menu-Tabs-Actions).
   - Forms components (InputGroup-Radio-Select-Checkbox-Button).
   - Grid components (Container-Row-Col).
   - Modals & Overlays components (Popover-Toastr-Tooltip-ContextMenu).
   - Extra components (Search-User-Badge-Alert-ProgressBar-ChatUI-Spinner).
-- OAH UI Svg `oah-ui/svg`
-  - This svg components ready to use.
-- Admin dashboard starter kit [oah-admin](https://github.com/AhmedElywa/oah-admin) - Admin dashboard template based on Gatsby with oah-ui component package.
+
+EVA ICON `@paljs/eva-icon`
+
+- This is icons package passed on [eva-icon](https://akveo.github.io/eva-icons/) package.
+
+- Admin dashboard starter kit [gatsby-admin-template](https://github.com/paljs/gatsby-admin-template) - Admin dashboard template based on Gatsby with `@paljs/ui` component package.
 
 ## The purpose
 
@@ -43,4 +46,4 @@ This documentation assumes that you are already familiar with JavaScript, React,
 
 ## Have questions?
 
-Didn't find something here? Look through the [issues](https://github.com/AhmedElywa/oah-ui/issues) or simply drop us a line at <ahmed.elywa@icloud.com>.
+Didn't find something here? Look through the [issues](https://github.com/paljs/ui/issues) or simply drop us a line at <ahmed.elywa@icloud.com>.
