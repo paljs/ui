@@ -1,18 +1,26 @@
 {
-  "name": "oah-eva-icon",
-  "version": "1.0.1",
-  "description": "oah-eva-icon package for oah-ui package",
+  "name": "@paljs/eva-icon",
+  "version": "1.0.0",
+  "description": "@paljs/eva-icon package for @paljs/ui package",
   "main": "dist/index.js",
-  "repository": "https://github.com/AhmedElywa/oah-ui.git",
-  "author": "Ahmed Elywa  <ahmed.elywa@icloud.com> (https://oah-ui.oahtech.io)",
+  "module": "dist/eva-icon.esm.js",
+  "types": "dist/index.d.ts",
+  "repository": "https://github.com/paljs/ui.git",
+  "author": "Ahmed Elywa  <ahmed.elywa@icloud.com> (https://github.com/paljs/ui)",
   "license": "MIT",
+  "scripts": {
+    "prepack": "yarn build",
+    "build": "tsdx build --transpileOnly",
+    "start": "tsdx watch"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
-    "eva-icons": "^1.1.2"
+    "eva-icons": "^1.1.3"
   },
   "devDependencies": {
     "@types/node": "13.13.5",
-    "rollup": "2.17.0",
-    "rollup-plugin-typescript2": "0.27.1",
     "tslib": "2.0.0",
     "typescript": "3.9.5"
   },
@@ -20,8 +28,8 @@
     "dist"
   ],
   "bugs": {
-    "url": "https://github.com/AhmedElywa/oah-ui",
+    "url": "https://github.com/paljs/ui",
     "email": "ahmed.elywa@icloud.com"
   },
-  "homepage": "https://oah-ui.oahtech.io"
+  "homepage": "https://github.com/paljs/ui"
 }

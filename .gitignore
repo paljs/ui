@@ -9,7 +9,7 @@
 # production
 /build
 
-# npm Package 
+# npm Package
 /dist
 components.js
 svg.js
