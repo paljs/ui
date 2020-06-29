@@ -6,7 +6,7 @@
   "module": "dist/eva-icon.esm.js",
   "types": "dist/index.d.ts",
   "repository": "https://github.com/paljs/ui.git",
-  "author": "Ahmed Elywa  <ahmed.elywa@icloud.com> (https://github.com/paljs/ui)",
+  "author": "Ahmed Elywa  <hello@paljs.com> (https://github.com/paljs/ui)",
   "license": "MIT",
   "scripts": {
     "prepack": "yarn build",
@@ -29,7 +29,7 @@
   ],
   "bugs": {
     "url": "https://github.com/paljs/ui",
-    "email": "ahmed.elywa@icloud.com"
+    "email": "hello@paljs.com"
   },
   "homepage": "https://github.com/paljs/ui"
 }
