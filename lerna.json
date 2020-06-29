@@ -1,0 +1,17 @@
+{
+  "version": "1.0.0",
+  "useWorkspaces": true,
+  "packages": [
+    "packages/*"
+  ],
+  "npmClient": "yarn",
+  "command": {
+    "publish": {
+      "ignoreChanges": [
+        "ignored-file",
+        "*.md"
+      ],
+      "bump": "from-package"
+    }
+  }
+}
