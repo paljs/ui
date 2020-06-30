@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "declarationDir": "./dist",
+    "declarationMap": true,
+    "module": "esnext",
+    "target": "es5",
+    "sourceMap": true
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

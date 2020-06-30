@@ -1,10 +1,10 @@
 {
   "name": "@paljs/ui",
-  "version": "1.0.0",
+  "version": "1.0.0-next0",
   "description": "React Styled Components with bootstrap grid system",
-  "main": "dist/index.js",
-  "module": "dist/ui.esm.js",
-  "types": "dist/index.d.ts",
+  "main": "index.js",
+  "module": "./esm/index.js",
+  "types": "index.d.ts",
   "repository": "https://github.com/paljs/ui.git",
   "author": "Ahmed Elywa",
   "license": "MIT",
@@ -13,11 +13,13 @@
     "npm": ">=5"
   },
   "scripts": {
-    "test": "cross-env CI=1 react-scripts test --env=jsdom",
-    "test:watch": "react-scripts test --env=jsdom",
-    "build": "tsdx build --transpileOnly",
-    "prepack": "yarn build",
-    "start": "tsdx watch"
+    "build": "yarn build:cjs && yarn build:esm && yarn build:copy-files",
+    "build:cjs": "node ./scripts/build cjs",
+    "build:esm": "node ./scripts/build esm",
+    "build:es": "node ./scripts/build es",
+    "build:copy-files": "node ./scripts/copyFiles",
+    "build:types": "tsc -p tsconfig.build.json",
+    "release": "yarn build && npm publish build --tag next"
   },
   "peerDependencies": {
     "react": ">=16.13.1",
@@ -25,11 +27,20 @@
     "styled-components": ">=5.1.1"
   },
   "dependencies": {
-    "react-select": "^3.1.0",
-    "@types/react-select": "3.0.13"
+    "@paljs/theme": "1.0.0",
+    "@types/react-select": "3.0.13",
+    "react-select": "^3.1.0"
   },
   "devDependencies": {
-    "@babel/core": "7.10.3",
+    "@babel/cli": "^7.10.4",
+    "@babel/core": "^7.10.4",
+    "@babel/node": "^7.10.4",
+    "@babel/plugin-transform-object-assign": "^7.10.4",
+    "@babel/plugin-transform-react-constant-elements": "^7.10.4",
+    "@babel/preset-env": "^7.10.4",
+    "@babel/preset-react": "^7.10.4",
+    "@babel/preset-typescript": "^7.10.4",
+    "@paljs/icons": "1.0.0",
     "@types/node": "14.0.14",
     "@types/react": "16.9.41",
     "@types/react-dom": "16.9.8",
@@ -37,23 +48,24 @@
     "@types/styled-components": "5.1.0",
     "@typescript-eslint/eslint-plugin": "3.4.0",
     "@typescript-eslint/parser": "3.4.0",
+    "babel-plugin-module-resolver": "^4.0.0",
     "eslint": "7.3.1",
     "eslint-config-prettier": "6.11.0",
     "eslint-plugin-prettier": "3.1.4",
     "eslint-plugin-react": "7.20.1",
+    "fs-extra": "^9.0.1",
     "gh-pages": "3.1.0",
+    "glob": "^7.1.6",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "styled-components": "5.1.1",
     "tslib": "2.0.0",
-    "typescript": "3.9.5"
+    "typescript": "3.9.5",
+    "yargs": "^15.3.1"
   },
   "publishConfig": {
     "access": "public"
   },
-  "files": [
-    "dist"
-  ],
   "bugs": {
     "url": "https://github.com/paljs/ui/issues",
     "email": "hello@paljs.com"

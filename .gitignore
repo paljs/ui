@@ -7,10 +7,10 @@ node_modules
 /coverage
 
 # production
-/build
+build
 
 # npm Package
-/dist
+dist
 components.js
 svg.js
 theme.js

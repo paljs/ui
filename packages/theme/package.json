@@ -1,0 +1,16 @@
+{
+  "name": "@paljs/theme",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "module": "dist/theme.esm.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "test": "cross-env CI=1 react-scripts test --env=jsdom",
+    "test:watch": "react-scripts test --env=jsdom",
+    "build": "tsdx build --transpileOnly",
+    "prepack": "yarn build",
+    "start": "tsdx watch"
+  },
+  "dependencies": {
+  }
+}
