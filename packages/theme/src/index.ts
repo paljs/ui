@@ -12,7 +12,7 @@ import defaultTheme from "./default";
 import mapping from "./mapping";
 import { ThemeObject, ThemeKeys, ThemeKey } from "./themeTypes";
 
-export { ThemeObject, ThemeKeys, ThemeKey };
+export { ThemeObject, ThemeKeys, ThemeKey, mapping };
 
 export const themes = {
   default: defaultTheme,
