@@ -4,11 +4,23 @@
   "main": "dist/index.js",
   "module": "dist/theme.esm.js",
   "types": "dist/index.d.ts",
+  "description": "@paljs/theme package for @paljs/ui package",
+  "repository": "https://github.com/paljs/ui.git",
+  "author": "Ahmed Elywa  <hello@paljs.com> (https://github.com/paljs/ui)",
+  "license": "MIT",
   "scripts": {
     "test": "cross-env CI=1 react-scripts test --env=jsdom",
     "test:watch": "react-scripts test --env=jsdom",
     "build": "tsdx build --transpileOnly",
     "prepack": "yarn build",
     "start": "tsdx watch"
-  }
+  },
+  "files": [
+    "dist"
+  ],
+  "bugs": {
+    "url": "https://github.com/paljs/ui",
+    "email": "hello@paljs.com"
+  },
+  "homepage": "https://github.com/paljs/ui"
 }

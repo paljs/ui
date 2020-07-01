@@ -6,7 +6,7 @@
 
 import React from 'react';
 import SidebarStyle from './style';
-import { ifWidthInBreakpoint, BreakPointKeys } from '@paljs/theme';
+import { ifWidthInBreakpoint, BreakPointKeys } from '../breakpoints';
 
 export interface SidebarStyleProps {
   state?: 'hidden' | 'visible' | 'compacted' | 'expanded';

@@ -5,7 +5,7 @@
  */
 
 import styled, { css } from 'styled-components';
-import { breakpointDown } from '@paljs/theme';
+import { breakpointDown } from '../breakpoints';
 import { MenuStyle } from '../Menu/style';
 import { scrollbars } from '../utils';
 import { SidebarStyleProps } from './index';

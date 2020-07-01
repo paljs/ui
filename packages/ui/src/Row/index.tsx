@@ -6,7 +6,7 @@
 
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { breakpointUp, getGridGutter, BreakPointKeys } from '@paljs/theme';
+import { breakpointUp, getGridGutter, BreakPointKeys } from '../breakpoints';
 
 const RowStyle = styled.div<RowProps>`
   display: flex;
