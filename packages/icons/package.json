@@ -1,6 +1,6 @@
 {
   "name": "@paljs/icons",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "@paljs/icons package for @paljs/ui package",
   "main": "dist/index.js",
   "module": "dist/icons.esm.js",
