@@ -10,7 +10,5 @@
     "build": "tsdx build --transpileOnly",
     "prepack": "yarn build",
     "start": "tsdx watch"
-  },
-  "dependencies": {
   }
 }

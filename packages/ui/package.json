@@ -65,8 +65,7 @@
   },
   "publishConfig": {
     "access": "public",
-    "directory": "build",
-    "tag": "next"
+    "directory": "build"
   },
   "bugs": {
     "url": "https://github.com/paljs/ui/issues",
