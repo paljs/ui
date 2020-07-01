@@ -1,6 +1,6 @@
 {
   "name": "@paljs/ui",
-  "version": "1.0.0-next0",
+  "version": "1.0.0-next1",
   "description": "React Styled Components with bootstrap grid system",
   "main": "index.js",
   "module": "./esm/index.js",
@@ -19,7 +19,7 @@
     "build:es": "node ./scripts/build es",
     "build:copy-files": "node ./scripts/copyFiles",
     "build:types": "tsc -p tsconfig.build.json",
-    "release": "yarn build && npm publish build --tag next"
+    "prepack": "yarn build"
   },
   "peerDependencies": {
     "react": ">=16.13.1",
@@ -64,7 +64,9 @@
     "yargs": "^15.3.1"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "directory": "build",
+    "tag": "next"
   },
   "bugs": {
     "url": "https://github.com/paljs/ui/issues",
