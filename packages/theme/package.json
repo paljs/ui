@@ -1,6 +1,6 @@
 {
   "name": "@paljs/theme",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "main": "dist/index.js",
   "module": "dist/theme.esm.js",
   "types": "dist/index.d.ts",
