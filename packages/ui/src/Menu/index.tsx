@@ -54,6 +54,12 @@ const Menu = React.forwardRef<MenuRefObject, MenuProps>((props, ref) => {
     },
   }));
 
+  React.useEffect(() => {
+    if (props.items) {
+       setItems(props.items)
+    }
+  }, [props.items]}
+  
   const updateSelected = (updateItems: MenuItemType[], ia: number[]) => {
     for (const item of updateItems) {
       const state = updateItems.indexOf(item) === ia[0];
