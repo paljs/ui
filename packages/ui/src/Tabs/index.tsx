@@ -37,7 +37,7 @@ const Tabs: React.FC<TabsProps> = (props) => {
   
   React.useEffect(() => {
     if (props.activeIndex) {
-      setActive(activeIndex)
+      setActive(props.activeIndex)
     }
   }, [props.activeIndex])
   
