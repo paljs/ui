@@ -34,7 +34,13 @@ const Tabs: React.FC<TabsProps> = (props) => {
     typeof props.onSelect === 'function' && props.onSelect(index);
     setActive(index);
   };
-
+  
+  React.useEffect(() => {
+    if (props.activeIndex) {
+      setActive(props.activeIndex)
+    }
+  }, [props.activeIndex])
+  
   React.useEffect(() => {
     const children: TabProps[] = [];
     React.Children.forEach(props.children, (child) => {
