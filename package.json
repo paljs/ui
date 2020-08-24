@@ -4,7 +4,7 @@
   "devDependencies": {
     "husky": "4.2.5",
     "prettier": "2.0.5",
-    "pretty-quick": "2.0.1",
+    "pretty-quick": "3.0.0",
     "lerna": "^3.22.1"
   },
   "workspaces": ["packages/*"],
