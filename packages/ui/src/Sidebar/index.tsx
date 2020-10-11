@@ -95,7 +95,9 @@ const Sidebar = React.forwardRef<SidebarRefObject, SidebarProps>((props, ref) =>
     };
   }, []);
 
-  typeof props.getState === 'function' && props.getState(state);
+  React.useEffect(() => {
+    typeof props.getState === 'function' && props.getState(state);
+  }, [state]);
 
   const className = props.className ? props.className.split(' ') : [];
   className.push(state ?? '', props.property ?? '');
