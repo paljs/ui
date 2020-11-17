@@ -12,7 +12,7 @@ import { ItemIcon } from '../Icon';
 
 export interface ActionType {
   icon?: IconField;
-  link?: object;
+  link?: { [key: string]: any };
   url?: JSX.IntrinsicElements['a'];
   content?: any;
   disabled?: boolean;
