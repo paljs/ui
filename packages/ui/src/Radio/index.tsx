@@ -30,7 +30,8 @@ export const Radio: React.FC<RadioProps> = (props) => {
               checked={option.checked}
               name={props.name}
               disabled={option.disabled || props.disabled}
-              onClick={() => onClickHandler(option.value)}
+              value={option.value}
+              onChange={(e) => onClickHandler(e.target.value)}
               className="native-input visually-hidden"
             />
             <span className="outer-circle" />
