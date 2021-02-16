@@ -27,7 +27,7 @@ export const Radio: React.FC<RadioProps> = (props) => {
           <label>
             <input
               type="radio"
-              checked={option.checked}
+              checked={!!option.checked}
               name={props.name}
               disabled={option.disabled || props.disabled}
               value={option.value}
