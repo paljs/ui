@@ -1,17 +1,27 @@
-import { DefaultTheme, withTheme } from 'styled-components';
+import { DefaultTheme, ThemeContext } from 'styled-components';
 import Select, { Props, StylesConfig } from 'react-select';
 import React from 'react';
 import { Shape, Status, Size } from '../types';
 import { ThemeKey } from '@paljs/theme';
+import { GroupTypeBase, OptionTypeBase } from 'react-select/src/types';
 
-interface SelectMainProps {
-  theme: DefaultTheme;
+interface CustomProps {
   shape?: Shape;
   status?: Status;
   size?: Size;
 }
 
-const customStyles: (props: SelectMainProps) => StylesConfig = ({ theme, status, shape, size }) => {
+type SelectMainProps<
+  OptionType extends OptionTypeBase = { label: string; value: string },
+  IsMulti extends boolean = false,
+  GroupType extends GroupTypeBase<OptionType> = GroupTypeBase<OptionType>
+> = CustomProps & Props<OptionType, IsMulti, GroupType>;
+
+function customStyles<
+  OptionType extends OptionTypeBase = { label: string; value: string },
+  IsMulti extends boolean = false,
+  GroupType extends GroupTypeBase<OptionType> = GroupTypeBase<OptionType>
+>({ theme, status, shape, size }: CustomProps & { theme: DefaultTheme }): StylesConfig<OptionType, IsMulti, GroupType> {
   const getThemeKey = (key: string) => {
     return theme[key as ThemeKey].toString();
   };
@@ -155,10 +165,23 @@ const customStyles: (props: SelectMainProps) => StylesConfig = ({ theme, status,
       };
     },
   };
-};
+}
 
-const SelectMain: React.FC<Props & SelectMainProps> = (props) => {
-  return <Select {...props} isRtl={props.theme.dir === 'rtl'} styles={customStyles(props)} />;
+const SelectMain = <
+  OptionType extends OptionTypeBase = { label: string; value: string },
+  IsMulti extends boolean = false,
+  GroupType extends GroupTypeBase<OptionType> = GroupTypeBase<OptionType>
+>(
+  props: React.PropsWithChildren<SelectMainProps<OptionType, IsMulti, GroupType>>,
+) => {
+  const theme = React.useContext(ThemeContext);
+  return (
+    <Select<OptionType, IsMulti, GroupType>
+      {...props}
+      isRtl={props.defaultTheme.dir === 'rtl'}
+      styles={customStyles<OptionType, IsMulti, GroupType>({ ...props, theme })}
+    />
+  );
 };
 
 SelectMain.defaultProps = {
@@ -167,10 +190,4 @@ SelectMain.defaultProps = {
   size: 'Medium',
 };
 
-const SelectMainWithTheme = withTheme(SelectMain);
-
-const SelectWithTheme: React.FC<Props & Partial<SelectMainProps>> = (props) => {
-  return <SelectMainWithTheme {...props} />;
-};
-
-export default SelectWithTheme;
+export default SelectMain;

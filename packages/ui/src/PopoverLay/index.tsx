@@ -42,7 +42,7 @@ const Overlay: React.FC<OverlayProps> = (props) => {
   const targetRef = React.useRef<HTMLDivElement>(null);
   const { position, placement, show, setShow, positionHandle } = usePopoverPosition(props, targetRef, overlayRef);
 
-  let timeOut: number;
+  let timeOut: NodeJS.Timeout;
   const onMouseLeave = () => {
     timeOut = setTimeout(() => {
       setShow(false);

@@ -5,13 +5,14 @@
  */
 
 import React from 'react';
-import { withTheme, DefaultTheme } from 'styled-components';
+import { ThemeContext } from 'styled-components';
 import PopoverStyle from './style';
 import Overlay from '../PopoverLay';
 import { Trigger, Placement } from '../types';
 
 const Popover: React.FC<PopoverProps> = (props) => {
-  const arrowSize = parseInt(props.theme.popoverArrowSize as string);
+  const theme = React.useContext(ThemeContext);
+  const arrowSize = parseInt(theme.popoverArrowSize as string);
   const arrowRound = Math.round(-arrowSize - arrowSize / 2);
   return (
     <Overlay
@@ -23,7 +24,7 @@ const Popover: React.FC<PopoverProps> = (props) => {
       eventListener={props.eventListener}
       transformSize={15}
       arrowRound={arrowRound}
-      arrowSize={props.theme.popoverArrowSize as string}
+      arrowSize={theme.popoverArrowSize as string}
     >
       <PopoverStyle>
         <span className="arrow" />
@@ -41,12 +42,6 @@ export interface PopoverProps {
   children: React.ReactNode;
   style?: React.CSSProperties;
   className?: string;
-  theme: DefaultTheme;
 }
-const PopoverWithTheme = withTheme(Popover);
 
-const Popover2: React.FC<Omit<PopoverProps, 'theme'>> = (props) => {
-  return <PopoverWithTheme {...props} />;
-};
-
-export default Popover2;
+export default Popover;
