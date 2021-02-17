@@ -20,11 +20,21 @@ interface ItemProps {
   currentPath: string;
 }
 
+const getExtras = (item: MenuItemType) => {
+  return {
+    customAfter: item.extras?.filter((x) => x.position === 'after').map((x) => x.content),
+    customBefore: item.extras?.filter((x) => x.position === 'before').map((x) => x.content),
+  };
+};
+
 const LinkContent: React.FC<{ item: MenuItemType }> = ({ item }) => {
+  const { customAfter, customBefore } = getExtras(item);
   return (
     <>
       <ItemIcon icon={item.icon} className="menu-icon" />
+      {customBefore}
       <span className="menu-title">{item.title}</span>
+      {customAfter}
     </>
   );
 };
@@ -54,12 +64,16 @@ const Item: React.FC<ItemProps> = ({
     toggleSubMenu(item);
   };
 
+  const { customAfter, customBefore } = getExtras(item);
+
   return (
     <ItemStyle className={item.group ? 'menu-item menu-group' : 'menu-item'}>
       {item.group ? (
         <span>
           <ItemIcon icon={item.icon} className="menu-icon" />
+          {customBefore}
           {item.title}
+          {customAfter}
         </span>
       ) : item.link && !item.children ? (
         nextJs ? (
@@ -89,7 +103,9 @@ const Item: React.FC<ItemProps> = ({
             className={item.selected ? 'active' : ''}
           >
             <ItemIcon icon={item.icon} className="menu-icon" />
+            {customBefore}
             <span className="menu-title">{item.title}</span>
+            {customAfter}
             <i className="chevron">
               {item.expanded ? <Icon name="chevron-down-outline" /> : <Icon name="chevron-left-outline" />}
             </i>

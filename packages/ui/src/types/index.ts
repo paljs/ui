@@ -46,6 +46,7 @@ interface ItemType {
   url: string;
   link: { [k: string]: any };
   group: boolean;
+  extras?: { position: 'after' | 'before'; content: any }[];
   children: RequireOnlyOne<ItemType, 'url' | 'children' | 'link' | 'group'>[];
 }
 
