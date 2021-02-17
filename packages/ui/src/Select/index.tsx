@@ -178,7 +178,7 @@ const SelectMain = <
   return (
     <Select<OptionType, IsMulti, GroupType>
       {...props}
-      isRtl={props.defaultTheme.dir === 'rtl'}
+      isRtl={theme.dir === 'rtl'}
       styles={customStyles<OptionType, IsMulti, GroupType>({ ...props, theme })}
     />
   );
